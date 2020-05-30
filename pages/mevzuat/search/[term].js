@@ -20,16 +20,16 @@ const SearchRoute = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { searchArticle } = useContext(ArticleContext);
 	const { searchAct } = useContext(ActContext);
+	let searchTerm = router.query.term;
 
 	useEffect(() => {
-		let searchTerm = router.query.term;
 		if (!searchTerm) {
 			setError('Bir arama terimi girmelisiniz!');
 		} else {
 			setError(null);
 			setTerm(searchTerm);
 		}
-	}, [setTerm, router.query.term]);
+	}, [setTerm, searchTerm]);
 
 	useEffect(() => {
 		const getResults = async (term) => {
