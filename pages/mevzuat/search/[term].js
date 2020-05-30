@@ -8,9 +8,9 @@ import Sidebar from '../../../component/mevzuat/Sidebar';
 
 import ActContext from '../../../context/ActContext';
 
-const SearchRoute = ({ location }) => {
+const SearchRoute = () => {
 	const router = useRouter();
-	const [term, setTerm] = useState('');
+	const [term, setTerm] = useState(null);
 	const [firstArticles, setFirstArticles] = useState([]);
 	const [secondArticles, setSecondArticles] = useState([]);
 	const [seacondActs, setSecondActs] = useState([]);
@@ -21,12 +21,12 @@ const SearchRoute = ({ location }) => {
 	const { searchAct } = useContext(ActContext);
 
 	useEffect(() => {
-		let term = router.query.term;
-		if (!term) {
+		let searchTerm = router.query.term;
+		if (!searchTerm) {
 			setError('Bir arama terimi girmelisiniz!');
 		} else {
 			setError(null);
-			setTerm(term);
+			setTerm(searchTerm);
 		}
 	}, [setTerm, router.query.term]);
 
