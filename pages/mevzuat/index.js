@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
+import Head from 'next/head';
 
 import ActContext from '../../context/ActContext';
 import ArticleContext from '../../context/ArticleContext';
 
-import Navbar from '../../component/mevzuat/Navbar';
 import SearchBar from '../../component/mevzuat/SearchBar';
 import ActList from '../../component/mevzuat/ActList';
 import ArticleList from '../../component/mevzuat/ArticleList';
 import Sidebar from '../../component/mevzuat/Sidebar';
 
 const HomePage = () => {
-
 	const [popularActList, setPopularActList] = useState([]);
 	const [newActList, setNewActList] = useState([]);
 
@@ -53,6 +52,12 @@ const HomePage = () => {
 		getAll();
 	}, [getAll]);
 	return (
+		<React.Fragment>
+			<Head>
+				<title>Muaccel Mevzuat</title>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="flex-container">
 				<Sidebar type="home" />
 				<section id="showcase">
@@ -70,6 +75,7 @@ const HomePage = () => {
 					)}
 				</section>
 			</div>
+		</React.Fragment>
 	);
 };
 

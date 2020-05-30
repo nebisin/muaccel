@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import SearchBar from '../../../component/mevzuat/SearchBar';
 import ArticleContext from '../../../context/ArticleContext';
 import ArticleList from '../../../component/mevzuat/ArticleList';
@@ -58,23 +59,32 @@ const SearchRoute = () => {
 	}, [term, searchArticle, searchAct]);
 
 	return (
-		<div className="flex-container">
-			<Sidebar type="home" />
-			<section id="showcase">
-				<SearchBar searchTerm={term} />
-				<h4 className="title">"{term}" için arama sonuçları:</h4>
-				{firstActs && <ActList items={firstActs} />}
-				{firstArticles && <ArticleList items={firstArticles} />}
-				{seacondActs && <ActList items={seacondActs} />}
-				{secondArticles && <ArticleList items={secondArticles} />}
-				{error && <p>{error}</p>}
-				{isLoading && (
-					<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
-						<div className="loader">Loading...</div>
-					</div>
-				)}
-			</section>
-		</div>
+		<React.Fragment>
+			<Head>
+				<title>"{router.query.term}" | Muaccel Mevzuat</title>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			<div className="flex-container">
+				<Sidebar type="home" />
+				<section id="showcase">
+					<SearchBar searchTerm={term} />
+					<h4 className="title">"{term}" için arama sonuçları:</h4>
+					{firstActs && <ActList items={firstActs} />}
+					{firstArticles && <ArticleList items={firstArticles} />}
+					{seacondActs && <ActList items={seacondActs} />}
+					{secondArticles && <ArticleList items={secondArticles} />}
+					{error && <p>{error}</p>}
+					{isLoading && (
+						<div
+							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
+						>
+							<div className="loader">Loading...</div>
+						</div>
+					)}
+				</section>
+			</div>
+		</React.Fragment>
 	);
 };
 

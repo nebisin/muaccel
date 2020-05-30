@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import mevzuatApi from '../../../../api/mevzuat';
 
 import ActContext from '../../../../context/ActContext';
 import SectionContext from '../../../../context/SectionContext';
@@ -7,12 +9,12 @@ import SectionItem from '../../../../component/mevzuat/SectionItem';
 import Others from '../../../../component/mevzuat/Others';
 import Sidebar from '../../../../component/mevzuat/Sidebar';
 
-const ActRoute = () => {
+const ActRoute = ({ data }) => {
 	const router = useRouter();
 	const [actInfo, setActInfo] = useState({});
 	const [suffixSections, setSuffixSections] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState(0);
+	const [isLoading, setIsLoading] = useState(true);
+	const [page, setPage] = useState(0);
 
 	const { getActById } = useContext(ActContext);
 	const { getSectionList } = useContext(SectionContext);
@@ -20,23 +22,33 @@ const ActRoute = () => {
 	useEffect(() => {
 		setIsLoading(true);
 		const getAct = async (id) => {
-			const act = await getActById(id);
-			const sections = await getSectionList(act._id, {
+			const sections = await getSectionList(data._id, {
 				$or: [{ type: 0 }, { type: 3 }],
 			});
-			setActInfo(act);
+			setActInfo(data);
 			setSuffixSections(sections);
 			setIsLoading(false);
 		};
-		if(router.query.id){
-			getAct(router.query.id);
-
+		if (router.query.id) {
+			getAct();
 		}
-	}, [router.query.id, getActById, getSectionList]);
+	}, [data, getActById, getSectionList]);
 
 	return (
+		<React.Fragment>
+			<Head>
+				<title>{data.name} | Muaccel Mevzuat</title>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="flex-container">
-			<Sidebar type="act" id={router.query.id} actInfo={actInfo} sections={suffixSections} page={page} />
+				<Sidebar
+					type="act"
+					id={router.query.id}
+					actInfo={actInfo}
+					sections={suffixSections}
+					page={page}
+				/>
 				<section id="showcase">
 					{!isLoading ? (
 						<React.Fragment>
@@ -67,7 +79,17 @@ const ActRoute = () => {
 					)}
 				</section>
 			</div>
+		</React.Fragment>
 	);
 };
+
+export async function getServerSideProps(context) {
+	let id = context.params.id;
+
+	const response = await mevzuatApi.get('/act', { params: { id } });
+	const data = response.data;
+
+	return { props: { data } };
+}
 
 export default ActRoute;

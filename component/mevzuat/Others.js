@@ -20,6 +20,7 @@ const Others = ({ sections, page, actId }) => {
 					<Link
 						href="/mevzuat/act/[id]/[page]"
 						as={`/mevzuat/act/${actId}/${before}`}
+						shallow={true}
 					>
 						<a className="others-item">
 							<div style={{ fontSize: '20px', marginRight: '5px' }}>
@@ -40,6 +41,7 @@ const Others = ({ sections, page, actId }) => {
 					<Link
 						href="/mevzuat/act/[id]/[page]"
 						as={`/mevzuat/act/${actId}/${after}`}
+						shallow={true}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">

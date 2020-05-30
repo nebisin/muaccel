@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import mevzuatApi from '../../../api/mevzuat';
 
@@ -10,17 +10,13 @@ import ArticleContext from '../../../context/ArticleContext';
 import Sidebar from '../../../component/mevzuat/Sidebar';
 
 const ArticleRoute = ({ data }) => {
-	const router = useRouter();
-
 	const { getArticleById, getArticleByLocation } = useContext(ArticleContext);
-	const [article, setArticle] = useState({});
 	const [before, setBefore] = useState({});
 	const [after, setAfter] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState('');
 
 	useEffect(() => {
-		setArticle(data)
 		async function art(data) {
 			setIsLoading(true);
 			try {
@@ -45,48 +41,55 @@ const ArticleRoute = ({ data }) => {
 		}
 	}, [getArticleById, getArticleByLocation, data]);
 
-	{article._id !== undefined && null}
-
 	return (
-		<div className="flex-container">
-			<Sidebar type="article" id={article._id} art={article} />
-			<section id="showcase">
-				{error && <h6>{error}</h6>}
-				{article._id !== undefined && !isLoading && (
-					<React.Fragment>
-						<Link
-							href="/mevzuat/act/[id]"
-							as={`/mevzuat/act/${article.actId._id}`}
+		<React.Fragment>
+			<Head>
+				<title>{data.name} | Muaccel Mevzuat</title>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			<div className="flex-container">
+				<Sidebar type="article" id={data._id} art={data} />
+				<section id="showcase">
+					{error && <h6>{error}</h6>}
+					{data._id !== undefined && !isLoading && (
+						<React.Fragment>
+							<Link
+								href="/mevzuat/act/[id]"
+								as={`/mevzuat/act/${data.actId._id}`}
+							>
+								<a>
+									<div className="act-title">
+										<p>
+											{data.actId.title} sayılı {data.actId.name}
+										</p>
+									</div>
+								</a>
+							</Link>
+							<OtherArticles
+								before={before}
+								after={after}
+								actId={data.actId._id}
+							/>
+							<ArticleItem item={data} type={2} />
+						</React.Fragment>
+					)}
+					{isLoading && (
+						<div
+							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
 						>
-							<a>
-								<div className="act-title">
-									<p>
-										{article.actId.title} sayılı {article.actId.name}
-									</p>
-								</div>
-							</a>
-						</Link>
-						<OtherArticles
-							before={before}
-							after={after}
-							actId={article.actId._id}
-						/>
-						<ArticleItem item={article} type={2} />
-					</React.Fragment>
-				)}
-				{isLoading && (
-					<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
-						<div className="loader">Loading...</div>
-					</div>
-				)}
-			</section>
-		</div>
+							<div className="loader">Loading...</div>
+						</div>
+					)}
+				</section>
+			</div>
+		</React.Fragment>
 	);
 };
 
 export async function getServerSideProps(context) {
 	let id = context.params.id;
-	
+
 	const response = await mevzuatApi.get('/article', { params: { id } });
 	const data = response.data;
 

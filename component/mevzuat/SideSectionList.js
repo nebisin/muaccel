@@ -47,6 +47,7 @@ const SideSectionList = ({ actInfo, sections, page }) => {
 							<Link
 								href="/mevzuat/act/[id]/[page]"
 								as={`/mevzuat/act/${item.actId}/${i}`}
+								shallow={true}
 								key={item._id}
 							>
 								<a
