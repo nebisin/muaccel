@@ -1,5 +1,6 @@
 import { Router } from 'next/dist/client/router';
 import NProgress from 'nprogress';
+import Head from 'next/head';
 
 import './nprogress.css';
 import './styles.css';
@@ -9,19 +10,23 @@ import { ArticleProvider } from '../context/ArticleContext';
 import { SectionProvider } from '../context/SectionContext';
 import Navbar from '../component/mevzuat/Navbar';
 
-NProgress.configure({ showSpinner: false, trickleRate: 0.1, trickleSpeed: 300 });
+NProgress.configure({
+	showSpinner: false,
+	trickleRate: 0.1,
+	trickleSpeed: 300,
+});
 
 Router.events.on('routeChangeStart', () => {
 	NProgress.start();
-})
+});
 
 Router.events.on('routeChangeComplete', () => {
 	NProgress.done();
-})
+});
 
 Router.events.on('routeChangeError', () => {
 	NProgress.done();
-})
+});
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -29,6 +34,12 @@ function MyApp({ Component, pageProps }) {
 			<ArticleProvider>
 				<SectionProvider>
 					<div className="container">
+						<Head>
+							<title>Muaccel - Online Hukuk Sistemi</title>
+							<link rel="icon" href="/favicon.ico" />
+							<link rel="apple-touch-icon" href="/logo192.png" />
+							<link rel="manifest" href="/manifest.json" />
+						</Head>
 						<Navbar />
 						<Component {...pageProps} />
 					</div>
