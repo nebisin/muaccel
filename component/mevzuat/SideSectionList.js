@@ -45,8 +45,8 @@ const SideSectionList = ({ actInfo, sections, page }) => {
 					{suffixSections.map((item, i) => {
 						return (
 							<Link
-								href="/mevzuat/act/[id]"
-								as={`/mevzuat/act/${actInfo._id}?p=${i}`}
+								href="/mevzuat/act/[id]/[page]"
+								as={`/mevzuat/act/${item.actId}/${i}`}
 								key={item._id}
 							>
 								<a
