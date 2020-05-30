@@ -1,23 +1,21 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 
-import ActContext from '../../../context/ActContext';
-import SectionContext from '../../../context/SectionContext';
-import SectionItem from '../../../component/mevzuat/SectionItem';
-import Others from '../../../component/mevzuat/Others';
-import Sidebar from '../../../component/mevzuat/Sidebar';
-import Navbar from '../../../component/mevzuat/Navbar';
+import ActContext from '../../../../context/ActContext';
+import SectionContext from '../../../../context/SectionContext';
+import SectionItem from '../../../../component/mevzuat/SectionItem';
+import Others from '../../../../component/mevzuat/Others';
+import Sidebar from '../../../../component/mevzuat/Sidebar';
 
 const ActRoute = () => {
 	const router = useRouter();
 	const [actInfo, setActInfo] = useState({});
 	const [suffixSections, setSuffixSections] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(0);
 
 	const { getActById } = useContext(ActContext);
 	const { getSectionList } = useContext(SectionContext);
-
-	const page = router.query.p || 0;
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -37,8 +35,6 @@ const ActRoute = () => {
 	}, [router.query.id, getActById, getSectionList]);
 
 	return (
-		<div className="container">
-			<Navbar />
 			<div className="flex-container">
 			<Sidebar type="act" id={router.query.id} actInfo={actInfo} sections={suffixSections} page={page} />
 				<section id="showcase">
@@ -71,7 +67,6 @@ const ActRoute = () => {
 					)}
 				</section>
 			</div>
-		</div>
 	);
 };
 

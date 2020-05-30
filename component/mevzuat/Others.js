@@ -17,7 +17,10 @@ const Others = ({ sections, page, actId }) => {
 		<div className="others-bar">
 			<div className="others-before">
 				{sections[before] && (
-					<Link href={`?p=${before}`} scroll={false}>
+					<Link
+						href="/mevzuat/act/[id]/[page]"
+						as={`/mevzuat/act/${actId}/${before}`}
+					>
 						<a className="others-item">
 							<div style={{ fontSize: '20px', marginRight: '5px' }}>
 								&#8678;
@@ -34,7 +37,10 @@ const Others = ({ sections, page, actId }) => {
 			</div>
 			<div className="others-after">
 				{sections[after] && (
-					<Link href={`?p=${after}`}>
+					<Link
+						href="/mevzuat/act/[id]/[page]"
+						as={`/mevzuat/act/${actId}/${after}`}
+					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">
 								<p>{sections[after].title}</p>

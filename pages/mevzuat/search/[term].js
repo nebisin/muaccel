@@ -5,7 +5,6 @@ import ArticleContext from '../../../context/ArticleContext';
 import ArticleList from '../../../component/mevzuat/ArticleList';
 import ActList from '../../../component/mevzuat/ActList';
 import Sidebar from '../../../component/mevzuat/Sidebar';
-import Navbar from '../../../component/mevzuat/Navbar';
 
 import ActContext from '../../../context/ActContext';
 
@@ -59,8 +58,7 @@ const SearchRoute = ({ location }) => {
 	}, [term, searchArticle, searchAct]);
 
 	return (
-		<div className="container">
-			<Navbar />
+
 			<div className="flex-container">
 				<Sidebar type="home" />
 				<section id="showcase">
@@ -80,7 +78,6 @@ const SearchRoute = ({ location }) => {
 					)}
 				</section>
 			</div>
-		</div>
 	);
 };
 

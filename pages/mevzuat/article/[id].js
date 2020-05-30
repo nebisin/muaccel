@@ -46,8 +46,6 @@ const ArticleRoute = () => {
 	}, [getArticleById, router.query.id, getArticleByLocation]);
 
 	return (
-		<div className="container">
-			<Navbar />
 			<div className="flex-container">
 				<Sidebar type="article" id={router.query.id} art={article} />
 				<section id="showcase">
@@ -83,7 +81,6 @@ const ArticleRoute = () => {
 					)}
 				</section>
 			</div>
-		</div>
 	);
 };
 

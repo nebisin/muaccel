@@ -53,8 +53,6 @@ const HomePage = () => {
 		getAll();
 	}, [getAll]);
 	return (
-		<div className="container">
-			<Navbar />
 			<div className="flex-container">
 				<Sidebar type="home" />
 				<section id="showcase">
@@ -72,7 +70,6 @@ const HomePage = () => {
 					)}
 				</section>
 			</div>
-		</div>
 	);
 };
 
