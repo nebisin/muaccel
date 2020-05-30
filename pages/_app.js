@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
 					<div className="container">
 						<Head>
 							<title>Muaccel - Online Hukuk Sistemi</title>
+							<meta name="description" content="muaccel.com - Online Hukuk Sistemi..." />
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
