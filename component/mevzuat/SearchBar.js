@@ -16,7 +16,7 @@ const SearchBar = ({searchTerm}) => {
 			return;
 		}
 		event.preventDefault();
-		router.push(`/mevzuat/search/${term}`);
+		router.push('/mevzuat/search/[term]', `/mevzuat/search/${term}`);
 	};
 
 	const handleChange = (event) => {

@@ -1,4 +1,3 @@
-// Düzenlenecek!
 import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router'
 import ArticleContext from '../../context/ArticleContext';
@@ -30,7 +29,7 @@ const GoArticle = ({ id }) => {
 					setIsLoading(false);
 					return;
 				}
-				router.push(`/mevzuat/article/${response._id}`);
+				router.push('/mevzuat/article/[id]', `/mevzuat/article/${response._id}`);
 				setIsLoading(false);
 			} catch (e) {
 				alert('Aradığınız madde bulunamadı!');
