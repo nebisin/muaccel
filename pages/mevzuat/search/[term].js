@@ -17,18 +17,18 @@ const SearchRoute = ({ location }) => {
 	const [firstActs, setFirstActs] = useState([]);
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
-	let searchTerm = router.query.term;
 	const { searchArticle } = useContext(ArticleContext);
 	const { searchAct } = useContext(ActContext);
 
 	useEffect(() => {
-		if (!searchTerm) {
+		let term = router.query.term;
+		if (!term) {
 			setError('Bir arama terimi girmelisiniz!');
 		} else {
 			setError(null);
-			setTerm(searchTerm);
+			setTerm(term);
 		}
-	}, [setTerm, searchTerm]);
+	}, [setTerm, router.query.term]);
 
 	useEffect(() => {
 		const getResults = async (term) => {
@@ -58,26 +58,23 @@ const SearchRoute = ({ location }) => {
 	}, [term, searchArticle, searchAct]);
 
 	return (
-
-			<div className="flex-container">
-				<Sidebar type="home" />
-				<section id="showcase">
-					<SearchBar searchTerm={searchTerm} />
-					<h4 className="title">"{term}" için arama sonuçları:</h4>
-					{firstActs && <ActList items={firstActs} />}
-					{firstArticles && <ArticleList items={firstArticles} />}
-					{seacondActs && <ActList items={seacondActs} />}
-					{secondArticles && <ArticleList items={secondArticles} />}
-					{error && <p>{error}</p>}
-					{isLoading && (
-						<div
-							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
-						>
-							<div className="loader">Loading...</div>
-						</div>
-					)}
-				</section>
-			</div>
+		<div className="flex-container">
+			<Sidebar type="home" />
+			<section id="showcase">
+				<SearchBar searchTerm={term} />
+				<h4 className="title">"{term}" için arama sonuçları:</h4>
+				{firstActs && <ActList items={firstActs} />}
+				{firstArticles && <ArticleList items={firstArticles} />}
+				{seacondActs && <ActList items={seacondActs} />}
+				{secondArticles && <ArticleList items={secondArticles} />}
+				{error && <p>{error}</p>}
+				{isLoading && (
+					<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
+						<div className="loader">Loading...</div>
+					</div>
+				)}
+			</section>
+		</div>
 	);
 };
 
