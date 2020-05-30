@@ -1,0 +1,94 @@
+import React, { useState, useEffect, useContext } from 'react';
+import Link from 'next/link';
+import SectionContext from '../../context/SectionContext';
+
+const SideSectionList = ({ actInfo, sections, page }) => {
+	const [suffixSections, setSuffixSections] = useState([]);
+	const [subSections, setSubSections] = useState([]);
+	const { getSectionsBySection } = useContext(SectionContext);
+
+	const scroll = (id, e) => {
+		e.preventDefault();
+		let el = document.getElementById(id);
+		el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	};
+
+	useEffect(() => {
+		if (sections[page]) {
+			setSuffixSections(sections);
+		}
+	}, [sections, page]);
+
+	useEffect(() => {
+		const getSubSections = async (id) => {
+			setSubSections([]);
+			const response = await getSectionsBySection(id, {});
+			setSubSections(response);
+		};
+		if (suffixSections[page]) {
+			getSubSections(suffixSections[page]._id);
+		}
+	}, [suffixSections, getSectionsBySection, page]);
+
+	if (!actInfo.name || !suffixSections[0]) {
+		return (
+			<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
+				<div className="loader">Loading...</div>
+			</div>
+		);
+	}
+	return (
+		<React.Fragment>
+			<div className="side-card">
+				<h2 className="side-card-title">{actInfo.name}</h2>
+				<ul className="side-list">
+					{suffixSections.map((item, i) => {
+						return (
+							<Link
+								href="/mevzuat/act/[id]"
+								as={`/mevzuat/act/${actInfo._id}?p=${i}`}
+								key={item._id}
+							>
+								<a
+									className={`side-list-item ${
+										i === parseInt(page) && 'side-list-item-selected'
+									}`}
+								>
+									<li>
+										<p>
+											<b>{item.title}</b>
+										</p>
+										<p>{item.name}</p>
+									</li>
+								</a>
+							</Link>
+						);
+					})}
+				</ul>
+			</div>
+			{subSections[1] && (
+				<div className="side-card side-card-sticky">
+					<h2 className="side-card-title">{suffixSections[page].name}</h2>
+					<ul className="side-list">
+						{subSections.map((item) => (
+							<div
+								className="side-list-item likelink"
+								key={item._id}
+								onClick={(e) => scroll(item._id, e)}
+							>
+								<li>
+									<p>
+										<b>{item.title}</b>
+									</p>
+									<p>{item.name}</p>
+								</li>
+							</div>
+						))}
+					</ul>
+				</div>
+			)}
+		</React.Fragment>
+	);
+};
+
+export default SideSectionList;
