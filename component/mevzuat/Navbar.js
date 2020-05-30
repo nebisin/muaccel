@@ -14,17 +14,17 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/mevzuat">
+						<Link href="/mevzuat" prefetch>
 							<a className="navlink s-none">Mevzuat</a>
 						</Link>
 					</li>
 					<li>
-						<Link href="/blog">
+						<Link href="/blog" prefetch>
 							<a className="navlink s-none">Blog</a>
 						</Link>
 					</li>
 					<li>
-						<Link href="/meydan">
+						<Link href="/meydan" prefetch>
 							<a className="navlink s-none">Meydan</a>
 						</Link>
 					</li>
