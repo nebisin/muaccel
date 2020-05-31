@@ -25,22 +25,26 @@ const HomePage = () => {
 
 	const getAll = useCallback(async () => {
 		setIsLoading(true);
-		const popularActs = await getActList({ limit: 9, sort: { hit: -1 } });
+
+		const popularActs = await getActList({
+			limit: 9,
+			sort: { hit: -1 },
+		});
 		setActListOne(popularActs.slice(0, 3));
 
-		const randomSkip = Math.floor(Math.random() * 450)
+		const randomSkipArticle = Math.floor(Math.random() * 450);
 
 		const popularArticles = await getArticleList({
 			limit: 12,
 			sort: { hit: -1 },
-			skip: randomSkip
+			skip: randomSkipArticle,
 		});
 		setArticleListOne(popularArticles.slice(0, 4));
 
-		setActListTwo(popularActs.slice(3, 6))
+		setActListTwo(popularActs.slice(3, 6));
 		setArticleListTwo(popularArticles.slice(4, 8));
 
-		setActListThree(popularActs.slice(6, 9))
+		setActListThree(popularActs.slice(6, 9));
 		setArticleListThree(popularArticles.slice(8, 12));
 
 		setIsLoading(false);

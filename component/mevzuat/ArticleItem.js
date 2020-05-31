@@ -39,8 +39,8 @@ const ArticleItem = ({ item, type }) => {
 				{type !== 2 && (
 					<div className="card-footer">
 						<Link
-							href="/mevzuat/act/[id]"
-							as={`/mevzuat/act/${item.actId._id}`}
+							href="/mevzuat/act/[id]/[page]"
+							as={`/mevzuat/act/${item.actId._id}/0`}
 						>
 							<a> {item.actId.name}</a>
 						</Link>

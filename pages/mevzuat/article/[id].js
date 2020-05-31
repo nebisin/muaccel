@@ -44,7 +44,9 @@ const ArticleRoute = ({ data }) => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>Madde {data.title} | {data.actId.name} |  Muaccel Mevzuat</title>
+				<title>
+					Madde {data.title} | {data.actId.name} | Muaccel Mevzuat
+				</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="description" content={data.name} />
@@ -53,11 +55,11 @@ const ArticleRoute = ({ data }) => {
 				<Sidebar type="article" id={data._id} art={data} />
 				<section id="showcase">
 					{error && <h6>{error}</h6>}
-					{data._id !== undefined && !isLoading && (
+					{data._id !== undefined && (
 						<React.Fragment>
 							<Link
-								href="/mevzuat/act/[id]"
-								as={`/mevzuat/act/${data.actId._id}`}
+								href="/mevzuat/act/[id]/[page]"
+								as={`/mevzuat/act/${data.actId._id}/0`}
 							>
 								<a>
 									<div className="act-title">
@@ -67,12 +69,16 @@ const ArticleRoute = ({ data }) => {
 									</div>
 								</a>
 							</Link>
-							<OtherArticles
-								before={before}
-								after={after}
-								actId={data.actId._id}
-							/>
-							<ArticleItem item={data} type={2} />
+							{!isLoading && (
+								<React.Fragment>
+									<OtherArticles
+										before={before}
+										after={after}
+										actId={data.actId._id}
+									/>
+									<ArticleItem item={data} type={2} />
+								</React.Fragment>
+							)}
 						</React.Fragment>
 					)}
 					{isLoading && (
