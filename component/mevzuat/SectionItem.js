@@ -33,7 +33,7 @@ const SectionItem = ({ item }) => {
 				<p style={{ textAlign: 'center' }}>{item.name}</p>
 			</div>
 			{item.type === 3 || item.type === 2 ? (
-				<ArticleList items={sectionList} />
+				<ArticleList items={sectionList} type={1} />
 			) : (
 				<SectionList list={sectionList} />
 			)}
