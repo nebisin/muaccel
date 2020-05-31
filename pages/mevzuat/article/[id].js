@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
@@ -6,87 +6,43 @@ import mevzuatApi from '../../../api/mevzuat';
 
 import ArticleItem from '../../../component/mevzuat/ArticleItem';
 import OtherArticles from '../../../component/mevzuat/OtherArticles';
-import ArticleContext from '../../../context/ArticleContext';
 import Sidebar from '../../../component/mevzuat/Sidebar';
 
-const ArticleRoute = ({ data }) => {
-	const { getArticleById, getArticleByLocation } = useContext(ArticleContext);
-	const [before, setBefore] = useState({});
-	const [after, setAfter] = useState({});
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState('');
-
-	useEffect(() => {
-		async function art(data) {
-			setIsLoading(true);
-			try {
-				const beforeResponse = await getArticleByLocation(
-					data.location - 1,
-					data.actId._id
-				);
-				setBefore(beforeResponse);
-				const afterResponse = await getArticleByLocation(
-					data.location + 1,
-					data.actId._id
-				);
-				setAfter(afterResponse);
-			} catch (error) {
-				const msg = error.response.data.error;
-				setError(msg);
-			}
-			setIsLoading(false);
-		}
-		if (data._id !== undefined) {
-			art(data);
-		}
-	}, [getArticleById, getArticleByLocation, data]);
-
+const ArticleRoute = ({ article, before, after }) => {
 	return (
 		<React.Fragment>
 			<Head>
 				<title>
-					Madde {data.title} | {data.actId.name} | Muaccel Mevzuat
+					Madde {article.title} | {article.actId.name} | Muaccel Mevzuat
 				</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta name="description" content={data.name} />
+				<meta name="description" content={article.name} />
 			</Head>
 			<div className="flex-container">
-				<Sidebar type="article" id={data._id} art={data} />
+				<Sidebar type="article" id={article._id} art={article} />
 				<section id="showcase">
-					{error && <h6>{error}</h6>}
-					{data._id !== undefined && (
+					{article._id !== undefined && (
 						<React.Fragment>
 							<Link
 								href="/mevzuat/act/[id]/[page]"
-								as={`/mevzuat/act/${data.actId._id}/0`}
+								as={`/mevzuat/act/${article.actId._id}/0`}
 							>
 								<a>
 									<div className="act-title">
 										<p>
-											{data.actId.title} sayılı {data.actId.name}
+											{article.actId.title} sayılı {article.actId.name}
 										</p>
 									</div>
 								</a>
 							</Link>
-							{!isLoading && (
-								<React.Fragment>
-									<OtherArticles
-										before={before}
-										after={after}
-										actId={data.actId._id}
-									/>
-									<ArticleItem item={data} type={2} />
-								</React.Fragment>
-							)}
+							<OtherArticles
+								before={before}
+								after={after}
+								actId={article.actId._id}
+							/>
+							<ArticleItem item={article} type={2} />
 						</React.Fragment>
-					)}
-					{isLoading && (
-						<div
-							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
-						>
-							<div className="loader">Loading...</div>
-						</div>
 					)}
 				</section>
 			</div>
@@ -98,9 +54,9 @@ export async function getServerSideProps(context) {
 	let id = context.params.id;
 
 	const response = await mevzuatApi.get('/article', { params: { id } });
-	const data = response.data;
+	const { article, before, after } = response.data;
 
-	return { props: { data } };
+	return { props: { article, before, after } };
 }
 
 export default ArticleRoute;

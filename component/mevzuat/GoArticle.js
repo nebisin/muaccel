@@ -23,13 +23,13 @@ const GoArticle = ({ id }) => {
 		const getArticle = async () => {
 			setIsLoading(true);
 			try {
-				const response = await getArticleByLocation(term, id);
-				if (!response) {
+				const {article} = await getArticleByLocation(term, id);
+				if (!article) {
 					alert('Aradığınız madde bulunamadı!');
 					setIsLoading(false);
 					return;
 				}
-				router.push('/mevzuat/article/[id]', `/mevzuat/article/${response._id}`);
+				router.push('/mevzuat/article/[id]', `/mevzuat/article/${article._id}`);
 				setIsLoading(false);
 			} catch (e) {
 				alert('Aradığınız madde bulunamadı!');
