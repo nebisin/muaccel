@@ -10,11 +10,13 @@ import ArticleList from '../../component/mevzuat/ArticleList';
 import Sidebar from '../../component/mevzuat/Sidebar';
 
 const HomePage = () => {
-	const [popularActList, setPopularActList] = useState([]);
-	const [newActList, setNewActList] = useState([]);
+	const [actListOne, setActListOne] = useState([]);
+	const [actListTwo, setActListTwo] = useState([]);
+	const [actListThree, setActListThree] = useState([]);
 
-	const [popularArticleList, setPopularArticleList] = useState([]);
-	const [newArticleList, setNewArticleList] = useState([]);
+	const [articleListOne, setArticleListOne] = useState([]);
+	const [articleListTwo, setArticleListTwo] = useState([]);
+	const [articleListThree, setArticleListThree] = useState([]);
 
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -23,28 +25,24 @@ const HomePage = () => {
 
 	const getAll = useCallback(async () => {
 		setIsLoading(true);
-		const popularActs = await getActList({ limit: 3, sort: { hit: -1 } });
-		setPopularActList(popularActs);
+		const popularActs = await getActList({ limit: 9, sort: { hit: -1 } });
+		setActListOne(popularActs.slice(0, 3));
+
+		const randomSkip = Math.floor(Math.random() * 450)
 
 		const popularArticles = await getArticleList({
-			limit: 5,
+			limit: 12,
 			sort: { hit: -1 },
+			skip: randomSkip
 		});
-		setPopularArticleList(popularArticles);
+		setArticleListOne(popularArticles.slice(0, 4));
 
-		const newActs = await getActList({
-			limit: 3,
-			skip: 1,
-			sort: { hit: 1 },
-		});
-		setNewActList(newActs);
+		setActListTwo(popularActs.slice(3, 6))
+		setArticleListTwo(popularArticles.slice(4, 8));
 
-		const newArticles = await getArticleList({
-			limit: 10,
-			skip: 1,
-			sort: { hit: 1 },
-		});
-		setNewArticleList(newArticles);
+		setActListThree(popularActs.slice(6, 9))
+		setArticleListThree(popularArticles.slice(8, 12));
+
 		setIsLoading(false);
 	}, [getActList, getArticleList]);
 
@@ -62,10 +60,12 @@ const HomePage = () => {
 				<Sidebar type="home" />
 				<section id="showcase">
 					<SearchBar />
-					<ActList items={popularActList} />
-					<ArticleList items={popularArticleList} />
-					<ActList items={newActList} />
-					<ArticleList items={newArticleList} />
+					<ActList items={actListOne} />
+					<ArticleList items={articleListOne} />
+					<ActList items={actListTwo} />
+					<ArticleList items={articleListTwo} />
+					<ActList items={actListThree} />
+					<ArticleList items={articleListThree} />
 					{isLoading && (
 						<div
 							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
