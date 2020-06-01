@@ -30,7 +30,7 @@ const SectionItem = ({ item }) => {
 		<React.Fragment>
 			<div id={item._id}>
 				<p style={{ fontWeight: 'bold', textAlign: 'center' }}>{item.title}</p>
-				<p style={{ textAlign: 'center' }}>{item.name}</p>
+				<p style={{ textAlign: 'center', fontWeight: 'bold', fontStyle: 'italic' }}>{item.name}</p>
 			</div>
 			{item.type === 3 || item.type === 2 ? (
 				<ArticleList items={sectionList} type={1} />
