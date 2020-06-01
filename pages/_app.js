@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
 			<ArticleProvider>
 				<SectionProvider>
 					<Head>
-						<title>Muaccel - Online Hukuk Sistemi</title>
+						<title>Muaccel | Online Hukuk Sistemi</title>
 						<meta
 							name="description"
 							content="muaccel.com - Online Hukuk Sistemi..."
