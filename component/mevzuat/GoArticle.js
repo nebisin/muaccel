@@ -5,7 +5,7 @@ import ArticleContext from '../../context/ArticleContext';
 const GoArticle = ({ id }) => {
 	const [term, setTerm] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
-	const { getArticleByLocation } = useContext(ArticleContext);
+	const { getArticleByTitle } = useContext(ArticleContext);
 	let router = useRouter();
 
 	const handleChange = (event) => {
@@ -23,7 +23,7 @@ const GoArticle = ({ id }) => {
 		const getArticle = async () => {
 			setIsLoading(true);
 			try {
-				const {article} = await getArticleByLocation(term, id);
+				const {article} = await getArticleByTitle(term, id);
 				if (!article) {
 					alert('Aradığınız madde bulunamadı!');
 					setIsLoading(false);

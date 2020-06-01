@@ -29,6 +29,17 @@ export const ArticleProvider = ({ children }) => {
 		return response.data;
 	};
 
+	const getArticleByTitle = async (title, actId) => {
+		if (!title || !actId) {
+			return null;
+		}
+
+		const response = await mevzuatApi.get('/article', {
+			params: { title: title, actId: actId },
+		});
+		return response.data;
+	};
+
 	const searchArticle = async (term) => {
 		if(!term){
 			return {error: 'Bir arama terimi girmelisiniz.'}
@@ -46,6 +57,7 @@ export const ArticleProvider = ({ children }) => {
 				getArticleList,
 				getArticleById,
 				getArticleByLocation,
+				getArticleByTitle,
 				searchArticle
 			}}
 		>

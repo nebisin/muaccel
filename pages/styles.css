@@ -169,8 +169,8 @@ a {
 	left: 0;
 	height: 59px;
 	background-color: white;
-	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-	z-index: 9999;
+	z-index: 99;
+	border-bottom: 1px solid #ccc;
 }
 
 .nav-list {
