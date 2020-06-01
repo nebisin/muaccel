@@ -4,21 +4,19 @@ import mevzuatApi from '../api/mevzuat';
 const SectionContext = React.createContext();
 
 export const SectionProvider = ({ children }) => {
-
 	const getSectionList = async (id, type) => {
 		const response = await mevzuatApi.post('/sections', {
 			actId: id,
-			type: type
+			type: type,
 		});
 
 		return response.data;
 	};
 
 	const getSectionsBySection = async (id, type) => {
-
 		const response = await mevzuatApi.post('/sections', {
 			sectionId: id,
-			type: type
+			type: type,
 		});
 
 		return response.data;
@@ -32,7 +30,6 @@ export const SectionProvider = ({ children }) => {
 		const response = await mevzuatApi.get('/section', { params: { id } });
 		return response.data;
 	};
-
 
 	return (
 		<SectionContext.Provider

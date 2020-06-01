@@ -5,7 +5,12 @@ const ArticleContext = React.createContext();
 
 export const ArticleProvider = ({ children }) => {
 	const getArticleList = useCallback(async ({ query, sort, limit, skip }) => {
-		const response = await mevzuatApi.post('/articles', { query, sort, limit, skip });
+		const response = await mevzuatApi.post('/articles', {
+			query,
+			sort,
+			limit,
+			skip,
+		});
 		return response.data;
 	}, []);
 
@@ -41,15 +46,15 @@ export const ArticleProvider = ({ children }) => {
 	};
 
 	const searchArticle = async (term) => {
-		if(!term){
-			return {error: 'Bir arama terimi girmelisiniz.'}
+		if (!term) {
+			return { error: 'Bir arama terimi girmelisiniz.' };
 		}
 
 		const response = await mevzuatApi.get('search/articles', {
-			params: {term: term}
-		})
+			params: { term: term },
+		});
 		return response.data;
-	}
+	};
 
 	return (
 		<ArticleContext.Provider
@@ -58,7 +63,7 @@ export const ArticleProvider = ({ children }) => {
 				getArticleById,
 				getArticleByLocation,
 				getArticleByTitle,
-				searchArticle
+				searchArticle,
 			}}
 		>
 			{children}
