@@ -112,7 +112,8 @@ a {
 
 .card-content {
 	margin: 10px 0;
-	white-space: pre-wrap;
+	white-space: pre-line;
+	text-align: justify;
 }
 
 .card-footer {
@@ -247,7 +248,7 @@ a {
 
 .side-list-item-selected {
 	background-color: #fbfbfb;
-	cursor: 'pointer'
+	cursor: 'pointer';
 }
 
 .side-list-item:hover {
@@ -361,7 +362,8 @@ a {
 	color: white;
 }
 
-.others-input:hover, .others-input:focus {
+.others-input:hover,
+.others-input:focus {
 	outline: none;
 	background-color: #fbfbfb;
 }
