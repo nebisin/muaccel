@@ -11,9 +11,9 @@ const SideMostSearched = () => {
 						<li>Tebligat</li>
 					</a>
 				</Link>
-				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/iflas">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/konkordato">
 					<a className="side-list-item">
-						<li>İflas</li>
+						<li>Konkordato</li>
 					</a>
 				</Link>
 				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/tahkim">
@@ -26,6 +26,11 @@ const SideMostSearched = () => {
 						<li>Arabuluculuk</li>
 					</a>
 				</Link>
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/temyiz">
+				<a className="side-list-item">
+					<li>Temyiz</li>
+				</a>
+			</Link>
 			</ul>
 		</div>
 	);
