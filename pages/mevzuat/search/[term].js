@@ -23,6 +23,10 @@ const SearchRoute = () => {
 	let searchTerm = router.query.term;
 
 	useEffect(() => {
+		setFirstActs([]);
+		setSecondActs([]);
+		setFirstArticles([]);
+		setSecondArticles([]);
 		if (!searchTerm) {
 			setError('Bir arama terimi girmelisiniz!');
 		} else {
@@ -53,10 +57,10 @@ const SearchRoute = () => {
 			}
 			setIsLoading(false);
 		};
-		if (term) {
-			getResults(term);
+		if (searchTerm) {
+			getResults(searchTerm);
 		}
-	}, [term, searchArticle, searchAct]);
+	}, [searchTerm, searchArticle, searchAct]);
 
 	return (
 		<React.Fragment>

@@ -6,24 +6,24 @@ const SideMostSearched = () => {
 		<div className="side-card side-card-sticky">
 			<h2 className="side-card-title">Sık Arananlar</h2>
 			<ul className="side-list">
-				<Link href="#">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/tebligat">
 					<a className="side-list-item">
-						<li>Yetki Sözleşmesi</li>
+						<li>Tebligat</li>
 					</a>
 				</Link>
-				<Link href="#">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/iflas">
 					<a className="side-list-item">
-						<li>Ceza Kanunu</li>
+						<li>İflas</li>
 					</a>
 				</Link>
-				<Link href="#">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/tahkim">
 					<a className="side-list-item">
-						<li>Hakimin reddi</li>
+						<li>Tahkim</li>
 					</a>
 				</Link>
-				<Link href="#">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/arabuluculuk">
 					<a className="side-list-item">
-						<li>Sulh hukuk</li>
+						<li>Arabuluculuk</li>
 					</a>
 				</Link>
 			</ul>
