@@ -58,13 +58,12 @@ const ActRoute = ({ data }) => {
 					page={page}
 				/>
 				<section id="showcase">
+					<div className="act-title">
+						<p>{data.title} sayılı </p>
+						<p>{data.name}</p>
+					</div>
 					{!isLoading ? (
 						<React.Fragment>
-							<div className="act-title">
-								<p>
-									{actInfo.title} sayılı {actInfo.name}
-								</p>
-							</div>
 							{suffixSections[page] ? (
 								<React.Fragment>
 									<Others
@@ -72,7 +71,9 @@ const ActRoute = ({ data }) => {
 										page={page}
 										actId={actInfo._id}
 									/>
-									<SectionItem item={suffixSections[page]} />
+									<div className="act">
+										<SectionItem item={suffixSections[page]} type={1} />
+									</div>
 								</React.Fragment>
 							) : (
 								<div>Böyle bir bölüm bulunmuyor.</div>

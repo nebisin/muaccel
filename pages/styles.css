@@ -50,6 +50,21 @@ a {
 	border-radius: 0.25rem;
 }
 
+.suffix-section {
+	background-color: #f4f4f4;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 0.25em;
+	box-shadow: inset 1px 1px 1px #ccc;
+	-webkit-box-shadow: inset 1px 1px 1px #ccc;
+	-moz-box-shadow: inset 1px 1px 1px #ccc;
+}
+
+.section {
+	margin-bottom: 10px;
+}
+
 /* Buttons */
 
 .button-blue {

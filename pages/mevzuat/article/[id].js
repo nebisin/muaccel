@@ -30,9 +30,8 @@ const ArticleRoute = ({ article, before, after }) => {
 							>
 								<a>
 									<div className="act-title">
-										<p>
-											{article.actId.title} sayılı {article.actId.name}
-										</p>
+										<p>{article.actId.title} sayılı </p>
+										<p>{article.actId.name}</p>
 									</div>
 								</a>
 							</Link>
