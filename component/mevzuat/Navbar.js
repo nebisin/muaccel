@@ -5,8 +5,13 @@ import { useRouter } from "next/router";
 const Navbar = () => {
 	const router = useRouter();
 
+	const onNavbarPressed = () => {
+		let el = document.documentElement;
+		el.scrollIntoView({behavior: "smooth"});
+	}
+
 	return (
-		<nav id="navbar">
+		<nav id="navbar" onClick={onNavbarPressed} >
 			<div className="container">
 				<ul className="nav-list">
 					<li>
