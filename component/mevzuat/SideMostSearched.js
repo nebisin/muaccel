@@ -4,7 +4,7 @@ import Link from 'next/link';
 const SideMostSearched = () => {
 	return (
 		<div className="side-card side-card-sticky">
-			<h2 className="side-card-title">Sık Arananlar</h2>
+			<h2 className="side-card-title">Önerilen Aramalar</h2>
 			<ul className="side-list">
 				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/tebligat">
 					<a className="side-list-item">
@@ -21,14 +21,14 @@ const SideMostSearched = () => {
 						<li>Tahkim</li>
 					</a>
 				</Link>
-				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/arabuluculuk">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/istinaf">
 					<a className="side-list-item">
-						<li>Arabuluculuk</li>
+						<li>İstinaf</li>
 					</a>
 				</Link>
-				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/temyiz">
+				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/geçersiz fesih">
 				<a className="side-list-item">
-					<li>Temyiz</li>
+					<li>Geçersiz fesih</li>
 				</a>
 			</Link>
 			</ul>

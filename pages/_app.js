@@ -39,8 +39,14 @@ function MyApp({ Component, pageProps }) {
 							name="description"
 							content="muaccel.com - Online Hukuk Sistemi..."
 						/>
-						<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-						<meta name="keywords" content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan" />
+						<meta
+							name="viewport"
+							content="width=device-width, initial-scale=1.0"
+						/>
+						<meta
+							name="keywords"
+							content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
+						/>
 						<link rel="icon" href="/favicon.ico" />
 						<link rel="apple-touch-icon" href="/logo192.png" />
 						<link rel="manifest" href="/manifest.json" />
