@@ -7,7 +7,7 @@
 }
 
 body {
-	background-color: #fbfbfb;
+	background-color: #f9fafa;
 	color: #555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -306,7 +306,7 @@ a {
 /* Others */
 
 .others-bar {
-	background-color: #fbfbfb;
+	background-color: #f9fafa;
 	padding: 10px;
 	margin-bottom: 10px;
 	width: 100%;
