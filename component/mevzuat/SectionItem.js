@@ -1,34 +1,37 @@
 import React, { useEffect, useState, useContext } from 'react';
-import SectionContext from '../../context/SectionContext';
 import ArticleContext from '../../context/ArticleContext';
 import SectionList from './SectionList';
 import ArticleList from './ArticleList';
 
-const SectionItem = ({ item, type }) => {
+const SectionItem = ({ item, type, sections }) => {
 	const [sectionList, setSectionList] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
-	const { getSectionsBySection } = useContext(SectionContext);
+	const [isLoading, setIsLoading] = useState(false);
 	const { getArticleList } = useContext(ArticleContext);
 
 	useEffect(() => {
-		setIsLoading(true);
 		setSectionList([]);
 		const article = async (sectionId) => {
-			const result = await getArticleList({ query: { sectionId }, sort: {location: 1} });
+			setIsLoading(true);
+			const result = await getArticleList({
+				query: { sectionId },
+				sort: { location: 1 },
+			});
 			setSectionList(result);
 			setIsLoading(false);
 		};
 		const config = async () => {
-			const result = await getSectionsBySection(item._id, {});
+			if (!sections) {
+				return;
+			}
+			const result = sections.filter((i) => i.sectionId === item._id);
 			setSectionList(result);
-			setIsLoading(false);
 		};
 		if (item.type === 3 || item.type === 2) {
 			article(item._id);
 		} else {
 			config();
 		}
-	}, [getSectionsBySection, item, getArticleList]);
+	}, [item, sections, getArticleList]);
 
 	return (
 		<React.Fragment>
@@ -39,12 +42,21 @@ const SectionItem = ({ item, type }) => {
 			{item.type === 3 || item.type === 2 ? (
 				<ArticleList items={sectionList} type={1} />
 			) : (
-				<SectionList list={sectionList} />
+				<SectionList list={sectionList} sections={sections} />
 			)}
-			{isLoading && type && (
-				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
-					<div className="loader">Loading...</div>
-				</div>
+			{isLoading && (
+				<React.Fragment>
+					<div className="card-holder">
+						<div className="header-holder"></div>
+						<div className="number-holder"></div>
+						<div className="content-holder"></div>
+					</div>
+					<div className="card-holder">
+						<div className="header-holder"></div>
+						<div className="number-holder"></div>
+						<div className="content-holder"></div>
+					</div>
+				</React.Fragment>
 			)}
 		</React.Fragment>
 	);

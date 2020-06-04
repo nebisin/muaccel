@@ -106,6 +106,30 @@ a {
 
 /* Cards */
 
+.card-holder {
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+	margin: 20px 15px;
+	padding: 20px;
+}
+
+.number-holder {
+	margin-bottom: 5px;
+	height: 25px;
+	width: 30%;
+	background-color: rgba(176, 176, 176, 0.11);}
+
+.header-holder {
+	margin-bottom: 5px;
+	height: 25px;
+	width: 50%;
+	background-color: rgba(176, 176, 176, 0.11);}
+
+.content-holder {
+	height: 150px;
+	background-color: rgba(176, 176, 176, 0.11);}
+
 .card {
 	background-color: white;
 	border: 1px solid rgba(0, 0, 0, 0.125);

@@ -9,7 +9,7 @@ import SectionItem from '../../../../component/mevzuat/SectionItem';
 import Others from '../../../../component/mevzuat/Others';
 import Sidebar from '../../../../component/mevzuat/Sidebar';
 
-const ActRoute = ({ data }) => {
+const ActRoute = ({ data, sectionsData }) => {
 	const router = useRouter();
 	const [actInfo, setActInfo] = useState({});
 	const [suffixSections, setSuffixSections] = useState([]);
@@ -22,9 +22,9 @@ const ActRoute = ({ data }) => {
 	useEffect(() => {
 		setIsLoading(true);
 		const getAct = async (id) => {
-			const sections = await getSectionList(data._id, {
-				$or: [{ type: 0 }, { type: 3 }],
-			});
+			const sections = sectionsData.filter((item) => (
+				item.type === 0 || item.type === 3
+			))
 			setActInfo(data);
 			setSuffixSections(sections);
 			setIsLoading(false);
@@ -72,7 +72,7 @@ const ActRoute = ({ data }) => {
 										actId={actInfo._id}
 									/>
 									<div className="act">
-										<SectionItem item={suffixSections[page]} type={1} />
+										<SectionItem item={suffixSections[page]} sections={sectionsData} type={1} />
 									</div>
 								</React.Fragment>
 							) : (
@@ -98,7 +98,13 @@ export async function getServerSideProps(context) {
 	const response = await mevzuatApi.get('/act', { params: { id } });
 	const data = response.data;
 
-	return { props: { data } };
+	const sections = await mevzuatApi.post('/sections', {
+		actId: id,
+		type: {}
+	});
+	const sectionsData = sections.data;
+
+	return { props: { data, sectionsData } };
 }
 
 export default ActRoute;
