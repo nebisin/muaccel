@@ -8,6 +8,7 @@ import SearchBar from '../../component/mevzuat/SearchBar';
 import ActList from '../../component/mevzuat/ActList';
 import ArticleList from '../../component/mevzuat/ArticleList';
 import Sidebar from '../../component/mevzuat/Sidebar';
+import ArticleHolder from '../../component/mevzuat/ArticleHolder';
 
 const HomePage = () => {
 	const [actListOne, setActListOne] = useState([]);
@@ -19,6 +20,7 @@ const HomePage = () => {
 	const [articleListThree, setArticleListThree] = useState([]);
 
 	const [isLoading, setIsLoading] = useState(true);
+	const [articleLoading, setArticleLoading] = useState(false);
 
 	const { getActList } = useContext(ActContext);
 	const { getArticleList } = useContext(ArticleContext);
@@ -31,6 +33,11 @@ const HomePage = () => {
 			sort: { hit: -1 },
 		});
 		setActListOne(popularActs.slice(0, 3));
+		setActListTwo(popularActs.slice(3, 6));
+		setActListThree(popularActs.slice(6, 9));
+
+		setIsLoading(false);
+		setArticleLoading(true);
 
 		const randomSkipArticle = Math.floor(Math.random() * 450);
 
@@ -39,15 +46,13 @@ const HomePage = () => {
 			sort: { hit: -1 },
 			skip: randomSkipArticle,
 		});
+
 		setArticleListOne(popularArticles.slice(0, 4));
 
-		setActListTwo(popularActs.slice(3, 6));
 		setArticleListTwo(popularArticles.slice(4, 8));
 
-		setActListThree(popularActs.slice(6, 9));
 		setArticleListThree(popularArticles.slice(8, 12));
-
-		setIsLoading(false);
+		setArticleLoading(false);
 	}, [getActList, getArticleList]);
 
 	useEffect(() => {
@@ -65,11 +70,23 @@ const HomePage = () => {
 				<section id="showcase">
 					<SearchBar />
 					<ActList items={actListOne} />
-					<ArticleList items={articleListOne} />
+					{!articleLoading ? (
+						<ArticleList items={articleListOne} />
+					) : (
+						<ArticleHolder />
+					)}
 					<ActList items={actListTwo} />
-					<ArticleList items={articleListTwo} />
+					{!articleLoading ? (
+						<ArticleList items={articleListTwo} />
+					) : (
+						<ArticleHolder />
+					)}{' '}
 					<ActList items={actListThree} />
-					<ArticleList items={articleListThree} />
+					{!articleLoading ? (
+						<ArticleList items={articleListThree} />
+					) : (
+						<ArticleHolder />
+					)}{' '}
 					{isLoading && (
 						<div
 							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}

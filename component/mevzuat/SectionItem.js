@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import ArticleContext from '../../context/ArticleContext';
 import SectionList from './SectionList';
 import ArticleList from './ArticleList';
+import ArticleHolder from './ArticleHolder';
 
 const SectionItem = ({ item, type, sections }) => {
 	const [sectionList, setSectionList] = useState([]);
@@ -45,18 +46,7 @@ const SectionItem = ({ item, type, sections }) => {
 				<SectionList list={sectionList} sections={sections} />
 			)}
 			{isLoading && (
-				<React.Fragment>
-					<div className="card-holder">
-						<div className="header-holder"></div>
-						<div className="number-holder"></div>
-						<div className="content-holder"></div>
-					</div>
-					<div className="card-holder">
-						<div className="header-holder"></div>
-						<div className="number-holder"></div>
-						<div className="content-holder"></div>
-					</div>
-				</React.Fragment>
+				<ArticleHolder />
 			)}
 		</React.Fragment>
 	);
