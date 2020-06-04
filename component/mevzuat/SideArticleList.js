@@ -24,7 +24,7 @@ const SideArticleList = ({ id, art }) => {
 
 	useEffect(() => {
 		const listOfSection = async (sectionId) => {
-			const result = await getArticleList({ query: { sectionId } });
+			const result = await getArticleList({ query: { sectionId }, sort: {location: 1} });
 			setArticleList(result);
 			setIsLoading(false);
 		};
