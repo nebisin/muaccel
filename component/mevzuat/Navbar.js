@@ -15,11 +15,11 @@ const Navbar = () => {
 			<div className="container">
 				<ul className="nav-list">
 					<Link href="/" prefetch={false}>
-						<li>
-							<a>
+						<a className="logo-link">
+							<li>
 								<img className="logo" src="/sitelogo.png" alt="logo" />
-							</a>
-						</li>
+							</li>
+						</a>
 					</Link>
 
 					<li>
