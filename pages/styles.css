@@ -162,7 +162,7 @@ a {
 }
 
 .card-deck-item:hover {
-	background-color: white !important;
+	background-color: #f9fafa !important;
 	color: black !important;
 }
 
