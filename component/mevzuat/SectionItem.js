@@ -14,7 +14,7 @@ const SectionItem = ({ item, type }) => {
 		setIsLoading(true);
 		setSectionList([]);
 		const article = async (sectionId) => {
-			const result = await getArticleList({ query: { sectionId } });
+			const result = await getArticleList({ query: { sectionId }, sort: {location: 1} });
 			setSectionList(result);
 			setIsLoading(false);
 		};
