@@ -159,6 +159,10 @@ a {
 	flex: 1 0 0%;
 	align-items: center;
 	justify-content: center;
+	-webkit-transition: background-color 500ms ease-in-out;
+    -moz-transition:background-color 500ms ease-in-out;
+    -o-transition: background-color 500ms ease-in-out;
+	transition: background-color 500ms ease-in-out;
 }
 
 .card-deck-item:hover {
