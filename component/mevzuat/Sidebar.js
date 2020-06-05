@@ -9,9 +9,9 @@ const Sidebar = ({ type, id, art, actInfo, sections, page }) => {
 	return (
 		<aside id="sidebar" className="h-none">
 			<h2 className="title">Mevzuat</h2>
-			{type === 'home' || type === 'search' ? (
+			{type === 'home' || type === 'search' || type === 'category' ? (
 				<React.Fragment>
-					<SideCategories />
+					<SideCategories id={id} />
 					<SideMostSearched />
 				</React.Fragment>
 			) : (
