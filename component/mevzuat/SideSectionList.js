@@ -42,7 +42,7 @@ const SideSectionList = ({ actInfo, sections, page }) => {
 			<div className="side-card">
 				<h2 className="side-card-title">{actInfo.name}</h2>
 				<ul className="side-list">
-					{suffixSections.map((item, i) => {
+					{sections.map((item, i) => {
 						return (
 							<Link
 								href="/mevzuat/act/[id]/[page]"

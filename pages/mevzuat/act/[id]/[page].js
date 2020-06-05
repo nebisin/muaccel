@@ -16,12 +16,9 @@ const ActRoute = ({ data, sectionsData }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [page, setPage] = useState(0);
 
-	const { getActById } = useContext(ActContext);
-	const { getSectionList } = useContext(SectionContext);
-
 	useEffect(() => {
 		setIsLoading(true);
-		const getAct = async (id) => {
+		const getAct = () => {
 			const sections = sectionsData.filter((item) => (
 				item.type === 0 || item.type === 3
 			))
@@ -32,7 +29,7 @@ const ActRoute = ({ data, sectionsData }) => {
 		if (router.query.id) {
 			getAct();
 		}
-	}, [data, getActById, getSectionList]);
+	}, [data, sectionsData, page ]);
 
 	useEffect(() => {
 		setPage(router.query.page);
