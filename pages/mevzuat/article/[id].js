@@ -13,7 +13,7 @@ const ArticleRoute = ({ article, before, after }) => {
 		<React.Fragment>
 			<Head>
 				<title>
-					Madde {article.title} | {article.actId.name} | Muaccel Mevzuat
+					Madde {article.title} - {article.actId.name} | Muaccel Mevzuat
 				</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />

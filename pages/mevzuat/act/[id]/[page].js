@@ -41,7 +41,7 @@ const ActRoute = ({ data, sectionsData }) => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>{data.name} | Muaccel Mevzuat</title>
+				<title>{data.name} - {sectionsData[page].name} | Muaccel Mevzuat</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta
