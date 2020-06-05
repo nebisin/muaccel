@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import SectionContext from '../../context/SectionContext';
 
-const SideSectionList = ({ actInfo, sections, page }) => {
+const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 	const [suffixSections, setSuffixSections] = useState([]);
-	const [subSections, setSubSections] = useState([]);
+	const [subSec, setSubSec] = useState([]);
 	const { getSectionsBySection } = useContext(SectionContext);
 
 	const scroll = (id, e) => {
@@ -21,14 +21,14 @@ const SideSectionList = ({ actInfo, sections, page }) => {
 
 	useEffect(() => {
 		const getSubSections = async (id) => {
-			setSubSections([]);
-			const response = await getSectionsBySection(id, {});
-			setSubSections(response);
+			setSubSec([]);
+			const response = subSections.filter((item) => item.sectionId === id)
+			setSubSec(response);
 		};
 		if (suffixSections[page]) {
 			getSubSections(suffixSections[page]._id);
 		}
-	}, [suffixSections, getSectionsBySection, page]);
+	}, [suffixSections, getSectionsBySection, page, subSections]);
 
 	if (!actInfo.name || !suffixSections[0]) {
 		return (
@@ -67,11 +67,11 @@ const SideSectionList = ({ actInfo, sections, page }) => {
 					})}
 				</ul>
 			</div>
-			{subSections[1] && (
+			{subSec[1] && (
 				<div className="side-card side-card-sticky">
 					<h2 className="side-card-title">{suffixSections[page].name}</h2>
 					<ul className="side-list">
-						{subSections.map((item) => (
+						{subSec.map((item) => (
 							<div
 								className="side-list-item likelink"
 								key={item._id}

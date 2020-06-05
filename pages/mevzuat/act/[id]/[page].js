@@ -52,6 +52,7 @@ const ActRoute = ({ data, sectionsData }) => {
 					id={router.query.id}
 					actInfo={actInfo}
 					sections={suffixSections}
+					subSections={sectionsData}
 					page={page}
 				/>
 				<section id="showcase">

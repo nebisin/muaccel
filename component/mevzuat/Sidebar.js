@@ -5,7 +5,7 @@ import SideCategories from './SideCategories';
 import SideArticleList from './SideArticleList';
 import SideSectionList from './SideSectionList';
 
-const Sidebar = ({ type, id, art, actInfo, sections, page }) => {
+const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 	return (
 		<aside id="sidebar" className="h-none">
 			<h2 className="title">Mevzuat</h2>
@@ -24,6 +24,7 @@ const Sidebar = ({ type, id, art, actInfo, sections, page }) => {
 					actInfo={actInfo}
 					sections={sections}
 					page={page}
+					subSections={subSections}
 				/>
 			)}
 		</aside>
