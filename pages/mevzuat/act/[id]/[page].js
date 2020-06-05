@@ -38,12 +38,12 @@ const ActRoute = ({ data, sectionsData }) => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>{data.name} - {sectionsData[page].name} | Muaccel Mevzuat</title>
+				<title>{data.name} {sectionsData[page] && ` - ${sectionsData[page].name}` } | Muaccel Mevzuat</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta
 					name="description"
-					content={`${data.title} sayılı ${data.name}`}
+					content={`${data.name}`}
 				/>
 			</Head>
 			<div className="flex-container">
@@ -57,7 +57,7 @@ const ActRoute = ({ data, sectionsData }) => {
 				/>
 				<section id="showcase">
 					<div className="act-title">
-						<p>{data.title} sayılı </p>
+						{data.title && <p>{data.title} sayılı </p> }
 						<p>{data.name}</p>
 					</div>
 					{!isLoading ? (
