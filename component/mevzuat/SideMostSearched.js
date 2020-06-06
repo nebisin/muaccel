@@ -5,7 +5,7 @@ const SideMostSearched = () => {
 	return (
 		<div className="side-card side-card-sticky">
 			<h2 className="side-card-title">Önerilen Aramalar</h2>
-			<ul className="side-list">
+			<ul className="side-list side-list-sticky">
 				<Link href="/mevzuat/search/[term]" as="/mevzuat/search/elektronik tebligat">
 					<a className="side-list-item">
 						<li>Elektronik Tebligat</li>

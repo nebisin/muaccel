@@ -118,17 +118,20 @@ a {
 	margin-bottom: 5px;
 	height: 25px;
 	width: 30%;
-	background-color: rgba(176, 176, 176, 0.11);}
+	background-color: rgba(176, 176, 176, 0.11);
+}
 
 .header-holder {
 	margin-bottom: 5px;
 	height: 25px;
 	width: 50%;
-	background-color: rgba(176, 176, 176, 0.11);}
+	background-color: rgba(176, 176, 176, 0.11);
+}
 
 .content-holder {
 	height: 150px;
-	background-color: rgba(176, 176, 176, 0.11);}
+	background-color: rgba(176, 176, 176, 0.11);
+}
 
 .card {
 	background-color: white;
@@ -184,8 +187,8 @@ a {
 	align-items: center;
 	justify-content: center;
 	-webkit-transition: background-color 500ms ease-in-out;
-    -moz-transition:background-color 500ms ease-in-out;
-    -o-transition: background-color 500ms ease-in-out;
+	-moz-transition: background-color 500ms ease-in-out;
+	-o-transition: background-color 500ms ease-in-out;
 	transition: background-color 500ms ease-in-out;
 }
 
@@ -218,7 +221,7 @@ a {
 	border-bottom: 1px solid #ccc;
 }
 
-#navbar:hover{
+#navbar:hover {
 	cursor: pointer;
 }
 
@@ -232,7 +235,6 @@ a {
 .nav-list li {
 	list-style-type: none;
 	margin-right: 20px;
-
 }
 
 .logo-link {
@@ -284,12 +286,18 @@ a {
 
 .side-card-title {
 	padding: 15px;
+	border-bottom: 1px solid #ccc;
 }
-
 .side-list {
 	display: flex;
 	flex-direction: column;
 	background-color: #f4f4f4;
+}
+
+.side-list-sticky {
+	max-height: calc(100vh - 200px);
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .side-list li {
@@ -298,7 +306,7 @@ a {
 
 .side-list-item {
 	padding: 10px 20px;
-	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 .side-list-item-selected {

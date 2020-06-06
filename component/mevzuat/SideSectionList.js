@@ -70,7 +70,7 @@ const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 			{subSec[1] && (
 				<div className="side-card side-card-sticky">
 					<h2 className="side-card-title">{suffixSections[page].name}</h2>
-					<ul className="side-list">
+					<ul className="side-list side-list-sticky">
 						{subSec.map((item) => (
 							<div
 								className="side-list-item likelink"
