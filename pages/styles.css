@@ -70,8 +70,8 @@ a {
 .button-blue {
 	width: 20%;
 	padding: 10px;
-	background-color: white;
-	color: #7692ab;
+	background-color: #7692ab;
+	color: white;
 	border: 1px solid #7692ab;
 	border-radius: 0.25rem;
 	font-weight: bold;
@@ -79,8 +79,8 @@ a {
 }
 
 .button-blue:hover {
-	background-color: #7692ab;
-	color: white;
+	background-color: white;
+	color: #555;
 	cursor: pointer;
 }
 
@@ -433,6 +433,8 @@ a {
 
 .others-button:hover {
 	cursor: pointer;
+	color: #555;
+	background-color: white;
 }
 
 /* Loader */
