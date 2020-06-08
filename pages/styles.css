@@ -146,6 +146,7 @@ a {
 	font-weight: bold;
 	margin: 0;
 	margin-bottom: 5px;
+	color: #0077cc;
 }
 
 .card-header a:hover {
@@ -160,6 +161,7 @@ a {
 
 .card-footer {
 	font-size: 14px;
+	color: #0077cc;
 }
 
 .card-footer a:hover {
