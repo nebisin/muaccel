@@ -97,7 +97,7 @@ const HomePage = () => {
 					) : (
 						<Link href="/mevzuat/act" as="/mevzuat/act">
 							<a>
-								<div className="all-act">Bütün Kanunları Gör</div>
+								<div className="all-act normal-none">Bütün Kanunları Gör</div>
 							</a>
 						</Link>
 					)}
