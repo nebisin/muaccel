@@ -65,6 +65,29 @@ a {
 	margin-bottom: 10px;
 }
 
+.all-act {
+	margin: 10px auto;
+	width: 80%;
+	text-align: center;
+	padding: 10px;
+	color: #7692ab;
+	font-weight: bold;
+	background-color: #f4f4f4;
+	border: 1px solid #ccc;
+	border-radius: 0.25em;
+	box-shadow: 1px 1px 1px #7692ab;
+}
+
+.all-act:hover {
+	cursor: pointer;
+	background-color: white;
+}
+
+.all-act:active {
+	box-shadow: inset 1px 1px 1px #ccc;
+	-webkit-box-shadow: inset 1px 1px 1px #ccc;
+	-moz-box-shadow: inset 1px 1px 1px #ccc;}
+
 /* Buttons */
 
 .button-blue {

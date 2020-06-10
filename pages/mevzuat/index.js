@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import ActContext from '../../context/ActContext';
 import ArticleContext from '../../context/ArticleContext';
@@ -87,12 +88,18 @@ const HomePage = () => {
 					) : (
 						<ArticleHolder />
 					)}{' '}
-					{isLoading && (
+					{isLoading ? (
 						<div
 							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
 						>
 							<div className="loader">Loading...</div>
 						</div>
+					) : (
+						<Link href="/mevzuat/act" as="/mevzuat/act">
+							<a>
+								<div className="all-act">Bütün Kanunları Gör</div>
+							</a>
+						</Link>
 					)}
 				</section>
 			</div>
