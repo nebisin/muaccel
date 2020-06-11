@@ -26,7 +26,7 @@ const Navbar = () => {
 						<Link href="/mevzuat" prefetch={false}>
 							<a
 								className={`navlink s-none ${
-									router.pathname == '/mevzuat' && 'navlink-active'
+									router.pathname.search("/mevzuat") !== -1 && 'navlink-active'
 								}`}
 							>
 								Mevzuat
@@ -37,7 +37,7 @@ const Navbar = () => {
 						<Link href="/blog" prefetch={false}>
 							<a
 								className={`navlink s-none ${
-									router.pathname == '/blog' && 'navlink-active'
+									router.pathname.search("/blog") !== -1 && 'navlink-active'
 								}`}
 							>
 								Blog
@@ -48,7 +48,7 @@ const Navbar = () => {
 						<Link href="/meydan" prefetch={false}>
 							<a
 								className={`navlink s-none ${
-									router.pathname == '/meydan' && 'navlink-active'
+									router.pathname.search("/meydan") !== -1 && 'navlink-active'
 								}`}
 							>
 								Meydan
