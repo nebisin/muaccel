@@ -152,7 +152,7 @@ a {
 
 .home-item:hover {
 	cursor: pointer;
-	box-shadow: 1px 1px 1px #7692ab;
+	box-shadow: 1px 1px 1px #ccc;
 }
 
 .home-item-header {

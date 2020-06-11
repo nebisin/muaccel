@@ -1,9 +1,15 @@
 import Link from 'next/link';
+import Head from 'next/head'
 import SearchBar from '../component/mevzuat/SearchBar';
 
 const HomePage = () => {
 	return (
 		<React.Fragment>
+			<Head>
+				<title>Muaccel | Online Hukuk Projesi</title>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="hero-header">
 				<div className="hero-inside">
 					<h1 className="hero-title">Muaccel</h1>
@@ -22,7 +28,7 @@ const HomePage = () => {
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Mevzuat</div>
 								<p>
-									Temel mevzuata ulaşmanın pratik yolu. Bir kanun veya madde
+									Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde
 									arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin.
 								</p>
 							</div>
@@ -41,8 +47,8 @@ const HomePage = () => {
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>
-									Hukuki bir tartışma başlatın veya tartışmaya katılın. Çünkü
-									düşünce tartışmayla büyür ve gelişir.
+									Hukuki bir tartışma başlatın veya tartışmaya katkıda bulunun.
+									Çünkü düşünceler tartışma ortamında doğar ve gelişir.
 								</p>
 							</div>
 						</Link>
