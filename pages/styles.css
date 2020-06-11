@@ -251,11 +251,11 @@ a {
 	font-weight: bold;
 	margin: 0;
 	margin-bottom: 5px;
-	color: #0077cc;
+	color: #161e2e;
 }
 
 .card-header a:hover {
-	color: #7692ab;
+	text-decoration: underline;
 }
 
 .card-content {
