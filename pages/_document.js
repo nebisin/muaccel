@@ -1,11 +1,15 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
-
 	render() {
 		return (
 			<Html lang="tr">
-				<Head />
+				<Head>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
+						rel="stylesheet"
+					/>
+				</Head>
 				<body>
 					<Main />
 					<NextScript />

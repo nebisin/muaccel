@@ -34,10 +34,10 @@ function MyApp({ Component, pageProps }) {
 			<ArticleProvider>
 				<SectionProvider>
 					<Head>
-						<title>Muaccel | Online Hukuk Sistemi</title>
+						<title>Muaccel | Online Hukuk Projesi</title>
 						<meta
 							name="description"
-							content="muaccel.com - Online Hukuk Sistemi..."
+							content="muaccel.com - Online Hukuk Projesi..."
 						/>
 						<meta
 							name="viewport"
