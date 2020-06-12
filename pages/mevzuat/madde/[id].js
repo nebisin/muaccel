@@ -25,8 +25,8 @@ const ArticleRoute = ({ article, before, after }) => {
 					{article._id !== undefined && (
 						<React.Fragment>
 							<Link
-								href="/mevzuat/act/[id]/[page]"
-								as={`/mevzuat/act/${article.actId._id}/0`}
+								href="/mevzuat/kanun/[id]/[page]"
+								as={`/mevzuat/kanun/${article.actId._id}/0`}
 							>
 								<a>
 									<div className="act-title">

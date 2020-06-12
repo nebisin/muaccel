@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import mevzuatApi from '../../../../api/mevzuat';
 
-import ActContext from '../../../../context/ActContext';
-import SectionContext from '../../../../context/SectionContext';
 import SectionItem from '../../../../component/mevzuat/SectionItem';
 import Others from '../../../../component/mevzuat/Others';
 import Sidebar from '../../../../component/mevzuat/Sidebar';
