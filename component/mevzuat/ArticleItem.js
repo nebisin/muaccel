@@ -19,8 +19,8 @@ const ArticleItem = ({ item, type }) => {
 				<div className="card">
 					<h2 className="card-header">
 						<Link
-							href="/mevzuat/article/[id]"
-							as={`/mevzuat/article/${item._id}`}
+							href="/mevzuat/madde/[id]"
+							as={`/mevzuat/madde/${item._id}`}
 						>
 							<a>{item.name}</a>
 						</Link>
@@ -43,8 +43,8 @@ const ArticleItem = ({ item, type }) => {
 					{!type && (
 						<div className="card-footer">
 							<Link
-								href="/mevzuat/act/[id]/[page]"
-								as={`/mevzuat/act/${item.actId._id}/0`}
+								href="/mevzuat/kanun/[id]/[page]"
+								as={`/mevzuat/kanun/${item.actId._id}/0`}
 							>
 								<a> {item.actId.name}</a>
 							</Link>

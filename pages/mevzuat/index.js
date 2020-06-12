@@ -95,7 +95,7 @@ const HomePage = () => {
 							<div className="loader">Loading...</div>
 						</div>
 					) : (
-						<Link href="/mevzuat/act" as="/mevzuat/act">
+						<Link href="/mevzuat/kanun" as="/mevzuat/kanun">
 							<a>
 								<div className="all-act normal-none">Bütün Kanunları Gör</div>
 							</a>

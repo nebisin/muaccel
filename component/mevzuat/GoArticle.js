@@ -29,7 +29,7 @@ const GoArticle = ({ id }) => {
 					setIsLoading(false);
 					return;
 				}
-				router.push('/mevzuat/article/[id]', `/mevzuat/article/${article._id}`);
+				router.push('/mevzuat/madde/[id]', `/mevzuat/madde/${article._id}`);
 				setIsLoading(false);
 			} catch (e) {
 				alert('Aradığınız madde bulunamadı!');

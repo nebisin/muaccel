@@ -8,8 +8,8 @@ const Others = ({ before, after, actId }) => {
 			<div className="others-before">
 				{before && (
 					<Link
-						href="/mevzuat/article/[id]"
-						as={`/mevzuat/article/${before._id}`}
+						href="/mevzuat/madde/[id]"
+						as={`/mevzuat/madde/${before._id}`}
 					>
 						<a className="others-item">
 							<div style={{ fontSize: '20px', marginRight: '5px' }}>
@@ -28,8 +28,8 @@ const Others = ({ before, after, actId }) => {
 			<div className="others-after">
 				{after && (
 					<Link
-						href="/mevzuat/article/[id]"
-						as={`/mevzuat/article/${after._id}`}
+						href="/mevzuat/madde/[id]"
+						as={`/mevzuat/madde/${after._id}`}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">

@@ -18,8 +18,8 @@ const Others = ({ sections, page, actId }) => {
 			<div className="others-before">
 				{sections[before] && (
 					<Link
-						href="/mevzuat/act/[id]/[page]"
-						as={`/mevzuat/act/${actId}/${before}`}
+						href="/mevzuat/kanun/[id]/[page]"
+						as={`/mevzuat/kanun/${actId}/${before}`}
 						shallow={true}
 					>
 						<a className="others-item">
@@ -39,8 +39,8 @@ const Others = ({ sections, page, actId }) => {
 			<div className="others-after">
 				{sections[after] && (
 					<Link
-						href="/mevzuat/act/[id]/[page]"
-						as={`/mevzuat/act/${actId}/${after}`}
+						href="/mevzuat/kanun/[id]/[page]"
+						as={`/mevzuat/kanun/${actId}/${after}`}
 						shallow={true}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>

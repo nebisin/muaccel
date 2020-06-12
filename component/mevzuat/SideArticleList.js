@@ -42,8 +42,8 @@ const SideArticleList = ({ id, art }) => {
 						{articleList.map((a) => {
 							return (
 								<Link
-									href="/mevzuat/article/[id]"
-									as={`/mevzuat/article/${a._id}`}
+									href="/mevzuat/madde/[id]"
+									as={`/mevzuat/madde/${a._id}`}
 									key={a._id}
 								>
 									<a

@@ -45,8 +45,8 @@ const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 					{sections.map((item, i) => {
 						return (
 							<Link
-								href="/mevzuat/act/[id]/[page]"
-								as={`/mevzuat/act/${item.actId}/${i}`}
+								href="/mevzuat/kanun/[id]/[page]"
+								as={`/mevzuat/kanun/${item.actId}/${i}`}
 								shallow={true}
 								key={item._id}
 							>

@@ -8,7 +8,7 @@ const ActInfo = ({ act }) => {
 				className="side-card"
 				style={{ borderColor: act.background, textAlign: 'center' }}
 			>
-				<Link href="/mevzuat/act/[id]/[page]" as={`/mevzuat/act/${act._id}/0`}>
+				<Link href="/mevzuat/kanun/[id]/[page]" as={`/mevzuat/kanun/${act._id}/0`}>
 					<a>
 						<div className="side-card-content">
 							<p>{act.title} sayılı</p>
