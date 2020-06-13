@@ -64,6 +64,24 @@ const validateEmail = async (value) => {
 	return error;
 };
 
+const validateUserName = async (value) => {
+	let error;
+
+	if (!userName || value.length < 3 || value.length > 36) {
+		return;
+	}
+
+	const response = await mevzuatApi.post('/usercheck', {
+		userName: value,
+	});
+
+	if (response.data.error) {
+		error = 'Bu kullanıcı adı adresi kullanılıyor! Size aitse giriş yapın.';
+	}
+
+	return error;
+};
+
 const RegisterPage = () => {
 	return (
 		<div className="flex-container">
@@ -75,7 +93,12 @@ const RegisterPage = () => {
 				<Form className="register-form">
 					<div className="form-control">
 						<label htmlFor="userName">Kullanıcı Adı</label>
-						<Field type="text" id="userName" name="userName" />
+						<Field
+							type="text"
+							id="userName"
+							name="userName"
+							validate={validateUserName}
+						/>
 						<ErrorMessage name="userName">
 							{(msg) => <div className="error">{msg}</div>}
 						</ErrorMessage>
