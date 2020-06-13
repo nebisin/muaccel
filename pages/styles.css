@@ -135,11 +135,11 @@ a {
 .home-container {
 	margin-top: 389px;
 	width: 100%;
-	margin-bottom: 20px
+	margin-bottom: 20px;
 }
 
 .showcase-flex {
-	width: 100%
+	width: 100%;
 }
 
 .home-item {
@@ -546,6 +546,69 @@ a {
 	cursor: pointer;
 	color: #555;
 	background-color: white;
+}
+
+/* Register Form */
+
+.register-form {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.register-form input[type='text'],
+.register-form input[type='email'],
+.register-form input[type='password'] {
+	width: 100%;
+	font-size: 16px;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+	outline: none;
+}
+
+.register-form label {
+	width: 100%;
+	padding-left: 10px;
+	margin-bottom: 3px;
+	font-weight: bold;
+	color: #161e2e;
+}
+
+.register-form button {
+	max-width: 300px;
+	width: 70%;
+	padding: 10px;
+	background-color: #26547c;
+	color: #f2f2f2;
+	font-weight: bold;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+}
+
+.register-form button:hover {
+	cursor: pointer;
+	background-color: #f2f2f2;
+	border-color: #26547c;
+	color: #161e2e;
+}
+
+.register-form .form-control {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	max-width: 360px;
+	width: 90%;
+}
+
+.register-form .error {
+	font-size: 14px;
+	color: #990000;
+	padding: 5px;
 }
 
 /* Loader */

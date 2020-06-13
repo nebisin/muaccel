@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
+    "formik": "^2.1.4",
     "next": "^9.4.4",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
