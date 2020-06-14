@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+
 import GoArticle from './GoArticle';
 
 const Others = ({ sections, page, actId }) => {
@@ -23,9 +26,15 @@ const Others = ({ sections, page, actId }) => {
 						shallow={true}
 					>
 						<a className="others-item">
-							<div style={{ fontSize: '20px', marginRight: '5px' }}>
-								&#8678;
-							</div>
+							<FontAwesomeIcon
+								icon={faArrowAltCircleLeft}
+								style={{
+									fontSize: '18px',
+									marginRight: '5px',
+									position: 'relative',
+									bottom: '-2px',
+								}}
+							/>
 							<div className="s-none">
 								<p>{sections[before].title}</p>
 							</div>
@@ -47,7 +56,15 @@ const Others = ({ sections, page, actId }) => {
 							<div className="s-none">
 								<p>{sections[after].title}</p>
 							</div>
-							<div style={{ fontSize: '20px', marginLeft: '5px' }}>&#8680;</div>
+							<FontAwesomeIcon
+								icon={faArrowAltCircleRight}
+								style={{
+									fontSize: '18px',
+									marginLeft: '5px',
+									position: 'relative',
+									bottom: '-2px',
+								}}
+							/>
 						</a>
 					</Link>
 				)}

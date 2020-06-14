@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import mevzuatApi from '../../api/mevzuat';
@@ -7,24 +8,6 @@ const initialValues = {
 	email: '',
 	password: '',
 	passwordConfirmation: '',
-};
-
-const onSubmit = async (values) => {
-	await mevzuatApi
-		.post('/register', {
-			userName: values.userName,
-			email: values.email,
-			password: values.password,
-		})
-		.then(function (response) {
-			localStorage.setItem('userData', JSON.stringify(response.data.token));
-		})
-		.catch(function (error) {
-			console.log(error.response.data.error);
-		})
-		.then(function () {
-			return null;
-		});
 };
 
 const validationSchema = Yup.object({
@@ -46,100 +29,87 @@ const validationSchema = Yup.object({
 	),
 });
 
-const validateEmail = async (value) => {
-	let error;
-
-	if (!email || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,4}$/i.test(value)) {
-		return;
-	}
-
-	const response = await mevzuatApi.post('/usercheck', {
-		email: value,
-	});
-
-	if (response.data.error) {
-		error = 'Bu e-posta adresi kullanılıyor! Size aitse giriş yapın.';
-	}
-
-	return error;
-};
-
-const validateUserName = async (value) => {
-	let error;
-
-	if (!userName || value.length < 3 || value.length > 36) {
-		return;
-	}
-
-	const response = await mevzuatApi.post('/usercheck', {
-		userName: value,
-	});
-
-	if (response.data.error) {
-		error = 'Bu kullanıcı adı adresi kullanılıyor! Size aitse giriş yapın.';
-	}
-
-	return error;
-};
-
 const RegisterPage = () => {
+	const [suffixError, setSuffixError] = useState();
+
+	const onSubmit = async (values) => {
+		await mevzuatApi
+			.post('/register', {
+				userName: values.userName,
+				email: values.email,
+				password: values.password,
+			})
+			.then(function (response) {
+				localStorage.setItem('userData', JSON.stringify(response.data.token));
+			})
+			.catch(function (error) {
+				setSuffixError(error.response.data.error);
+			})
+			.then(function () {
+				return null;
+			});
+	};
+
 	return (
 		<div className="flex-container">
-			<Formik
-				initialValues={initialValues}
-				validationSchema={validationSchema}
-				onSubmit={onSubmit}
-			>
-				<Form className="register-form">
-					<div className="form-control">
-						<label htmlFor="userName">Kullanıcı Adı</label>
-						<Field
-							type="text"
-							id="userName"
-							name="userName"
-							validate={validateUserName}
-						/>
-						<ErrorMessage name="userName">
-							{(msg) => <div className="error">{msg}</div>}
-						</ErrorMessage>
-					</div>
+			<div className="register-flex">
+				<div className="register-header">
+					<div className="register-title">Üyelik Formu</div>
+					<div className="register-subtitle">muaccel.com'a katılın</div>
+				</div>
+				<Formik
+					initialValues={initialValues}
+					validationSchema={validationSchema}
+					onSubmit={onSubmit}
+				>
+					<Form className="register-form">
+						{suffixError && <div className="error suffix-error">{suffixError}</div>}
 
-					<div className="form-control">
-						<label htmlFor="email">E-posta Adresi</label>
-						<Field
-							type="email"
-							id="email"
-							name="email"
-							validate={validateEmail}
-						/>
-						<ErrorMessage name="email">
-							{(msg) => <div className="error">{msg}</div>}
-						</ErrorMessage>
-					</div>
+						<div className="form-control">
+							<label htmlFor="userName">Kullanıcı Adı</label>
+							<Field type="text" id="userName" name="userName" />
+							<ErrorMessage name="userName">
+								{(msg) => <div className="error">{msg}</div>}
+							</ErrorMessage>
+						</div>
 
-					<div className="form-control">
-						<label htmlFor="password">Şifre</label>
-						<Field type="password" id="password" name="password" />
-						<ErrorMessage name="password">
-							{(msg) => <div className="error">{msg}</div>}
-						</ErrorMessage>
-					</div>
+						<div className="form-control">
+							<label htmlFor="email">E-posta Adresi</label>
+							<Field type="email" id="email" name="email" />
+							<ErrorMessage name="email">
+								{(msg) => <div className="error">{msg}</div>}
+							</ErrorMessage>
+						</div>
 
-					<div className="form-control">
-						<label htmlFor="passwordConfirmation">Şifrenizi Tekrar Girin</label>
-						<Field
-							type="password"
-							id="passwordConfirmation"
-							name="passwordConfirmation"
-						/>
-						<ErrorMessage name="passwordConfirmation">
-							{(msg) => <div className="error">{msg}</div>}
-						</ErrorMessage>
-					</div>
+						<div className="form-control">
+							<label htmlFor="password">Şifre</label>
+							<Field type="password" id="password" name="password" />
+							<ErrorMessage name="password">
+								{(msg) => <div className="error">{msg}</div>}
+							</ErrorMessage>
+						</div>
 
-					<button type="submit">Üye Ol</button>
-				</Form>
-			</Formik>
+						<div className="form-control">
+							<label htmlFor="passwordConfirmation">
+								Şifrenizi Tekrar Girin
+							</label>
+							<Field
+								type="password"
+								id="passwordConfirmation"
+								name="passwordConfirmation"
+							/>
+							<ErrorMessage name="passwordConfirmation">
+								{(msg) => <div className="error">{msg}</div>}
+							</ErrorMessage>
+						</div>
+
+						<button type="submit">Üye Ol</button>
+					</Form>
+				</Formik>
+				<div className="register-footer">
+					Zaten üye misiniz? Giriş yapın.
+				</div>
+			</div>
 		</div>
 	);
 };

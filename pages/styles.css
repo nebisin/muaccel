@@ -550,13 +550,53 @@ a {
 
 /* Register Form */
 
+.register-flex {
+	max-width: 400px;
+	width: 95%;
+	margin: 0 auto;
+	padding-bottom: 20px;
+}
+
+.register-header {
+	max-width: 390px;
+	width: 95%;
+	margin: 20px auto 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.register-title {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+	color: #161e2e;
+
+}
+
+.register-subtitle {
+	font-size: 18px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 0.15rem;
+}
+
+.register-footer {
+	max-width: 390px;
+	width: 95%;
+	margin: 20px auto 0;
+	padding-bottom: 10px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+
+}
+
 .register-form {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 40px;
 }
 
 .register-form input[type='text'],
@@ -570,6 +610,17 @@ a {
 	outline: none;
 }
 
+.register-form input[type='text']:focus,
+.register-form input[type='email']:focus,
+.register-form input[type='password']:focus,
+.register-form input[type='text']:hover,
+.register-form input[type='email']:hover,
+.register-form input[type='password']:hover {
+	box-shadow: inset 1px 1px 1px #ccc;
+	-webkit-box-shadow: inset 1px 1px 1px #ccc;
+	-moz-box-shadow: inset 1px 1px 1px #ccc;
+}
+
 .register-form label {
 	width: 100%;
 	padding-left: 10px;
@@ -578,23 +629,24 @@ a {
 	color: #161e2e;
 }
 
-.register-form button {
+.register-form button,
+.register_button {
 	max-width: 300px;
 	width: 70%;
 	padding: 10px;
-	background-color: #26547c;
+	background-color: #326fa4;
 	color: #f2f2f2;
 	font-weight: bold;
 	font-size: 16px;
-	border: 1px solid #ccc;
+	border: 1px solid #4b89be;
 	border-radius: 0.25rem;
 }
 
-.register-form button:hover {
+.register-form button:hover,
+.register_button:hover {
 	cursor: pointer;
-	background-color: #f2f2f2;
-	border-color: #26547c;
-	color: #161e2e;
+	background-color: #387cb7;
+	color: white;
 }
 
 .register-form .form-control {
@@ -609,6 +661,12 @@ a {
 	font-size: 14px;
 	color: #990000;
 	padding: 5px;
+}
+
+.suffix-error {
+	margin: 0 10px 10px;
+	text-align: center;
+	white-space: pre-line;
 }
 
 /* Loader */
