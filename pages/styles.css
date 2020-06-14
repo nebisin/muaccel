@@ -127,8 +127,29 @@ a {
 	margin-top: 1.5rem;
 }
 
+.hero-buttons {
+	text-align: center;
+	max-width: 556px;
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+}
+
+.hero-buttons a{
+	flex: 1;
+	margin: 0 30px;
+}
+
+.hero-register-button {
+	width: 40%;
+}
+
+.hero-login-button {
+	width: 40%;
+}
+
 .search-container {
-	margin: 40px auto;
+	margin: 40px auto 0;
 	width: 40%;
 }
 
@@ -179,16 +200,16 @@ a {
 	width: 20%;
 	padding: 10px;
 	background-color: #7692ab;
-	color: white;
-	border: 1px solid #7692ab;
+	color: #f2f2f2;
+	border: 1px solid #839cb3;
 	border-radius: 0.25rem;
 	font-weight: bold;
 	font-size: inherit;
 }
 
 .button-blue:hover {
-	background-color: white;
-	color: #555;
+	background-color: #839cb3;
+	color: white;
 	cursor: pointer;
 }
 
@@ -571,7 +592,6 @@ a {
 	text-align: center;
 	margin-bottom: 5px;
 	color: #161e2e;
-
 }
 
 .register-subtitle {
@@ -588,7 +608,6 @@ a {
 	padding-bottom: 10px;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
-
 }
 
 .register-form {
@@ -630,7 +649,7 @@ a {
 }
 
 .register-form button,
-.register_button {
+.register-button {
 	max-width: 300px;
 	width: 70%;
 	padding: 10px;
@@ -642,11 +661,37 @@ a {
 	border-radius: 0.25rem;
 }
 
+.register-button {
+	width: 100%
+}
+
 .register-form button:hover,
-.register_button:hover {
+.register-button:hover {
 	cursor: pointer;
 	background-color: #387cb7;
 	color: white;
+}
+
+.login-button {
+	max-width: 300px;
+	width: 70%;
+	padding: 10px;
+	background-color: #6f326f;
+	color: #f2f2f2;
+	font-weight: bold;
+	font-size: 16px;
+	border: 1px solid #814c81;
+	border-radius: 0.25rem;
+}
+
+.login-button:hover {
+	cursor: pointer;
+	background-color: #814c81;
+	color: white;
+}
+
+.login-button {
+	width: 100%
 }
 
 .register-form .form-control {

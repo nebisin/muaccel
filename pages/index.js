@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Head from 'next/head'
+import Head from 'next/head';
 import SearchBar from '../component/mevzuat/SearchBar';
 
 const HomePage = () => {
@@ -19,12 +19,24 @@ const HomePage = () => {
 					<div className="search-container">
 						<SearchBar />
 					</div>
+					<div className="hero-buttons">
+						<Link href="/user/register">
+							<a>
+								<div className="register-button">Üye Ol</div>
+							</a>
+						</Link>
+						<Link href="/user/login">
+							<a>
+								<div className="login-button">Giriş Yap</div>
+							</a>
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div className="flex-container home-container">
 				<section className="showcase-flex">
 					<div className="card-deck">
-						<Link href="/mevzuat" prefetch={false}>
+						<Link href="/mevzuat">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Mevzuat</div>
 								<p>
@@ -33,7 +45,7 @@ const HomePage = () => {
 								</p>
 							</div>
 						</Link>
-						<Link href="/blog" prefetch={false}>
+						<Link href="/blog">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Blog</div>
 								<p>
@@ -43,7 +55,7 @@ const HomePage = () => {
 								</p>
 							</div>
 						</Link>
-						<Link href="/meydan" prefetch={false}>
+						<Link href="/meydan">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>

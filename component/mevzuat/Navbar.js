@@ -14,7 +14,7 @@ const Navbar = () => {
 		<nav id="navbar" onClick={onNavbarPressed}>
 			<div className="container">
 				<ul className="nav-list">
-					<Link href="/" prefetch={false}>
+					<Link href="/">
 						<a className="logo-link">
 							<li>
 								<img className="logo" src="/sitelogo.png" alt="logo" />
@@ -23,7 +23,7 @@ const Navbar = () => {
 					</Link>
 
 					<li>
-						<Link href="/mevzuat" prefetch={false}>
+						<Link href="/mevzuat">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/mevzuat") !== -1 && 'navlink-active'
@@ -34,7 +34,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/blog" prefetch={false}>
+						<Link href="/blog">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/blog") !== -1 && 'navlink-active'
@@ -45,7 +45,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/meydan" prefetch={false}>
+						<Link href="/meydan">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/meydan") !== -1 && 'navlink-active'
