@@ -14,7 +14,7 @@ const Navbar = () => {
 		<nav id="navbar" onClick={onNavbarPressed}>
 			<div className="container">
 				<ul className="nav-list">
-					<Link href="/">
+					<Link href="/" as="/">
 						<a className="logo-link">
 							<li>
 								<img className="logo" src="/sitelogo.png" alt="logo" />
@@ -23,7 +23,7 @@ const Navbar = () => {
 					</Link>
 
 					<li>
-						<Link href="/mevzuat">
+						<Link href="/mevzuat" as="/mevzuat">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/mevzuat") !== -1 && 'navlink-active'
@@ -34,7 +34,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/blog">
+						<Link href="/blog" as="/blog">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/blog") !== -1 && 'navlink-active'
@@ -45,7 +45,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/meydan">
+						<Link href="/meydan" as="/meydan">
 							<a
 								className={`navlink s-none ${
 									router.pathname.search("/meydan") !== -1 && 'navlink-active'

@@ -11,14 +11,14 @@ const BottomBar = () => {
 	return (
 		<div className="bottom-bar">
 			<div className="bottom-bar-container">
-				<Link href="/mevzuat">
+				<Link href="/mevzuat" as="/mevzuat">
 					<a className="bottom-bar-item">
 						<FontAwesomeIcon icon={faGavel} className="bottom-bar-item-icon" />
 
 						<div className="bottom-bar-item-text">Mevzuat</div>
 					</a>
 				</Link>
-				<Link href="/blog">
+				<Link href="/blog" as="/blog">
 					<a className="bottom-bar-item">
 						<FontAwesomeIcon
 							icon={faBookReader}
@@ -27,7 +27,7 @@ const BottomBar = () => {
 						<div className="bottom-bar-item-text">Blog</div>
 					</a>
 				</Link>
-				<Link href="/meydan">
+				<Link href="/meydan" as="/meydan">
 					<a className="bottom-bar-item">
 						<FontAwesomeIcon
 							icon={faPeopleArrows}

@@ -21,12 +21,12 @@ const HomePage = () => {
 						<SearchBar />
 					</div>
 					<div className="hero-buttons">
-						<Link href="/user/register">
+						<Link href="/user/register" as="/user/register">
 							<a>
 								<div className="register-button">Üye Ol</div>
 							</a>
 						</Link>
-						<Link href="/user/login">
+						<Link href="/user/login" as="/user/login">
 							<a>
 								<div className="login-button">Giriş Yap</div>
 							</a>
@@ -37,7 +37,7 @@ const HomePage = () => {
 			<div className="flex-container home-container">
 				<section className="showcase-flex">
 					<div className="card-deck">
-						<Link href="/mevzuat">
+						<Link href="/mevzuat" as="/mevzuat">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Mevzuat</div>
 								<p>
@@ -46,7 +46,7 @@ const HomePage = () => {
 								</p>
 							</div>
 						</Link>
-						<Link href="/blog">
+						<Link href="/blog" as="/blog">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Blog</div>
 								<p>
@@ -56,7 +56,7 @@ const HomePage = () => {
 								</p>
 							</div>
 						</Link>
-						<Link href="/meydan">
+						<Link href="/meydan" as="/meydan">
 							<div className="home-item">
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>
