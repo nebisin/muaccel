@@ -82,7 +82,7 @@ const HomePage = () => {
 						</Link>
 					</div>
 				</section>
-				<BottomBar />
+				<BottomBar active={0} />
 			</div>
 		</React.Fragment>
 	);

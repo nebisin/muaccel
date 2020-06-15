@@ -4,7 +4,7 @@ import BottomBar from '../../component/BottomBar'
 const MeydanPage = () => {
 	return (
 		<div>
-			<BottomBar />
+			<BottomBar active={3}/>
 		</div>
 	);
 };
