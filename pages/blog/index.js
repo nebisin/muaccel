@@ -1,7 +1,12 @@
+import BottomBar from '../../component/BottomBar'
+
+
 const BlogPage = () => {
-    return (
-        <div></div>
-    )
-}
+	return (
+		<div>
+			<BottomBar />
+		</div>
+	);
+};
 
 export default BlogPage;

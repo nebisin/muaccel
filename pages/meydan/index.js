@@ -1,7 +1,12 @@
+import BottomBar from '../../component/BottomBar'
+
+
 const MeydanPage = () => {
-    return (
-        <div></div>
-    )
-}
+	return (
+		<div>
+			<BottomBar />
+		</div>
+	);
+};
 
 export default MeydanPage;

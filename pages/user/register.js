@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import mevzuatApi from '../../api/mevzuat';
 
+import BottomBar from '../../component/BottomBar'
+
 const initialValues = {
 	userName: '',
 	email: '',
@@ -110,6 +112,7 @@ const RegisterPage = () => {
 					Zaten üye misiniz? Giriş yapın.
 				</div>
 			</div>
+			<BottomBar />
 		</div>
 	);
 };

@@ -1,5 +1,11 @@
+import BottomBar from '../../component/BottomBar'
+
 const LoginPage = () => {
-    return (<div></div>)
-}
+	return (
+		<div>
+			<BottomBar />
+		</div>
+	);
+};
 
 export default LoginPage;
