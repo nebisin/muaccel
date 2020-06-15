@@ -2,6 +2,12 @@ import Link from 'next/link';
 import Head from 'next/head';
 import SearchBar from '../component/mevzuat/SearchBar';
 import BottomBar from '../component/BottomBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faGavel,
+	faBookReader,
+	faPeopleArrows,
+} from '@fortawesome/free-solid-svg-icons';
 
 const HomePage = () => {
 	return (
@@ -39,6 +45,9 @@ const HomePage = () => {
 					<div className="card-deck">
 						<Link href="/mevzuat" as="/mevzuat">
 							<div className="home-item">
+								<div className="home-item-icon-container">
+									<FontAwesomeIcon icon={faGavel} className="home-item-icon" />
+								</div>
 								<div className="home-item-header">Muaccel Mevzuat</div>
 								<p>
 									Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde
@@ -48,6 +57,9 @@ const HomePage = () => {
 						</Link>
 						<Link href="/blog" as="/blog">
 							<div className="home-item">
+								<div className="home-item-icon-container">
+									<FontAwesomeIcon icon={faBookReader} className="home-item-icon" />
+								</div>{' '}
 								<div className="home-item-header">Muaccel Blog</div>
 								<p>
 									Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular
@@ -58,6 +70,9 @@ const HomePage = () => {
 						</Link>
 						<Link href="/meydan" as="/meydan">
 							<div className="home-item">
+								<div className="home-item-icon-container">
+									<FontAwesomeIcon icon={faPeopleArrows} className="home-item-icon" />
+								</div>{' '}
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>
 									Hukuki bir tartışma başlatın veya tartışmaya katkıda bulunun.

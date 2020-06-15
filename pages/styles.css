@@ -180,6 +180,21 @@ a {
 	box-shadow: 1px 1px 1px #ccc;
 }
 
+.home-item-icon-container {
+	padding: 10px;
+	width: 120px;
+	margin: 0 auto;
+}
+
+.home-item-icon {
+	font-size: 100px;
+	color: #839cb3;
+}
+
+.home-item:hover .home-item-icon {
+	color: #4b89be;
+}
+
 .home-item-header {
 	color: #161e2e;
 	font-weight: bold;
