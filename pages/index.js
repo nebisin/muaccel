@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import SearchBar from '../component/mevzuat/SearchBar';
+import BottomBar from '../component/BottomBar';
 
 const HomePage = () => {
 	return (
@@ -66,7 +67,7 @@ const HomePage = () => {
 						</Link>
 					</div>
 				</section>
-				<footer></footer>
+				<BottomBar />
 			</div>
 		</React.Fragment>
 	);
