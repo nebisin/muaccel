@@ -9,8 +9,6 @@ import {
 
 const BottomBar = () => {
 	return (
-        <React.Fragment>
-            <div style={{height: '59px', width: '100%'}}></div>
 			<div className="bottom-bar">
 				<div className="bottom-bar-container">
 					<Link href="/mevzuat" as="/mevzuat">
@@ -43,7 +41,6 @@ const BottomBar = () => {
 					</Link>
 				</div>
 			</div>
-		</React.Fragment>
 	);
 };
 

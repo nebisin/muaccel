@@ -880,4 +880,7 @@ a {
 		color: #161e2e !important;
 		text-align: center;
 	}
+	.flex-container {
+		margin-bottom: 59px;
+	}
 }
