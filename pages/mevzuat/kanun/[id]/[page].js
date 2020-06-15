@@ -91,13 +91,15 @@ const ActRoute = ({ data, sectionsData }) => {
 export async function getServerSideProps(context) {
 	let id = context.params.id;
 
-	const response = await mevzuatApi.get('/act', { params: { id } });
+	const [response, sections] = await Promise.all([
+		mevzuatApi.get('/act', { params: { id } }),
+		mevzuatApi.post('/sections', {
+			actId: id,
+			type: {},
+		}),
+	]);
+	
 	const data = response.data;
-
-	const sections = await mevzuatApi.post('/sections', {
-		actId: id,
-		type: {}
-	});
 	const sectionsData = sections.data;
 
 	return { props: { data, sectionsData } };
