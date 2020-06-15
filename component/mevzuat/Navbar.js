@@ -17,7 +17,7 @@ const Navbar = () => {
 					<Link href="/" as="/">
 						<a className="logo-link">
 							<li>
-								<img className="logo" src="/sitelogo.svg" alt="logo" />
+								<img className="logo" src="/sitelogo.png" alt="logo" />
 							</li>
 						</a>
 					</Link>
