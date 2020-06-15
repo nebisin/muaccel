@@ -2,6 +2,10 @@ import { Router } from 'next/dist/client/router';
 import NProgress from 'nprogress';
 import Head from 'next/head';
 
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
 import './nprogress.css';
 import './styles.css';
 
