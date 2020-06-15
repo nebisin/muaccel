@@ -698,18 +698,16 @@ a {
 	max-width: 300px;
 	width: 70%;
 	padding: 10px;
-	background-color: #6f326f;
-	color: #f2f2f2;
+	color: #326fa4;
 	font-weight: bold;
 	font-size: 16px;
-	border: 1px solid #814c81;
+	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
 }
 
 .login-button:hover {
 	cursor: pointer;
-	background-color: #814c81;
-	color: white;
+	background-color: #f9fafa;
 }
 
 .login-button {
