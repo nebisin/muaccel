@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
 
 import BottomBar from 'component/BottomBar';
@@ -34,8 +36,12 @@ const validationSchema = Yup.object({
 
 const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
+	const [submitting, setSubmitting] = useState(false);
 
 	const onSubmit = async (values) => {
+		setSuffixError('');
+		setSubmitting(true);
+
 		await mevzuatApi
 			.post('/register', {
 				userName: values.userName,
@@ -49,6 +55,7 @@ const RegisterPage = () => {
 				setSuffixError(error.response.data.error);
 			})
 			.then(function () {
+				setSubmitting(false);
 				return null;
 			});
 	};
@@ -108,7 +115,17 @@ const RegisterPage = () => {
 							</ErrorMessage>
 						</div>
 
-						<button type="submit" className="register-button">Üye Ol</button>
+						<button
+							type="submit"
+							className="register-button"
+							disabled={submitting}
+						>
+							{submitting ? (
+								<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+							) : (
+								'Üye Ol'
+							)}
+						</button>
 					</Form>
 				</Formik>
 				<div className="register-footer">
