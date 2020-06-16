@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import SearchBar from '../../../component/mevzuat/SearchBar';
-import ArticleContext from '../../../context/ArticleContext';
-import ArticleList from '../../../component/mevzuat/ArticleList';
-import ActList from '../../../component/mevzuat/ActList';
-import Sidebar from '../../../component/mevzuat/Sidebar';
+import SearchBar from 'component/mevzuat/SearchBar';
+import ArticleContext from 'context/ArticleContext';
+import ArticleList from 'component/mevzuat/ArticleList';
+import ActList from 'component/mevzuat/ActList';
+import Sidebar from 'component/mevzuat/Sidebar';
 
-import ActContext from '../../../context/ActContext';
+import ActContext from 'context/ActContext';
 
 const SearchRoute = () => {
 	const router = useRouter();

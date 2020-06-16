@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import ArticleContext from '../../context/ArticleContext';
+import ArticleContext from 'context/ArticleContext';
 
 const GoArticle = ({ id }) => {
 	const [term, setTerm] = useState('');

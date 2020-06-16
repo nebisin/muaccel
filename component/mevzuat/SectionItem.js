@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import ArticleContext from '../../context/ArticleContext';
+import ArticleContext from 'context/ArticleContext';
 import SectionList from './SectionList';
 import ArticleList from './ArticleList';
 import ArticleHolder from './ArticleHolder';

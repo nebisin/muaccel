@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import mevzuatApi from '../../../../api/mevzuat';
+import mevzuatApi from 'api/mevzuat';
 
-import SectionItem from '../../../../component/mevzuat/SectionItem';
-import Others from '../../../../component/mevzuat/Others';
-import Sidebar from '../../../../component/mevzuat/Sidebar';
+import SectionItem from 'component/mevzuat/SectionItem';
+import Others from 'component/mevzuat/Others';
+import Sidebar from 'component/mevzuat/Sidebar';
 
 const ActRoute = ({ data, sectionsData }) => {
 	const router = useRouter();

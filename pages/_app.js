@@ -9,10 +9,10 @@ config.autoAddCss = false;
 import './nprogress.css';
 import './styles.css';
 
-import { ActProvider } from '../context/ActContext';
-import { ArticleProvider } from '../context/ArticleContext';
-import { SectionProvider } from '../context/SectionContext';
-import Navbar from '../component/mevzuat/Navbar';
+import { ActProvider } from 'context/ActContext';
+import { ArticleProvider } from 'context/ArticleContext';
+import { SectionProvider } from 'context/SectionContext';
+import Navbar from 'component/Navbar';
 
 NProgress.configure({
 	showSpinner: false,
@@ -50,6 +50,10 @@ function MyApp({ Component, pageProps }) {
 						<meta
 							name="keywords"
 							content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
+						/>
+						<link
+							href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
+							rel="stylesheet"
 						/>
 						<link rel="icon" href="/favicon.ico" />
 						<link rel="apple-touch-icon" href="/logo192.png" />

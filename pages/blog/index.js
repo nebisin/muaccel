@@ -1,4 +1,4 @@
-import BottomBar from '../../component/BottomBar'
+import BottomBar from 'component/BottomBar'
 
 
 const BlogPage = () => {

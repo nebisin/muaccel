@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import mevzuatApi from '../../api/mevzuat';
+import mevzuatApi from 'api/mevzuat';
 
-import BottomBar from '../../component/BottomBar'
+import BottomBar from 'component/BottomBar'
 
 const initialValues = {
 	userName: '',

@@ -2,14 +2,14 @@ import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import ActContext from '../../../context/ActContext';
-import ArticleContext from '../../../context/ArticleContext';
+import ActContext from 'context/ActContext';
+import ArticleContext from 'context/ArticleContext';
 
-import SearchBar from '../../../component/mevzuat/SearchBar';
-import ActList from '../../../component/mevzuat/ActList';
-import ArticleList from '../../../component/mevzuat/ArticleList';
-import Sidebar from '../../../component/mevzuat/Sidebar';
-import ArticleHolder from '../../../component/mevzuat/ArticleHolder';
+import SearchBar from 'component/mevzuat/SearchBar';
+import ActList from 'component/mevzuat/ActList';
+import ArticleList from 'component/mevzuat/ArticleList';
+import Sidebar from 'component/mevzuat/Sidebar';
+import ArticleHolder from 'component/mevzuat/ArticleHolder';
 
 const Categories = () => {
 	const router = useRouter();

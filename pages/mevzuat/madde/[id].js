@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import mevzuatApi from '../../../api/mevzuat';
+import mevzuatApi from 'api/mevzuat';
 
-import ArticleItem from '../../../component/mevzuat/ArticleItem';
-import OtherArticles from '../../../component/mevzuat/OtherArticles';
-import Sidebar from '../../../component/mevzuat/Sidebar';
+import ArticleItem from 'component/mevzuat/ArticleItem';
+import OtherArticles from 'component/mevzuat/OtherArticles';
+import Sidebar from 'component/mevzuat/Sidebar';
 
 const ArticleRoute = ({ article, before, after }) => {
 	return (

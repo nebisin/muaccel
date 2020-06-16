@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import Link from 'next/link';
-import ArticleContext from '../../context/ArticleContext.js';
-import SectionContext from '../../context/SectionContext';
+import ArticleContext from 'context/ArticleContext.js';
+import SectionContext from 'context/SectionContext';
 const SideArticleList = ({ id, art }) => {
 	const [article, setArticle] = useState({});
 	const [articleList, setArticleList] = useState([]);

@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import ActContext from '../../../context/ActContext';
+import ActContext from 'context/ActContext';
 
-import SearchBar from '../../../component/mevzuat/SearchBar';
-import ActList from '../../../component/mevzuat/ActList';
-import Sidebar from '../../../component/mevzuat/Sidebar';
+import SearchBar from 'component/mevzuat/SearchBar';
+import ActList from 'component/mevzuat/ActList';
+import Sidebar from 'component/mevzuat/Sidebar';
 
 const AllActs = () => {
 	const [actList, setActList] = useState([]);

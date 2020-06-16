@@ -1,5 +1,5 @@
 import React from 'react';
-import mevzuatApi from '../api/mevzuat';
+import mevzuatApi from 'api/mevzuat';
 
 const SectionContext = React.createContext();
 

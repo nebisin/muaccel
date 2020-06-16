@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import mevzuatApi from '../api/mevzuat';
+import mevzuatApi from 'api/mevzuat';
 
 const ActContext = React.createContext();
 

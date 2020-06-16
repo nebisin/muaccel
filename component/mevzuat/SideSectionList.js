@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
-import SectionContext from '../../context/SectionContext';
+import SectionContext from 'context/SectionContext';
 
 const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 	const [suffixSections, setSuffixSections] = useState([]);
