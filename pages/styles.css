@@ -91,6 +91,8 @@ a {
 	-moz-box-shadow: inset 1px 1px 1px #ccc;
 }
 
+/* Hero Header */
+
 .hero-header {
 	position: absolute;
 	top: 59px;
@@ -632,6 +634,14 @@ a {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.register-footer a {
+	color: green;
+}
+
+.register-footer a:hover {
+	text-decoration: underline;
+}
+
 .register-form {
 	display: flex;
 	flex: 1;
@@ -670,7 +680,6 @@ a {
 	color: #161e2e;
 }
 
-.register-form button,
 .register-button {
 	max-width: 300px;
 	width: 70%;
@@ -687,7 +696,6 @@ a {
 	width: 100%
 }
 
-.register-form button:hover,
 .register-button:hover {
 	cursor: pointer;
 	background-color: #387cb7;
@@ -703,11 +711,17 @@ a {
 	font-size: 16px;
 	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
+	background-color: initial;
+
 }
 
 .login-button:hover {
 	cursor: pointer;
 	background-color: #f9fafa;
+}
+
+.login-button-inner:hover {
+	background-color: #fcfcfc !important;
 }
 
 .login-button {

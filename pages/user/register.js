@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import mevzuatApi from 'api/mevzuat';
 
-import BottomBar from 'component/BottomBar'
+import BottomBar from 'component/BottomBar';
 
 const initialValues = {
 	userName: '',
@@ -65,7 +66,9 @@ const RegisterPage = () => {
 					onSubmit={onSubmit}
 				>
 					<Form className="register-form">
-						{suffixError && <div className="error suffix-error">{suffixError}</div>}
+						{suffixError && (
+							<div className="error suffix-error">{suffixError}</div>
+						)}
 
 						<div className="form-control">
 							<label htmlFor="userName">Kullanıcı Adı</label>
@@ -105,11 +108,14 @@ const RegisterPage = () => {
 							</ErrorMessage>
 						</div>
 
-						<button type="submit">Üye Ol</button>
+						<button type="submit" className="register-button">Üye Ol</button>
 					</Form>
 				</Formik>
 				<div className="register-footer">
-					Zaten üye misiniz? Giriş yapın.
+					Zaten üye misiniz?{' '}
+					<Link href="/user/login">
+						<a>Giriş yapın.</a>
+					</Link>
 				</div>
 			</div>
 			<BottomBar />

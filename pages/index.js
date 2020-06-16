@@ -1,5 +1,7 @@
+import {useEffect} from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import mevzuatApi from 'api/mevzuat'
 import SearchBar from 'component/mevzuat/SearchBar';
 import BottomBar from 'component/BottomBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +12,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const HomePage = () => {
+	useEffect(() => {
+		mevzuatApi('/')
+	}, [])
+
 	return (
 		<React.Fragment>
 			<Head>
