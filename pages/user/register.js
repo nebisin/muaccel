@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useRouter } from 'next/router'
+import AuthContext from 'context/AuthContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
@@ -37,6 +40,8 @@ const validationSchema = Yup.object({
 const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
+	const router = useRouter()
+	const {login} = useContext(AuthContext);
 
 	const onSubmit = async (values) => {
 		setSuffixError('');
@@ -50,6 +55,8 @@ const RegisterPage = () => {
 			})
 			.then(function (response) {
 				localStorage.setItem('userData', JSON.stringify(response.data.token));
+				login(response.data.token)
+				router.push('/');
 			})
 			.catch(function (error) {
 				setSuffixError(error.response.data.error);

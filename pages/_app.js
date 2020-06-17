@@ -13,6 +13,7 @@ import { ActProvider } from 'context/ActContext';
 import { ArticleProvider } from 'context/ArticleContext';
 import { SectionProvider } from 'context/SectionContext';
 import Navbar from 'component/Navbar';
+import { AuthProvider } from 'context/AuthContext';
 
 NProgress.configure({
 	showSpinner: false,
@@ -34,38 +35,40 @@ Router.events.on('routeChangeError', () => {
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<ActProvider>
-			<ArticleProvider>
-				<SectionProvider>
-					<Head>
-						<title>Muaccel | Online Hukuk Projesi</title>
-						<meta
-							name="description"
-							content="muaccel.com - Online Hukuk Projesi..."
-						/>
-						<meta
-							name="viewport"
-							content="width=device-width, initial-scale=1.0"
-						/>
-						<meta
-							name="keywords"
-							content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
-						/>
-						<link
-							href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
-							rel="stylesheet"
-						/>
-						<link rel="icon" href="/favicon.ico" />
-						<link rel="apple-touch-icon" href="/logo192.png" />
-						<link rel="manifest" href="/manifest.json" />
-					</Head>
-					<Navbar />
-					<div className="container">
-						<Component {...pageProps} />
-					</div>
-				</SectionProvider>
-			</ArticleProvider>
-		</ActProvider>
+		<AuthProvider>
+			<ActProvider>
+				<ArticleProvider>
+					<SectionProvider>
+						<Head>
+							<title>Muaccel | Online Hukuk Projesi</title>
+							<meta
+								name="description"
+								content="muaccel.com - Online Hukuk Projesi..."
+							/>
+							<meta
+								name="viewport"
+								content="width=device-width, initial-scale=1.0"
+							/>
+							<meta
+								name="keywords"
+								content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
+							/>
+							<link
+								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
+								rel="stylesheet"
+							/>
+							<link rel="icon" href="/favicon.ico" />
+							<link rel="apple-touch-icon" href="/logo192.png" />
+							<link rel="manifest" href="/manifest.json" />
+						</Head>
+						<Navbar />
+						<div className="container">
+							<Component {...pageProps} />
+						</div>
+					</SectionProvider>
+				</ArticleProvider>
+			</ActProvider>
+		</AuthProvider>
 	);
 }
 

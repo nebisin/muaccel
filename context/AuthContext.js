@@ -1,37 +1,66 @@
-import React, { useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
+import useSWR, { mutate } from 'swr';
 import mevzuatApi from 'api/mevzuat';
 
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-    /*
-	const getActList = useCallback(async (props) => {
-		const { query, sort, limit, skip } = props;
-		const acts = await mevzuatApi.post(`/acts`, { query, sort, limit, skip });
-		return acts.data;
+	const [userData, setUserData] = useState();
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLogging, setIsLogging] = useState(true);
+
+	useEffect(() => {
+		let storedData = JSON.parse(localStorage.getItem('userData'));
+		if (storedData) {
+			setUserData(storedData);
+		}
 	}, []);
 
-	const getActById = async (id) => {
-		if (id === null) {
-			return null;
-		}
-		const response = await mevzuatApi.get('/act', { params: { id } });
-		return response.data;
+	const { data: userAuth } = useSWR(userData ? '/auth' : null, () =>
+		mevzuatApi
+			.post(
+				'/auth',
+				{},
+				{
+					headers: {
+						Authorization: `Bearer ${userData}`,
+					},
+				}
+			)
+			.then((response) => {
+				setIsLogging(false);
+				setIsLoggedIn(!!response.data);
+				return response.data;
+			})
+			.catch(function (error) {
+				localStorage.removeItem('userData');
+				setUserData();
+				setIsLogging(false);
+				setIsLoggedIn(false);
+			})
+			.finally(() => {
+				setIsLogging(false);
+			})
+	);
+
+	useEffect(() => {
+		mutate('/auth');
+	}, [userData]);
+
+	const login = (token) => {
+		setUserData(token);
 	};
 
-	const searchAct = async (term) => {
-		if (!term) {
-			return { error: 'Bir arama terimi girmelisiniz.' };
-		}
-
-		const response = await mevzuatApi.get('search/acts', {
-			params: { term: term },
-		});
-		return response.data;
+	const logout = () => {
+		localStorage.removeItem('userData');
+		setUserData();
+		setIsLoggedIn(false);
 	};
-    */
+
 	return (
-		<AuthContext.Provider value={{ getActList, getActById, searchAct }}>
+		<AuthContext.Provider
+			value={{ userData, userAuth, login, logout, isLogging, isLoggedIn }}
+		>
 			{children}
 		</AuthContext.Provider>
 	);

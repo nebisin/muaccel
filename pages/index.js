@@ -1,7 +1,8 @@
-import {useEffect} from 'react';
+import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import mevzuatApi from 'api/mevzuat'
+import mevzuatApi from 'api/mevzuat';
+import AuthContext from 'context/AuthContext';
 import SearchBar from 'component/mevzuat/SearchBar';
 import BottomBar from 'component/BottomBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,9 +13,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const HomePage = () => {
+	const { userAuth, logout, userData } = useContext(AuthContext);
 	useEffect(() => {
-		mevzuatApi('/')
-	}, [])
+		mevzuatApi('/');
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -33,16 +35,33 @@ const HomePage = () => {
 						<SearchBar />
 					</div>
 					<div className="hero-buttons">
-						<Link href="/user/register" as="/user/register">
-							<a>
-								<div className="register-button">Üye Ol</div>
-							</a>
-						</Link>
-						<Link href="/user/login" as="/user/login">
-							<a>
-								<div className="login-button">Giriş Yap</div>
-							</a>
-						</Link>
+						{!userAuth ? (
+							<React.Fragment>
+								<Link href="/user/register" as="/user/register">
+									<a>
+										<div className="register-button">Üye Ol</div>
+									</a>
+								</Link>
+								<Link href="/user/login" as="/user/login">
+									<a>
+										<div className="login-button">Giriş Yap</div>
+									</a>
+								</Link>
+							</React.Fragment>
+						) : (
+							<React.Fragment>
+								<Link href="/user/profile/me" as="/user/profile/me">
+									<a>
+										<div className="register-button">Hesabım</div>
+									</a>
+								</Link>
+								<Link href="/user/logout" as="/user/logout">
+									<a>
+										<div className="login-button">Çıkış Yap</div>
+									</a>
+								</Link>
+							</React.Fragment>
+						)}
 					</div>
 				</div>
 			</div>
@@ -64,7 +83,10 @@ const HomePage = () => {
 						<Link href="/blog" as="/blog">
 							<div className="home-item">
 								<div className="home-item-icon-container">
-									<FontAwesomeIcon icon={faBookReader} className="home-item-icon" />
+									<FontAwesomeIcon
+										icon={faBookReader}
+										className="home-item-icon"
+									/>
 								</div>{' '}
 								<div className="home-item-header">Muaccel Blog</div>
 								<p>
@@ -77,7 +99,10 @@ const HomePage = () => {
 						<Link href="/meydan" as="/meydan">
 							<div className="home-item">
 								<div className="home-item-icon-container">
-									<FontAwesomeIcon icon={faPeopleArrows} className="home-item-icon" />
+									<FontAwesomeIcon
+										icon={faPeopleArrows}
+										className="home-item-icon"
+									/>
 								</div>{' '}
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>
