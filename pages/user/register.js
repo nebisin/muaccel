@@ -41,7 +41,7 @@ const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
 	const router = useRouter()
-	const {setUserData} = useContext(AuthContext);
+	const {login} = useContext(AuthContext);
 
 	const onSubmit = async (values) => {
 		setSuffixError('');
@@ -55,7 +55,7 @@ const RegisterPage = () => {
 			})
 			.then(function (response) {
 				localStorage.setItem('userData', JSON.stringify(response.data.token));
-				setUserData(response.data.token)
+				login(response.data.token)
 				router.push('/');
 			})
 			.catch(function (error) {

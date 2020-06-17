@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -24,14 +24,8 @@ const validationSchema = Yup.object({
 const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
-	const {setUserData, isLoggedIn} = useContext(AuthContext);
+	const {login} = useContext(AuthContext);
 	const router = useRouter()
-
-	useEffect(() => {
-		if (isLoggedIn) {
-			router.push('/');
-		}
-    }, [isLoggedIn]);
 
 	const onSubmit = async (values) => {
 		setSubmitting(true);
@@ -43,7 +37,7 @@ const RegisterPage = () => {
 			})
 			.then(function (response) {
 				localStorage.setItem('userData', JSON.stringify(response.data.token));
-				setUserData(response.data.token)
+				login(response.data.token)
 				router.push('/');
 			})
 			.catch(function (error) {
