@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://api.muaccel.com",
+  baseURL: "https://radiant-garden-86590.herokuapp.com",
 });
