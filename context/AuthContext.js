@@ -47,19 +47,9 @@ export const AuthProvider = ({ children }) => {
 		mutate('/auth');
 	}, [userData]);
 
-	const login = (token) => {
-		setUserData(token);
-	};
-
-	const logout = () => {
-		localStorage.removeItem('userData');
-		setUserData();
-		setIsLoggedIn(false);
-	};
-
 	return (
 		<AuthContext.Provider
-			value={{ userData, userAuth, login, logout, isLogging, isLoggedIn }}
+			value={{ userData, userAuth, isLogging, isLoggedIn }}
 		>
 			{children}
 		</AuthContext.Provider>

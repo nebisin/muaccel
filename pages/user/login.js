@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
 const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
-	const {login, isLoggedIn} = useContext(AuthContext);
+	const {setUserData, isLoggedIn} = useContext(AuthContext);
 	const router = useRouter()
 
 	useEffect(() => {
@@ -43,7 +43,7 @@ const RegisterPage = () => {
 			})
 			.then(function (response) {
 				localStorage.setItem('userData', JSON.stringify(response.data.token));
-				login(response.data.token)
+				setUserData(response.data.token)
 				router.push('/');
 			})
 			.catch(function (error) {

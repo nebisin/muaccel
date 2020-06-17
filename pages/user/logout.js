@@ -5,10 +5,11 @@ import { useRouter } from 'next/router'
 
 const LoginPage = () => {
 	const router = useRouter()
-	const {logout} = useContext(AuthContext);
-	
+	const {setUserData} = useContext(AuthContext);
+
 	useEffect(() => {
-		logout();
+		localStorage.removeItem('userData');
+		setUserData();
 		router.push('/');
 	}, [])
 	return (
