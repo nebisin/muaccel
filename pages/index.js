@@ -1,9 +1,10 @@
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
 import SearchBar from 'component/mevzuat/SearchBar';
 import BottomBar from 'component/BottomBar';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faGavel,
@@ -13,6 +14,7 @@ import {
 import HeroButtons from 'component/HeroButtons';
 
 const HomePage = () => {
+
 	useEffect(() => {
 		mevzuatApi('/');
 	}, []);

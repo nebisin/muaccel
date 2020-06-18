@@ -30,6 +30,26 @@ a {
 	margin-top: 69px;
 }
 
+.loading-container {
+	background-color: #f9fafa;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.splash-spinner {
+	font-size: 50px;
+	-webkit-animation: fa-spin 2s infinite linear;
+	animation: fa-spin 2s infinite linear;
+	color: #4b89be;
+}
+
 .likelink:hover {
 	cursor: pointer;
 }

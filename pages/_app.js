@@ -9,6 +9,7 @@ config.autoAddCss = false;
 import './nprogress.css';
 import './styles.css';
 
+import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';
 import { ArticleProvider } from 'context/ArticleContext';
 import { SectionProvider } from 'context/SectionContext';
@@ -65,6 +66,7 @@ function MyApp({ Component, pageProps }) {
 						<div className="container">
 							<Component {...pageProps} />
 						</div>
+						<LoadingSplash />
 					</SectionProvider>
 				</ArticleProvider>
 			</ActProvider>
