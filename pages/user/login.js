@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,25 +24,29 @@ const validationSchema = Yup.object({
 const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
-	const {login, isLoggedIn} = useContext(AuthContext);
-	const router = useRouter()
+	const { login, isLoggedIn } = useContext(AuthContext);
+	const router = useRouter();
 
 	useEffect(() => {
-		if(isLoggedIn){
+		if (isLoggedIn) {
 			router.push('/');
 		}
-	})
+	});
 
 	const onSubmit = async (values) => {
 		setSubmitting(true);
 		setSuffixError('');
 		await mevzuatApi
-			.post('/login', {
-				userName: values.userName,
-				password: values.password,
-			})
+			.post(
+				'/login',
+				{
+					userName: values.userName,
+					password: values.password,
+					withCredentials: true
+				},
+			)
 			.then(function (response) {
-				login(response.data.token)
+				login(response.data.token);
 				router.push('/');
 			})
 			.catch(function (error) {
