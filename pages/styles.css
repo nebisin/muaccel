@@ -381,11 +381,22 @@ a {
 	cursor: pointer;
 }
 
+.nav-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 .nav-list {
 	display: flex;
 	flex-direction: row;
 	height: 59px;
 	align-items: center;
+	width: auto;
+}
+
+.nav-list-right {
+	align-self: flex-end;
 }
 
 .nav-list li {
@@ -846,6 +857,9 @@ a {
 		width: 100%;
 	}
 	.button-blue {
+		display: none;
+	}
+	.sm-none {
 		display: none;
 	}
 }

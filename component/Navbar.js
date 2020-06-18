@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import UserNav from './UserNav';
 
 const Navbar = () => {
 	const router = useRouter();
@@ -12,7 +13,7 @@ const Navbar = () => {
 
 	return (
 		<nav id="navbar" onClick={onNavbarPressed}>
-			<div className="container">
+			<div className="container nav-container">
 				<ul className="nav-list">
 					<Link href="/" as="/">
 						<a className="logo-link">
@@ -26,7 +27,7 @@ const Navbar = () => {
 						<Link href="/mevzuat" as="/mevzuat">
 							<a
 								className={`navlink s-none ${
-									router.pathname.search("/mevzuat") !== -1 && 'navlink-active'
+									router.pathname.search('/mevzuat') !== -1 && 'navlink-active'
 								}`}
 							>
 								Mevzuat
@@ -37,7 +38,7 @@ const Navbar = () => {
 						<Link href="/blog" as="/blog">
 							<a
 								className={`navlink s-none ${
-									router.pathname.search("/blog") !== -1 && 'navlink-active'
+									router.pathname.search('/blog') !== -1 && 'navlink-active'
 								}`}
 							>
 								Blog
@@ -48,7 +49,7 @@ const Navbar = () => {
 						<Link href="/meydan" as="/meydan">
 							<a
 								className={`navlink s-none ${
-									router.pathname.search("/meydan") !== -1 && 'navlink-active'
+									router.pathname.search('/meydan') !== -1 && 'navlink-active'
 								}`}
 							>
 								Meydan
@@ -56,6 +57,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 				</ul>
+				<UserNav />
 			</div>
 		</nav>
 	);

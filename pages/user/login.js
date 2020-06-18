@@ -42,7 +42,6 @@ const RegisterPage = () => {
 				{
 					userName: values.userName,
 					password: values.password,
-					withCredentials: true
 				},
 			)
 			.then(function (response) {

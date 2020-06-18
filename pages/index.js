@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
-import AuthContext from 'context/AuthContext';
 import SearchBar from 'component/mevzuat/SearchBar';
 import BottomBar from 'component/BottomBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,11 +9,10 @@ import {
 	faGavel,
 	faBookReader,
 	faPeopleArrows,
-	faSpinner
 } from '@fortawesome/free-solid-svg-icons';
+import HeroButtons from 'component/HeroButtons';
 
 const HomePage = () => {
-	const { isLoggedIn, isLogging } = useContext(AuthContext);
 	useEffect(() => {
 		mevzuatApi('/');
 	}, []);
@@ -35,71 +33,7 @@ const HomePage = () => {
 					<div className="search-container">
 						<SearchBar />
 					</div>
-					<div className="hero-buttons">
-						{!isLoggedIn ? (
-							<React.Fragment>
-								<Link href="/user/register" as="/user/register">
-									<a>
-										<div className="register-button">
-											{isLogging ? (
-												<FontAwesomeIcon
-													icon={faSpinner}
-													className="login-spinner"
-												/>
-											) : (
-												'Üye Ol'
-											)}
-										</div>
-									</a>
-								</Link>
-								<Link href="/user/login" as="/user/login">
-									<a>
-										<div className="login-button">
-											{isLogging ? (
-												<FontAwesomeIcon
-													icon={faSpinner}
-													className="login-spinner"
-												/>
-											) : (
-												'Giriş Yap'
-											)}
-										</div>
-									</a>
-								</Link>
-							</React.Fragment>
-						) : (
-							<React.Fragment>
-								<Link href="/user/profile/me" as="/user/profile/me">
-									<a>
-										<div className="register-button">
-											{isLogging ? (
-												<FontAwesomeIcon
-													icon={faSpinner}
-													className="login-spinner"
-												/>
-											) : (
-												'Hesabım'
-											)}
-										</div>
-									</a>
-								</Link>
-								<Link href="/user/logout" as="/user/logout">
-									<a>
-										<div className="login-button">
-											{isLogging ? (
-												<FontAwesomeIcon
-													icon={faSpinner}
-													className="login-spinner"
-												/>
-											) : (
-												'Çıkış Yap'
-											)}
-										</div>
-									</a>
-								</Link>
-							</React.Fragment>
-						)}
-					</div>
+					<HeroButtons />
 				</div>
 			</div>
 			<div className="flex-container home-container">
