@@ -10,6 +10,7 @@ const LoadingSplash = () => {
 		<React.Fragment>
             {isLogging && (
                 <div className="loading-container">
+                    <img className="splash-logo" src="/sitelogo.svg" alt="logo" />
                     <FontAwesomeIcon icon={faSpinner} className="splash-spinner" />
                 </div>
             )}

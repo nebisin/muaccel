@@ -39,6 +39,7 @@ a {
 	left: 0;
 	z-index: 999999;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -48,6 +49,11 @@ a {
 	-webkit-animation: fa-spin 2s infinite linear;
 	animation: fa-spin 2s infinite linear;
 	color: #4b89be;
+}
+
+.splash-logo {
+	height: 50px;
+	margin: 50px;
 }
 
 .likelink:hover {
