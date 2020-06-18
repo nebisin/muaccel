@@ -17,9 +17,11 @@ export const AuthProvider = ({ children }) => {
 	}, []);
 
 	const auth = async () => {
+		setIsLogging(true);
 		if (!token) {
 			setUserInfo();
 			setIsLogging(false);
+			setIsLoggedIn(false);
 			return;
 		}
 		try {
@@ -34,21 +36,25 @@ export const AuthProvider = ({ children }) => {
 			);
 			if (response.data) {
 				setUserInfo(response.data);
+				setIsLoggedIn(true);
+				setIsLogging(false);
+
 			} else {
 				setUserInfo();
+				setIsLogging(false);
+				setIsLoggedIn(false);
 				logout();
 			}
 		} catch (error) {
 			setUserInfo();
+			setIsLogging(false);
+			setIsLoggedIn(false);
+
 			logout();
 		}
 	};
 
 	useEffect(() => {
-		if (token) {
-			setIsLoggedIn(true);
-			setIsLogging(false);
-		}
 		auth();
 	}, [token]);
 

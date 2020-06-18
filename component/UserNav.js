@@ -2,39 +2,31 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const UserNav = () => {
 	const router = useRouter();
-	const { isLoggedIn, isLogging } = useContext(AuthContext);
+	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
 
 	return (
 		<ul className="nav-list nav-list-right">
 			{isLoggedIn ? (
 				<React.Fragment>
-					<li>
-						<Link href="/user/profile/me">
-							<a
-								className={`navlink s-none ${
-									router.pathname.search('/user/profile/me') !== -1 &&
-									'navlink-active'
-								}`}
-							>
-								Hesabım
-							</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/user/logout">
-							<a
-								className={`navlink sm-none ${
-									router.pathname.search('/user/logout') !== -1 &&
-									'navlink-active'
-								}`}
-							>
-								Çıkış Yap
-							</a>
-						</Link>
-					</li>
+					{userInfo && (
+						<li>
+							<button className="navlink-button s-none">
+								{userInfo?.userName}
+								<FontAwesomeIcon
+									icon={faChevronDown}
+									style={{
+										fontSize: '14px',
+										marginLeft: '5px',
+									}}
+								/>
+							</button>
+						</li>
+					)}
 				</React.Fragment>
 			) : (
 				!isLogging && (

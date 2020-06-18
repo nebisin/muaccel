@@ -416,6 +416,21 @@ a {
 	font-weight: bold;
 }
 
+.navlink-button {
+	padding: 8px 10px;
+	border-radius: 2px;
+	font-weight: bold;
+	border: none;
+	background-color: inherit;
+	font-size: 16px;
+	color: inherit;
+}
+
+.navlink-button:hover {
+	cursor: pointer;
+	color: #326fa4;
+}
+
 .navlink:hover,
 .navlink-active {
 	background-color: #7692ab;
