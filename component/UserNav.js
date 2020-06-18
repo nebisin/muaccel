@@ -15,7 +15,7 @@ const UserNav = () => {
 				<React.Fragment>
 					{userInfo && (
 						<li>
-							<button className="navlink-button s-none">
+							<button className="navlink-button">
 								{userInfo?.userName}
 								<FontAwesomeIcon
 									icon={faChevronDown}
@@ -46,7 +46,7 @@ const UserNav = () => {
 						<li>
 							<Link href="/user/login">
 								<a
-									className={`navlink s-none ${
+									className={`navlink ${
 										router.pathname.search('/user/login') !== -1 &&
 										'navlink-active'
 									}`}
