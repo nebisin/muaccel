@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		if(token){
+		if (token) {
 			setIsLoggedIn(true);
 			setIsLogging(false);
 		}
@@ -61,6 +61,9 @@ export const AuthProvider = ({ children }) => {
 	}, [userInfo]);
 
 	const login = (resToken) => {
+		if (!resToken) {
+			return;
+		}
 		setToken(resToken);
 		localStorage.setItem('userData', JSON.stringify(resToken));
 	};
