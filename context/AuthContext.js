@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
 	const auth = async () => {
 		if (!token) {
 			setUserInfo();
+			setIsLogging(false);
 			return;
 		}
 		try {

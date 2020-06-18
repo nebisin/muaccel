@@ -10,6 +10,7 @@ import {
 	faGavel,
 	faBookReader,
 	faPeopleArrows,
+	faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 
 const HomePage = () => {
@@ -35,16 +36,34 @@ const HomePage = () => {
 						<SearchBar />
 					</div>
 					<div className="hero-buttons">
-						{isLogging ? null : !isLoggedIn ? (
+						{!isLoggedIn ? (
 							<React.Fragment>
 								<Link href="/user/register" as="/user/register">
 									<a>
-										<div className="register-button">Üye Ol</div>
+										<div className="register-button">
+											{isLogging ? (
+												<FontAwesomeIcon
+													icon={faSpinner}
+													className="login-spinner"
+												/>
+											) : (
+												'Üye Ol'
+											)}
+										</div>
 									</a>
 								</Link>
 								<Link href="/user/login" as="/user/login">
 									<a>
-										<div className="login-button">Giriş Yap</div>
+										<div className="login-button">
+											{isLogging ? (
+												<FontAwesomeIcon
+													icon={faSpinner}
+													className="login-spinner"
+												/>
+											) : (
+												'Giriş Yap'
+											)}
+										</div>
 									</a>
 								</Link>
 							</React.Fragment>
@@ -52,12 +71,30 @@ const HomePage = () => {
 							<React.Fragment>
 								<Link href="/user/profile/me" as="/user/profile/me">
 									<a>
-										<div className="register-button">Hesabım</div>
+										<div className="register-button">
+											{isLogging ? (
+												<FontAwesomeIcon
+													icon={faSpinner}
+													className="login-spinner"
+												/>
+											) : (
+												'Hesabım'
+											)}
+										</div>
 									</a>
 								</Link>
 								<Link href="/user/logout" as="/user/logout">
 									<a>
-										<div className="login-button">Çıkış Yap</div>
+										<div className="login-button">
+											{isLogging ? (
+												<FontAwesomeIcon
+													icon={faSpinner}
+													className="login-spinner"
+												/>
+											) : (
+												'Çıkış Yap'
+											)}
+										</div>
 									</a>
 								</Link>
 							</React.Fragment>
