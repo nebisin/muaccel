@@ -16,7 +16,7 @@ const UserNav = () => {
 					{userInfo && (
 						<li>
 							<button className="navlink-button">
-								{userInfo?.userName}
+								{userInfo.userName}
 								<FontAwesomeIcon
 									icon={faChevronDown}
 									style={{

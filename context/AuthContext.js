@@ -13,17 +13,16 @@ export const AuthProvider = ({ children }) => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
 		if (storedData) {
 			setToken(storedData);
-		}
-	}, []);
-
-	const auth = async () => {
-		setIsLogging(true);
-		if (!token) {
+		}else{
 			setUserInfo();
 			setIsLogging(false);
 			setIsLoggedIn(false);
 			return;
 		}
+	}, []);
+
+	const auth = async () => {
+		setIsLogging(true);
 		try {
 			const response = await mevzuatApi.post(
 				'/auth',
@@ -49,13 +48,14 @@ export const AuthProvider = ({ children }) => {
 			setUserInfo();
 			setIsLogging(false);
 			setIsLoggedIn(false);
-
 			logout();
 		}
 	};
 
 	useEffect(() => {
-		auth();
+		if(token){
+			auth();
+		}
 	}, [token]);
 
 	useEffect(() => {
@@ -77,6 +77,9 @@ export const AuthProvider = ({ children }) => {
 	const logout = () => {
 		localStorage.removeItem('userData');
 		setToken();
+		setUserInfo();
+		setIsLogging(false);
+		setIsLoggedIn(false);
 	};
 
 	return (
