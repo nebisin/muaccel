@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -41,8 +41,12 @@ const RegisterPage = () => {
 	const [suffixError, setSuffixError] = useState();
 	const [submitting, setSubmitting] = useState(false);
 	const router = useRouter()
-	const {login} = useContext(AuthContext);
-
+	const {login, isLoggedIn} = useContext(AuthContext);
+	useEffect(() => {
+		if(isLoggedIn){
+			router.push('/');
+		}
+	})
 	const onSubmit = async (values) => {
 		setSuffixError('');
 		setSubmitting(true);
@@ -54,7 +58,6 @@ const RegisterPage = () => {
 				password: values.password,
 			})
 			.then(function (response) {
-				localStorage.setItem('userData', JSON.stringify(response.data.token));
 				login(response.data.token)
 				router.push('/');
 			})

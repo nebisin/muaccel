@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const HomePage = () => {
-	const { userAuth, logout, userData } = useContext(AuthContext);
+	const { isLoggedIn, isLogging } = useContext(AuthContext);
 	useEffect(() => {
 		mevzuatApi('/');
 	}, []);
@@ -35,7 +35,7 @@ const HomePage = () => {
 						<SearchBar />
 					</div>
 					<div className="hero-buttons">
-						{!userAuth ? (
+						{isLogging ? null : !isLoggedIn ? (
 							<React.Fragment>
 								<Link href="/user/register" as="/user/register">
 									<a>

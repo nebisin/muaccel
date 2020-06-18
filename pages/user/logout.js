@@ -22,12 +22,10 @@ const LoginPage = () => {
 					}
 				)
 				.then(function (response) {
-					localStorage.removeItem('userData');
 					logout();
 					router.push('/');
 				})
 				.catch(function (error) {
-					localStorage.removeItem('userData');
 					logout();
 					router.push('/');
 				});

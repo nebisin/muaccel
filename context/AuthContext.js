@@ -1,65 +1,84 @@
 import React, { useEffect, useState } from 'react';
-import useSWR, { mutate } from 'swr';
 import mevzuatApi from 'api/mevzuat';
 
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-	const [userData, setUserData] = useState();
+	const [token, setToken] = useState();
+	const [userInfo, setUserInfo] = useState();
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isLogging, setIsLogging] = useState(true);
 
 	useEffect(() => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
 		if (storedData) {
-			setUserData(storedData);
+			setToken(storedData);
 		}
 	}, []);
 
-	const { data: userAuth } = useSWR(userData ? '/auth' : null, () =>
-		mevzuatApi
-			.post(
+	const auth = async () => {
+		if (!token) {
+			setUserInfo();
+			return;
+		}
+		try {
+			const response = await mevzuatApi.post(
 				'/auth',
 				{},
 				{
 					headers: {
-						Authorization: `Bearer ${userData}`,
+						Authorization: `Bearer ${token}`,
 					},
 				}
-			)
-			.then((response) => {
-				setIsLogging(false);
-				setIsLoggedIn(!!response.data);
-				return response.data;
-			})
-			.catch(function (error) {
-				localStorage.removeItem('userData');
-				setUserData();
-				setIsLogging(false);
-				setIsLoggedIn(false);
-			})
-			.finally(() => {
-				setIsLogging(false);
-			})
-	);
+			);
+			if (response.data) {
+				setUserInfo(response.data);
+			} else {
+				setUserInfo();
+				logout();
+			}
+		} catch (error) {
+			setUserInfo();
+			logout();
+		}
+	};
 
 	useEffect(() => {
-		mutate('/auth');
-	}, [userData]);
+		if(token){
+			setIsLoggedIn(true);
+			setIsLogging(false);
+		}
+		auth();
+	}, [token]);
 
-	const login = (token) => {
-		setUserData(token);
+	useEffect(() => {
+		if (userInfo) {
+			setIsLoggedIn(true);
+		} else {
+			setIsLoggedIn(false);
+		}
+	}, [userInfo]);
+
+	const login = (resToken) => {
+		setToken(resToken);
+		localStorage.setItem('userData', JSON.stringify(resToken));
 	};
 
 	const logout = () => {
 		localStorage.removeItem('userData');
-		setUserData();
-		setIsLoggedIn(false);
+		setToken();
 	};
 
 	return (
 		<AuthContext.Provider
-			value={{ userData, userAuth, login, logout, isLogging, isLoggedIn }}
+			value={{
+				auth,
+				login,
+				logout,
+				userInfo,
+				isLoggedIn,
+				isLogging,
+			}}
 		>
 			{children}
 		</AuthContext.Provider>
