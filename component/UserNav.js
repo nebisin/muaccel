@@ -62,13 +62,11 @@ const UserNav = () => {
 									style={{ display: `${dropdown ? 'block' : 'none'}` }}
 								>
 									<li>
-										<Link href="/user/profile/me">
-											<a>Hesabım</a>
-										</Link>
+										<p className='usernav-name'>{userInfo.userName}</p>
 									</li>
 									<li>
 										<Link href="/user/profile/me">
-											<a>Mesajlarım</a>
+											<a>Hesabım</a>
 										</Link>
 									</li>
 									<li>
