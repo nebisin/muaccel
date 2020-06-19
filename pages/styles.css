@@ -469,6 +469,32 @@ a {
 	align-self: center;
 }
 
+.usernav-dropdown{
+	position: absolute;
+	min-width: 150px;
+	background-color: #fafafa;
+	z-index: 9999;
+	top: 59px;
+	border: 1px solid #ccc;
+	border-top: none;
+	display: none;
+	border-radius: 0 0 0.25rem 0.25rem;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+	padding: 10px;
+	cursor: default;
+}
+
+.usernav-dropdown li{
+	padding: 5px;
+	text-align: center;
+	margin: 0;
+}
+
+.usernav-dropdown li a:hover {
+	cursor: pointer;
+	color: #4b89be;
+}
+
 /* Sidebar */
 
 #sidebar {
@@ -896,6 +922,9 @@ a {
 @media screen and (max-width: 768px) {
 	.container {
 		width: 100%;
+	}
+	.usernav-dropdown {
+		right: 20px;
 	}
 	.button-blue {
 		display: none;

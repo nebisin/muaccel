@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
@@ -8,6 +8,13 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 const UserNav = () => {
 	const router = useRouter();
 	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
+	const [dropdown, setDropdown] = useState(false);
+
+	useEffect(() => {
+		window.addEventListener('click', function (event) {
+			setDropdown(false);
+		});
+	}, []);
 
 	return (
 		<ul className="nav-list nav-list-right">
@@ -15,7 +22,13 @@ const UserNav = () => {
 				<React.Fragment>
 					{userInfo && (
 						<li>
-							<button className="navlink-button">
+							<button
+								className="navlink-button"
+								onClick={(event) => {
+									setDropdown(!dropdown);
+									event.stopPropagation();
+								}}
+							>
 								{userInfo.userName}
 								<FontAwesomeIcon
 									icon={faChevronDown}
@@ -25,6 +38,32 @@ const UserNav = () => {
 									}}
 								/>
 							</button>
+							<ul
+								className="usernav-dropdown"
+								onClick={(event) => event.stopPropagation()}
+								style={{ display: `${dropdown ? 'block' : 'none'}` }}
+							>
+								<li>
+									<Link href="/user/profile/me">
+										<a>Hesabım</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/profile/me">
+										<a>Notlarım</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/profile/me">
+										<a>Ayarlar</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/logout">
+										<a>Çıkış Yap</a>
+									</Link>
+								</li>
+							</ul>
 						</li>
 					)}
 				</React.Fragment>
