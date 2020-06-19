@@ -50,7 +50,7 @@ const UserNav = () => {
 								</li>
 								<li>
 									<Link href="/user/profile/me">
-										<a>Notlarım</a>
+										<a>Mesajlarım</a>
 									</Link>
 								</li>
 								<li>

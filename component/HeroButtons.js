@@ -47,13 +47,13 @@ const HeroButtons = () => {
 							</div>
 						</a>
 					</Link>
-					<Link href="/user/logout" as="/user/logout">
+					<Link href="/user/profile/me" as="/user/profile/me">
 						<a>
 							<div className="login-button">
 								{isLogging ? (
 									<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
 								) : (
-									'Çıkış Yap'
+									'Ayarlar'
 								)}
 							</div>
 						</a>
