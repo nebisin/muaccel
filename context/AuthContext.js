@@ -13,12 +13,23 @@ export const AuthProvider = ({ children }) => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
 		if (storedData) {
 			setToken(storedData);
-		}else{
+		} else {
 			setUserInfo();
 			setIsLogging(false);
 			setIsLoggedIn(false);
 			return;
 		}
+		window.addEventListener('storage', () => {
+			let storedData = JSON.parse(localStorage.getItem('userData'));
+			if (storedData) {
+				setToken(storedData);
+			} else {
+				setUserInfo();
+				setIsLogging(false);
+				setIsLoggedIn(false);
+				return;
+			}
+		});
 	}, []);
 
 	const auth = async () => {
@@ -37,7 +48,6 @@ export const AuthProvider = ({ children }) => {
 				setUserInfo(response.data);
 				setIsLoggedIn(true);
 				setIsLogging(false);
-
 			} else {
 				setUserInfo();
 				setIsLogging(false);
@@ -53,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		if(token){
+		if (token) {
 			auth();
 		}
 	}, [token]);
