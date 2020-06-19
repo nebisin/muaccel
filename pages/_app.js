@@ -15,6 +15,7 @@ import { ArticleProvider } from 'context/ArticleContext';
 import { SectionProvider } from 'context/SectionContext';
 import Navbar from 'component/Navbar';
 import { AuthProvider } from 'context/AuthContext';
+import BottomBar from 'component/BottomBar'
 
 NProgress.configure({
 	showSpinner: false,
@@ -66,6 +67,7 @@ function MyApp({ Component, pageProps }) {
 						<div className="container">
 							<Component {...pageProps} />
 						</div>
+						<BottomBar active={0} />
 						<LoadingSplash />
 					</SectionProvider>
 				</ArticleProvider>

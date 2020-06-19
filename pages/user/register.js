@@ -145,7 +145,6 @@ const RegisterPage = () => {
 					</Link>
 				</div>
 			</div>
-			<BottomBar />
 		</div>
 	);
 };

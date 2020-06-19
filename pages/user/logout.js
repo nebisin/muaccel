@@ -35,7 +35,6 @@ const LoginPage = () => {
 	return (
 		<div>
 			<div>Çıkış yapılıyor...</div>
-			<BottomBar />
 		</div>
 	);
 };

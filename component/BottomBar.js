@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const BottomBar = ({ active }) => {
+	const router = useRouter();
+
 	return (
 		<div className="bottom-bar">
 			<div className="bottom-bar-container">
@@ -17,7 +20,7 @@ const BottomBar = ({ active }) => {
 						<FontAwesomeIcon
 							icon={faLandmark}
 							className={`bottom-bar-item-icon ${
-								active === 0 && 'bottom-bar-item-icon-active'
+								router.pathname === '/' && 'bottom-bar-item-icon-active'
 							}`}
 						/>
 
@@ -29,7 +32,8 @@ const BottomBar = ({ active }) => {
 						<FontAwesomeIcon
 							icon={faGavel}
 							className={`bottom-bar-item-icon ${
-								active === 1 && 'bottom-bar-item-icon-active'
+								router.pathname.search('/mevzuat') !== -1 &&
+								'bottom-bar-item-icon-active'
 							}`}
 						/>
 						<div className="bottom-bar-item-text">Mevzuat</div>
@@ -40,7 +44,8 @@ const BottomBar = ({ active }) => {
 						<FontAwesomeIcon
 							icon={faBookReader}
 							className={`bottom-bar-item-icon ${
-								active === 2 && 'bottom-bar-item-icon-active'
+								router.pathname.search('/blog') !== -1 &&
+								'bottom-bar-item-icon-active'
 							}`}
 						/>
 						<div className="bottom-bar-item-text">Blog</div>
@@ -51,7 +56,8 @@ const BottomBar = ({ active }) => {
 						<FontAwesomeIcon
 							icon={faPeopleArrows}
 							className={`bottom-bar-item-icon ${
-								active === 3 && 'bottom-bar-item-icon-active'
+								router.pathname.search('/meydan') !== -1 &&
+								'bottom-bar-item-icon-active'
 							}`}
 						/>
 						<div className="bottom-bar-item-text">Meydan</div>
