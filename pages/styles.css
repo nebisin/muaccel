@@ -443,6 +443,7 @@ a {
 }
 
 .navlink-button {
+	position: relative;
 	padding: 8px 10px;
 	border-radius: 2px;
 	font-weight: bold;
@@ -452,7 +453,7 @@ a {
 	color: inherit;
 }
 
-.navlink-button:hover {
+.navlink-button:hover .nav-link-button-icon {
 	cursor: pointer;
 	color: #326fa4;
 }
@@ -471,10 +472,12 @@ a {
 
 .usernav-dropdown{
 	position: absolute;
-	width: 120px;
+	min-width: 150px;
+	max-width: 200px;
 	background-color: #fafafa;
 	z-index: 9999;
-	top: 59px;
+	top: 50px;
+	right: 0px;
 	border: 1px solid #ccc;
 	border-top: none;
 	display: none;
@@ -923,9 +926,6 @@ a {
 	.container {
 		width: 100%;
 	}
-	.usernav-dropdown {
-		right: 20px;
-	}
 	.button-blue {
 		display: none;
 	}
@@ -953,6 +953,9 @@ a {
 		border-radius: 0.25rem;
 		width: 100%;
 		min-width: 130px;
+	}
+	.navlink-button {
+		padding: 8px 3px;
 	}
 
 	/* Bottom Bar */

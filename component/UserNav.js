@@ -41,6 +41,7 @@ const UserNav = () => {
 							>
 								<FontAwesomeIcon
 									icon={faUserCircle}
+									className="nav-link-button-icon"
 									style={{
 										fontSize: '24px',
 										marginLeft: '5px',
@@ -48,39 +49,40 @@ const UserNav = () => {
 								/>
 								<FontAwesomeIcon
 									icon={faChevronDown}
+									className="nav-link-button-icon"
 									style={{
 										fontSize: '14px',
 										marginLeft: '5px',
 										marginBottom: '3px',
 									}}
 								/>
+								<ul
+									className="usernav-dropdown"
+									onClick={(event) => event.stopPropagation()}
+									style={{ display: `${dropdown ? 'block' : 'none'}` }}
+								>
+									<li>
+										<Link href="/user/profile/me">
+											<a>Hesabım</a>
+										</Link>
+									</li>
+									<li>
+										<Link href="/user/profile/me">
+											<a>Mesajlarım</a>
+										</Link>
+									</li>
+									<li>
+										<Link href="/user/profile/me">
+											<a>Ayarlar</a>
+										</Link>
+									</li>
+									<li>
+										<Link href="/user/logout">
+											<a>Çıkış Yap</a>
+										</Link>
+									</li>
+								</ul>
 							</button>
-							<ul
-								className="usernav-dropdown"
-								onClick={(event) => event.stopPropagation()}
-								style={{ display: `${dropdown ? 'block' : 'none'}` }}
-							>
-								<li>
-									<Link href="/user/profile/me">
-										<a>Hesabım</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/profile/me">
-										<a>Mesajlarım</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/profile/me">
-										<a>Ayarlar</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/logout">
-										<a>Çıkış Yap</a>
-									</Link>
-								</li>
-							</ul>
 						</li>
 					)}
 				</React.Fragment>
