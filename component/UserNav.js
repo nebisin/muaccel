@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const UserNav = () => {
 	const router = useRouter();
@@ -22,6 +23,15 @@ const UserNav = () => {
 				<React.Fragment>
 					{userInfo && (
 						<li>
+							<button className="navlink-button">
+								<FontAwesomeIcon
+									icon={faEnvelope}
+									style={{
+										fontSize: '24px',
+										marginLeft: '5px',
+									}}
+								/>
+							</button>
 							<button
 								className="navlink-button"
 								onClick={(event) => {
@@ -29,12 +39,19 @@ const UserNav = () => {
 									event.stopPropagation();
 								}}
 							>
-								{userInfo.userName}
+								<FontAwesomeIcon
+									icon={faUserCircle}
+									style={{
+										fontSize: '24px',
+										marginLeft: '5px',
+									}}
+								/>
 								<FontAwesomeIcon
 									icon={faChevronDown}
 									style={{
 										fontSize: '14px',
 										marginLeft: '5px',
+										marginBottom: '3px',
 									}}
 								/>
 							</button>
