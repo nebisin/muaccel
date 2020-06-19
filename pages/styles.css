@@ -471,7 +471,7 @@ a {
 
 .usernav-dropdown{
 	position: absolute;
-	min-width: 150px;
+	width: 120px;
 	background-color: #fafafa;
 	z-index: 9999;
 	top: 59px;
