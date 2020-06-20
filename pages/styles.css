@@ -69,7 +69,6 @@ a {
 	margin: 10px 20px;
 	padding: 10px 20px;
 	width: auto;
-
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
@@ -80,24 +79,19 @@ a {
 	margin-top: 10px;
 }
 
-.DraftEditor-root {
-	background: #fff;
-	font-family: 'Georgia', serif;
-	font-size: 14px;
-	padding: 15px;
-}
-
-.DraftEditor-editor {
-	border-top: 1px solid #ddd;
+.article-note-content .DraftEditor-root {
 	cursor: text;
 	font-size: 16px;
-	margin-top: 10px;
 }
 
-.DraftEditor-editor .public-DraftEditorPlaceholder-root,
-.DraftEditor-editor .public-DraftEditor-content {
+.article-note-content .public-DraftEditorPlaceholder-root,
+.article-note-content .public-DraftEditor-content {
 	margin: 0 -15px -15px;
 	padding: 15px;
+}
+
+.article-note-content .public-DraftEditor-content {
+	min-height: 100px;
 }
 
 .note-inline-button {

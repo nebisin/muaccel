@@ -7,8 +7,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 import './nprogress.css';
-import './styles.css';
 import 'draft-js/dist/Draft.css';
+import './styles.css';
 
 import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';
