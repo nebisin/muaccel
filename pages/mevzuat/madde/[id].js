@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
 import mevzuatApi from 'api/mevzuat';
 
+import AuthContext from 'context/AuthContext';
 import ArticleItem from 'component/mevzuat/ArticleItem';
 import OtherArticles from 'component/mevzuat/OtherArticles';
 import Sidebar from 'component/mevzuat/Sidebar';
+import ArticleNote from 'component/mevzuat/ArticleNote';
 
 const ArticleRoute = ({ article, before, after }) => {
+	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
+
 	return (
 		<React.Fragment>
 			<Head>
@@ -41,6 +45,7 @@ const ArticleRoute = ({ article, before, after }) => {
 								actId={article.actId._id}
 							/>
 							<ArticleItem item={article} type={2} />
+							{isLoggedIn && <ArticleNote /> }
 						</React.Fragment>
 					)}
 				</section>

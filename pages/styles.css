@@ -65,6 +65,45 @@ a {
 	padding: 20px 10px;
 }
 
+.article-note-container {
+	margin: 10px 20px;
+	padding: 10px 20px;
+	width: auto;
+	
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+}
+
+.article-note-content {
+	cursor: text;
+	border-top: 1px solid #ccc;
+	margin-top: 10px;
+
+}
+
+.article-note-content .DraftEditor-root{
+	min-height: 120px;
+	width: 100%;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+.note-inline-button {
+	color: #999;
+	cursor: pointer;
+	margin-left: 14px;
+	padding: 2px 0;
+	display: inline-block;
+	background-color: white;
+	border: none;
+	font-size: 16px;
+}
+
+.note-inline-button-active{
+	color: #0077cc;
+}
+
 .act-title {
 	font-size: 18px;
 	font-weight: bold;
@@ -164,7 +203,7 @@ a {
 	width: 40%;
 }
 
-.hero-buttons a{
+.hero-buttons a {
 	flex: 1;
 	margin: 0 30px;
 }
@@ -470,7 +509,7 @@ a {
 	align-self: center;
 }
 
-.usernav-dropdown{
+.usernav-dropdown {
 	position: absolute;
 	width: 250px;
 	background-color: #fafafa;
@@ -486,7 +525,7 @@ a {
 	cursor: default;
 }
 
-.usernav-dropdown li{
+.usernav-dropdown li {
 	padding: 5px;
 	text-align: center;
 	margin: 0;
@@ -782,7 +821,7 @@ a {
 }
 
 .register-button {
-	width: 100%
+	width: 100%;
 }
 
 .register-button:hover {
@@ -801,7 +840,6 @@ a {
 	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
 	background-color: initial;
-
 }
 
 .login-button:hover {
@@ -814,7 +852,7 @@ a {
 }
 
 .login-button {
-	width: 100%
+	width: 100%;
 }
 
 .login-spinner {

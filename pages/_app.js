@@ -8,6 +8,7 @@ config.autoAddCss = false;
 
 import './nprogress.css';
 import './styles.css';
+import 'draft-js/dist/Draft.css';
 
 import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';
@@ -55,6 +56,7 @@ function MyApp({ Component, pageProps }) {
 								name="keywords"
 								content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
 							/>
+							<meta charset="utf-8" />
 							<link
 								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
 								rel="stylesheet"
