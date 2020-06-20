@@ -62,7 +62,7 @@ const ArticleNote = () => {
 			>
 				Altı Çizili
 			</span>
-			<div className="article-note-content" onClick={focusEditor}>
+			<div className="article-note-content">
 				<Editor
 					ref={noteEditor}
 					editorState={editorState}

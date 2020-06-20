@@ -69,24 +69,35 @@ a {
 	margin: 10px 20px;
 	padding: 10px 20px;
 	width: auto;
-	
+
 	background-color: #fff;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	border-radius: 0.25rem;
 }
 
 .article-note-content {
-	cursor: text;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #ddd;
 	margin-top: 10px;
-
 }
 
-.article-note-content .DraftEditor-root{
-	min-height: 120px;
-	width: 100%;
-	padding: 10px;
-	padding-top: 20px;
+.DraftEditor-root {
+	background: #fff;
+	font-family: 'Georgia', serif;
+	font-size: 14px;
+	padding: 15px;
+}
+
+.DraftEditor-editor {
+	border-top: 1px solid #ddd;
+	cursor: text;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.DraftEditor-editor .public-DraftEditorPlaceholder-root,
+.DraftEditor-editor .public-DraftEditor-content {
+	margin: 0 -15px -15px;
+	padding: 15px;
 }
 
 .note-inline-button {
@@ -100,7 +111,7 @@ a {
 	font-size: 16px;
 }
 
-.note-inline-button-active{
+.note-inline-button-active {
 	color: #0077cc;
 }
 
