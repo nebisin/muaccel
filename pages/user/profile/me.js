@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import AllNotes from 'component/user/AllNotes';
-import Sidebar from 'component/mevzuat/Sidebar';
+import UserSidebar from 'component/user/UserSidebar';
 
 const login = '/user/login?redirected=true';
 
@@ -22,7 +22,8 @@ const ProfilePage = () => {
 
 	return (
 		<div className="flex-container">
-			<Sidebar type="home" />
+			<UserSidebar />
+
 			<section id="showcase">
 				{isLoggedIn && userInfo && <AllNotes user={userInfo} token={token} />}
 			</section>
