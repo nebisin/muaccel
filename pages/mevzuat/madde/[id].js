@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
@@ -11,7 +11,37 @@ import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
 
 const ArticleRoute = ({ article, before, after }) => {
-	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
+	const { isLoggedIn, isLogging, userInfo, token } = useContext(AuthContext);
+	const [initialNote, setInitialNote] = useState();
+	const [noteId, setNoteId] = useState();
+	const [noteLoading, setNoteLoading] = useState(true);
+
+	useEffect(() => {
+		setInitialNote();
+		const getNote = async () => {
+			if (isLoggedIn) {
+				setNoteLoading(true);
+				const response = await mevzuatApi.get(
+					`/note?articleId=${article._id}`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+				if (response?.data?.raw) {
+					setInitialNote(response.data.raw);
+					setNoteId(response.data._id);
+				}
+				setNoteLoading(false);
+			} else {
+				setNoteLoading(false);
+			}
+		};
+		if (!isLogging) {
+			getNote();
+		}
+	}, [isLoggedIn, userInfo, isLogging, article]);
 
 	return (
 		<React.Fragment>
@@ -34,7 +64,9 @@ const ArticleRoute = ({ article, before, after }) => {
 							>
 								<a>
 									<div className="act-title">
-										{article.actId.title && <p>{article.actId.title} sayılı </p> }
+										{article.actId.title && (
+											<p>{article.actId.title} sayılı </p>
+										)}
 										<p>{article.actId.name}</p>
 									</div>
 								</a>
@@ -45,7 +77,23 @@ const ArticleRoute = ({ article, before, after }) => {
 								actId={article.actId._id}
 							/>
 							<ArticleItem item={article} type={2} />
-							{isLoggedIn && <ArticleNote /> }
+							{!noteLoading ? isLoggedIn && (
+								<ArticleNote
+									articleId={article._id}
+									initialNote={initialNote}
+									noteId={noteId}
+								/>
+							) : (
+								<div
+									style={{
+										width: 'auto',
+										display: 'flex',
+										marginBottom: '20px',
+									}}
+								>
+									<div className="loader">Loading...</div>
+								</div>
+							)}
 						</React.Fragment>
 					)}
 				</section>

@@ -109,6 +109,46 @@ a {
 	color: #0077cc;
 }
 
+.article-note-buttons{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.article-note-create-button {
+	width: 20%;
+	padding: 10px;
+	background-color: #326fa4;
+	color: #f2f2f2;
+	border: 1px solid #4b89be;
+	border-radius: 0.25rem;
+	font-weight: bold;
+	font-size: inherit;
+	margin-left: 10px;
+	margin-right: 40px;
+}
+
+.article-note-create-button:hover {
+	background-color: #4b89be;
+	color: #f2f2f2;
+	cursor: pointer;
+}
+
+.article-note-delete-button{
+	width: 20%;
+	padding: 10px;
+	background-color: inherit;
+	color: #990000;
+	border: 1px solid #990000;
+	border-radius: 0.25rem;
+	font-weight: bold;
+	font-size: inherit;
+}
+
+.article-note-delete-button:hover{
+	background-color: white;
+	cursor: pointer;
+}
+
 .act-title {
 	font-size: 18px;
 	font-weight: bold;
