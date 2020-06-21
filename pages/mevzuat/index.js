@@ -41,11 +41,11 @@ const HomePage = () => {
 		setIsLoading(false);
 		setArticleLoading(true);
 
-		const randomSkipArticle = Math.floor(Math.random() * 450);
+		const randomSkipArticle = Math.floor(Math.random() * 1000);
 
 		const popularArticles = await getArticleList({
 			limit: 12,
-			sort: { hit: -1 },
+			sort: { content: -1 },
 			skip: randomSkipArticle,
 		});
 
