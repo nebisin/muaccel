@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
-import AllNotes from 'component/AllNotes';
+import AllNotes from 'component/user/AllNotes';
 import Sidebar from 'component/mevzuat/Sidebar';
 
 const login = '/user/login?redirected=true';

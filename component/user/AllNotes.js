@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import NoteItem from 'component/NoteItem';
+import NoteItem from 'component/user/NoteItem';
 import mevzuatApi from 'api/mevzuat';
 
 const AllNotes = ({ user, token }) => {

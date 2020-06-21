@@ -640,6 +640,12 @@ a {
 	padding: 10px;
 }
 
+.sidebar-icon {
+	font-size: 23px;
+	color: #4b89be;
+	margin: 0 10px;
+}
+
 .title {
 	margin: 15px;
 }
