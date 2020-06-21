@@ -189,6 +189,40 @@ a {
 	color: #326fa4
 }
 
+.user-sidebar-content {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 72px;
+}
+
+.user-side-link {
+	text-align: center;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.user-side-link a{
+	padding: 10px;
+	color: #4b89be;
+	font-weight: bold;
+}
+
+.user-side-link a:hover {
+	background-color: #4b89be;
+	border-radius: 1rem;
+	color: white;
+}
+
+.user-side-link-active a {
+	background-color: #4b89be;
+	border-radius: 1rem;
+	color: white;
+}
+
+.user-side-link-active a:hover {
+	background-color: #326fa4;
+}
+
 .account-header {
 	padding: 0 10px;
 }
