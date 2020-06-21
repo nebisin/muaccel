@@ -45,7 +45,7 @@ const HomePage = () => {
 
 		const popularArticles = await getArticleList({
 			limit: 12,
-			sort: { content: -1 },
+			sort: { hit: 1 },
 			skip: randomSkipArticle,
 		});
 

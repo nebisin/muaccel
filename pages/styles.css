@@ -69,9 +69,10 @@ a {
 	margin: 10px 20px;
 	padding: 10px 20px;
 	width: auto;
-	background-color: #fff;
+	background-color: #fffef7;
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
+	box-shadow: 1px 1px 1px #ddd;
 }
 
 .article-note-content {
@@ -100,7 +101,6 @@ a {
 	margin-left: 14px;
 	padding: 2px 0;
 	display: inline-block;
-	background-color: white;
 	border: none;
 	font-size: 16px;
 }
@@ -109,7 +109,7 @@ a {
 	color: #0077cc;
 }
 
-.article-note-buttons{
+.article-note-buttons {
 	display: flex;
 	justify-content: flex-end;
 }
@@ -125,6 +125,7 @@ a {
 	font-size: inherit;
 	margin-left: 10px;
 	margin-right: 40px;
+	min-width: 78px;
 }
 
 .article-note-create-button:hover {
@@ -133,7 +134,13 @@ a {
 	cursor: pointer;
 }
 
-.article-note-delete-button{
+.article-note-create-button:disabled {
+	cursor: not-allowed;
+	background-color: #b3b3b3 !important;
+	border: 1px solid #bfbfbf;
+}
+
+.article-note-delete-button {
 	width: 20%;
 	padding: 10px;
 	background-color: inherit;
@@ -142,11 +149,48 @@ a {
 	border-radius: 0.25rem;
 	font-weight: bold;
 	font-size: inherit;
+	min-width: 78px;
 }
 
-.article-note-delete-button:hover{
+.article-note-delete-button:hover {
 	background-color: white;
 	cursor: pointer;
+}
+
+.all-notes {
+}
+
+.user-note {
+	width: 100%;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #f1f1f1;
+	margin-bottom: 20px;
+	box-shadow: 1px 1px 1px #f1f1f1;
+
+}
+
+.user-note-content {
+	max-height: 250px;
+	overflow: hidden;
+}
+
+.user-note-header {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.user-note-header-link {
+	color: #0077cc;
+}
+
+.user-note-header-link:hover {
+	color: #326fa4
+}
+
+.account-header {
+	padding: 0 10px;
 }
 
 .act-title {

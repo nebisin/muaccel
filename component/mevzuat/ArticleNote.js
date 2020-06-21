@@ -22,10 +22,6 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 
 	const noteEditor = React.useRef(null);
 
-	const focusEditor = () => {
-		noteEditor.current.focus();
-	};
-
 	const onChange = (newState) => {
 		setEditorState(newState);
 	};
