@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
 								name="keywords"
 								content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
 							/>
-							<meta charset="utf-8" />
+							<meta charSet="utf-8" />
 							<link
 								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
 								rel="stylesheet"

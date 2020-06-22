@@ -47,11 +47,11 @@ const ArticleRoute = ({ article, before, after }) => {
 		<React.Fragment>
 			<Head>
 				<title>
-					Madde {article.title} - {article.actId.name} | Muaccel Mevzuat
+					{article.name} - {article.actId.name} | Muaccel Mevzuat
 				</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta name="description" content={article.content} />
+				<meta name="description" content={`Madde ${article.title} - ${article.content}`} />
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="article" id={article._id} art={article} />
