@@ -2,8 +2,9 @@ import { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import ActContext from 'context/ActContext';
 import ArticleContext from 'context/ArticleContext';
+
+import mevzuatApi from 'api/mevzuat';
 
 import SearchBar from 'component/mevzuat/SearchBar';
 import ActList from 'component/mevzuat/ActList';
@@ -11,7 +12,7 @@ import ArticleList from 'component/mevzuat/ArticleList';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
 
-const Categories = () => {
+const Categories = ({ actList }) => {
 	const router = useRouter();
 
 	const [acts, setActs] = useState([]);
@@ -20,48 +21,42 @@ const Categories = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [articleLoading, setArticleLoading] = useState(false);
 
-	const { getActList } = useContext(ActContext);
 	const { getArticleList } = useContext(ArticleContext);
 
 	const categoryId = router.query.id;
 
 	useEffect(() => {
 		setIsLoading(true);
-		setActs([]);
 		setArticles([]);
+		setActs([])
 		setCategoryName('');
 		const getCategoryActs = async () => {
 			switch (categoryId) {
-				case "0":
+				case '0':
 					setCategoryName('Medenî Usul ve İcra-İflâs Hukuku');
-					break; 
-				case "1":
+					break;
+				case '1':
 					setCategoryName('İş ve Sosyal Güvenlik Hukuku');
-					break; 
-				case "2":
+					break;
+				case '2':
 					setCategoryName('Medeni Hukuk');
-					break; 
-				case "3":
+					break;
+				case '3':
 					setCategoryName('Ceza ve Ceza Muhakemesi Hukuku');
-					break; 
-				case "4":
+					break;
+				case '4':
 					setCategoryName('Milletlerarası Özel Hukuk ve Usul Hukuku');
-					break; 
+					break;
 				default:
 					setCategoryName('');
-					break; 
+					break;
 			}
-			const actList = await getActList({
-				limit: 3,
-				query: { category: categoryId },
-				sort: { hit: -1 },
-			});
-			setActs(actList);
+			setActs(actList)
 			setIsLoading(false);
 		};
 		if (categoryId === undefined) return;
 		getCategoryActs();
-	}, [categoryId]);
+	}, [categoryId, actList]);
 
 	useEffect(() => {
 		let categoryArticles = [];
@@ -111,5 +106,24 @@ const Categories = () => {
 		</React.Fragment>
 	);
 };
+
+export async function getServerSideProps(context) {
+	let id = context.params.id;
+	mevzuatApi.get('/article', { params: { id } });
+
+	try {
+		const response = await mevzuatApi.post(`/acts`, {
+			query: { category: id },
+			sort: { hit: -1 },
+			limit: 3,
+		});
+
+		const actList = response.data;
+
+		return { props: { actList } };
+	} catch (error) {
+		return { props: { actList: {} } };
+	}
+}
 
 export default Categories;
