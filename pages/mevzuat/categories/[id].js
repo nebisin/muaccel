@@ -15,7 +15,7 @@ import ArticleHolder from 'component/mevzuat/ArticleHolder';
 const Categories = ({ actList }) => {
 	const router = useRouter();
 
-	const [acts, setActs] = useState([]);
+	const [acts, setActs] = useState(actList);
 	const [articles, setArticles] = useState([]);
 	const [categoryName, setCategoryName] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +28,6 @@ const Categories = ({ actList }) => {
 	useEffect(() => {
 		setIsLoading(true);
 		setArticles([]);
-		setActs([]);
 		setCategoryName('');
 		const getCategoryActs = async () => {
 			switch (categoryId) {
