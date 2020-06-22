@@ -28,7 +28,7 @@ const Categories = ({ actList }) => {
 	useEffect(() => {
 		setIsLoading(true);
 		setArticles([]);
-		setActs([])
+		setActs([]);
 		setCategoryName('');
 		const getCategoryActs = async () => {
 			switch (categoryId) {
@@ -51,7 +51,7 @@ const Categories = ({ actList }) => {
 					setCategoryName('');
 					break;
 			}
-			setActs(actList)
+			setActs(actList);
 			setIsLoading(false);
 		};
 		if (categoryId === undefined) return;
@@ -109,21 +109,16 @@ const Categories = ({ actList }) => {
 
 export async function getServerSideProps(context) {
 	let id = context.params.id;
-	mevzuatApi.get('/article', { params: { id } });
 
-	try {
-		const response = await mevzuatApi.post(`/acts`, {
-			query: { category: id },
-			sort: { hit: -1 },
-			limit: 3,
-		});
+	const response = await mevzuatApi.post(`/acts`, {
+		query: { category: id },
+		sort: { hit: -1 },
+		limit: 3,
+	});
 
-		const actList = response.data;
+	const actList = response.data;
 
-		return { props: { actList } };
-	} catch (error) {
-		return { props: { actList: {} } };
-	}
+	return { props: { actList } };
 }
 
 export default Categories;
