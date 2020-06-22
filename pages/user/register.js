@@ -20,6 +20,7 @@ const initialValues = {
 
 const validationSchema = Yup.object({
 	userName: Yup.string()
+		.matches(/^[a-zA-ZçıöşüğÇİÖŞÜĞ0-9_]+$/, 'Kullanıcı adınız yalnızca harf, rakam ve "_" içerebilir!')
 		.min(3, 'Kullanıcı adınız en az 3 karakterden oluşmalı!')
 		.max(36, 'Kullanıcı adınız en fazla 36 karakterden oluşabilir!')
 		.required('Bir kullanıcı adı girmelisiniz!'),
