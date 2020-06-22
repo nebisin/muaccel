@@ -12,13 +12,13 @@ import {
 const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 	return (
 		<aside id="sidebar" className="h-none">
-			<h2 className="title">
+			<h1 className="title">
 				<FontAwesomeIcon
 					icon={faGavel}
 					className='sidebar-icon'
 				/>
 				Mevzuat
-			</h2>
+			</h1>
 			{type === 'home' || type === 'search' || type === 'category' ? (
 				<React.Fragment>
 					<SideCategories id={id} />
