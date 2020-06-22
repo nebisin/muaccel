@@ -9,7 +9,7 @@ import Sidebar from 'component/mevzuat/Sidebar';
 
 const ActRoute = ({ data, sectionsData }) => {
 	const router = useRouter();
-	const [actInfo, setActInfo] = useState({});
+	const [actInfo, setActInfo] = useState(data);
 	const [suffixSections, setSuffixSections] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [page, setPage] = useState(0);
