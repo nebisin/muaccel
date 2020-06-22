@@ -10,7 +10,7 @@ import ActList from 'component/mevzuat/ActList';
 import ArticleList from 'component/mevzuat/ArticleList';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
-import BottomBar from 'component/BottomBar'
+import BottomBar from 'component/BottomBar';
 
 const HomePage = () => {
 	const [actListOne, setActListOne] = useState([]);
@@ -66,6 +66,10 @@ const HomePage = () => {
 				<title>Muaccel Mevzuat</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin."
+				/>
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="home" />

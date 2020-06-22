@@ -68,6 +68,7 @@ const SearchRoute = () => {
 				<title>"{router.query.term}" | Muaccel Mevzuat</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta name="description" content={`${router.query.term} için arama sonuçları:`} />
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="home" />
