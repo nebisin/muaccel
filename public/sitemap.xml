@@ -1,64 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset>
 
-<url>
-  <loc>https://www.muaccel.com/</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/blog</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/meydan</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/user/register</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/user/login</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat/categories/0</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat/categories/1</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat/categories/2</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat/categories/3</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.muaccel.com/mevzuat/categories/4</loc>
-  <lastmod>2020-06-22T13:34:10+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+
+  <url>
+    <loc>https://www.muaccel.com/</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/blog</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/meydan</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/user/register</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/user/login</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/categories/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/categories/1</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/categories/2</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/categories/3</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/categories/4</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/search/elektronik%20tebligat</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/search/konkordatonun%20feshi</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/search/tahkim</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/search/k%C3%B6t%C3%BCniyetle%20istinaf</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/search/ge%C3%A7ersiz%20fesih</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9d9a6a05a440ff5585b2b/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9d9eaa05a440ff5585b2c/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ece682542c83b0c4e892068/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9da01a05a440ff5585b2d/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ece67cc42c83b0c4e892067/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ebb5145b9049306f35cb5c6/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9da7aa05a440ff5585b30/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5edaa8986873af3db8ee35a4/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9da68a05a440ff5585b2f/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9da8ca05a440ff5585b31/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ea9daa5a05a440ff5585b32/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ece68a842c83b0c4e892069/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ed0f94b6a342c04eb04310a/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5ed0f9896a342c04eb04310b/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://www.muaccel.com/mevzuat/kanun/5edf9fb6cd6cd426d3e31d72/0</loc>
+    <lastmod>2020-06-22T17:09:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+
 
 </urlset>
