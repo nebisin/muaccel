@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import ActContext from 'context/ActContext';
+import mevzuatApi from 'api/mevzuat';
 import ArticleContext from 'context/ArticleContext';
 
 import SearchBar from 'component/mevzuat/SearchBar';
@@ -10,9 +10,8 @@ import ActList from 'component/mevzuat/ActList';
 import ArticleList from 'component/mevzuat/ArticleList';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
-import BottomBar from 'component/BottomBar';
 
-const HomePage = () => {
+const HomePage = ({actList}) => {
 	const [actListOne, setActListOne] = useState([]);
 	const [actListTwo, setActListTwo] = useState([]);
 	const [actListThree, setActListThree] = useState([]);
@@ -24,19 +23,14 @@ const HomePage = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [articleLoading, setArticleLoading] = useState(false);
 
-	const { getActList } = useContext(ActContext);
 	const { getArticleList } = useContext(ArticleContext);
 
 	const getAll = useCallback(async () => {
 		setIsLoading(true);
 
-		const popularActs = await getActList({
-			limit: 9,
-			sort: { hit: -1 },
-		});
-		setActListOne(popularActs.slice(0, 3));
-		setActListTwo(popularActs.slice(3, 6));
-		setActListThree(popularActs.slice(6, 9));
+		setActListOne(actList.slice(0, 3));
+		setActListTwo(actList.slice(3, 6));
+		setActListThree(actList.slice(6, 9));
 
 		setIsLoading(false);
 		setArticleLoading(true);
@@ -55,7 +49,7 @@ const HomePage = () => {
 
 		setArticleListThree(popularArticles.slice(8, 12));
 		setArticleLoading(false);
-	}, [getActList, getArticleList]);
+	}, [ getArticleList, actList]);
 
 	useEffect(() => {
 		getAll();
@@ -111,5 +105,17 @@ const HomePage = () => {
 		</React.Fragment>
 	);
 };
+
+export async function getServerSideProps() {
+	const response = await mevzuatApi.post(`/acts`, {
+		limit: 9,
+		sort: { hit: -1 },
+	});
+
+	const actList = response.data;
+
+	return { props: { actList } };
+}
+
 
 export default HomePage;
