@@ -58,7 +58,6 @@ function MyApp({ Component, pageProps }) {
 							/>
 							<meta charSet="utf-8" />
 							<meta property="og:image" content="/logo512.png" />
-							<meta name="yandex-verification" content="0d8c822721f204e5" />
 							<link
 								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
 								rel="stylesheet"
