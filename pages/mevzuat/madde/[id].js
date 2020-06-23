@@ -5,7 +5,7 @@ import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
 
 import AuthContext from 'context/AuthContext';
-import ArticleItem from 'component/mevzuat/ArticleItem';
+import ArticlePageItem from 'component/mevzuat/ArticlePageItem';
 import OtherArticles from 'component/mevzuat/OtherArticles';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
@@ -77,7 +77,7 @@ const ArticleRoute = ({ article, before, after }) => {
 								after={after}
 								actId={article.actId._id}
 							/>
-							<ArticleItem item={article} type={2} />
+							<ArticlePageItem item={article} />
 							{!noteLoading ? isLoggedIn && (
 								<ArticleNote
 									articleId={article._id}
