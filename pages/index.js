@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
 import SearchBar from 'component/mevzuat/SearchBar';
-
+import Footer from 'component/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faGavel,
@@ -59,7 +59,7 @@ const HomePage = () => {
 										icon={faBookReader}
 										className="home-item-icon"
 									/>
-								</div>{' '}
+								</div>
 								<div className="home-item-header">Muaccel Blog</div>
 								<p>
 									Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular
@@ -75,7 +75,7 @@ const HomePage = () => {
 										icon={faPeopleArrows}
 										className="home-item-icon"
 									/>
-								</div>{' '}
+								</div>
 								<div className="home-item-header">Muaccel Meydan</div>
 								<p>
 									Hukuki bir tartışma başlatın veya tartışmaya katkıda bulunun.
@@ -84,6 +84,7 @@ const HomePage = () => {
 							</div>
 						</Link>
 					</div>
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>

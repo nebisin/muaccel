@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
 import AuthContext from 'context/AuthContext';
-import BottomBar from 'component/BottomBar';
 
 const initialValues = {
 	userName: '',

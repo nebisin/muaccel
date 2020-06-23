@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import AllNotes from 'component/user/AllNotes';
 import UserSidebar from 'component/user/UserSidebar';
+import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
 
@@ -26,6 +27,7 @@ const ProfilePage = () => {
 
 			<section id="showcase">
 				{isLoggedIn && userInfo && <AllNotes user={userInfo} token={token} />}
+				<Footer />
 			</section>
 		</div>
 	);

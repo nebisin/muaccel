@@ -30,7 +30,7 @@ const Footer = () => {
 					</ul>
 					<ul className="footer-list-right">
 						<li className="footer-list-right-but-text">
-							<Link href="/">
+							<Link href="/iletisim">
 								<a>İletişim</a>
 							</Link>
 						</li>

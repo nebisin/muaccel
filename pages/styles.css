@@ -993,12 +993,24 @@ a {
 .register-form input[type='text']:focus,
 .register-form input[type='email']:focus,
 .register-form input[type='password']:focus,
+.register-form textarea:focus,
 .register-form input[type='text']:hover,
 .register-form input[type='email']:hover,
-.register-form input[type='password']:hover {
+.register-form input[type='password']:hover,
+.register-form textarea:hover {
 	box-shadow: inset 1px 1px 1px #ccc;
 	-webkit-box-shadow: inset 1px 1px 1px #ccc;
 	-moz-box-shadow: inset 1px 1px 1px #ccc;
+}
+
+.register-form textarea {
+	width: 100%;
+	font-size: 16px;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+	outline: none;
+	min-height: 150px;
 }
 
 .register-form label {
@@ -1007,6 +1019,20 @@ a {
 	margin-bottom: 3px;
 	font-weight: bold;
 	color: #161e2e;
+}
+
+.select-input {
+	-moz-appearance: menulist;
+	-webkit-appearance: menulist;
+	appearance: menulist;
+	outline: none;
+}
+
+.contact-description {
+	padding: 20px;
+	list-style-type: none;
+	font-size: 14px;
+	text-align: justify;
 }
 
 .register-button {
@@ -1093,7 +1119,7 @@ footer {
 .footer-list {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 .footer-list-left {
@@ -1316,6 +1342,9 @@ footer {
 	}
 	.footer-list {
 		margin-bottom: 79px;
+	}
+	.bottom-clear {
+		margin-bottom: 79px
 	}
 	.footer-list ul {
 		padding: 0;
