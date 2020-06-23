@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const UserNav = () => {
@@ -27,7 +27,7 @@ const UserNav = () => {
 								<FontAwesomeIcon
 									icon={faEnvelope}
 									style={{
-										fontSize: '24px',
+										fontSize: '22px',
 										marginLeft: '5px',
 									}}
 								/>
@@ -43,17 +43,8 @@ const UserNav = () => {
 									icon={faUserCircle}
 									className="nav-link-button-icon"
 									style={{
-										fontSize: '24px',
+										fontSize: '22px',
 										marginLeft: '5px',
-									}}
-								/>
-								<FontAwesomeIcon
-									icon={faChevronDown}
-									className="nav-link-button-icon"
-									style={{
-										fontSize: '14px',
-										marginLeft: '5px',
-										marginBottom: '3px',
 									}}
 								/>
 								<ul
@@ -62,7 +53,7 @@ const UserNav = () => {
 									style={{ display: `${dropdown ? 'block' : 'none'}` }}
 								>
 									<li>
-										<p className='usernav-name'>{userInfo.userName}</p>
+										<p className="usernav-name">{userInfo.userName}</p>
 									</li>
 									<li>
 										<Link href="/user/profile/me">
@@ -89,25 +80,29 @@ const UserNav = () => {
 					<React.Fragment>
 						<li>
 							<Link href="/user/register">
-								<a
-									className={`navlink sm-none ${
-										router.pathname.search('/user/register') !== -1 &&
-										'navlink-active'
-									}`}
-								>
-									Üye Ol
+								<a className="navlink-button">
+									<FontAwesomeIcon
+										icon={faUserPlus}
+										className="nav-link-button-icon"
+										style={{
+											fontSize: '20px',
+											marginLeft: '5px',
+										}}
+									/>
 								</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/user/login">
-								<a
-									className={`navlink ${
-										router.pathname.search('/user/login') !== -1 &&
-										'navlink-active'
-									}`}
-								>
-									Giriş Yap
+								<a className="navlink-button">
+									<FontAwesomeIcon
+										icon={faSignInAlt}
+										className="nav-link-button-icon"
+										style={{
+											fontSize: '20px',
+											marginLeft: '5px',
+										}}
+									/>
 								</a>
 							</Link>
 						</li>

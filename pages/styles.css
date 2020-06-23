@@ -725,12 +725,13 @@ a {
 	border: none;
 	background-color: inherit;
 	font-size: 16px;
-	color: inherit;
+	color: #26547c;
+	outline: none;
 }
 
 .navlink-button:hover .nav-link-button-icon {
 	cursor: pointer;
-	color: #326fa4;
+	color: #0077cc;
 }
 
 .navlink:hover,
@@ -1291,6 +1292,12 @@ footer {
 }
 @media screen and (min-width: 992px) {
 	.normal-none {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.sm-block {
 		display: none;
 	}
 }
