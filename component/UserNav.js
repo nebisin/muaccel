@@ -78,34 +78,30 @@ const UserNav = () => {
 			) : (
 				!isLogging && (
 					<React.Fragment>
-						<li>
-							<Link href="/user/register">
-								<a className="navlink-button">
-									<FontAwesomeIcon
-										icon={faUserPlus}
-										className="nav-link-button-icon"
-										style={{
-											fontSize: '20px',
-											marginLeft: '5px',
-										}}
-									/>
-								</a>
-							</Link>
-						</li>
-						<li>
-							<Link href="/user/login">
-								<a className="navlink-button">
-									<FontAwesomeIcon
-										icon={faSignInAlt}
-										className="nav-link-button-icon"
-										style={{
-											fontSize: '20px',
-											marginLeft: '5px',
-										}}
-									/>
-								</a>
-							</Link>
-						</li>
+						<Link href="/user/register">
+							<a className="navlink-button">
+								<FontAwesomeIcon
+									icon={faUserPlus}
+									className="nav-link-button-icon"
+									style={{
+										fontSize: '20px',
+										marginLeft: '5px',
+									}}
+								/>
+							</a>
+						</Link>
+						<Link href="/user/login">
+							<a className="navlink-button">
+								<FontAwesomeIcon
+									icon={faSignInAlt}
+									className="nav-link-button-icon"
+									style={{
+										fontSize: '20px',
+										marginLeft: '5px',
+									}}
+								/>
+							</a>
+						</Link>
 					</React.Fragment>
 				)
 			)}
