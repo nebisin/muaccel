@@ -29,10 +29,9 @@ const Others = ({ sections, page, actId }) => {
 							<FontAwesomeIcon
 								icon={faArrowAltCircleLeft}
 								style={{
-									fontSize: '18px',
+									fontSize: '20px',
 									marginRight: '5px',
 									position: 'relative',
-									bottom: '-2px',
 								}}
 							/>
 							<div className="s-none">

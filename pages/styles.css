@@ -10,7 +10,6 @@
 body {
 	background-color: #f9fafa;
 	color: #555;
-	font-size: 16px;
 	line-height: 1.6em;
 }
 
@@ -938,6 +937,7 @@ a {
 	padding: 8px;
 	width: 80%;
 	font-weight: bold;
+	font-size: 14px;
 }
 
 .others-button {
@@ -1332,7 +1332,11 @@ footer {
 		border: 1px solid #7692ab;
 		border-radius: 0.25rem;
 		width: 100%;
-		min-width: 130px;
+		min-width: 150px;
+		text-align: center;
+	}
+	.others-input:focus {
+		text-align: start;
 	}
 	.navlink-button {
 		padding: 8px 3px;
