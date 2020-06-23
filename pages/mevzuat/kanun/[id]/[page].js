@@ -6,6 +6,7 @@ import mevzuatApi from 'api/mevzuat';
 import SectionItem from 'component/mevzuat/SectionItem';
 import Others from 'component/mevzuat/Others';
 import Sidebar from 'component/mevzuat/Sidebar';
+import Footer from 'component/Footer';
 
 const ActRoute = ({ data, sectionsData }) => {
 	const router = useRouter();
@@ -82,6 +83,7 @@ const ActRoute = ({ data, sectionsData }) => {
 							<div className="loader">Loading...</div>
 						</div>
 					)}
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>

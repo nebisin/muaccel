@@ -9,6 +9,7 @@ import ArticleItem from 'component/mevzuat/ArticleItem';
 import OtherArticles from 'component/mevzuat/OtherArticles';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
+import Footer from 'component/Footer';
 
 const ArticleRoute = ({ article, before, after }) => {
 	const { isLoggedIn, isLogging, userInfo, token } = useContext(AuthContext);
@@ -96,6 +97,7 @@ const ArticleRoute = ({ article, before, after }) => {
 							)}
 						</React.Fragment>
 					)}
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>

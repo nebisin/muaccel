@@ -70,7 +70,6 @@ function MyApp({ Component, pageProps }) {
 						<div className="container">
 							<Component {...pageProps} />
 						</div>
-						<Footer />
 						<BottomBar active={0} />
 						<LoadingSplash />
 					</SectionProvider>

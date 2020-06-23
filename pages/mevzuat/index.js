@@ -10,6 +10,7 @@ import ActList from 'component/mevzuat/ActList';
 import ArticleList from 'component/mevzuat/ArticleList';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
+import Footer from 'component/Footer';
 
 const HomePage = ({actList}) => {
 	const [actListOne, setActListOne] = useState([]);
@@ -100,6 +101,7 @@ const HomePage = ({actList}) => {
 							</a>
 						</Link>
 					)}
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>

@@ -4,6 +4,7 @@ import ActContext from 'context/ActContext';
 import SearchBar from 'component/mevzuat/SearchBar';
 import ActList from 'component/mevzuat/ActList';
 import Sidebar from 'component/mevzuat/Sidebar';
+import Footer from 'component/Footer';
 
 const AllActs = () => {
 	const [actList, setActList] = useState([]);
@@ -49,6 +50,7 @@ const AllActs = () => {
 						<ActList items={filterResultsByCategory(4)} />
 					</React.Fragment>
 				)}
+				<Footer />
 			</section>
 		</div>
 	);

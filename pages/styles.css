@@ -1086,6 +1086,8 @@ a {
 
 footer {
 	margin-bottom: 30px;
+	margin-top: 30px;
+	font-size: 14px;
 }
 
 .footer-list {
@@ -1177,6 +1179,9 @@ footer {
 	.container {
 		width: 960px;
 	}
+	.footer-list li {
+		margin-right: 5;
+	}
 }
 
 @media screen and (max-width: 992px) {
@@ -1205,6 +1210,16 @@ footer {
 	}
 	.hero-buttons a {
 		margin: 0 10px;
+	}
+	.footer-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-right: 0;
+	}
+	.footer-list-left {
+		border-right: none;
 	}
 }
 @media screen and (min-width: 992px) {
@@ -1300,14 +1315,12 @@ footer {
 		text-align: center;
 	}
 	.footer-list {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		margin-bottom: 79px;
-		padding-right: 0;
 	}
-	.footer-list-left {
-		border-right: none;
+	.footer-list ul {
+		padding: 0;
+	}
+	.footer-list li {
+		margin-right: 10px;
 	}
 }

@@ -6,6 +6,7 @@ import ArticleContext from 'context/ArticleContext';
 import ArticleList from 'component/mevzuat/ArticleList';
 import ActList from 'component/mevzuat/ActList';
 import Sidebar from 'component/mevzuat/Sidebar';
+import Footer from 'component/Footer';
 
 import ActContext from 'context/ActContext';
 
@@ -87,6 +88,7 @@ const SearchRoute = () => {
 							<div className="loader">Loading...</div>
 						</div>
 					)}
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>

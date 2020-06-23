@@ -10,7 +10,6 @@ import {
 const Footer = () => {
 	return (
 		<footer>
-			<div className="container">
 				<div className="footer-list">
 					<ul className="footer-list-left">
 						<li>
@@ -52,7 +51,6 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-			</div>
 		</footer>
 	);
 };

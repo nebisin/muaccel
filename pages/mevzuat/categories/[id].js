@@ -11,6 +11,7 @@ import ActList from 'component/mevzuat/ActList';
 import ArticleList from 'component/mevzuat/ArticleList';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
+import Footer from 'component/Footer';
 
 const Categories = ({ actList }) => {
 	const router = useRouter();
@@ -100,6 +101,7 @@ const Categories = ({ actList }) => {
 							<div className="loader">Loading...</div>
 						</div>
 					)}
+					<Footer />
 				</section>
 			</div>
 		</React.Fragment>
