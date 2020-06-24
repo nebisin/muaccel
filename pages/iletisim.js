@@ -10,7 +10,6 @@ const ContactPage = () => {
 	const [emailError, setEmailError] = useState();
 	const [subjectError, setSubjectError] = useState();
     const [sending, setSending] = useState(false);
-    const [result, setResult] = useState('');
 
 	const _handleSubmit = async (e) => {
 		e.preventDefault();

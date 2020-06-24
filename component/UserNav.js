@@ -7,7 +7,6 @@ import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const UserNav = () => {
-	const router = useRouter();
 	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
 	const [dropdown, setDropdown] = useState(false);
 
@@ -57,17 +56,17 @@ const UserNav = () => {
 									</li>
 									<li>
 										<Link href="/user/profile/me">
-											<a>Hesabım</a>
+											<a onClick={() => setDropdown(false)} >Hesabım</a>
 										</Link>
 									</li>
 									<li>
 										<Link href="/user/profile/me">
-											<a>Ayarlar</a>
+											<a onClick={() => setDropdown(false)} >Ayarlar</a>
 										</Link>
 									</li>
 									<li>
 										<Link href="/user/logout">
-											<a>Çıkış Yap</a>
+											<a onClick={() => setDropdown(false)} >Çıkış Yap</a>
 										</Link>
 									</li>
 								</ul>

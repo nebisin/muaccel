@@ -17,7 +17,7 @@ import { SectionProvider } from 'context/SectionContext';
 import Navbar from 'component/Navbar';
 import { AuthProvider } from 'context/AuthContext';
 import BottomBar from 'component/BottomBar'
-import Footer from 'component/Footer';
+
 NProgress.configure({
 	showSpinner: false,
 	trickleRate: 0.1,
