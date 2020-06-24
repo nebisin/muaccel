@@ -627,7 +627,6 @@ a {
 .card-deck-item {
 	min-height: 100px;
 	margin: 0 5px;
-	border: 1px solid #26547c;
 	background-color: #26547c;
 	color: white;
 	border-radius: 0.25rem;
@@ -636,15 +635,14 @@ a {
 	flex: 1 0 0%;
 	align-items: center;
 	justify-content: center;
-	-webkit-transition: background-color 500ms ease-in-out;
-	-moz-transition: background-color 500ms ease-in-out;
-	-o-transition: background-color 500ms ease-in-out;
-	transition: background-color 500ms ease-in-out;
+	-webkit-transition: opacity 500ms ease-in-out;
+	-moz-transition: opacity 500ms ease-in-out;
+	-o-transition: opacity 500ms ease-in-out;
+	transition: opacity 500ms ease-in-out;
 }
 
 .card-deck-item:hover {
-	background-color: #f9fafa !important;
-	color: black !important;
+	opacity: 0.5;
 }
 
 .card-deck-text {

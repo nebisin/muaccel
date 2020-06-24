@@ -8,7 +8,6 @@ const ActItem = ({ item }) => {
 				className="card-deck-item"
 				style={{
 					backgroundColor: item.background,
-					borderColor: item.background,
 				}}
 			>
 				<p className="card-deck-text">{item.name}</p>
