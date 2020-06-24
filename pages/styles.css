@@ -702,7 +702,7 @@ a {
 	left: 0;
 	height: 59px;
 	background-color: white;
-	z-index: 99;
+	z-index: 99999;
 	border-bottom: 1px solid #ccc;
 }
 
