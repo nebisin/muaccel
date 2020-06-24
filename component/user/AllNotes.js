@@ -25,8 +25,6 @@ const AllNotes = ({ user, token }) => {
 	}, [user, token]);
 	return (
         <div className="all-notes">
-            <h2 className="account-header">Notlarım:</h2>
-            <br />
 			{!isLoading ? (
 				notes.length ? (
 					notes.map((note) => <NoteItem key={note._id} note={note} />)

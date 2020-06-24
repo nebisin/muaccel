@@ -15,7 +15,7 @@ const Favorite = ({ position, articleId }) => {
 	const [isSending, setIsSending] = useState(false);
 
 	useEffect(() => {
-		const result = favorites.some((favorite) => favorite.article === articleId);
+		const result = favorites.some((favorite) => favorite.article._id === articleId);
 		setIsFavorite(result);
 	}, [favorites]);
 

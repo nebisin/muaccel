@@ -2,8 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	-moz-appearance: none;
-	-webkit-appearance: none;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -156,6 +154,19 @@ a {
 	cursor: pointer;
 }
 
+.user-me {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.user-select {
+	outline: none;
+	font-size: 16px;
+}
+
 .all-notes {
 }
 
@@ -272,26 +283,28 @@ a {
 	padding: 10px;
 }
 
-.user-side-link a {
+.user-side-link span {
 	padding: 10px;
 	color: #4b89be;
 	font-weight: bold;
 }
 
-.user-side-link a:hover {
+.user-side-link span:hover {
+	background-color: #4b89be;
+	border-radius: 1rem;
+	color: white;
+	cursor: pointer;
+}
+
+.user-side-link-active span {
 	background-color: #4b89be;
 	border-radius: 1rem;
 	color: white;
 }
 
-.user-side-link-active a {
-	background-color: #4b89be;
-	border-radius: 1rem;
-	color: white;
-}
-
-.user-side-link-active a:hover {
+.user-side-link-active span:hover {
 	background-color: #326fa4;
+	cursor: pointer;
 }
 
 .account-header {
@@ -892,6 +905,9 @@ a {
 	border-radius: 0.25rem;
 	padding: 10px 15px;
 	margin-right: 10px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 .search-input:focus,
@@ -967,6 +983,9 @@ a {
 	padding: 8px;
 	width: 80%;
 	font-size: 16px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 .others-button {
