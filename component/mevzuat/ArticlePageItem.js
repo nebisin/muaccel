@@ -1,15 +1,17 @@
 import React from 'react';
+import Favorite from './Favorite';
 
 const ArticleItem = ({ item }) => {
 	if (item.content !== undefined) {
 		return (
-				<article className="article-page-card">
-					<div className="article-page-card-header">
-						<h2>Madde {item.title}</h2>
-						<h1>{item.name}</h1>
-					</div>
-					<div className="article-page-card-content">{item.content}</div>
-				</article>
+			<article className="article-page-card">
+				<div className="article-page-card-header">
+					<h2>Madde {item.title}</h2>
+					<h1>{item.name}</h1>
+				</div>
+				<div className="article-page-card-content">{item.content}</div>
+				<Favorite position="top" articleId={item._id} />
+			</article>
 		);
 	} else {
 		return null;

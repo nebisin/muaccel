@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+import Favorite from './Favorite';
+
 const ArticleItem = ({ item, type }) => {
 	const [full, setFull] = useState(false);
 
@@ -14,14 +16,13 @@ const ArticleItem = ({ item, type }) => {
 		return (
 			<React.Fragment>
 				{type === 1 && item.suffixTitle && (
-					<div className="suffix-title"><b>{item.suffixTitle}</b></div>
+					<div className="suffix-title">
+						<b>{item.suffixTitle}</b>
+					</div>
 				)}
 				<div className="card">
 					<h2 className="card-header">
-						<Link
-							href="/mevzuat/madde/[id]"
-							as={`/mevzuat/madde/${item._id}`}
-						>
+						<Link href="/mevzuat/madde/[id]" as={`/mevzuat/madde/${item._id}`}>
 							<a>{item.name}</a>
 						</Link>
 					</h2>
@@ -50,6 +51,9 @@ const ArticleItem = ({ item, type }) => {
 							</Link>
 						</div>
 					)}
+					<div className="foverite-icon-bottom">
+						<Favorite position="bottom" articleId={item._id} />
+					</div>
 				</div>
 			</React.Fragment>
 		);

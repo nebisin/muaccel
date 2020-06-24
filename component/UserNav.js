@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';

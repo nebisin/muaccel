@@ -545,6 +545,7 @@ a {
 	border-radius: 0.25rem;
 	margin: 20px 15px;
 	padding: 20px;
+	position: relative;
 }
 
 .article-page-card {
@@ -553,6 +554,7 @@ a {
 	border: 1px solid #f1f1f1;
 	margin-bottom: 20px;
 	box-shadow: 1px 1px 1px #f1f1f1;
+	position: relative;
 }
 
 .article-page-card-header {
@@ -594,6 +596,7 @@ a {
 	margin: 0;
 	margin-bottom: 5px;
 	color: #0077cc;
+	margin-right: 20px;
 }
 
 .card-header a:hover {
@@ -642,7 +645,7 @@ a {
 }
 
 .card-deck-item:hover {
-	opacity: 0.5;
+	opacity: 0.6;
 }
 
 .card-deck-text {
@@ -654,6 +657,34 @@ a {
 .suffix-title {
 	margin-left: 35px;
 	white-space: pre-line;
+}
+
+.favorite-icon-top {
+	top: 15px;
+}
+
+.favorite-icon-bottom {
+	bottom: 15px;
+}
+
+.favorite-icon {
+	position: absolute;
+	right: 15px;
+	font-size: 20px;
+	color: #839cb3;
+}
+
+.favorite-icon-active {
+	color: #b39c00;
+}
+
+.favorite-icon:hover {
+	color: #b39c00;
+	cursor: pointer;
+}
+
+.favorite-icon-active:hover {
+	opacity: 0.75;
 }
 
 /* Bottom Bar */
@@ -884,6 +915,7 @@ a {
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 59px;
+	z-index: 999;
 }
 
 .others-after,
