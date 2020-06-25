@@ -15,7 +15,14 @@ const AllFavorites = () => {
 			{allArticles.length ? (
 				<ArticleList items={allArticles} />
 			) : (
-				<div>Henüz hiç favori maddeniz yok</div>
+				<div className="user-no-favorite">
+					<div className="user-no-favorite-description">
+						Henüz hiçbir maddeyi favorilerinize eklememişsiniz.
+					</div>
+					<div className="user-no-favorite-image-container">
+						<img className="user-no-favorite-image" src="/nofavorite.png" alt="favori" />
+					</div>
+				</div>
 			)}
 		</React.Fragment>
 	);

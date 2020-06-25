@@ -162,6 +162,21 @@ a {
 	margin-bottom: 20px;
 }
 
+.user-no-favorite-description {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.user-no-favorite-image-container {
+	margin: 20px auto;
+	width: 100%;
+}
+
+.user-no-favorite-image {
+	width: 100%
+}
+
 .user-select {
 	outline: none;
 	font-size: 16px;
