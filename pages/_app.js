@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
 								content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
 							/>
 							<meta charSet="utf-8" />
-							<meta property="og:image" content="/ogimage.png" />
+							<meta property="og:image" content="/ogimage.jpg" />
 							<link
 								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
 								rel="stylesheet"
