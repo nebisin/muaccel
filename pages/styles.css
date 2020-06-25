@@ -181,9 +181,6 @@ a {
 	font-size: 16px;
 }
 
-.all-notes {
-}
-
 .user-note {
 	width: 100%;
 	padding: 20px;
@@ -338,13 +335,12 @@ a {
 
 .suffix-section {
 	background-color: #f4f4f4;
-	border: 1px solid #ccc;
 	padding: 10px;
 	margin-bottom: 10px;
 	border-radius: 0.25em;
-	box-shadow: inset 1px 1px 1px #ccc;
-	-webkit-box-shadow: inset 1px 1px 1px #ccc;
-	-moz-box-shadow: inset 1px 1px 1px #ccc;
+	box-shadow: inset 1px 1px 1px 1px #ccc;
+	-webkit-box-shadow: inset 1px 1px 1px 1px #ccc;
+	-moz-box-shadow: inset 1px 1px 1px 1px #ccc;
 	color: #161e2e;
 }
 
@@ -1173,7 +1169,7 @@ a {
 
 .login-button:hover {
 	cursor: pointer;
-	background-color: #f9fafa;
+	background-color: #fcfcfc;
 }
 
 .login-button-inner:hover {
