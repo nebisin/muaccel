@@ -67,9 +67,8 @@ a {
 	padding: 10px 20px;
 	width: auto;
 	background-color: #fffef7;
-	border: 1px solid #ddd;
 	border-radius: 0.25rem;
-	box-shadow: 1px 1px 1px #ddd;
+	box-shadow: 1px 1px 1px 1px #ddd;
 }
 
 .article-note-content {
@@ -189,9 +188,9 @@ a {
 	width: 100%;
 	padding: 20px;
 	background-color: white;
-	border: 1px solid #f1f1f1;
 	margin-bottom: 20px;
-	box-shadow: 1px 1px 1px #f1f1f1;
+	border-radius: 0.25rem;
+	box-shadow: 1px 1px 1px 1px #ddd;
 	position: relative;
 }
 
@@ -456,7 +455,7 @@ a {
 .home-item {
 	min-height: 100px;
 	margin: 0 15px;
-	border: 1px solid #ccc;
+	border: 1px solid #0077cc;
 	background-color: white;
 	border-radius: 0.25rem;
 	padding: 1.25rem;
@@ -542,7 +541,7 @@ a {
 
 .card-holder {
 	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+	border: 1px solid #0077cc;
 	border-radius: 0.25rem;
 	margin: 20px 15px;
 	padding: 20px;
@@ -569,7 +568,7 @@ a {
 
 .card {
 	background-color: white;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+	border: 1px solid #0077cc;
 	border-radius: 0.25rem;
 	margin: 20px 15px;
 	padding: 20px;
