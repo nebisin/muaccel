@@ -10,7 +10,7 @@ const Navbar = () => {
 
 	const checkHeader = () => {
 		let scrollPosition = Math.round(window.scrollY);
-		if (scrollPosition > 1) {
+		if (scrollPosition > 20) {
 			document.getElementById('navbar').classList.add('nav-scroll');
 		}else {
 			document.getElementById('navbar').classList.remove('nav-scroll');
