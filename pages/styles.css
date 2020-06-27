@@ -722,12 +722,20 @@ a {
 	right: 0;
 	left: 0;
 	height: 59px;
-	background-color: white;
 	z-index: 99999;
+	background-color: #f9fafa;
+	-webkit-transition: background-color 500ms ease-in-out;
+	-moz-transition: background-color 500ms ease-in-out;
+	-o-transition: background-color 500ms ease-in-out;
+	transition: background-color 500ms ease-in-out;
+}
+
+.nav-scroll {
+	background-color: white !important;
 	border-bottom: 1px solid #ccc;
 }
 
-#navbar:hover {
+.nav-scroll:hover {
 	cursor: pointer;
 }
 
