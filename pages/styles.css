@@ -91,6 +91,12 @@ a {
 	min-height: 100px;
 }
 
+.article-note-toggle-buttons {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
 .note-inline-button {
 	color: #999;
 	cursor: pointer;
@@ -1467,4 +1473,10 @@ footer {
 	.footer-list li {
 		margin-right: 10px;
 	}
+
+	.article-note-toggle-buttons {
+		display: flex;
+		flex-direction: column;
+	}
+	
 }

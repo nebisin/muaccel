@@ -18,6 +18,10 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [saving, setSaving] = useState(false);
 	const [deleting, setDeleting] = useState(false);
+	const blockType = editorState
+		.getCurrentContent()
+		.getBlockForKey(editorState.getSelection().getStartKey())
+		.getType();
 	var currentStyle = editorState.getCurrentInlineStyle();
 
 	const noteEditor = React.useRef(null);
@@ -39,7 +43,13 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 
 	const toggleInlineStyle = (inlineStyle, e) => {
 		e.preventDefault();
+
 		onChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+	};
+
+	const toggleBlockStyle = (blockStyle, e) => {
+		e.preventDefault();
+		onChange(RichUtils.toggleBlockType(editorState, blockStyle));
 	};
 
 	useEffect(() => {
@@ -99,30 +109,77 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 	return (
 		<React.Fragment>
 			<div className="article-note-container">
-				<span
-					className={`note-inline-button ${
-						currentStyle.has('BOLD') && 'note-inline-button-active'
-					}`}
-					onMouseDown={(e) => toggleInlineStyle('BOLD', e)}
-				>
-					Kalın
-				</span>
-				<span
-					className={`note-inline-button ${
-						currentStyle.has('ITALIC') && 'note-inline-button-active'
-					}`}
-					onMouseDown={(e) => toggleInlineStyle('ITALIC', e)}
-				>
-					İtalik
-				</span>
-				<span
-					className={`note-inline-button ${
-						currentStyle.has('UNDERLINE') && 'note-inline-button-active'
-					}`}
-					onMouseDown={(e) => toggleInlineStyle('UNDERLINE', e)}
-				>
-					Altı Çizili
-				</span>
+				<div className="article-note-toggle-buttons">
+					<div className="article-block-button-group">
+						<span
+							className={`note-inline-button ${
+								blockType === 'header-one' && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleBlockStyle('header-one', e)}
+						>
+							H1
+						</span>
+						<span
+							className={`note-inline-button ${
+								blockType === 'header-three' && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleBlockStyle('header-three', e)}
+						>
+							H2
+						</span>
+						<span
+							className={`note-inline-button ${
+								blockType === 'header-four' && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleBlockStyle('header-four', e)}
+						>
+							H3
+						</span>
+						<span
+							className={`note-inline-button ${
+								blockType === 'unordered-list-item' &&
+								'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleBlockStyle('unordered-list-item', e)}
+						>
+							UL
+						</span>
+						<span
+							className={`note-inline-button ${
+								blockType === 'ordered-list-item' && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleBlockStyle('ordered-list-item', e)}
+						>
+							OL
+						</span>
+					</div>
+					<div className="article-inline-button-group">
+						<span
+							className={`note-inline-button ${
+								currentStyle.has('BOLD') && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleInlineStyle('BOLD', e)}
+						>
+							Kalın
+						</span>
+						<span
+							className={`note-inline-button ${
+								currentStyle.has('ITALIC') && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleInlineStyle('ITALIC', e)}
+						>
+							İtalik
+						</span>
+						<span
+							className={`note-inline-button ${
+								currentStyle.has('UNDERLINE') && 'note-inline-button-active'
+							}`}
+							onMouseDown={(e) => toggleInlineStyle('UNDERLINE', e)}
+						>
+							Altı Çizili
+						</span>
+					</div>
+				</div>
 				<div className="article-note-content">
 					<Editor
 						ref={noteEditor}
