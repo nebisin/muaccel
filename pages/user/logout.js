@@ -1,4 +1,3 @@
-import BottomBar from 'component/BottomBar';
 import AuthContext from 'context/AuthContext';
 import { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
@@ -22,11 +21,11 @@ const LoginPage = () => {
 					}
 				)
 				.then(function (response) {
-					logout();
+					logout(storedData);
 					router.push('/');
 				})
 				.catch(function (error) {
-					logout();
+					logout(storedData);
 					router.push('/');
 				});
 		};

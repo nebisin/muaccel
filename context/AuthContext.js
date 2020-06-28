@@ -108,7 +108,8 @@ export const AuthProvider = ({ children }) => {
 		localStorage.setItem('userData', JSON.stringify(resToken));
 	};
 
-	const logout = () => {
+	const logout = (token) => {
+		if(!token) return;
 		localStorage.removeItem('userData');
 		setToken();
 		setUserInfo();
