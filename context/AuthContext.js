@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 	const [userInfo, setUserInfo] = useState();
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isLogging, setIsLogging] = useState(true);
-	const [favorites, setFavorites] = useState([])
+	const [favorites, setFavorites] = useState([]);
 
 	useEffect(() => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
 	}, []);
 
 	const auth = async () => {
+		if (!token) return;
 		setIsLogging(true);
 		try {
 			const response = await mevzuatApi.post(
@@ -78,21 +79,18 @@ export const AuthProvider = ({ children }) => {
 	}, [userInfo]);
 
 	const getFavorites = async () => {
-		if(!token) return;
-		const response = await mevzuatApi.get(
-			'/favorite/article',
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
-		)
-		if(response?.data?.favorites){
+		if (!token) return;
+		const response = await mevzuatApi.get('/favorite/article', {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		if (response?.data?.favorites) {
 			setFavorites(response.data.favorites);
-		}else {
-			setFavorites([])
+		} else {
+			setFavorites([]);
 		}
-	}
+	};
 
 	useEffect(() => {
 		if (token) {
