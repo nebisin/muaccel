@@ -45,7 +45,7 @@ const Footer = () => {
 							</a>
 						</li>
 						<li>
-							<a href="https://twitter.com/muaccelcom">
+							<a href="https://www.instagram.com/muaccelcom/">
 								<FontAwesomeIcon icon={faInstagram} />
 							</a>
 						</li>
