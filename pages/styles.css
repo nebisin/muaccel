@@ -66,7 +66,7 @@ a {
 	margin: 10px 20px;
 	padding: 10px 20px;
 	width: auto;
-	background-color: #fffef7;
+	background-color: #f2f2f2;
 	border-radius: 0.25rem;
 	box-shadow: 1px 1px 1px 1px #ddd;
 }
@@ -98,7 +98,7 @@ a {
 }
 
 .note-inline-button {
-	color: #999;
+	color: #293133;
 	cursor: pointer;
 	margin-left: 14px;
 	padding: 4px 2px;
@@ -1477,6 +1477,7 @@ footer {
 	.article-note-toggle-buttons {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 	
 }
