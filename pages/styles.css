@@ -1003,6 +1003,7 @@ a {
 	background-color: #fff;
 	padding: 8px;
 	width: 80%;
+	min-width: 100px;
 	font-size: 16px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -1016,6 +1017,7 @@ a {
 	padding: 8px 0;
 	height: auto;
 	width: 20%;
+	min-width: 30px;
 	font-weight: bold;
 	color: white;
 }
@@ -1396,13 +1398,6 @@ footer {
 	}
 	.s-none {
 		display: none;
-	}
-	.others-input {
-		border: 1px solid #7692ab;
-		border-radius: 0.25rem;
-		width: 100%;
-		min-width: 150px;
-		text-align: center;
 	}
 	.others-input:focus {
 		text-align: start;

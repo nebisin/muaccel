@@ -45,13 +45,13 @@ const GoArticle = ({ id }) => {
 			<input
 				className="others-input"
 				type="search"
-				placeholder="Maddeye Git"
+				placeholder="Madde"
 				value={term || ''}
 				onChange={handleChange}
 				disabled={isLoading}
 			/>
 			<input
-				className="others-button s-none"
+				className="others-button"
 				type="submit"
 				value="Git"
 				disabled={isLoading}
