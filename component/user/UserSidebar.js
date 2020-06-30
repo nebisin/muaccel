@@ -6,31 +6,31 @@ const UserSidebar = ({ current, setCurrent }) => {
 			<div className="user-sidebar-content">
 				<div
 					className={`user-side-link ${
-						current === 0 && 'user-side-link-active'
+						current === "notes" && 'user-side-link-active'
 					}`}
 				>
-					<span onClick={() => setCurrent(0)}>Notlarım</span>
+					<span onClick={() => setCurrent("notes")}>Notlarım</span>
 				</div>
 				<div
 					className={`user-side-link ${
-						current === 1 && 'user-side-link-active'
+						current === "favorites" && 'user-side-link-active'
 					}`}
 				>
-					<span onClick={() => setCurrent(1)}>Favorilerim</span>
+					<span onClick={() => setCurrent("favorites")}>Favorilerim</span>
 				</div>
 				<div
 					className={`user-side-link ${
-						current === 2 && 'user-side-link-active'
+						current === "discussion" && 'user-side-link-active'
 					}`}
 				>
-					<span onClick={() => setCurrent(2)}>Tartışmalarım</span>
+					<span onClick={() => setCurrent("discussion")}>Tartışmalarım</span>
 				</div>
 				<div
 					className={`user-side-link ${
-						current === 3 && 'user-side-link-active'
+						current === "blogs" && 'user-side-link-active'
 					}`}
 				>
-					<span onClick={() => setCurrent(3)}>Bloglarım</span>
+					<span onClick={() => setCurrent("blogs")}>Bloglarım</span>
 				</div>
 			</div>
 		</aside>
