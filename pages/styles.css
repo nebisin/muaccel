@@ -1013,6 +1013,9 @@ a {
 }
 
 .others-button {
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
 	border: 1px solid #7692ab;
 	border-radius: 0 0.25rem 0.25rem 0;
 	background-color: #7692ab;
