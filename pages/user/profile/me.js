@@ -13,7 +13,7 @@ const ProfilePage = () => {
 	const router = useRouter();
 	const { isLoggedIn, userInfo, token } = useContext(AuthContext);
 	const [current, setCurrent] = useState("notes");
-	let selectedOption;
+	const [val, setVal] = useState("Notlarım")
 
 	useEffect(() => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
@@ -32,15 +32,18 @@ const ProfilePage = () => {
 
 	return (
 		<div className="flex-container">
-			<UserSidebar current={current} setCurrent={setCurrent} />
+			<UserSidebar current={current} setCurrent={setCurrent} setVal={setVal} />
 			{isLoggedIn && userInfo && (
 				<section id="showcase">
 					<form className="user-me">
 						<Select
 							className="user-select"
 							options={options}
-							defaultValue={{ label: "Notlarım", value: "notes" }}
-							onChange={(value) => setCurrent(value.value)}
+							value={{value: current, label: val}}
+							onChange={(value) => {
+								setCurrent(value.value)
+								setVal(value.label)
+							}}
 						/>
 					</form>
 					{current === "notes" && <AllNotes user={userInfo} token={token} />}
