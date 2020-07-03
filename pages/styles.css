@@ -886,7 +886,7 @@ a {
 
 .side-list-sticky {
 	max-height: calc(100vh - 200px);
-	overflow: scroll;
+	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -1137,13 +1137,6 @@ a {
 	margin-bottom: 3px;
 	font-weight: bold;
 	color: #161e2e;
-}
-
-.select-input {
-	-moz-appearance: menulist;
-	-webkit-appearance: menulist;
-	appearance: menulist;
-	outline: none;
 }
 
 .contact-description {
