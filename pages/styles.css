@@ -511,6 +511,9 @@ a {
 	border-radius: 0.25rem;
 	font-weight: bold;
 	font-size: inherit;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 .button-blue:hover {
@@ -1472,5 +1475,4 @@ footer {
 		flex-direction: column;
 		align-items: center;
 	}
-	
 }
