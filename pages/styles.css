@@ -1341,9 +1341,6 @@ footer {
 		width: 80%;
 		max-width: 384px;
 	}
-	.search-input {
-		margin-right: 0;
-	}
 	.hero-buttons {
 		width: 80%;
 		max-width: 384px;
@@ -1383,6 +1380,9 @@ footer {
 	}
 	.sm-none {
 		display: none;
+	}
+	.search-input {
+		margin-right: 0;
 	}
 }
 
