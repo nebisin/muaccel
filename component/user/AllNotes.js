@@ -29,8 +29,14 @@ const AllNotes = ({ user, token }) => {
 				notes.length ? (
 					notes.map((note) => <NoteItem key={note._id} note={note} />)
 				) : (
-					<div>Hiç not bulunamadı.</div>
-				)
+					<div className="user-no-favorite">
+					<div className="user-no-favorite-description">
+						Henüz hiç not oluşturmamışsınız.
+					</div>
+					<div className="user-no-favorite-image-container">
+						<img className="user-no-favorite-image" src="/nonote.png" alt="not" />
+					</div>
+				</div>				)
 			) : (
 				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
 					<div className="loader">Loading...</div>
