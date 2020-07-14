@@ -1,4 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +8,8 @@ import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const UserNav = () => {
+	const router = useRouter();
+
 	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
 	const [dropdown, setDropdown] = useState(false);
 
@@ -17,6 +21,39 @@ const UserNav = () => {
 
 	return (
 		<ul className="nav-list nav-list-right">
+			<li>
+				<Link href="/mevzuat" as="/mevzuat">
+					<a
+						className={`navlink s-none ${
+							router.pathname.search('/mevzuat') !== -1 && 'navlink-active'
+						}`}
+					>
+						Mevzuat
+					</a>
+				</Link>
+			</li>
+			<li>
+				<Link href="/blog" as="/blog">
+					<a
+						className={`navlink s-none ${
+							router.pathname.search('/blog') !== -1 && 'navlink-active'
+						}`}
+					>
+						Blog
+					</a>
+				</Link>
+			</li>
+			<li>
+				<Link href="/meydan" as="/meydan">
+					<a
+						className={`navlink s-none ${
+							router.pathname.search('/meydan') !== -1 && 'navlink-active'
+						}`}
+					>
+						Meydan
+					</a>
+				</Link>
+			</li>
 			{isLoggedIn ? (
 				<React.Fragment>
 					{userInfo && (
@@ -55,17 +92,17 @@ const UserNav = () => {
 									</li>
 									<li>
 										<Link href="/user/profile/me">
-											<a onClick={() => setDropdown(false)} >Hesabım</a>
+											<a onClick={() => setDropdown(false)}>Hesabım</a>
 										</Link>
 									</li>
 									<li>
 										<Link href="/user/profile/me">
-											<a onClick={() => setDropdown(false)} >Ayarlar</a>
+											<a onClick={() => setDropdown(false)}>Ayarlar</a>
 										</Link>
 									</li>
 									<li>
 										<Link href="/user/logout">
-											<a onClick={() => setDropdown(false)} >Çıkış Yap</a>
+											<a onClick={() => setDropdown(false)}>Çıkış Yap</a>
 										</Link>
 									</li>
 								</ul>

@@ -37,40 +37,6 @@ const Navbar = () => {
 							</li>
 						</a>
 					</Link>
-
-					<li>
-						<Link href="/mevzuat" as="/mevzuat">
-							<a
-								className={`navlink s-none ${
-									router.pathname.search('/mevzuat') !== -1 && 'navlink-active'
-								}`}
-							>
-								Mevzuat
-							</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/blog" as="/blog">
-							<a
-								className={`navlink s-none ${
-									router.pathname.search('/blog') !== -1 && 'navlink-active'
-								}`}
-							>
-								Blog
-							</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/meydan" as="/meydan">
-							<a
-								className={`navlink s-none ${
-									router.pathname.search('/meydan') !== -1 && 'navlink-active'
-								}`}
-							>
-								Meydan
-							</a>
-						</Link>
-					</li>
 				</ul>
 				<UserNav />
 			</div>
