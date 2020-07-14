@@ -762,6 +762,7 @@ a {
 	height: 59px;
 	align-items: center;
 	width: auto;
+	padding-left: 20px;
 }
 
 .nav-list-right {

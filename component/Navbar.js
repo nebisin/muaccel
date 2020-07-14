@@ -1,12 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 import UserNav from './UserNav';
 
 const Navbar = () => {
-	const router = useRouter();
 
 	const checkHeader = () => {
 		let scrollPosition = Math.round(window.scrollY);
