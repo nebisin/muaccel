@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faUserCircle, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const UserNav = () => {
 	const router = useRouter();
@@ -58,15 +57,6 @@ const UserNav = () => {
 				<React.Fragment>
 					{userInfo && (
 						<li>
-							<button className="navlink-button">
-								<FontAwesomeIcon
-									icon={faEnvelope}
-									style={{
-										fontSize: '22px',
-										marginLeft: '5px',
-									}}
-								/>
-							</button>
 							<button
 								className="navlink-button"
 								onClick={(event) => {
@@ -78,8 +68,7 @@ const UserNav = () => {
 									icon={faUserCircle}
 									className="nav-link-button-icon"
 									style={{
-										fontSize: '22px',
-										marginLeft: '5px',
+										fontSize: '27px',
 									}}
 								/>
 								<ul
@@ -114,26 +103,13 @@ const UserNav = () => {
 				!isLogging && (
 					<React.Fragment>
 						<li>
-							<Link href="/user/register">
-								<a className="navlink-button">
-									<FontAwesomeIcon
-										icon={faUserPlus}
-										className="nav-link-button-icon"
-										style={{
-											fontSize: '20px',
-											marginLeft: '5px',
-										}}
-									/>
-								</a>
-							</Link>
 							<Link href="/user/login">
 								<a className="navlink-button">
 									<FontAwesomeIcon
 										icon={faSignInAlt}
 										className="nav-link-button-icon"
 										style={{
-											fontSize: '20px',
-											marginLeft: '5px',
+											fontSize: '27px',
 										}}
 									/>
 								</a>
