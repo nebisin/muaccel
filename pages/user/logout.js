@@ -24,11 +24,11 @@ const LoginPage = () => {
 				)
 				.then(function (response) {
 					logout(storedData);
-					router.push('/');
+					router.back()
 				})
 				.catch(function (error) {
 					logout(storedData);
-					router.push('/');
+					router.back();
 				});
 		};
 		apiLogout();
