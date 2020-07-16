@@ -7,7 +7,14 @@ import {
 	convertFromRaw,
 } from 'draft-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+	faSpinner,
+	faBold,
+	faItalic,
+	faUnderline,
+	faListUl,
+	faListOl,
+} from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
 import AuthContext from 'context/AuthContext';
 
@@ -60,6 +67,70 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 			setEditorState(EditorState.createEmpty());
 		}
 	}, [databaseCurrent]);
+
+	const _onTab = (e) => {
+		const maxDepth = 4;
+		onChange(RichUtils.onTab(e, editorState, maxDepth));
+	};
+	
+	const getSelectedBlock = (editorState) => {
+		const selection = editorState.getSelection();
+		const contentState = editorState.getCurrentContent();
+		const blockStartKey = selection.getStartKey();
+
+		return contentState.getBlockMap().get(blockStartKey);
+	};
+
+	const isEmptyListItem = (block) => {
+		const text = block.getText();
+		const hasEmptyText = text.length === 0;
+		const blockType = block.getType();
+		const isListItemBlock =
+			blockType === 'unordered-list-item' || blockType === 'ordered-list-item';
+
+		return isListItemBlock && hasEmptyText;
+	};
+
+	const handleReturn = (e) => {
+		const block = getSelectedBlock(editorState);
+
+		if (isEmptyListItem(block)) {
+			handleReturnForListItem(block);
+			return 'handled';
+		}
+
+		return 'not-handled';
+	};
+
+	const handleReturnForListItem = (block) => {
+		const depth = block.getDepth();
+		if (depth > 0) {
+			onChange(decreaseBlockDepth(block, editorState));
+		} else if (depth === 0) {
+			onChange(changeBlockType(editorState));
+		}
+	};
+
+	const decreaseBlockDepth = (block, editorState) => {
+		const blockKey = block.getKey();
+		const depth = block.getDepth();
+		const newBlock = block.set('depth', depth - 1);
+		const contentState = editorState.getCurrentContent();
+		const blockMap = contentState.getBlockMap();
+		const newBlockMap = blockMap.set(blockKey, newBlock);
+		return EditorState.push(
+			editorState,
+			contentState.merge({ blockMap: newBlockMap }),
+			'adjust-depth'
+		);
+	};
+
+	const changeBlockType = (editorState) =>
+		EditorState.push(
+			editorState,
+			RichUtils.tryToRemoveBlockStyle(editorState),
+			'change-block-type'
+		);
 
 	const createNote = async () => {
 		let raw = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
@@ -116,6 +187,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 								blockType === 'header-one' && 'note-inline-button-active'
 							}`}
 							onMouseDown={(e) => toggleBlockStyle('header-one', e)}
+							style={{ fontWeight: 'bold' }}
 						>
 							H1
 						</span>
@@ -124,6 +196,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 								blockType === 'header-three' && 'note-inline-button-active'
 							}`}
 							onMouseDown={(e) => toggleBlockStyle('header-three', e)}
+							style={{ fontWeight: 'bold' }}
 						>
 							H2
 						</span>
@@ -132,6 +205,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 								blockType === 'header-four' && 'note-inline-button-active'
 							}`}
 							onMouseDown={(e) => toggleBlockStyle('header-four', e)}
+							style={{ fontWeight: 'bold' }}
 						>
 							H3
 						</span>
@@ -142,7 +216,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							}`}
 							onMouseDown={(e) => toggleBlockStyle('unordered-list-item', e)}
 						>
-							UL
+							<FontAwesomeIcon icon={faListUl} />
 						</span>
 						<span
 							className={`note-inline-button ${
@@ -150,7 +224,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							}`}
 							onMouseDown={(e) => toggleBlockStyle('ordered-list-item', e)}
 						>
-							OL
+							<FontAwesomeIcon icon={faListOl} />
 						</span>
 					</div>
 					<div className="article-inline-button-group">
@@ -160,7 +234,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							}`}
 							onMouseDown={(e) => toggleInlineStyle('BOLD', e)}
 						>
-							Kalın
+							<FontAwesomeIcon icon={faBold} />
 						</span>
 						<span
 							className={`note-inline-button ${
@@ -168,7 +242,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							}`}
 							onMouseDown={(e) => toggleInlineStyle('ITALIC', e)}
 						>
-							İtalik
+							<FontAwesomeIcon icon={faItalic} />
 						</span>
 						<span
 							className={`note-inline-button ${
@@ -176,7 +250,10 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							}`}
 							onMouseDown={(e) => toggleInlineStyle('UNDERLINE', e)}
 						>
-							Altı Çizili
+							<FontAwesomeIcon
+								icon={faUnderline}
+								style={{ marginBottom: '-1px' }}
+							/>
 						</span>
 					</div>
 				</div>
@@ -188,6 +265,8 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 						handleKeyCommand={handleKeyCommand}
 						placeholder="Kendiniz için bir not yazın..."
 						editorKey="foobar"
+						onTab={_onTab}
+						handleReturn={handleReturn}
 					/>
 				</div>
 			</div>
