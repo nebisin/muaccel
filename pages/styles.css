@@ -425,7 +425,7 @@ a {
 	max-width: 556px;
 	display: flex;
 	flex-direction: row;
-	margin: 0 auto;
+	margin: 40px auto 0;
 	width: 40%;
 }
 
