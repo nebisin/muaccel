@@ -5,6 +5,7 @@ import {
 	convertToRaw,
 	RichUtils,
 	convertFromRaw,
+	getDefaultKeyBinding,
 } from 'draft-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -68,11 +69,24 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 		}
 	}, [databaseCurrent]);
 
-	const _onTab = (e) => {
-		const maxDepth = 4;
-		onChange(RichUtils.onTab(e, editorState, maxDepth));
+	const _mapKeyToEditorCommand = (e) => {
+		if (e.keyCode === 9 /* TAB */) {
+			const newEditorState = RichUtils.onTab(e, editorState, 4 /* maxDepth */);
+			if (newEditorState !== editorState) {
+				onChange(newEditorState);
+			}
+			return;
+		} else if (e.keyCode === 8) {
+			const block = getSelectedBlock(editorState);
+
+			if (isEmptyListItem(block)) {
+				handleReturnForListItem(block);
+				return 'handled';
+			}
+		}
+		return getDefaultKeyBinding(e);
 	};
-	
+
 	const getSelectedBlock = (editorState) => {
 		const selection = editorState.getSelection();
 		const contentState = editorState.getCurrentContent();
@@ -265,7 +279,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 						handleKeyCommand={handleKeyCommand}
 						placeholder="Kendiniz için bir not yazın..."
 						editorKey="foobar"
-						onTab={_onTab}
+						keyBindingFn={_mapKeyToEditorCommand}
 						handleReturn={handleReturn}
 					/>
 				</div>
