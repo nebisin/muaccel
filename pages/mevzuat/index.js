@@ -59,8 +59,6 @@ const HomePage = ({actList}) => {
 		<React.Fragment>
 			<Head>
 				<title>Muaccel Mevzuat</title>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta
 					name="description"
 					content="Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin."

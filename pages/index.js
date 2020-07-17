@@ -20,11 +20,6 @@ const HomePage = () => {
 
 	return (
 		<React.Fragment>
-			<Head>
-				<title>Muaccel | Online Hukuk Projesi</title>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-			</Head>
 			<div className="hero-header">
 				<div className="hero-inside">
 					<h1 className="hero-title">Muaccel</h1>

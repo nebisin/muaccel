@@ -50,8 +50,6 @@ const ArticleRoute = ({ article, before, after }) => {
 				<title>
 					{article.name} - {article.actId.name} | Muaccel Mevzuat
 				</title>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="description" content={`Madde ${article.title} - ${article.content}`} />
 			</Head>
 			<div className="flex-container">

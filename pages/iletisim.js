@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Head from 'next/head';
+
 import mevzuatApi from 'api/mevzuat';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,13 +11,13 @@ const ContactPage = () => {
 	const [message, setMessage] = useState('');
 	const [emailError, setEmailError] = useState();
 	const [subjectError, setSubjectError] = useState();
-    const [sending, setSending] = useState(false);
+	const [sending, setSending] = useState(false);
 
 	const _handleSubmit = async (e) => {
 		e.preventDefault();
 		let error = false;
 		setSubjectError();
-        setEmailError();
+		setEmailError();
 		setSending(true);
 		if (!subject) {
 			error = true;
@@ -29,23 +31,25 @@ const ContactPage = () => {
 			setEmailError('Geçersiz bir e-posta adresi girdiniz!');
 		}
 		if (!error) {
-            try {
-                const response = await mevzuatApi.post('/contact', {
-                    email,
-                    subject,
-                    message
-                });
-                alert('Mesajınız başarıyla gönderildi!')
-            } catch (error) {
-                alert('Bir hata ile karşılaştık. Lütfen daha sonra tekrar deneyiniz.')
-            }
-
+			try {
+				const response = await mevzuatApi.post('/contact', {
+					email,
+					subject,
+					message,
+				});
+				alert('Mesajınız başarıyla gönderildi!');
+			} catch (error) {
+				alert('Bir hata ile karşılaştık. Lütfen daha sonra tekrar deneyiniz.');
+			}
 		}
 		setSending(false);
 	};
 
 	return (
 		<React.Fragment>
+			<Head>
+				<title>İletişim | muaccel.com</title>
+			</Head>
 			<div className="flex-container">
 				<div className="register-flex">
 					<div className="register-header">
@@ -100,7 +104,7 @@ const ContactPage = () => {
 							/>
 						</div>
 
-                        <button
+						<button
 							type="submit"
 							className="login-button login-button-inner"
 							onClick={(e) => _handleSubmit(e)}

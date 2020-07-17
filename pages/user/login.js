@@ -1,4 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
+import Head from 'next/head';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -57,6 +59,10 @@ const RegisterPage = () => {
 	};
 
 	return (
+		<React.Fragment>
+		<Head>
+			<title>Giriş Yap | muaccel.com</title>
+		</Head>
 		<div className="flex-container">
 			<div className="register-flex">
 				<div className="register-header">
@@ -114,6 +120,7 @@ const RegisterPage = () => {
 				</div>
 			</div>
 		</div>
+		</React.Fragment>
 	);
 };
 

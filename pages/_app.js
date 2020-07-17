@@ -16,7 +16,7 @@ import { ArticleProvider } from 'context/ArticleContext';
 import { SectionProvider } from 'context/SectionContext';
 import Navbar from 'component/Navbar';
 import { AuthProvider } from 'context/AuthContext';
-import BottomBar from 'component/BottomBar'
+import BottomBar from 'component/BottomBar';
 
 NProgress.configure({
 	showSpinner: false,
@@ -44,24 +44,9 @@ function MyApp({ Component, pageProps }) {
 					<SectionProvider>
 						<Head>
 							<title>Muaccel | Online Hukuk Projesi</title>
-							<meta
-								name="description"
-								content="muaccel.com - Online Hukuk Projesi..."
-							/>
-							<meta
-								name="viewport"
-								content="width=device-width, initial-scale=1.0"
-							/>
-							<meta
-								name="keywords"
-								content="Muaccel, Mevzuat, Kaynakça, Blog, Meydan"
-							/>
-							<meta charSet="utf-8" />
+
 							<meta property="og:image" content="/ogimage.jpg" />
-							<link
-								href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
-								rel="stylesheet"
-							/>
+
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
