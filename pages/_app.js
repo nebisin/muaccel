@@ -9,6 +9,7 @@ config.autoAddCss = false;
 import './nprogress.css';
 import 'draft-js/dist/Draft.css';
 import './styles.css';
+import './blogstyles.css';
 
 import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';
@@ -45,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 						<Head>
 							<title>Muaccel | Online Hukuk Projesi</title>
 
-							<meta property="og:image" content="/ogimage.jpg" />
+							<meta property="og:image" content="/ogimage.png" />
 
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
