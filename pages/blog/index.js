@@ -25,7 +25,7 @@ const BlogPage = () => {
 				/>
 				<meta
 					property="og:image"
-					content="https://www.muaccel.com/ogimage.png"
+					content="https://www.muaccel.com/blog-hero-photo.jpg"
 				/>
 			</Head>
 			<div className="blog-container">
