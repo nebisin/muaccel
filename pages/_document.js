@@ -13,7 +13,6 @@ class MyDocument extends Document {
 						name="keywords"
 						content="Muaccel, Mevzuat, Blog, Meydan, Hukuk, Kanun"
 					/>
-					<meta property="og:image" content="/ogimage.png" />
 					<meta charSet="utf-8" />
 					<link
 						href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"

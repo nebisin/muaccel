@@ -14,6 +14,19 @@ const BlogPage = () => {
 					content="Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular tarafından
 					yazılmış metinleri okuyun veya yazdıklarınızı paylaşın."
 				/>
+				<meta
+					property="og:title"
+					content="Muaccel Blog"
+				/>
+				<meta
+					property="og:description"
+					content="Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular tarafından
+					yazılmış metinleri okuyun veya yazdıklarınızı paylaşın."
+				/>
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/ogimage.png"
+				/>
 			</Head>
 			<div className="blog-container">
 				<div className="blog-hero">
