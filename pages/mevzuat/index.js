@@ -12,14 +12,16 @@ import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
 import Footer from 'component/Footer';
 
-const HomePage = ({actList}) => {
+const HomePage = ({ actList }) => {
 	const [actListOne, setActListOne] = useState([]);
 	const [actListTwo, setActListTwo] = useState([]);
 	const [actListThree, setActListThree] = useState([]);
+	const [actListFour, setActListFour] = useState([]);
 
 	const [articleListOne, setArticleListOne] = useState([]);
 	const [articleListTwo, setArticleListTwo] = useState([]);
 	const [articleListThree, setArticleListThree] = useState([]);
+	const [articleListFour, setArticleListFour] = useState([]);
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [articleLoading, setArticleLoading] = useState(false);
@@ -32,6 +34,7 @@ const HomePage = ({actList}) => {
 		setActListOne(actList.slice(0, 3));
 		setActListTwo(actList.slice(3, 6));
 		setActListThree(actList.slice(6, 9));
+		setActListFour(actList.slice(9, 12));
 
 		setIsLoading(false);
 		setArticleLoading(true);
@@ -39,8 +42,8 @@ const HomePage = ({actList}) => {
 		const randomSkipArticle = Math.floor(Math.random() * 1000);
 
 		const popularArticles = await getArticleList({
-			limit: 12,
-			sort: { hit: 1 },
+			limit: 16,
+			sort: { hit: -1 },
 			skip: randomSkipArticle,
 		});
 
@@ -49,8 +52,11 @@ const HomePage = ({actList}) => {
 		setArticleListTwo(popularArticles.slice(4, 8));
 
 		setArticleListThree(popularArticles.slice(8, 12));
+		
+		setArticleListFour(popularArticles.slice(12, 16));
+
 		setArticleLoading(false);
-	}, [ getArticleList, actList]);
+	}, [getArticleList, actList]);
 
 	useEffect(() => {
 		getAll();
@@ -86,6 +92,12 @@ const HomePage = ({actList}) => {
 					) : (
 						<ArticleHolder />
 					)}{' '}
+					<ActList items={actListFour} />
+					{!articleLoading ? (
+						<ArticleList items={articleListFour} />
+					) : (
+						<ArticleHolder />
+					)}{' '}
 					{isLoading ? (
 						<div
 							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
@@ -108,7 +120,7 @@ const HomePage = ({actList}) => {
 
 export async function getServerSideProps() {
 	const response = await mevzuatApi.post(`/acts`, {
-		limit: 9,
+		limit: 12,
 		sort: { hit: -1 },
 	});
 
@@ -116,6 +128,5 @@ export async function getServerSideProps() {
 
 	return { props: { actList } };
 }
-
 
 export default HomePage;
