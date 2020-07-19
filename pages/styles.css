@@ -907,6 +907,10 @@ a {
 	border-bottom: 1px solid #ccc;
 }
 
+.side-list-item:last-of-type {
+	border: none;
+}
+
 .side-list-item-selected {
 	background-color: #fbfbfb;
 	cursor: 'pointer';
