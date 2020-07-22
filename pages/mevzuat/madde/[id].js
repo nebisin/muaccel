@@ -51,6 +51,8 @@ const ArticleRoute = ({ article, before, after }) => {
 					{article.name} - {article.actId.name} | Muaccel Mevzuat
 				</title>
 				<meta name="description" content={`Madde ${article.title} - ${article.content}`} />
+				<meta property="og:title" content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`} />
+				<meta property="og:description" content={`Madde ${article.title} - ${article.content}`}  />
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="article" id={article._id} art={article} />

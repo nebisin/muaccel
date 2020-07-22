@@ -81,6 +81,16 @@ const RegisterPage = () => {
 		<React.Fragment>
 			<Head>
 				<title>Üye Ol | muaccel.com</title>
+				<meta
+					name="description"
+					content="Siteye üye olun."
+				/>
+				<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
+				<meta property="og:description" content="Online Hukuk Projesi" />
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/fbimage.jpg"
+				/>
 			</Head>
 			<div className="flex-container">
 				<div className="register-flex">

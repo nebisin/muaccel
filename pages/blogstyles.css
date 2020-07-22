@@ -1,8 +1,5 @@
 .blog-container {
-	position: absolute;
-	top: 59px;
-	left: 0;
-	right: 0;
+	margin-top: 69px;
 }
 
 .blog-hero {
@@ -175,6 +172,234 @@
 	font-size: 12px;
 	font-weight: lighter;
 	color: #0070f3;
+}
+
+.create-blog-container {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+}
+
+.create-blog-section {
+	flex: 1;
+	padding: 0 20px;
+}
+
+.create-blog-sidebar {
+	width: 310px;
+	margin-left: 22px;
+}
+
+.user-widget {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25em;
+	background-color: white;
+}
+
+.user-widget-head {
+	background-color: #7692ab;
+	height: 100px;
+	border-radius: 0.2em 0.2em 0 0;
+}
+
+.user-widget-center {
+	position: relative;
+	background-color: white;
+	height: 40px;
+}
+
+.user-widget-avatar {
+	width: 80px;
+	height: 80px;
+	background-color: #f2f2f2;
+	border-radius: 0.25rem;
+	position: absolute;
+	top: -40px;
+	left: 115px;
+}
+
+.user-widget-down {
+	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.user-widget-name {
+	text-align: center;
+}
+
+.user-widget-displayname {
+	color: #161e2e;
+}
+
+.user-widget-username {
+	color: #326fa4;
+	font-size: 12px;
+}
+
+.user-widget-description {
+	text-align: center;
+	font-size: 14px;
+	color: #696969;
+}
+
+.create-blog-title {
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+	border-bottom: 1px solid #dae0e6;
+	padding: 10px 0 20px 0;
+	margin-bottom: 20px;
+}
+
+.title-create-form,
+.abstract-create-form {
+	position: relative;
+	margin: 10px 0;
+}
+
+.title-create-form input {
+	width: 100%;
+	outline: none;
+	font-size: 16px;
+	padding: 10px;
+	border-radius: 0.25rem;
+	color: #555;
+	border: 1px solid #dae0e6;
+	padding-right: 68px;
+	z-index: 2;
+	background-color: white;
+}
+
+.title-create-form input:focus,
+.title-create-form input:hover,
+.abstract-create-form textarea:hover,
+.abstract-create-form textarea:focus {
+	border-color: #161e2e;
+}
+
+.title-create-form-length {
+	position: absolute;
+	right: 7px;
+	color: #696969;
+	font-weight: bold;
+	font-size: 13px;
+	bottom: 7px;
+}
+
+.abstract-create-form textarea {
+	width: 100%;
+	min-height: 250px;
+	border: 1px solid #dae0e6;
+	border-radius: 0.25rem;
+	padding: 10px;
+	outline: none;
+	font-size: 16px;
+	color: #555;
+	padding-bottom: 30px;
+	resize: none;
+	z-index: 2;
+	background-color: white;
+	margin: 0;
+}
+
+.abstract-create-form-length {
+	width: calc(100% - 4px);
+	text-align: end;
+	color: #696969;
+	font-weight: bold;
+	font-size: 13px;
+	position: absolute;
+	bottom: 8px;
+	border-radius: 0.25rem;
+	right: 2px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+	background-color: white;
+}
+
+.create-form-label {
+	font-weight: bold;
+	padding: 5px;
+}
+
+.content-create-form {
+	width: 100%;
+	outline: none;
+	color: #696969;
+	font-size: 0.8888888888888888em;
+	line-height: 1.8;
+	border-radius: 0.25rem;
+	color: #555;
+	border: 1px solid #dae0e6;
+	padding: 10px 20px;
+	width: auto;
+	background-color: white;
+	border-radius: 0.25rem;
+}
+
+.content-create-form .DraftEditor-root {
+	cursor: text;
+	font-size: 16px;
+}
+
+.content-create-form .public-DraftEditorPlaceholder-root,
+.content-create-form .public-DraftEditor-content {
+	margin: 0 -15px -15px;
+	padding: 15px;
+}
+
+.content-create-form .public-DraftEditor-content {
+	min-height: 300px;
+}
+
+.create-form-buttons {
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px;
+}
+
+.create-form-submit-button {
+	margin-top: 10px;
+	width: 20%;
+	padding: 10px;
+	background-color: initial;
+	cursor: pointer;
+	color: #326fa4;
+	border: 1px solid #326fa4;
+	border-radius: 0.25rem;
+	font-weight: bold;
+	font-size: inherit;
+	margin-left: 10px;
+	min-width: 78px;
+}
+
+.create-form-draft-button {
+	border: none;
+	background-color: inherit;
+	color: #326fa4;
+	font-size: 16px;
+	margin-right: 30px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.create-form-draft-button:hover {
+	text-decoration: underline;
+}
+
+.create-form-submit-button:hover {
+	background-color: #fcfcfc;
+}
+
+@media screen and (max-width: 992px) {
+	.create-blog-sidebar {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 768px) {

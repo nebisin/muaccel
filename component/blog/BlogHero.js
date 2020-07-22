@@ -1,4 +1,11 @@
+import Link from 'next/link';
+import { useContext } from 'react';
+
+import AuthContext from 'context/AuthContext';
+
 const BlogHero = () => {
+	const { userInfo } = useContext(AuthContext);
+
 	return (
 		<div className="blog-hero">
 			<div className="blog-hero-left">
@@ -10,7 +17,19 @@ const BlogHero = () => {
 					Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular tarafından
 					yazılmış metinleri okuyun veya yazdıklarınızı paylaşın.
 				</div>
-				<div className="blog-hero-button">Yazı Paylaş</div>
+				{userInfo ? (
+					<Link href="/blog/create" as="/blog/create">
+						<a>
+							<div className="blog-hero-button">Yazı Paylaş</div>
+						</a>
+					</Link>
+				) : (
+					<Link href="/user/login" as="/user/login">
+						<a>
+							<div className="blog-hero-button">Giriş Yap</div>
+						</a>
+					</Link>
+				)}
 				<div className="blog-hero-left-background"></div>
 			</div>
 			<div className="blog-hero-right">

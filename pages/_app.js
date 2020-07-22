@@ -44,16 +44,6 @@ function MyApp({ Component, pageProps }) {
 				<ArticleProvider>
 					<SectionProvider>
 						<Head>
-							<title>Muaccel | Online Hukuk Projesi</title>
-							<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
-							<meta
-								property="og:description"
-								content="Online Hukuk Projesi"
-							/>
-							<meta
-								property="og:image"
-								content="https://www.muaccel.com/fbimage.jpg"
-							/>
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />

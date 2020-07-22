@@ -13,13 +13,25 @@ import {
 import HeroButtons from 'component/HeroButtons';
 
 const HomePage = () => {
-
 	useEffect(() => {
 		mevzuatApi('/');
 	}, []);
 
 	return (
 		<React.Fragment>
+			<Head>
+				<title>Muaccel | Online Hukuk Projesi</title>
+				<meta
+					name="description"
+					content="muaccel.com - Online Hukuk Projesi..."
+				/>
+				<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
+				<meta property="og:description" content="Online Hukuk Projesi" />
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/fbimage.jpg"
+				/>
+			</Head>
 			<div className="hero-header">
 				<div className="hero-inside">
 					<h1 className="hero-title">Muaccel</h1>

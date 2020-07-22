@@ -16,6 +16,24 @@ a {
 	color: inherit;
 }
 
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	font-size: 22px;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
 .container {
 	width: 1140px;
 	margin: auto;
@@ -1219,7 +1237,7 @@ a {
 	width: 90%;
 }
 
-.register-form .error {
+.error {
 	font-size: 14px;
 	color: #990000;
 	padding: 5px;
@@ -1335,7 +1353,7 @@ footer {
 
 @media screen and (max-width: 992px) {
 	.container {
-		width: 720px;
+		width: 760px;
 	}
 	.flex-container {
 		flex-direction: column;

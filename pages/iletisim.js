@@ -48,7 +48,17 @@ const ContactPage = () => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>İletişim | muaccel.com</title>
+				<title>İletişim | muaccel.com </title>
+				<meta
+					name="description"
+					content="Bizimle iletişime geçin."
+				/>
+				<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
+				<meta property="og:description" content="Online Hukuk Projesi" />
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/fbimage.jpg"
+				/>
 			</Head>
 			<div className="flex-container">
 				<div className="register-flex">

@@ -6,10 +6,6 @@ class MyDocument extends Document {
 			<Html lang="tr">
 				<Head>
 					<meta
-						name="description"
-						content="muaccel.com - Online Hukuk Projesi..."
-					/>
-					<meta
 						name="keywords"
 						content="Muaccel, Mevzuat, Blog, Meydan, Hukuk, Kanun"
 					/>

@@ -18,9 +18,9 @@ const ActRoute = ({ data, sectionsData }) => {
 	useEffect(() => {
 		setIsLoading(true);
 		const getAct = () => {
-			const sections = sectionsData.filter((item) => (
-				item.type === 0 || item.type === 3
-			))
+			const sections = sectionsData.filter(
+				(item) => item.type === 0 || item.type === 3
+			);
 			setActInfo(data);
 			setSuffixSections(sections);
 			setIsLoading(false);
@@ -28,7 +28,7 @@ const ActRoute = ({ data, sectionsData }) => {
 		if (router.query.id) {
 			getAct();
 		}
-	}, [data, sectionsData, page ]);
+	}, [data, sectionsData, page]);
 
 	useEffect(() => {
 		setPage(router.query.page);
@@ -37,11 +37,12 @@ const ActRoute = ({ data, sectionsData }) => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>{data.name} {sectionsData[page] && ` - ${sectionsData[page].name}` } | Muaccel Mevzuat</title>
-				<meta
-					name="description"
-					content={`${data.name}`}
-				/>
+				<title>
+					{data.name} {sectionsData[page] && ` - ${sectionsData[page].name}`} |
+					Muaccel Mevzuat
+				</title>
+				<meta name="description" content={`${data.name}`} />
+				<meta property="og:description" content={`${data.name}`} />
 			</Head>
 			<div className="flex-container">
 				<Sidebar
@@ -54,7 +55,7 @@ const ActRoute = ({ data, sectionsData }) => {
 				/>
 				<section id="showcase">
 					<div className="act-title">
-						{data.title && <p>{data.title} sayılı </p> }
+						{data.title && <p>{data.title} sayılı </p>}
 						<p>{data.name}</p>
 					</div>
 					{!isLoading ? (
@@ -67,7 +68,11 @@ const ActRoute = ({ data, sectionsData }) => {
 										actId={actInfo._id}
 									/>
 									<div className="act">
-										<SectionItem item={suffixSections[page]} sections={sectionsData} type={1} />
+										<SectionItem
+											item={suffixSections[page]}
+											sections={sectionsData}
+											type={1}
+										/>
 									</div>
 								</React.Fragment>
 							) : (
@@ -98,7 +103,7 @@ export async function getServerSideProps(context) {
 			type: {},
 		}),
 	]);
-	
+
 	const data = response.data;
 	const sectionsData = sections.data;
 
