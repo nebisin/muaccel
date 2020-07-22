@@ -22,6 +22,8 @@ const CreateBlogForm = () => {
 		let isOK = true;
 		if (!title) {
 			setTitleError('Bir başlık girmelisiniz!');
+			document.getElementById("title").focus();
+			document.getElementById("title").scrollIntoView({ behavior: 'smooth', block: 'center' });
 			isOK = false;
 		} else {
 			setTitleError('');
@@ -29,6 +31,10 @@ const CreateBlogForm = () => {
 
 		if (!abstract) {
 			setAbstractError('Bir özet girmelisiniz!');
+			if(isOK){
+				document.getElementById("abstract").focus();
+				document.getElementById("abstract").scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
 			isOK = false;
 		} else {
 			setAbstractError('');
@@ -45,7 +51,7 @@ const CreateBlogForm = () => {
 			return;
 		}
 
-		console.log('Gönderildi')
+		console.log('Gönderildi');
 	};
 
 	const saveDraft = () => {};
@@ -53,34 +59,34 @@ const CreateBlogForm = () => {
 	return (
 		<form onSubmit={() => {}}>
 			<div className="title-create-form">
-				<label>
+				<label for="title">
 					<p className="create-form-label">Başlık</p>
-					<div className="error">{titleError}</div>
-					<input
-						type="text"
-						maxLength="140"
-						name="title"
-						value={title}
-						onChange={_handleTitleChange}
-					/>
-					<div className="title-create-form-length">{title.length}/140</div>
 				</label>
+				<input
+					id="title"
+					type="text"
+					maxLength="140"
+					name="title"
+					value={title}
+					onChange={_handleTitleChange}
+				/>
+				<div className="title-create-form-length">{title.length}/140</div>
 			</div>
+			<div className="error">{titleError}</div>
 			<div className="abstract-create-form">
-				<label>
+				<label for="abstract">
 					<p className="create-form-label">Özet</p>
-					<div className="error">{abstractError}</div>
-					<textarea
-						maxLength="900"
-						name="abstract"
-						value={abstract}
-						onChange={_handleAbstractChange}
-					></textarea>
-					<div className="abstract-create-form-length">
-						{abstract.length}/900
-					</div>
 				</label>
+				<textarea
+					id="abstract"
+					maxLength="900"
+					name="abstract"
+					value={abstract}
+					onChange={_handleAbstractChange}
+				></textarea>
+				<div className="abstract-create-form-length">{abstract.length}/900</div>
 			</div>
+			<div className="error">{abstractError}</div>
 			<p className="create-form-label">Metin</p>
 			<div className="content-create-form">
 				<Draft editorState={editorState} setEditorState={setEditorState} />

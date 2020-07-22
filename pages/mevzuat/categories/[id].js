@@ -80,6 +80,11 @@ const Categories = ({ actList }) => {
 		<React.Fragment>
 			<Head>
 				<title>{categoryName} | Muaccel Mevzuat</title>
+				<meta property="og:title" content={`${categoryName} | Muaccel Mevzuat`} />
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/mevzuatog.jpg"
+				/>
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="category" id={categoryId} />

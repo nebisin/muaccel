@@ -52,7 +52,7 @@ const HomePage = ({ actList }) => {
 		setArticleListTwo(popularArticles.slice(4, 8));
 
 		setArticleListThree(popularArticles.slice(8, 12));
-		
+
 		setArticleListFour(popularArticles.slice(12, 16));
 
 		setArticleLoading(false);
@@ -68,6 +68,15 @@ const HomePage = ({ actList }) => {
 				<meta
 					name="description"
 					content="Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin."
+				/>
+				<meta property="og:title" content="Muaccel Mevzuat" />
+				<meta
+					property="og:description"
+					content="Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin."
+				/>
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/mevzuatog.jpg"
 				/>
 			</Head>
 			<div className="flex-container">

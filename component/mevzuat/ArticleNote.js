@@ -1,13 +1,8 @@
 import { useState, useContext, useEffect } from 'react';
-import {
-	EditorState,
-	convertToRaw,
-	convertFromRaw,
-} from 'draft-js';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faSpinner,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {faStickyNote} from '@fortawesome/free-regular-svg-icons'
 import mevzuatApi from 'api/mevzuat';
 import AuthContext from 'context/AuthContext';
 import Draft from 'component/draft/Draft';
@@ -76,6 +71,10 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 
 	return (
 		<React.Fragment>
+			<h3 className="title">
+				<FontAwesomeIcon icon={faStickyNote} className="sidebar-icon" />
+				Not Alın
+			</h3>
 			<div className="article-note-container">
 				<Draft editorState={editorState} setEditorState={setEditorState} />
 			</div>

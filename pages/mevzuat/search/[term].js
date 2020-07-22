@@ -67,7 +67,19 @@ const SearchRoute = () => {
 		<React.Fragment>
 			<Head>
 				<title>"{router.query.term}" | Muaccel Mevzuat</title>
-				<meta name="description" content={`${router.query.term} için arama sonuçları:`} />
+				<meta
+					name="description"
+					content={`${router.query.term} için arama sonuçları:`}
+				/>
+				<meta property="og:title" content={`"${router.query.term}" | Muaccel Mevzuat`}/>
+				<meta
+					property="og:description"
+					content={`${router.query.term} için arama sonuçları:`}
+				/>
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/mevzuatog.jpg"
+				/>
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="home" />
