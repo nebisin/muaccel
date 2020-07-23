@@ -711,16 +711,42 @@ h3 {
 }
 
 .favorite-icon-top {
+	position: absolute;
+	right: 15px;
 	top: 15px;
 }
 
-.favorite-icon-bottom {
-	bottom: 15px;
+.article-card-bottom {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.article-bottom-button {
+	color: #839cb3;
+	padding: 0 10px;
+	margin-right: 15px;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-bottom-button:hover {
+	background-color: rgba(0, 118, 255, 0.1);
+	border-radius: 0.25rem;
+}
+
+.article-bottom-button-text {
+	margin-left: 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.article-bottom-note {
 }
 
 .favorite-icon {
-	position: absolute;
-	right: 15px;
 	font-size: 20px;
 	color: #839cb3;
 }
@@ -1499,6 +1525,9 @@ footer {
 	}
 	.footer-list li {
 		margin-right: 10px;
+	}
+	.article-bottom-button-text {
+		display: none;
 	}
 }
 
