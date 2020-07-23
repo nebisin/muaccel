@@ -43,7 +43,7 @@ const ActRoute = ({ data, sectionsData }) => {
 				</title>
 				<meta name="description" content={`${data.name}`} />
 				<meta property="og:description" content={`${data.name}`} />
-				<meta property="og:title" content={`"${data.name}" | Muaccel Mevzuat`}/>
+				<meta property="og:title" content={`${data.name} | Muaccel Mevzuat`}/>
 				<meta
 					property="og:image"
 					content="https://www.muaccel.com/mevzuatog.jpg"

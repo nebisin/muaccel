@@ -1435,6 +1435,9 @@ footer {
 	}
 
 	/* Bottom Bar */
+	#navbar {
+		position: absolute;
+	}
 
 	.bottom-bar {
 		display: block;
