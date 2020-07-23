@@ -115,16 +115,6 @@ const Draft = ({ editorState, setEditorState }) => {
 
 	return (
 		<React.Fragment>
-			<div className="article-note-toggle-buttons">
-				<ToggleButtons
-					toggleBlockStyle={toggleBlockStyle}
-					blockType={blockType}
-				/>
-				<InlineButtons
-					currentStyle={currentStyle}
-					toggleInlineStyle={toggleInlineStyle}
-				/>
-			</div>
 			<div className="article-note-content">
 				<Editor
 					ref={noteEditor}
@@ -134,6 +124,16 @@ const Draft = ({ editorState, setEditorState }) => {
 					editorKey="foobar"
 					keyBindingFn={_mapKeyToEditorCommand}
 					handleReturn={handleReturn}
+				/>
+			</div>
+			<div className="article-note-toggle-buttons">
+				<ToggleButtons
+					toggleBlockStyle={toggleBlockStyle}
+					blockType={blockType}
+				/>
+				<InlineButtons
+					currentStyle={currentStyle}
+					toggleInlineStyle={toggleInlineStyle}
 				/>
 			</div>
 		</React.Fragment>

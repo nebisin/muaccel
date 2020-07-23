@@ -293,7 +293,7 @@
 
 .abstract-create-form textarea {
 	width: 100%;
-	min-height: 250px;
+	min-height: 200px;
 	border: 1px solid #dae0e6;
 	border-radius: 0.25rem;
 	padding: 10px;
@@ -354,7 +354,7 @@
 }
 
 .content-create-form .public-DraftEditor-content {
-	min-height: 250px;
+	min-height: 200px;
 }
 
 .create-form-buttons {
