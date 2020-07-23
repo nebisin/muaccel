@@ -116,11 +116,15 @@ h3 {
 .note-inline-button {
 	color: #293133;
 	cursor: pointer;
-	margin-left: 14px;
-	padding: 4px 2px;
+	padding: 4px 9px;
 	display: inline-block;
 	border: none;
 	font-size: 16px;
+}
+
+.note-inline-button:hover {
+	background-color: rgba(0, 118, 255, 0.1);
+	border-radius: 0.25rem;
 }
 
 .note-inline-button-active {
@@ -730,6 +734,10 @@ h3 {
 	margin-right: 15px;
 	cursor: pointer;
 	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-bottom-button-active {
+	color: #26547c;
 }
 
 .article-bottom-button:hover {
@@ -1528,6 +1536,9 @@ footer {
 	}
 	.article-bottom-button-text {
 		display: none;
+	}
+	.article-note-widget {
+		margin: 0 -25px
 	}
 }
 

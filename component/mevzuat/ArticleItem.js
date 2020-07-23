@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faShare, faStickyNote } from '@fortawesome/free-solid-svg-icons';
-import Favorite from './Favorite';
+import AuthContext from 'context/AuthContext';
+import ArticleItemBottom from './ArticleItemBottom';
 
 const ArticleItem = ({ item, type }) => {
+	const { userInfo } = useContext(AuthContext);
 	const [full, setFull] = useState(false);
 
 	useEffect(() => {
@@ -53,19 +52,7 @@ const ArticleItem = ({ item, type }) => {
 							</Link>
 						</div>
 					)}
-					<div className="article-card-bottom">
-						<div className="article-bottom-share article-bottom-button">
-							<FontAwesomeIcon icon={faShare} />
-							<span className="article-bottom-button-text">Paylaş</span>
-						</div>
-						<div className="article-bottom-note article-bottom-button">
-							<FontAwesomeIcon icon={faStickyNote} />
-							<span className="article-bottom-button-text">Not Al</span>
-						</div>
-						<div className="foverite-icon-bottom">
-							<Favorite position="bottom" articleId={item._id} />
-						</div>
-					</div>
+					{userInfo && <ArticleItemBottom item={item} user={userInfo} /> }
 				</div>
 			</React.Fragment>
 		);

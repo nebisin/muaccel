@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Favorite = ({ position, articleId }) => {
-	const { userInfo, favorites, getFavorites, token } = useContext(AuthContext);
+	const { favorites, getFavorites, token } = useContext(AuthContext);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [isSending, setIsSending] = useState(false);
 
@@ -69,7 +69,7 @@ const Favorite = ({ position, articleId }) => {
 	return (
 		<React.Fragment>
 			<div onClick={() => addFovorite({ go: true, action: isFavorite })}>
-				{userInfo && (!isSending ? (isFavorite ? (
+				{!isSending ? (isFavorite ? (
 					<FontAwesomeIcon
 						icon={farStar}
 						className={`favorite-icon favorite-icon-${position} favorite-icon-active`}
@@ -81,7 +81,7 @@ const Favorite = ({ position, articleId }) => {
 					/>
 				)) : (
                     <FontAwesomeIcon icon={faSpinner} className={`login-spinner favorite-icon favorite-icon-${position}`} />
-                ))}
+                )}
 			</div>
 		</React.Fragment>
 	);
