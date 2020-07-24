@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import {faStickyNote} from '@fortawesome/free-regular-svg-icons'
+import { faStickyNote } from '@fortawesome/free-regular-svg-icons';
 import mevzuatApi from 'api/mevzuat';
 import AuthContext from 'context/AuthContext';
 import Draft from 'component/draft/Draft';
@@ -11,7 +11,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 	const { token } = useContext(AuthContext);
 	const [databaseCurrent, setDatabaseCurrent] = useState(initialNote);
 	const [currentId, setCurrentId] = useState(noteId);
-	const [editorState, setEditorState] = useState(EditorState.createEmpty());
+	const [editorState, setEditorState] = useState();
 	const [saving, setSaving] = useState(false);
 	const [deleting, setDeleting] = useState(false);
 
@@ -71,35 +71,42 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 
 	return (
 		<React.Fragment>
-			<h3 className="title">
-				<FontAwesomeIcon icon={faStickyNote} className="sidebar-icon" />
-				Not Alın
-			</h3>
-			<div className="article-note-container">
-				<Draft editorState={editorState} setEditorState={setEditorState} />
-			</div>
-			<div className="article-note-buttons">
-				{databaseCurrent && (
-					<button className="article-note-delete-button" onClick={deleteNote}>
-						{deleting ? (
-							<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
-						) : (
-							'Sil'
+			{editorState && (
+				<React.Fragment>
+					<h3 className="title">
+						<FontAwesomeIcon icon={faStickyNote} className="sidebar-icon" />
+						Not Alın
+					</h3>
+					<div className="article-note-container">
+						<Draft editorState={editorState} setEditorState={setEditorState} />
+					</div>
+					<div className="article-note-buttons">
+						{databaseCurrent && (
+							<button
+								className="article-note-delete-button"
+								onClick={deleteNote}
+							>
+								{deleting ? (
+									<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+								) : (
+									'Sil'
+								)}
+							</button>
 						)}
-					</button>
-				)}
-				<button
-					disabled={!editorState.getCurrentContent().hasText()}
-					className="article-note-create-button"
-					onClick={createNote}
-				>
-					{saving ? (
-						<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
-					) : (
-						'Kaydet'
-					)}
-				</button>
-			</div>
+						<button
+							disabled={!editorState.getCurrentContent().hasText()}
+							className="article-note-create-button"
+							onClick={createNote}
+						>
+							{saving ? (
+								<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+							) : (
+								'Kaydet'
+							)}
+						</button>
+					</div>
+				</React.Fragment>
+			)}
 		</React.Fragment>
 	);
 };

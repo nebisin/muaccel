@@ -1,6 +1,10 @@
-import { Editor, RichUtils, getDefaultKeyBinding, EditorState } from 'draft-js';
+import { RichUtils, getDefaultKeyBinding, EditorState } from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import createLinkifyPlugin from 'draft-js-linkify-plugin';
 import InlineButtons from './InlineButtons';
 import ToggleButtons from './ToggleButtons';
+const linkifyPlugin = createLinkifyPlugin();
+const plugins = [linkifyPlugin];
 
 const Draft = ({ editorState, setEditorState }) => {
 	const toggleInlineStyle = (inlineStyle, e) => {
@@ -124,6 +128,7 @@ const Draft = ({ editorState, setEditorState }) => {
 					editorKey="foobar"
 					keyBindingFn={_mapKeyToEditorCommand}
 					handleReturn={handleReturn}
+					plugins={plugins}
 				/>
 			</div>
 			<div className="article-note-toggle-buttons">

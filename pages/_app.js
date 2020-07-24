@@ -6,8 +6,9 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
-import './nprogress.css';
 import 'draft-js/dist/Draft.css';
+import 'draft-js-linkify-plugin/lib/plugin.css';
+import './nprogress.css';
 import './styles.css';
 import './blogstyles.css';
 

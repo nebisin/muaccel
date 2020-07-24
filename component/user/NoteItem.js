@@ -1,18 +1,21 @@
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
-import { Editor, EditorState, convertFromRaw } from 'draft-js';
+import { EditorState, convertFromRaw } from 'draft-js';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from 'context/AuthContext';
 import mevzuatApi from 'api/mevzuat';
+import ReadOnly from 'component/draft/ReadOnly';
+
+
 
 const NoteItem = ({ note }) => {
 	const { token } = useContext(AuthContext);
 	const [currentNote, setCurrentNote] = useState(note)
 	const [removed, setRemoved] = useState(false);
 	const [deleting, setDeleting] = useState(false);
-	const [editorState, setEditorState] = useState(EditorState.createEmpty());
-	const notEditable = React.useRef(null);
+	const [editorState, setEditorState] = useState();
 
 	useEffect(() => {
 		if (currentNote?.raw) {
@@ -68,7 +71,7 @@ const NoteItem = ({ note }) => {
 						Notunuz başarıyla silinmiştir. <span onMouseDown={createNote}>Geri al.</span>
 					</p>
 				</div>
-			) : (
+			) : editorState && (
 				<div className="user-note">
 					<div className="user-note-header">
 						<Link
@@ -81,12 +84,7 @@ const NoteItem = ({ note }) => {
 						</Link>
 					</div>
 					<div className="user-note-content">
-						<Editor
-							ref={notEditable}
-							editorState={editorState}
-							readOnly={true}
-							editorKey="notEditable"
-						/>
+						<ReadOnly editorState={editorState} setEditorState={setEditorState} />
 					</div>
 					<div className="user-note-buttons">
 						<button className="user-note-delete-button" onClick={deleteNote}>
