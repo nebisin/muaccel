@@ -46,100 +46,88 @@ const ArticleRoute = ({ article, before, after }) => {
 
 	return (
 		<React.Fragment>
-			{article && (
-				<React.Fragment>
-					<Head>
-						<title>
-							{article.name} - {article.actId.name} | Muaccel Mevzuat
-						</title>
-						<meta
-							name="description"
-							content={`Madde ${article.title} - ${article.content}`}
-						/>
-						<meta
-							property="og:title"
-							content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
-						/>
-						<meta
-							property="og:description"
-							content={`Madde ${article.title} - ${article.content}`}
-						/>
-						<meta
-							property="og:image"
-							content="https://www.muaccel.com/mevzuatog.jpg"
-						/>
-					</Head>
-					<div className="flex-container">
-						<Sidebar type="article" id={article._id} art={article} />
-						<section id="showcase">
-							{article._id !== undefined && (
-								<React.Fragment>
-									<Link
-										href="/mevzuat/kanun/[id]/[page]"
-										as={`/mevzuat/kanun/${article.actId._id}/0`}
-									>
-										<a>
-											<div className="act-title">
-												{article.actId.title && (
-													<p>{article.actId.title} sayılı </p>
-												)}
-												<p>{article.actId.name}</p>
-											</div>
-										</a>
-									</Link>
-									<OtherArticles
-										before={before}
-										after={after}
-										actId={article.actId._id}
-									/>
-									<ArticlePageItem item={article} />
-									{!noteLoading ? (
-										isLoggedIn && (
-											<ArticleNote
-												articleId={article._id}
-												initialNote={initialNote}
-												noteId={noteId}
-											/>
-										)
-									) : (
-										<div
-											style={{
-												width: 'auto',
-												display: 'flex',
-												marginBottom: '20px',
-											}}
-										>
-											<div className="loader">Loading...</div>
-										</div>
-									)}
-								</React.Fragment>
+			<Head>
+				<title>
+					{article.name} - {article.actId.name} | Muaccel Mevzuat
+				</title>
+				<meta name="description" content={`Madde ${article.title} - ${article.content}`} />
+				<meta property="og:title" content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`} />
+				<meta property="og:description" content={`Madde ${article.title} - ${article.content}`}  />
+				<meta
+					property="og:image"
+					content="https://www.muaccel.com/mevzuatog.jpg"
+				/>
+			</Head>
+			<div className="flex-container">
+				<Sidebar type="article" id={article._id} art={article} />
+				<section id="showcase">
+					{article._id !== undefined && (
+						<React.Fragment>
+							<Link
+								href="/mevzuat/kanun/[id]/[page]"
+								as={`/mevzuat/kanun/${article.actId._id}/0`}
+							>
+								<a>
+									<div className="act-title">
+										{article.actId.title && (
+											<p>{article.actId.title} sayılı </p>
+										)}
+										<p>{article.actId.name}</p>
+									</div>
+								</a>
+							</Link>
+							<OtherArticles
+								before={before}
+								after={after}
+								actId={article.actId._id}
+							/>
+							<ArticlePageItem item={article} />
+							{!noteLoading ? isLoggedIn && (
+								<ArticleNote
+									articleId={article._id}
+									initialNote={initialNote}
+									noteId={noteId}
+								/>
+							) : (
+								<div
+									style={{
+										width: 'auto',
+										display: 'flex',
+										marginBottom: '20px',
+									}}
+								>
+									<div className="loader">Loading...</div>
+								</div>
 							)}
-							<Footer />
-						</section>
-					</div>
-				</React.Fragment>
-			)}
+						</React.Fragment>
+					)}
+					<Footer />
+				</section>
+			</div>
 		</React.Fragment>
 	);
 };
 
 export async function getStaticPaths() {
 	// Call an external API endpoint to get posts
-	const response = await mevzuatApi.post('/articles', {});
+	const response = await mevzuatApi.post('/articles', {
+		limit: 16,
+		sort: { hit: -1 },
+	});
 
 	const articles = response.data;
-
+  
 	// Get the paths we want to pre-render based on posts
 	const paths = articles.map((article) => ({
-		params: { id: article._id },
-	}));
-
+	  params: { id: article._id },
+	}))
+  
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
-}
+	return { paths, fallback: true }
+  }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({params}) {
 	let id = params.id;
 
 	const response = await mevzuatApi.get('/article', { params: { id } });
