@@ -27,6 +27,16 @@ const ArticleItem = ({ item, type }) => {
 							<a>{item.name}</a>
 						</Link>
 					</h2>
+					{!type && (
+						<div className="card-footer">
+							<Link
+								href="/mevzuat/kanun/[id]/[page]"
+								as={`/mevzuat/kanun/${item.actId._id}/0`}
+							>
+								<a>({item.actId.name})</a>
+							</Link>
+						</div>
+					)}
 					<div className="card-content">
 						<b>Madde {item.title}</b> -{' '}
 						{full ? (
@@ -42,16 +52,6 @@ const ArticleItem = ({ item, type }) => {
 							item.content
 						)}
 					</div>
-					{!type && (
-						<div className="card-footer">
-							<Link
-								href="/mevzuat/kanun/[id]/[page]"
-								as={`/mevzuat/kanun/${item.actId._id}/0`}
-							>
-								<a> {item.actId.name}</a>
-							</Link>
-						</div>
-					)}
 					{userInfo && <ArticleItemBottom item={item} user={userInfo} /> }
 				</div>
 			</React.Fragment>
