@@ -27,7 +27,7 @@ const ArticleItem = ({ item, type }) => {
 							<a>{item.name}</a>
 						</Link>
 					</h2>
-					{!type && (
+					{!type && item.actId.name && (
 						<div className="card-footer">
 							<Link
 								href="/mevzuat/kanun/[id]/[page]"

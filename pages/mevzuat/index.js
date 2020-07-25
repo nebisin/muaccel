@@ -127,7 +127,7 @@ const HomePage = ({ actList }) => {
 	);
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const response = await mevzuatApi.post(`/acts`, {
 		limit: 12,
 		sort: { hit: -1 },
