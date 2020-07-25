@@ -98,24 +98,7 @@ const ActRoute = ({ data, sectionsData }) => {
 	);
 };
 
-export async function getStaticPaths(context) {
-	// Call an external API endpoint to get posts
-	const response = await mevzuatApi.post(`/acts`, {});
-
-	const actList = response.data;
-
-	// Get the paths we want to pre-render based on posts
-	const paths = actList.map((act) => ({
-		params: { id: act._id, page: '0' },
-	}));
-	console.log(paths);
-
-	// We'll pre-render only these paths at build time.
-	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
 	let id = params.id;
 
 	const [response, sections] = await Promise.all([

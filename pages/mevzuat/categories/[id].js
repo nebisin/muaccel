@@ -80,7 +80,10 @@ const Categories = ({ actList }) => {
 		<React.Fragment>
 			<Head>
 				<title>{categoryName} | Muaccel Mevzuat</title>
-				<meta property="og:title" content={`${categoryName} | Muaccel Mevzuat`} />
+				<meta
+					property="og:title"
+					content={`${categoryName} | Muaccel Mevzuat`}
+				/>
 				<meta
 					property="og:image"
 					content="https://www.muaccel.com/mevzuatog.jpg"
@@ -111,8 +114,21 @@ const Categories = ({ actList }) => {
 	);
 };
 
-export async function getServerSideProps(context) {
-	let id = context.params.id;
+export async function getStaticPaths() {
+	return {
+		paths: [
+			{ params: { id: '0' } },
+			{ params: { id: '1' } },
+			{ params: { id: '2' } },
+			{ params: { id: '3' } },
+			{ params: { id: '4' } },
+		],
+		fallback: false,
+	};
+}
+
+export async function getStaticProps({ params }) {
+	let id = params.id;
 
 	const response = await mevzuatApi.post(`/acts`, {
 		query: { category: id },
