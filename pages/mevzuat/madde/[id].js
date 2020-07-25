@@ -46,75 +46,79 @@ const ArticleRoute = ({ article, before, after }) => {
 
 	return (
 		<React.Fragment>
-			<Head>
-				<title>
-					{article.name} - {article.actId.name} | Muaccel Mevzuat
-				</title>
-				<meta
-					name="description"
-					content={`Madde ${article.title} - ${article.content}`}
-				/>
-				<meta
-					property="og:title"
-					content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
-				/>
-				<meta
-					property="og:description"
-					content={`Madde ${article.title} - ${article.content}`}
-				/>
-				<meta
-					property="og:image"
-					content="https://www.muaccel.com/mevzuatog.jpg"
-				/>
-			</Head>
-			<div className="flex-container">
-				<Sidebar type="article" id={article._id} art={article} />
-				<section id="showcase">
-					{article._id !== undefined && (
-						<React.Fragment>
-							<Link
-								href="/mevzuat/kanun/[id]/[page]"
-								as={`/mevzuat/kanun/${article.actId._id}/0`}
-							>
-								<a>
-									<div className="act-title">
-										{article.actId.title && (
-											<p>{article.actId.title} sayılı </p>
-										)}
-										<p>{article.actId.name}</p>
-									</div>
-								</a>
-							</Link>
-							<OtherArticles
-								before={before}
-								after={after}
-								actId={article.actId._id}
-							/>
-							<ArticlePageItem item={article} />
-							{!noteLoading ? (
-								isLoggedIn && (
-									<ArticleNote
-										articleId={article._id}
-										initialNote={initialNote}
-										noteId={noteId}
+			{article && (
+				<React.Fragment>
+					<Head>
+						<title>
+							{article.name} - {article.actId.name} | Muaccel Mevzuat
+						</title>
+						<meta
+							name="description"
+							content={`Madde ${article.title} - ${article.content}`}
+						/>
+						<meta
+							property="og:title"
+							content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
+						/>
+						<meta
+							property="og:description"
+							content={`Madde ${article.title} - ${article.content}`}
+						/>
+						<meta
+							property="og:image"
+							content="https://www.muaccel.com/mevzuatog.jpg"
+						/>
+					</Head>
+					<div className="flex-container">
+						<Sidebar type="article" id={article._id} art={article} />
+						<section id="showcase">
+							{article._id !== undefined && (
+								<React.Fragment>
+									<Link
+										href="/mevzuat/kanun/[id]/[page]"
+										as={`/mevzuat/kanun/${article.actId._id}/0`}
+									>
+										<a>
+											<div className="act-title">
+												{article.actId.title && (
+													<p>{article.actId.title} sayılı </p>
+												)}
+												<p>{article.actId.name}</p>
+											</div>
+										</a>
+									</Link>
+									<OtherArticles
+										before={before}
+										after={after}
+										actId={article.actId._id}
 									/>
-								)
-							) : (
-								<div
-									style={{
-										width: 'auto',
-										display: 'flex',
-										marginBottom: '20px',
-									}}
-								>
-									<div className="loader">Loading...</div>
-								</div>
+									<ArticlePageItem item={article} />
+									{!noteLoading ? (
+										isLoggedIn && (
+											<ArticleNote
+												articleId={article._id}
+												initialNote={initialNote}
+												noteId={noteId}
+											/>
+										)
+									) : (
+										<div
+											style={{
+												width: 'auto',
+												display: 'flex',
+												marginBottom: '20px',
+											}}
+										>
+											<div className="loader">Loading...</div>
+										</div>
+									)}
+								</React.Fragment>
 							)}
-						</React.Fragment>
-					)}
-					<Footer />
-				</section>
-			</div>
+							<Footer />
+						</section>
+					</div>
+				</React.Fragment>
+			)}
 		</React.Fragment>
 	);
 };
