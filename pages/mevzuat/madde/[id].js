@@ -50,9 +50,18 @@ const ArticleRoute = ({ article, before, after }) => {
 				<title>
 					{article.name} - {article.actId.name} | Muaccel Mevzuat
 				</title>
-				<meta name="description" content={`Madde ${article.title} - ${article.content}`} />
-				<meta property="og:title" content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`} />
-				<meta property="og:description" content={`Madde ${article.title} - ${article.content}`}  />
+				<meta
+					name="description"
+					content={`Madde ${article.title} - ${article.content}`}
+				/>
+				<meta
+					property="og:title"
+					content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
+				/>
+				<meta
+					property="og:description"
+					content={`Madde ${article.title} - ${article.content}`}
+				/>
 				<meta
 					property="og:image"
 					content="https://www.muaccel.com/mevzuatog.jpg"
@@ -82,12 +91,14 @@ const ArticleRoute = ({ article, before, after }) => {
 								actId={article.actId._id}
 							/>
 							<ArticlePageItem item={article} />
-							{!noteLoading ? isLoggedIn && (
-								<ArticleNote
-									articleId={article._id}
-									initialNote={initialNote}
-									noteId={noteId}
-								/>
+							{!noteLoading ? (
+								isLoggedIn && (
+									<ArticleNote
+										articleId={article._id}
+										initialNote={initialNote}
+										noteId={noteId}
+									/>
+								)
 							) : (
 								<div
 									style={{
@@ -108,8 +119,24 @@ const ArticleRoute = ({ article, before, after }) => {
 	);
 };
 
-export async function getServerSideProps(context) {
-	let id = context.params.id;
+export async function getStaticPaths() {
+	// Call an external API endpoint to get posts
+	const response = await mevzuatApi.post('/articles', {});
+
+	const articles = response.data;
+
+	// Get the paths we want to pre-render based on posts
+	const paths = articles.map((article) => ({
+		params: { id: article._id },
+	}));
+
+	// We'll pre-render only these paths at build time.
+	// { fallback: false } means other routes should 404.
+	return { paths, fallback: true };
+}
+
+export async function getStaticProps({ params }) {
+	let id = params.id;
 
 	const response = await mevzuatApi.get('/article', { params: { id } });
 	const { article, before, after } = response.data;
