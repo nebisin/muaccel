@@ -125,7 +125,6 @@ const ArticleRoute = ({ article, before, after }) => {
 
 
 export async function getStaticPaths() {
-	// Call an external API endpoint to get posts
 	const response = await mevzuatApi.post('/articles', {
 		limit: 16,
 		sort: { updatedAt: -1 },
@@ -134,13 +133,11 @@ export async function getStaticPaths() {
 	const articles = response.data;
 	console.log(articles)
   
-	// Get the paths we want to pre-render based on posts
 	const paths = articles.map((article) => ({
 	  params: { id: article._id },
 	}))
   
-	// We'll pre-render only these paths at build time.
-	// { fallback: false } means other routes should 404.
+
 	return { paths, fallback: true }
   }
 
