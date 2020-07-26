@@ -131,7 +131,6 @@ export async function getStaticPaths() {
 	});
 
 	const articles = response.data;
-	console.log(articles)
   
 	const paths = articles.map((article) => ({
 	  params: { id: article._id },
