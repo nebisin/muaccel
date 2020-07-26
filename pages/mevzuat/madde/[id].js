@@ -128,10 +128,11 @@ export async function getStaticPaths() {
 	// Call an external API endpoint to get posts
 	const response = await mevzuatApi.post('/articles', {
 		limit: 16,
-		sort: { hit: -1 },
+		sort: { updatedAt: -1 },
 	});
 
 	const articles = response.data;
+	console.log(articles)
   
 	// Get the paths we want to pre-render based on posts
 	const paths = articles.map((article) => ({
