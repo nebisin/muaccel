@@ -80,12 +80,12 @@ const UserNav = () => {
 										<p className="usernav-name">{userInfo.name}</p>
 									</li>
 									<li>
-										<Link href="/user/profile/me">
+										<Link href="/user/account">
 											<a onClick={() => setDropdown(false)}>Hesabım</a>
 										</Link>
 									</li>
 									<li>
-										<Link href="/user/profile/me">
+										<Link href="/user/settings">
 											<a onClick={() => setDropdown(false)}>Ayarlar</a>
 										</Link>
 									</li>

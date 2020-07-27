@@ -36,7 +36,7 @@ const HeroButtons = () => {
 				</React.Fragment>
 			) : (
 				<React.Fragment>
-					<Link href="/user/profile/me" as="/user/profile/me">
+					<Link href="/user/account" as="/user/account">
 						<a>
 							<div className="register-button">
 								{isLogging ? (
@@ -47,7 +47,7 @@ const HeroButtons = () => {
 							</div>
 						</a>
 					</Link>
-					<Link href="/user/profile/me" as="/user/profile/me">
+					<Link href="/user/settings" as="/user/settings">
 						<a>
 							<div className="login-button">
 								{isLogging ? (

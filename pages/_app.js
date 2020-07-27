@@ -11,6 +11,7 @@ import 'draft-js-linkify-plugin/lib/plugin.css';
 import './nprogress.css';
 import './styles.css';
 import './blogstyles.css';
+import './users.css';
 
 import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';

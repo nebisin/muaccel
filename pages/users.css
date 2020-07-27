@@ -1,0 +1,42 @@
+.settings-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 59px auto;
+    padding: 0 10px;
+}
+
+.settings-title {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.settings-navigations {
+    margin-bottom: 20px;
+}
+
+.settings-navigations ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.settings-navigations li {
+    cursor: pointer;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 10px;
+    padding-bottom: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.settings-navigations li:hover {
+    color: #161e2e;
+}
+
+.active-nav {
+    border-bottom: 5px solid #4b89be;
+}
+
+.settings-content {
+    max-width: 768px;
+}
