@@ -4,7 +4,7 @@ import mevzuatApi from 'api/mevzuat';
 import Favorite from './Favorite';
 
 const ArticleItem = ({ item }) => {
-	const [article, setArticle] = useState(item);
+	const [article, setArticle] = useState();
 
 	useEffect(() => {
 		const getArticle = async (item) => {
@@ -16,15 +16,15 @@ const ArticleItem = ({ item }) => {
 		getArticle(item);
 	}, [item])
 
-	if (article.content !== undefined) {
+	if (item.content !== undefined) {
 		return (
 			<article className="article-page-card">
 				<div className="article-page-card-header">
-					<h2>Madde {article.title}</h2>
-					<h1>{article.name}</h1>
+					<h2>Madde {article ? article.title : item.title}</h2>
+					<h1>{article ? article.name : item.name}</h1>
 				</div>
-				<div className="article-page-card-content">{article.content}</div>
-				<Favorite position="top" articleId={article._id} />
+				<div className="article-page-card-content">{article ? article.content : item.content}</div>
+				<Favorite position="top" articleId={article ? article._id : item._id} />
 			</article>
 		);
 	} else {
