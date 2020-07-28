@@ -16,6 +16,26 @@ const ArticleRoute = ({ article, before, after }) => {
 	const [initialNote, setInitialNote] = useState();
 	const [noteId, setNoteId] = useState();
 	const [noteLoading, setNoteLoading] = useState(true);
+	const [articleLast, setArticleLast] = useState(article);
+	const [beforeLast, setBeforeLast] = useState(before);
+	const [afterLast, setAfterLast] = useState(after);
+
+	useEffect(() => {
+		const getArticle = async (article) => {
+			if (article) {
+				setArticleLast(article);
+				setBeforeLast(before);
+				setAfterLast(after);
+				const response = await mevzuatApi.get('/article', {
+					params: { id: article._id },
+				});
+				setArticleLast(response.data.article);
+				setBeforeLast(response.data.before);
+				setAfterLast(response.data.after);
+			}
+		};
+		getArticle(article);
+	}, [article, before, after]);
 
 	useEffect(() => {
 		setInitialNote();
@@ -50,19 +70,19 @@ const ArticleRoute = ({ article, before, after }) => {
 				<React.Fragment>
 					<Head>
 						<title>
-							{article.name} - {article.actId.name} | Muaccel Mevzuat
+							{articleLast.name} - {articleLast.actId.name} | Muaccel Mevzuat
 						</title>
 						<meta
 							name="description"
-							content={`Madde ${article.title} - ${article.content}`}
+							content={`Madde ${articleLast.title} - ${articleLast.content}`}
 						/>
 						<meta
 							property="og:title"
-							content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
+							content={`${articleLast.name} - ${articleLast.actId.name} | Muaccel Mevzuat`}
 						/>
 						<meta
 							property="og:description"
-							content={`Madde ${article.title} - ${article.content}`}
+							content={`Madde ${articleLast.title} - ${articleLast.content}`}
 						/>
 						<meta
 							property="og:image"
@@ -70,33 +90,37 @@ const ArticleRoute = ({ article, before, after }) => {
 						/>
 					</Head>
 					<div className="flex-container">
-						<Sidebar type="article" id={article._id} art={article} />
-						<section id="showcase">
-							{article._id !== undefined && (
-								<React.Fragment>
+						{articleLast && (
+							<React.Fragment>
+								<Sidebar
+									type="article"
+									id={articleLast._id}
+									art={articleLast}
+								/>
+								<section id="showcase">
 									<Link
 										href="/mevzuat/kanun/[id]/[page]"
-										as={`/mevzuat/kanun/${article.actId._id}/0`}
+										as={`/mevzuat/kanun/${articleLast.actId._id}/0`}
 									>
 										<a>
 											<div className="act-title">
-												{article.actId.title && (
-													<p>{article.actId.title} sayılı </p>
+												{articleLast.actId.title && (
+													<p>{articleLast.actId.title} sayılı </p>
 												)}
-												<p>{article.actId.name}</p>
+												<p>{articleLast.actId.name}</p>
 											</div>
 										</a>
 									</Link>
 									<OtherArticles
-										before={before}
-										after={after}
-										actId={article.actId._id}
+										before={beforeLast}
+										after={afterLast}
+										actId={articleLast.actId._id}
 									/>
-									<ArticlePageItem item={article} />
+									<ArticlePageItem item={articleLast} />
 									{!noteLoading ? (
 										isLoggedIn && (
 											<ArticleNote
-												articleId={article._id}
+												articleId={articleLast._id}
 												initialNote={initialNote}
 												noteId={noteId}
 											/>
@@ -112,17 +136,16 @@ const ArticleRoute = ({ article, before, after }) => {
 											<div className="loader">Loading...</div>
 										</div>
 									)}
-								</React.Fragment>
-							)}
-							<Footer />
-						</section>
+									<Footer />
+								</section>
+							</React.Fragment>
+						)}
 					</div>
 				</React.Fragment>
 			)}
 		</React.Fragment>
 	);
 };
-
 
 export async function getStaticPaths() {
 	const response = await mevzuatApi.post('/articles', {
@@ -131,16 +154,15 @@ export async function getStaticPaths() {
 	});
 
 	const articles = response.data;
-  
+
 	const paths = articles.map((article) => ({
-	  params: { id: article._id },
-	}))
-  
+		params: { id: article._id },
+	}));
 
-	return { paths, fallback: true }
-  }
+	return { paths, fallback: true };
+}
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
 	let id = params.id;
 
 	const response = await mevzuatApi.get('/article', { params: { id } });
