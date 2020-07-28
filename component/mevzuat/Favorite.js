@@ -17,7 +17,7 @@ const Favorite = ({ position, articleId }) => {
 	useEffect(() => {
 		const result = favorites.some((favorite) => favorite.article._id === articleId);
 		setIsFavorite(result);
-	}, [favorites]);
+	}, [favorites, articleId]);
 
 	const addFovorite = async ({ go, action }) => {
         if (!go || isSending) return;
