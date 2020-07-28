@@ -16,7 +16,7 @@ const ArticleItem = ({ item }) => {
 		getArticle(item);
 	}, [item])
 
-	if (item.content !== undefined) {
+	if (item) {
 		return (
 			<article className="article-page-card">
 				<div className="article-page-card-header">
