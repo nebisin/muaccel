@@ -8,6 +8,7 @@ const ArticleItem = ({ item }) => {
 
 	useEffect(() => {
 		const getArticle = async (item) => {
+			setArticle();
 			if(item){
 				const response = await mevzuatApi.get('/article', { params: { id: item._id } });
 				setArticle(response.data.article);
@@ -24,7 +25,7 @@ const ArticleItem = ({ item }) => {
 					<h1>{article ? article.name : item.name}</h1>
 				</div>
 				<div className="article-page-card-content">{article ? article.content : item.content}</div>
-				<Favorite position="top" articleId={article ? article._id : item._id} />
+				<Favorite position="top" articleId={item._id} />
 			</article>
 		);
 	} else {
