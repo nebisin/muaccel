@@ -218,7 +218,7 @@
 	border-radius: 0.25rem;
 	position: absolute;
 	top: -40px;
-	left: 115px;
+	left: calc(50% - 40px);
 }
 
 .user-widget-down {
