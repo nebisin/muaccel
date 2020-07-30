@@ -146,6 +146,7 @@
 	margin-bottom: 10px;
 	align-items: center;
 	padding: 7px;
+	justify-content: center;
 }
 
 .author-preview a {
@@ -172,6 +173,18 @@
 	font-size: 12px;
 	font-weight: lighter;
 	color: #0070f3;
+}
+
+.post-preview-author {
+	font-size: 12px;
+	font-weight: lighter;
+	cursor: pointer;
+	color: #7692ab;
+
+}
+
+.post-preview-author:hover {
+	text-decoration: underline;
 }
 
 .create-blog-container {
@@ -417,7 +430,10 @@
 	color: #555;
 	padding: 10px;
 	font-family: 'Open Sans', sans-serif;
+}
 
+.public-DraftStyleDefault-ol, .public-DraftStyleDefault-ul {
+	margin: 0;
 }
 
 @media screen and (max-width: 992px) {
