@@ -49,6 +49,8 @@ function MyApp({ Component, pageProps }) {
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
+							<meta name="twitter:card" content="summary" />
+							<meta name="twitter:site" content="@muaccelcom" />
 							<meta
 								name="viewport"
 								content="width=device-width, initial-scale=1.0"
