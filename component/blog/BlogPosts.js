@@ -1,10 +1,12 @@
 import PostPreview from 'component/blog/PostPreview'
-const BlogPosts = () => {
+const BlogPosts = ({data}) => {
 	return (
 		<div className="blog-posts">
-			<PostPreview />
-			<PostPreview />
-			<PostPreview />
+			{data.map((item) => (
+				<PostPreview item={item} />
+
+			))}
+
 		</div>
 	);
 };

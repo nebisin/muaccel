@@ -1,22 +1,24 @@
-const PostPreview = () => {
+import Link from 'next/link';
+
+const PostPreview = ({ item }) => {
 	return (
 		<div className="post-preview">
 			<h3 className="post-preview-header">
-				<a>Soybağının belirlenmesi için kan ve doku alınması</a>
+				<Link
+					href="/blog/post/[name]/[id]"
+					as={`/blog/post/${item.title.replace(/\s/g, '-')}/${item._id}`}
+				>
+					<a>{item.title}</a>
+				</Link>
 			</h3>
 			<a className="post-preview-author">
-				Muaccel <span className="author-preview-username">(@muaccel)</span>{' '}
+				{item.author.name}{' '}
+				<span className="author-preview-username">
+					(@{item.author.userName})
+				</span>{' '}
 				tarafından yazıldı.
 			</a>
-			<div className="post-preview-content">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-				mollit anim id est laborum.
-			</div>
+			<div className="post-preview-content">{item.abstract}</div>
 			<div className="post-preview-readmore">
 				<a>Devamını Oku →</a>
 			</div>

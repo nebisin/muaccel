@@ -4,7 +4,7 @@ import Footer from 'component/Footer';
 import BlogHero from 'component/blog/BlogHero';
 import BlogPosts from 'component/blog/BlogPosts';
 
-const BlogPage = () => {
+const BlogPage = ({data}) => {
 	return (
 		<React.Fragment>
 			<Head>
@@ -30,11 +30,18 @@ const BlogPage = () => {
 			</Head>
 			<div className="blog-container">
 				<BlogHero />
-				<BlogPosts />
+				<BlogPosts data={data} />
 				<Footer />
 			</div>
 		</React.Fragment>
 	);
 };
+
+export async function getStaticProps() {
+	const response = await mevzuatApi.get(`/blogs`, { params: { status: '2' } });
+	const data = response.data;
+
+	return { props: { data } };
+}
 
 export default BlogPage;
