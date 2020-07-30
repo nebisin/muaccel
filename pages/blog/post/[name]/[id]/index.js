@@ -89,7 +89,7 @@ export async function getStaticProps({ params }) {
 	const response = await mevzuatApi.get(`/blog/${id}`);
 	const data = response.data;
 
-	return { props: { data } };
+	return { props: { data }, unstable_revalidate: 10, };
 }
 
 export default ShowPost;

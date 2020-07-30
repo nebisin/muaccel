@@ -3,7 +3,7 @@ const BlogPosts = ({data}) => {
 	return (
 		<div className="blog-posts">
 			{data.map((item) => (
-				<PostPreview item={item} />
+				<PostPreview item={item} key={item._id} />
 
 			))}
 
