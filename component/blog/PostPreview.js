@@ -20,7 +20,12 @@ const PostPreview = ({ item }) => {
 			</a>
 			<div className="post-preview-content">{item.abstract}</div>
 			<div className="post-preview-readmore">
-				<a>Devamını Oku →</a>
+				<Link
+					href="/blog/post/[name]/[id]"
+					as={`/blog/post/${item.title.replace(/\s/g, '-')}/${item._id}`}
+				>
+					<a>Devamını Oku →</a>
+				</Link>
 			</div>
 		</div>
 	);

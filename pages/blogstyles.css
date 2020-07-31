@@ -180,7 +180,6 @@
 	font-weight: lighter;
 	cursor: pointer;
 	color: #7692ab;
-
 }
 
 .post-preview-author:hover {
@@ -423,6 +422,8 @@
 	margin-bottom: 30px;
 	border-bottom: 1px solid #ccc;
 	font-family: 'Open Sans', sans-serif;
+	text-align: justify;
+	white-space: pre-line;
 }
 
 .blog-post-content {
@@ -432,15 +433,23 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.public-DraftStyleDefault-ol, .public-DraftStyleDefault-ul {
+.public-DraftStyleDefault-ol,
+.public-DraftStyleDefault-ul {
 	margin: 0;
+}
+
+.public-DraftStyleDefault-ltr {
+	text-align: justify;
+	white-space: pre-line;
 }
 
 @media screen and (max-width: 992px) {
 	.create-blog-sidebar {
 		display: none;
 	}
-	.create-blog-section, .blog-post-content, .blog-post-abstract {
+	.create-blog-section,
+	.blog-post-content,
+	.blog-post-abstract {
 		padding-left: 0;
 		padding-right: 0;
 	}
