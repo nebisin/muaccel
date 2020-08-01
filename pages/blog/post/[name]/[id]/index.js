@@ -17,50 +17,54 @@ const ShowPost = ({ data }) => {
 
 	return (
 		<React.Fragment>
-			<Head>
-				<title>{data.title} | Muaccel Blog</title>
-				<meta name="description" content={data.abstract} />
-				<meta property="og:title" content={data.title} />
-				<meta property="og:description" content={data.abstract} />
-				<meta
-					property="og:image"
-					content="https://www.muaccel.com/blog-hero-photo.jpg"
-				/>
-			</Head>
-			<div className="blog-container">
-				<div className="create-blog-container">
-					<div className="create-blog-section">
-						<div className="post-preview">
-							<h1 className="blog-post-title">{data.title}</h1>
+			{data && (
+				<React.Fragment>
+					<Head>
+						<title>{data.title} | Muaccel Blog</title>
+						<meta name="description" content={data.abstract} />
+						<meta property="og:title" content={data.title} />
+						<meta property="og:description" content={data.abstract} />
+						<meta
+							property="og:image"
+							content="https://www.muaccel.com/blog-hero-photo.jpg"
+						/>
+					</Head>
+					<div className="blog-container">
+						<div className="create-blog-container">
+							<div className="create-blog-section">
+								<div className="post-preview">
+									<h1 className="blog-post-title">{data.title}</h1>
 
-							<div className="author-preview">
-								<a className="author-preview-logo"></a>
-								<a className="author-preview-name">
-									<div className="author-preview-displayname">
-										{data.author.name}
+									<div className="author-preview">
+										<a className="author-preview-logo"></a>
+										<a className="author-preview-name">
+											<div className="author-preview-displayname">
+												{data.author.name}
+											</div>
+											<div className="author-preview-username">
+												@{data.author.userName}
+											</div>
+										</a>
 									</div>
-									<div className="author-preview-username">
-										@{data.author.userName}
+
+									<div className="blog-post-abstract">{data.abstract}</div>
+									<div className="blog-post-content">
+										{editorState && (
+											<ReadOnly
+												editorState={editorState}
+												setEditorState={setEditorState}
+											/>
+										)}
 									</div>
-								</a>
+								</div>
 							</div>
-
-							<div className="blog-post-abstract">{data.abstract}</div>
-							<div className="blog-post-content">
-								{editorState && (
-									<ReadOnly
-										editorState={editorState}
-										setEditorState={setEditorState}
-									/>
-								)}
+							<div className="create-blog-sidebar">
+								<UserWidget user={data.author} />
 							</div>
 						</div>
 					</div>
-					<div className="create-blog-sidebar">
-						<UserWidget user={data.author} />
-					</div>
-				</div>
-			</div>
+				</React.Fragment>
+			)}
 		</React.Fragment>
 	);
 };
