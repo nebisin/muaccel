@@ -424,26 +424,29 @@
 	padding: 10px;
 	padding-bottom: 20px;
 	color: #575757;
-	font-family: 'Open Sans', sans-serif;
 	text-align: justify;
 	white-space: pre-line;
+	line-height: 1.8;
 }
 
 .blog-post-content {
 	line-height: 2;
 	color: #575757;
 	padding: 10px;
-	font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.public-DraftStyleDefault-ltr {
+	text-align: justify;
+	white-space: pre-line;
+	line-height: 26pt;
+	margin-bottom: 5px;
 }
 
 .public-DraftStyleDefault-ol,
 .public-DraftStyleDefault-ul {
 	margin: 0;
-}
-
-.public-DraftStyleDefault-ltr {
-	text-align: justify;
-	white-space: pre-line;
 }
 
 @media screen and (max-width: 992px) {
