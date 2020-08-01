@@ -6,10 +6,14 @@ import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
 
 const ShowPost = ({ data }) => {
-	const rawContentFromStore = convertFromRaw(JSON.parse(data.content));
-	const [editorState, setEditorState] = useState(
-		EditorState.createWithContent(rawContentFromStore)
-	);
+	const [editorState, setEditorState] = useState();
+
+	useEffect(() => {
+		if (data?.content) {
+			const rawContentFromStore = convertFromRaw(JSON.parse(data.content));
+			setEditorState(EditorState.createWithContent(rawContentFromStore));
+		}
+	}, [data]);
 
 	return (
 		<React.Fragment>
