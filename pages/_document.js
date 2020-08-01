@@ -10,10 +10,7 @@ class MyDocument extends Document {
 						content="Muaccel, Mevzuat, Blog, Meydan, Hukuk, Kanun"
 					/>
 					<meta charSet="utf-8" />
-					<link
-						href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap"
-						rel="stylesheet"
-					/>
+					<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 					<script
 						async
 						src="https://www.googletagmanager.com/gtag/js?id=UA-148977213-1"

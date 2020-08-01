@@ -21,7 +21,7 @@
 
 .settings-navigations li {
 	cursor: pointer;
-	font-weight: bold;
+	font-weight: 500;
 	list-style-type: none;
 	padding: 10px;
 	padding-bottom: 5px;

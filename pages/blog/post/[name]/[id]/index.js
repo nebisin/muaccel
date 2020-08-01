@@ -30,7 +30,7 @@ const ShowPost = ({ data }) => {
 						/>
 					</Head>
 					<div className="blog-container">
-						<div className="create-blog-container">
+						<div className="read-blog-container">
 							<div className="create-blog-section">
 								<div className="post-preview">
 									<h1 className="blog-post-title">{data.title}</h1>
