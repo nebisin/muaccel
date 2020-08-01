@@ -46,7 +46,6 @@ const ShowPost = ({ data }) => {
 											</div>
 										</a>
 									</div>
-
 									<div className="blog-post-abstract">{data.abstract}</div>
 									<div className="blog-post-content">
 										{editorState && (
