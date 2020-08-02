@@ -98,6 +98,7 @@ h3 {
 .article-note-content .DraftEditor-root {
 	cursor: text;
 	font-size: 16px;
+	font-weight: 300;
 }
 
 .article-note-content .public-DraftEditorPlaceholder-root,
@@ -231,6 +232,7 @@ h3 {
 	padding: 10px 0 20px 0;
 	max-height: 250px;
 	overflow: hidden;
+	font-weight: 300;
 }
 
 .user-note-header {
