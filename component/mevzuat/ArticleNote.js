@@ -50,6 +50,8 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 			} else {
 				console.log(response.data.error);
 			}
+		}else {
+			alert('Lütfen bir not giriniz.')
 		}
 	};
 
@@ -83,6 +85,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 					<div className="article-note-buttons">
 						{databaseCurrent && (
 							<button
+								disabled={deleting}
 								className="article-note-delete-button"
 								onClick={deleteNote}
 							>
@@ -94,7 +97,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 							</button>
 						)}
 						<button
-							disabled={!editorState.getCurrentContent().hasText()}
+							disabled={saving}
 							className="article-note-create-button"
 							onClick={createNote}
 						>
