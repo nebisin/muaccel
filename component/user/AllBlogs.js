@@ -37,8 +37,8 @@ const AllBlogs = ({ user, token }) => {
 						<div className="user-no-favorite-image-container">
 							<img
 								className="user-no-favorite-image"
-								src="/nonote.png"
-								alt="not"
+								src="/noblog.png"
+								alt="blog"
 							/>
 						</div>
 					</div>
