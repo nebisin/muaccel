@@ -6,6 +6,7 @@ import AuthContext from 'context/AuthContext';
 import AllNotes from 'component/user/AllNotes';
 import UserSidebar from 'component/user/UserSidebar';
 import AllFavorites from 'component/user/AllFavorites';
+import AllBlogs from 'component/user/AllBlogs';
 import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
@@ -58,6 +59,9 @@ const ProfilePage = () => {
 						{current === 'notes' && <AllNotes user={userInfo} token={token} />}
 						{current === 'favorites' && (
 							<AllFavorites user={userInfo} token={token} />
+						)}
+						{current === 'blogs' && (
+							<AllBlogs user={userInfo} token={token} />
 						)}
 						<Footer />
 					</section>
