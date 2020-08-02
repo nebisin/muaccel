@@ -76,7 +76,7 @@
 	width: 70%;
 	padding: 10px;
 	color: #326fa4;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 16px;
 	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
@@ -270,7 +270,7 @@ font-weight: 300;
 
 .create-blog-title {
 	font-size: 24px;
-	font-weight: 500;
+	font-weight: bold;
 	border-bottom: 1px solid #dae0e6;
 	padding: 10px 0 20px 0;
 	margin-bottom: 20px;
@@ -306,7 +306,7 @@ font-weight: 300;
 	position: absolute;
 	right: 7px;
 	color: #696969;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 13px;
 	bottom: 7px;
 }
@@ -331,7 +331,7 @@ font-weight: 300;
 	width: calc(100% - 4px);
 	text-align: end;
 	color: #696969;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 13px;
 	position: absolute;
 	bottom: 8px;
@@ -343,7 +343,7 @@ font-weight: 300;
 }
 
 .create-form-label {
-	font-weight: 500;
+	font-weight: bold;
 	padding: 5px;
 }
 
@@ -392,7 +392,7 @@ font-weight: 300;
 	color: #326fa4;
 	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: inherit;
 	margin-left: 10px;
 	min-width: 78px;

@@ -19,7 +19,7 @@ a {
 }
 
 b {
-	font-weight: 500;
+	font-weight: bold;
 }
 
 h1 {
@@ -150,7 +150,7 @@ h3 {
 	color: #f2f2f2;
 	border: 1px solid #4b89be;
 	border-radius: 0.25rem;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: inherit;
 	margin-left: 10px;
 	margin-right: 40px;
@@ -176,7 +176,7 @@ h3 {
 	color: #990000;
 	border: 1px solid #990000;
 	border-radius: 0.25rem;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: inherit;
 	min-width: 78px;
 }
@@ -336,7 +336,7 @@ h3 {
 .user-side-link span {
 	padding: 10px;
 	color: #4b89be;
-	font-weight: 500;
+	font-weight: bold;
 }
 
 .user-side-link span:hover {
@@ -363,7 +363,7 @@ h3 {
 
 .act-title {
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: bold;
 	margin-bottom: 20px;
 	padding: 20px;
 	background-color: #7692ab;
@@ -394,7 +394,7 @@ h3 {
 	text-align: center;
 	padding: 10px;
 	color: #7692ab;
-	font-weight: 500;
+	font-weight: bold;
 	background-color: #f4f4f4;
 	border: 1px solid #ccc;
 	border-radius: 0.25em;
@@ -518,7 +518,7 @@ h3 {
 
 .home-item-header {
 	color: #161e2e;
-	font-weight: 500;
+	font-weight: bold;
 	width: 100%;
 	text-align: center;
 	margin-bottom: 10px;
@@ -540,7 +540,7 @@ h3 {
 	color: #f2f2f2;
 	border: 1px solid #839cb3;
 	border-radius: 0.25rem;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: inherit;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -636,7 +636,7 @@ h3 {
 	text-align: center;
 	font-size: 28px;
 	margin-top: 10px;
-	font-weight: 500;
+	font-weight: bold;
 }
 
 .article-page-card-header h2 {
@@ -682,7 +682,7 @@ h3 {
 }
 
 .card-content b {
-	font-weight: 500;
+	font-weight: bold;
 }
 
 .card-footer {
@@ -725,7 +725,7 @@ h3 {
 
 .card-deck-text {
 	text-align: center;
-	font-weight: 500;
+	font-weight: bold;
 	margin: 0;
 }
 
@@ -768,7 +768,7 @@ h3 {
 .article-bottom-button-text {
 	margin-left: 5px;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: bold;
 }
 /*
 .article-bottom-note {
@@ -856,7 +856,7 @@ h3 {
 .navlink {
 	padding: 8px 10px;
 	border-radius: 2px;
-	font-weight: 500;
+	font-weight: bold;
 	color: #26547c;
 }
 
@@ -993,7 +993,7 @@ h3 {
 .side-card-content {
 	background-color: white;
 	padding: 15px;
-	font-weight: 500;
+	font-weight: bold;
 }
 
 .search-form {
@@ -1042,7 +1042,7 @@ h3 {
 .others-after,
 .others-before,
 .others-go {
-	font-weight: 500;
+	font-weight: bold;
 	padding: 10px;
 	flex: 1;
 	font-size: 14px;
@@ -1105,7 +1105,7 @@ h3 {
 	height: auto;
 	width: 20%;
 	min-width: 30px;
-	font-weight: 500;
+	font-weight: bold;
 	color: white;
 }
 
@@ -1140,7 +1140,7 @@ h3 {
 
 .register-title {
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: bold;
 	text-align: center;
 	margin-bottom: 5px;
 	color: #161e2e;
@@ -1217,7 +1217,7 @@ h3 {
 	width: 100%;
 	padding-left: 10px;
 	margin-bottom: 3px;
-	font-weight: 500;
+	font-weight: bold;
 	color: #161e2e;
 }
 
@@ -1234,7 +1234,7 @@ h3 {
 	padding: 10px;
 	background-color: #326fa4;
 	color: #f2f2f2;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 16px;
 	border: 1px solid #4b89be;
 	border-radius: 0.25rem;
@@ -1255,7 +1255,7 @@ h3 {
 	width: 70%;
 	padding: 10px;
 	color: #326fa4;
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 16px;
 	border: 1px solid #326fa4;
 	border-radius: 0.25rem;
