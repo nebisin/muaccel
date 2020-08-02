@@ -37,7 +37,7 @@ const SectionItem = ({ item, type, sections }) => {
 	return (
 		<React.Fragment>
 			<div id={item._id} className={type ? 'suffix-section' : 'section'}>
-				<p style={{ fontWeight: 'bold', textAlign: 'center' }}>{item.title}</p>
+				<p style={{ fontWeight: 500, textAlign: 'center' }}>{item.title}</p>
 				<p style={{ textAlign: 'center' }}>{item.name}</p>
 			</div>
 			{item.type === 3 || item.type === 2 ? (
