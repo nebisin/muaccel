@@ -80,11 +80,17 @@ export const AuthProvider = ({ children }) => {
 
 	const getFavorites = async () => {
 		if (!token) return;
-		const response = await mevzuatApi.get('/favorite/article', {
-			headers: {
-				Authorization: `Bearer ${token}`,
+		const response = await mevzuatApi.post(
+			'/favorite/articles',
+			{
+				sort: {createdAt: -1}
 			},
-		});
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 		if (response?.data?.favorites) {
 			setFavorites(response.data.favorites);
 		} else {
@@ -109,7 +115,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const logout = (token) => {
-		if(!token) return;
+		if (!token) return;
 		localStorage.removeItem('userData');
 		setToken();
 		setUserInfo();

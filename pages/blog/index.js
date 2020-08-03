@@ -4,7 +4,7 @@ import Footer from 'component/Footer';
 import BlogHero from 'component/blog/BlogHero';
 import BlogPosts from 'component/blog/BlogPosts';
 
-const BlogPage = ({data}) => {
+const BlogPage = ({ data }) => {
 	return (
 		<React.Fragment>
 			<Head>
@@ -14,10 +14,7 @@ const BlogPage = ({data}) => {
 					content="Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular tarafından
 					yazılmış metinleri okuyun veya yazdıklarınızı paylaşın."
 				/>
-				<meta
-					property="og:title"
-					content="Muaccel Blog"
-				/>
+				<meta property="og:title" content="Muaccel Blog" />
 				<meta
 					property="og:description"
 					content="Öğrenmenin en iyi yolu okumak ve yazmaktır. Hukukçular tarafından
@@ -38,10 +35,15 @@ const BlogPage = ({data}) => {
 };
 
 export async function getStaticProps() {
-	const response = await mevzuatApi.get(`/blogs`, { params: { status: '2' } });
+	const response = await mevzuatApi.get(`/blogs`, {
+		params: { status: '2' },
+		data: {
+			sort: {createdAt: -1}
+		},
+	});
 	const data = response.data;
 
-	return { props: { data }, unstable_revalidate: 100, };
+	return { props: { data }, unstable_revalidate: 100 };
 }
 
 export default BlogPage;

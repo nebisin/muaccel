@@ -9,11 +9,17 @@ const AllNotes = ({ user, token }) => {
 	useEffect(() => {
 		const getAllNotes = async () => {
 			setIsLoading(true);
-			const response = await mevzuatApi.get('/notes', {
-				headers: {
-					Authorization: `Bearer ${token}`,
+			const response = await mevzuatApi.post(
+				'/notes',
+				{
+					sort: { createdAt: -1 },
 				},
-			});
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
 			setIsLoading(false);
 			if (response.data) {
 				setNotes(response.data);
@@ -24,19 +30,24 @@ const AllNotes = ({ user, token }) => {
 		}
 	}, [user, token]);
 	return (
-        <div className="all-notes">
+		<div className="all-notes">
 			{!isLoading ? (
 				notes.length ? (
 					notes.map((note) => <NoteItem key={note._id} note={note} />)
 				) : (
 					<div className="user-no-favorite">
-					<div className="user-no-favorite-description">
-						Henüz hiç not oluşturmamışsınız.
+						<div className="user-no-favorite-description">
+							Henüz hiç not oluşturmamışsınız.
+						</div>
+						<div className="user-no-favorite-image-container">
+							<img
+								className="user-no-favorite-image"
+								src="/nonote.png"
+								alt="not"
+							/>
+						</div>
 					</div>
-					<div className="user-no-favorite-image-container">
-						<img className="user-no-favorite-image" src="/nonote.png" alt="not" />
-					</div>
-				</div>				)
+				)
 			) : (
 				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
 					<div className="loader">Loading...</div>

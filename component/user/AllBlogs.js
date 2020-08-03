@@ -8,11 +8,17 @@ const AllBlogs = ({ user, token }) => {
 
 	useEffect(() => {
 		const getAll = async (token) => {
-			const response = await mevzuatApi.get('/user/blogs', {
-				headers: {
-					Authorization: `Bearer ${token}`,
+			const response = await mevzuatApi.post(
+				'/user/blogs',
+				{
+					sort: { createdAt: -1 },
 				},
-			});
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
 			setIsLoading(false);
 			if (response.data) {
 				setBlogs(response.data);
