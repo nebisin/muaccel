@@ -30,7 +30,6 @@ const BlogHero = () => {
 						</a>
 					</Link>
 				)}
-				<div className="blog-hero-left-background"></div>
 			</div>
 			<div className="blog-hero-right">
 				<div className="blog-hero-right-background"></div>

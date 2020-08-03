@@ -485,8 +485,9 @@ font-weight: 300;
 	.blog-hero {
 		margin-bottom: 20px;
 	}
-	.blog-hero-right {
-		display: none;
+	.blog-hero {
+		height: auto;
+		flex-direction: column-reverse;
 	}
 	.blog-hero-left-background {
 		position: absolute;
