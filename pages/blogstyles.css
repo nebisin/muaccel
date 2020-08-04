@@ -31,7 +31,6 @@
 	background-image: url('/blog-hero-photo.jpg');
 	background-size: cover;
 	width: auto;
-	max-width: 500px;
 	height: 300px;
 	margin: 20px;
 	border-radius: 0.25rem;
@@ -64,7 +63,6 @@
 	font-size: 1rem;
 	text-align: center;
 	padding: 10px;
-	max-width: 500px;
 	margin: 10px auto;
 }
 
@@ -92,26 +90,55 @@
 }
 
 .blog-posts {
-	max-width: 768px;
-	margin: 0 auto;
+	width: 100%;
 }
 
-.post-preview {
+.blog-post {
 	padding: 20px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.post-preview:last-of-type {
-	border: none;
+.blog-post-out {
+	width: 100%;
+	height: 300px;
+	border-radius: 0.25rem;
+	background-color: rgba(0, 118, 255, 0.1);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-bottom: 10px;
+}
+
+.post-preview {
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: white;
+	border: 1px solid rgb(238, 238, 238);
+	display: flex;
+	flex-direction: row;
+}
+
+.post-preview-out {
+	width: 400px;
+	height: 300px;
+	margin: 20px;
+	border-radius: 0.25rem;
+	background-color: rgba(0, 118, 255, 0.1);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.post-preview-in {
+	flex: 1;
+	margin: 20px;
 }
 
 .post-preview-header {
 	padding-bottom: 5px;
 	color: #161e2e;
-	text-align: center;
-	font-size: 25px;
-	line-height: 45px;
+	font-size: 18px;
 }
 
 .post-preview-header a {
@@ -479,6 +506,17 @@ font-weight: 300;
 		padding-left: 0;
 		padding-right: 0;
 	}
+	.post-preview {
+		flex-direction: column;
+	}
+	
+	.post-preview-out {
+		width: auto;
+	}
+
+	.blog-post-out, .post-preview-out {
+		height: 250px;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -489,19 +527,8 @@ font-weight: 300;
 		height: auto;
 		flex-direction: column-reverse;
 	}
-	.blog-hero-left-background {
-		position: absolute;
-		height: 350px;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-image: url('/blog-hero-photo.jpg');
-		background-size: cover;
-		background-position: center;
-		filter: blur(10px);
-		-webkit-filter: blur(10px);
-		z-index: -1;
+	.blog-post-out, .post-preview-out {
+		height: 200px;
 	}
 }
 
@@ -512,5 +539,8 @@ font-weight: 300;
 	.post-preview-header, .blog-post-title {
 		font-size: 20px;
 		line-height: 35px;
+	}
+	.blog-post-out, .post-preview-out {
+		height: 150px;
 	}
 }

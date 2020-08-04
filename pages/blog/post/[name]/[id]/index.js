@@ -32,9 +32,16 @@ const ShowPost = ({ data }) => {
 					<div className="blog-container">
 						<div className="read-blog-container">
 							<div className="create-blog-section">
-								<div className="post-preview">
+								<div className="blog-post">
 									<h1 className="blog-post-title">{data.title}</h1>
+									<div
+										className="blog-post-out"
+										style={{
+											backgroundImage: 'url(' + '/post-preview.jpg' + ')',
+										}}
+									/>
 
+									<div className="blog-post-abstract">{data.abstract}</div>
 									<div className="author-preview">
 										<a className="author-preview-logo"></a>
 										<a className="author-preview-name">
@@ -46,7 +53,6 @@ const ShowPost = ({ data }) => {
 											</div>
 										</a>
 									</div>
-									<div className="blog-post-abstract">{data.abstract}</div>
 									<div className="blog-post-content">
 										{editorState && (
 											<ReadOnly

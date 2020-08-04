@@ -4,9 +4,7 @@ const BlogPosts = ({data}) => {
 		<div className="blog-posts">
 			{data.map((item) => (
 				<PostPreview item={item} key={item._id} />
-
 			))}
-
 		</div>
 	);
 };
