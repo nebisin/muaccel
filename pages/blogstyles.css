@@ -90,7 +90,8 @@
 }
 
 .blog-posts {
-	width: 100%;
+	max-width: 768px;
+	margin: 0 auto;
 }
 
 .blog-post {
@@ -100,7 +101,7 @@
 }
 
 .blog-post-out {
-	width: 100%;
+	width: auto;
 	height: 300px;
 	border-radius: 0.25rem;
 	background-color: rgba(0, 118, 255, 0.1);
@@ -116,13 +117,13 @@
 	background-color: white;
 	border: 1px solid rgb(238, 238, 238);
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .post-preview-out {
-	width: 400px;
+	width: auto;
 	height: 300px;
-	margin: 20px;
+	margin: 20px 0;
 	border-radius: 0.25rem;
 	background-color: rgba(0, 118, 255, 0.1);
 	background-position: center;

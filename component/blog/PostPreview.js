@@ -2,15 +2,6 @@ import Link from 'next/link';
 const PostPreview = ({ item }) => {
 	return (
 		<div className="post-preview">
-			<div
-				className="post-preview-out"
-				style={{
-					backgroundImage:
-						'url(' +
-						'/post-preview.jpg' +
-						')',
-				}}
-			/>
 			<div className="post-preview-in">
 				<h3 className="post-preview-header">
 					<Link
@@ -20,6 +11,15 @@ const PostPreview = ({ item }) => {
 						<a>{item.title}</a>
 					</Link>
 				</h3>
+				<div
+				className="post-preview-out"
+				style={{
+					backgroundImage:
+						'url(' +
+						'/post-preview.jpg' +
+						')',
+				}}
+			/>
 				<a className="post-preview-author">
 					{item.author.name}{' '}
 					<span className="author-preview-username">
