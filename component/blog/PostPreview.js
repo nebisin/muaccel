@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TimeStamp from 'component/TimeStamp';
 const PostPreview = ({ item }) => {
 	return (
 		<div className="post-preview">
@@ -25,7 +26,7 @@ const PostPreview = ({ item }) => {
 					<span className="author-preview-username">
 						(@{item.author.userName})
 					</span>{' '}
-					tarafından yazıldı.
+					tarafından <TimeStamp date={item.createdAt} /> yazıldı.
 				</a>
 				<div className="post-preview-content">{item.abstract}</div>
 				<div className="post-preview-readmore">
