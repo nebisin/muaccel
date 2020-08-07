@@ -9,9 +9,16 @@ const ShowPost = ({ data }) => {
 	const [editorState, setEditorState] = useState();
 
 	useEffect(() => {
-		if (data?.content) {
+		const getContent = async (id) => {
+			if (!id) return;
+			const response = await mevzuatApi.get(`/blog/content/${id}`);
+			const data = response.data;
 			const rawContentFromStore = convertFromRaw(JSON.parse(data.content));
 			setEditorState(EditorState.createWithContent(rawContentFromStore));
+		};
+
+		if (data) {
+			getContent(data._id);
 		}
 	}, [data]);
 
@@ -54,11 +61,21 @@ const ShowPost = ({ data }) => {
 										</a>
 									</div>
 									<div className="blog-post-content">
-										{editorState && (
+										{editorState ? (
 											<ReadOnly
 												editorState={editorState}
 												setEditorState={setEditorState}
 											/>
+										) : (
+											<div
+												style={{
+													width: 'auto',
+													display: 'flex',
+													marginBottom: '20px',
+												}}
+											>
+												<div className="loader">Loading...</div>
+											</div>
 										)}
 									</div>
 								</div>
