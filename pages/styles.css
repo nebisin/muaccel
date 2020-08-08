@@ -1371,6 +1371,11 @@ footer {
 	-webkit-animation: load8 1.1s infinite linear;
 	animation: load8 1.1s infinite linear;
 }
+
+.home-image {
+	padding: 10px;
+	margin-top: 20px;
+}
 @-webkit-keyframes load8 {
 	0% {
 		-webkit-transform: rotate(0deg);

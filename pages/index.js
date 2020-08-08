@@ -91,6 +91,13 @@ const HomePage = () => {
 							</div>
 						</Link>
 					</div>
+					<div className="home-image">
+						<img
+							className="user-no-favorite-image"
+							src="/internal.svg"
+							alt="example"
+						/>
+					</div>
 					<Footer />
 				</section>
 			</div>
