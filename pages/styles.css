@@ -747,6 +747,10 @@ h3 {
 	margin-top: 10px;
 }
 
+.article-note-widget {
+	min-height: 250px;
+}
+
 .article-bottom-button {
 	color: #839cb3;
 	padding: 0 10px;
@@ -1384,6 +1388,7 @@ footer {
 	min-width: 705px;
 	align-self: start;
 	justify-self: flex-start;
+	border-bottom: 1px solid #f2f2f2;
 }
 
 @-webkit-keyframes load8 {

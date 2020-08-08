@@ -113,9 +113,9 @@
 
 .post-preview {
 	padding: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	background-color: white;
-	border: 1px solid rgb(238, 238, 238);
+	box-shadow: #e5e5e5 0px 1px 4px;
 	display: flex;
 	flex-direction: column;
 }
