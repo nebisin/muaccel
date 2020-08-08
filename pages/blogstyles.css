@@ -133,13 +133,34 @@
 
 .post-preview-in {
 	flex: 1;
-	margin: 20px;
+	margin: 10px;
+	margin-top: 0;
 }
 
 .post-preview-header {
 	padding-bottom: 5px;
 	color: #161e2e;
 	font-size: 18px;
+}
+
+.follow-button {
+	width: 30%;
+	padding: 8px 12px;
+	border: 1px solid #0079D3;
+    color: #0079D3;
+	border-radius: 0.25rem;
+	outline: none;
+    font-size: 16px;
+    max-width: 100px;
+    background-color: inherit;
+	cursor: pointer;
+	align-self: center;
+	right: 0;
+}
+
+.follow-button:hover {
+	color: #3293db;
+    border: 1px solid #3293db;
 }
 
 .post-preview-header a {
@@ -181,9 +202,7 @@ font-weight: 300;
 .author-preview {
 	display: flex;
 	margin-bottom: 10px;
-	align-items: center;
 	padding: 7px;
-	justify-content: center;
 }
 
 .author-preview a {
@@ -200,18 +219,27 @@ font-weight: 300;
 .author-preview-name {
 	line-height: 1.25rem;
 	padding-left: 10px;
+	flex: 1;
 }
 
 .author-preview-displayname {
+	font-size: 14px;
 	color: #161e2e;
 }
 
-.author-preview-username {
-	font-size: 12px;
-	font-weight: lighter;
-	color: #0070f3;
+.author-preview-displayname a:hover {
+	text-decoration: underline;
 }
 
+.author-preview-timestamp {
+	font-size: 12px;
+	font-weight: lighter;
+	color: rgb(117, 117, 117);
+}
+.author-preview-timestamp a:hover {
+	text-decoration: underline;
+
+}
 .post-preview-author {
 	font-size: 12px;
 	font-weight: lighter;
@@ -534,6 +562,9 @@ font-weight: 300;
 }
 
 @media screen and (max-width: 600px) {
+	.follow-button {
+		display: none;
+	}
 	.blog-post-abstract, .blog-post-content, .post-preview-content {
 		font-size: 14px;
 	}

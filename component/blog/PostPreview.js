@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import TimeStamp from 'component/TimeStamp';
+import AuthorPreview from 'component/AuthorPreview';
+
 const PostPreview = ({ item }) => {
 	return (
 		<div className="post-preview">
 			<div className="post-preview-in">
+				<AuthorPreview data={item} />
 				<h3 className="post-preview-header">
 					<Link
 						href="/blog/post/[name]/[id]"
@@ -13,21 +15,11 @@ const PostPreview = ({ item }) => {
 					</Link>
 				</h3>
 				<div
-				className="post-preview-out"
-				style={{
-					backgroundImage:
-						'url(' +
-						'/post-preview.jpg' +
-						')',
-				}}
-			/>
-				<a className="post-preview-author">
-					{item.author.name}{' '}
-					<span className="author-preview-username">
-						(@{item.author.userName})
-					</span>{' '}
-					tarafından <TimeStamp date={item.createdAt} /> yazıldı.
-				</a>
+					className="post-preview-out"
+					style={{
+						backgroundImage: 'url(' + '/post-preview.jpg' + ')',
+					}}
+				/>
 				<div className="post-preview-content">{item.abstract}</div>
 				<div className="post-preview-readmore">
 					<Link

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { EditorState, convertFromRaw } from 'draft-js';
 import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
+import AuthorPreview from 'component/AuthorPreview';
 
 const ShowPost = ({ data }) => {
 	const [editorState, setEditorState] = useState();
@@ -41,25 +42,14 @@ const ShowPost = ({ data }) => {
 							<div className="create-blog-section">
 								<div className="blog-post">
 									<h1 className="blog-post-title">{data.title}</h1>
+									<AuthorPreview data={data} />
 									<div
 										className="blog-post-out"
 										style={{
 											backgroundImage: 'url(' + '/post-preview.jpg' + ')',
 										}}
 									/>
-
 									<div className="blog-post-abstract">{data.abstract}</div>
-									<div className="author-preview">
-										<a className="author-preview-logo"></a>
-										<a className="author-preview-name">
-											<div className="author-preview-displayname">
-												{data.author.name}
-											</div>
-											<div className="author-preview-username">
-												@{data.author.userName}
-											</div>
-										</a>
-									</div>
 									<div className="blog-post-content">
 										{editorState ? (
 											<ReadOnly

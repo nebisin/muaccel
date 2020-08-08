@@ -1389,6 +1389,7 @@ footer {
 	align-self: start;
 	justify-self: flex-start;
 	border-bottom: 1px solid #f2f2f2;
+	min-height: 371px;
 }
 
 @-webkit-keyframes load8 {
