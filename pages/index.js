@@ -46,7 +46,7 @@ const HomePage = () => {
 			</div>
 			<div className="flex-container home-container">
 				<section className="showcase-flex">
-					<div className="card-deck">
+					<div className="card-deck home-deck">
 						<Link href="/mevzuat" as="/mevzuat">
 							<div className="home-item">
 								<div className="home-item-icon-container">
@@ -93,7 +93,7 @@ const HomePage = () => {
 					</div>
 					<div className="home-image">
 						<img
-							className="user-no-favorite-image"
+							className="home-image-inline"
 							src="/internal.svg"
 							alt="example"
 						/>

@@ -488,17 +488,16 @@ h3 {
 .home-item {
 	min-height: 100px;
 	margin: 0 15px;
-	border: 1px solid #0077cc;
-	background-color: white;
+	background-color: transparent;
 	border-radius: 0.25rem;
 	padding: 1.25rem;
 	flex: 1 0 0%;
-	color: #161e2e;
+	color: #838383;
 }
 
 .home-item:hover {
 	cursor: pointer;
-	box-shadow: 1px 1px 1px #ccc;
+	background-color: hsla(0,0%,94%,.4);
 }
 
 .home-item-icon-container {
@@ -1373,9 +1372,20 @@ footer {
 }
 
 .home-image {
+	display: flex;
 	padding: 10px;
-	margin-top: 20px;
+	padding-top: 0;
+	margin-bottom: 50px;
+	overflow: hidden;
 }
+
+.home-image-inline {
+	width: 100%;
+	min-width: 705px;
+	align-self: start;
+	justify-self: flex-start;
+}
+
 @-webkit-keyframes load8 {
 	0% {
 		-webkit-transform: rotate(0deg);
@@ -1467,6 +1477,9 @@ footer {
 	}
 	.search-input {
 		margin-right: 0;
+	}
+	.home-image {
+		padding: 0;
 	}
 }
 
