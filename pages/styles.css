@@ -74,7 +74,7 @@ h3 {
 
 .splash-logo {
 	height: 50px;
-	margin: 50px;
+	margin-bottom: 50px;
 }
 
 .likelink:hover {
@@ -887,7 +887,7 @@ h3 {
 }
 
 .logo {
-	height: 32px;
+	height: 35px;
 	margin: 0 8px;
 	align-self: center;
 }

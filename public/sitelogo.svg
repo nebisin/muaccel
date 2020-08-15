@@ -1,17 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="220" height="62" viewBox="0 0 220 62">
-    <defs>
-        <clipPath id="b">
-            <rect width="220" height="62" />
-        </clipPath>
-    </defs>
-    <g id="a" clip-path="url(#b)">
-        <rect width="62" height="62" rx="10" fill="#26547c" />
-        <text transform="translate(5 62)" fill="#fff" font-size="60" font-family="HelveticaNeue, Helvetica Neue">
-            <tspan x="0" y="0">M</tspan>
-            <tspan x="0" y="72"></tspan>
-        </text>
-        <text transform="translate(62 58)" fill="#26547c" font-size="53" font-family="HelveticaNeue, Helvetica Neue">
-            <tspan x="0" y="0">uaccel</tspan>
-        </text>
+  <defs>
+    <clipPath id="clip-custom_1">
+      <rect width="220" height="62"/>
+    </clipPath>
+  </defs>
+  <g id="custom_1" data-name="custom – 1" clip-path="url(#clip-custom_1)">
+    <g id="surface1" transform="translate(7 4)" opacity="0.387">
+      <path id="Path_1" data-name="Path 1" d="M1.582,402.867H30.27a1.582,1.582,0,0,0,1.582-1.582V399.6a3.164,3.164,0,0,0-3.164-3.164v-1.891A4.547,4.547,0,0,0,24.145,390H7.706a4.547,4.547,0,0,0-4.542,4.542v1.891A3.164,3.164,0,0,0,0,399.6v1.688A1.582,1.582,0,0,0,1.582,402.867Zm0,0" transform="translate(0 -348.868)" fill="#4b89be"/>
+      <path id="Path_2" data-name="Path 2" d="M101.576,180.193a3.164,3.164,0,0,0,5.054-3.809L97.109,163.75a3.164,3.164,0,1,0-5.054,3.808Zm0,0" transform="translate(-81.776 -145.352)" fill="#4b89be"/>
+      <path id="Path_3" data-name="Path 3" d="M317.208,17.7a3.164,3.164,0,0,0,5.054-3.808L312.741,1.26a3.164,3.164,0,1,0-5.054,3.808Zm0,0" transform="translate(-274.666 0)" fill="#4b89be"/>
+      <path id="Path_4" data-name="Path 4" d="M180.474,77.268a17.158,17.158,0,0,0,5.192-6.254l-11.078-14.7a17.666,17.666,0,0,0-12.635,9.521l11.078,14.7A17.162,17.162,0,0,0,180.474,77.268Zm0,0" transform="translate(-144.872 -50.374)" fill="#4b89be"/>
+      <path id="Path_5" data-name="Path 5" d="M335.206,258.906a19.079,19.079,0,0,1-5.054,3.808l2.063,2.738,5.054-3.808Zm0,0" transform="translate(-295.331 -231.6)" fill="#4b89be"/>
+      <path id="Path_6" data-name="Path 6" d="M372.819,308.824l-5.054,3.808,9.521,12.635a3.164,3.164,0,1,0,5.054-3.808Zm0,0" transform="translate(-328.978 -276.253)" fill="#4b89be"/>
     </g>
+    <text id="MUACCEL" transform="translate(41 44)" fill="#326fa4" font-size="34" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="700"><tspan x="0" y="0">MUACCEL</tspan></text>
+  </g>
 </svg>

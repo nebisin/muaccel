@@ -3,6 +3,7 @@ import mevzuatApi from 'api/mevzuat';
 import Footer from 'component/Footer';
 import BlogHero from 'component/blog/BlogHero';
 import BlogPosts from 'component/blog/BlogPosts';
+import BlogDrafts from 'component/blog/BlogDrafts';
 
 const BlogPage = ({ data }) => {
 	return (
@@ -27,7 +28,12 @@ const BlogPage = ({ data }) => {
 			</Head>
 			<div className="blog-container">
 				<BlogHero />
-				<BlogPosts data={data} />
+				<div className="blog-main">
+					<BlogPosts data={data} />
+					<aside className="create-blog-sidebar">
+						<BlogDrafts />
+					</aside>
+				</div>
 				<Footer />
 			</div>
 		</React.Fragment>
@@ -38,7 +44,7 @@ export async function getStaticProps() {
 	const response = await mevzuatApi.get(`/blogs`, {
 		params: { status: '2' },
 		data: {
-			sort: {createdAt: -1}
+			sort: { createdAt: -1 },
 		},
 	});
 	const data = response.data;

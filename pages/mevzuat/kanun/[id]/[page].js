@@ -8,7 +8,7 @@ import Others from 'component/mevzuat/Others';
 import Sidebar from 'component/mevzuat/Sidebar';
 import Footer from 'component/Footer';
 
-const ActRoute = ({ data, sectionsData }) => {
+const ActRoute = ({ data, sectionsData, error }) => {
 	const router = useRouter();
 	const [actInfo, setActInfo] = useState(data);
 	const [suffixSections, setSuffixSections] = useState([]);
@@ -100,19 +100,25 @@ const ActRoute = ({ data, sectionsData }) => {
 
 export async function getServerSideProps({ params }) {
 	let id = params.id;
+	let data = null;
+	let sectionsData = null; 
+	let error = null;
 
-	const [response, sections] = await Promise.all([
-		mevzuatApi.get('/act', { params: { id } }),
-		mevzuatApi.post('/sections', {
-			actId: id,
-			type: {},
-		}),
-	]);
+	try {
+		const [response, sections] = await Promise.all([
+			mevzuatApi.get('/act', { params: { id } }),
+			mevzuatApi.post('/sections', {
+				actId: id,
+				type: {},
+			}),
+		]);
+		data = response.data;
+		sectionsData = sections.data;
+	} catch (error) {
+		error = error;
+	}
 
-	const data = response.data;
-	const sectionsData = sections.data;
-
-	return { props: { data, sectionsData } };
+	return { props: { data, sectionsData, error } };
 }
 
 export default ActRoute;

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from 'context/AuthContext';
 import CreateBlogForm from 'component/blog/CreateBlogForm';
+import BlogDrafts from 'component/blog/BlogDrafts';
 import UserWidget from 'component/user/UserWidget';
 import Footer from 'component/Footer';
 
@@ -52,9 +53,10 @@ const CreatePage = () => {
 							</h1>
 							<CreateBlogForm />
 						</div>
-						<div className="create-blog-sidebar">
+						<aside className="create-blog-sidebar">
 							<UserWidget user={userInfo} />
-						</div>
+							<BlogDrafts />
+						</aside>
 					</div>
 				)}
 				<Footer />

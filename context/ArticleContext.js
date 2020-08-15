@@ -1,9 +1,33 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import mevzuatApi from 'api/mevzuat';
 
 const ArticleContext = React.createContext();
 
 export const ArticleProvider = ({ children }) => {
+	/*
+	const [articlesData, setArticlesData] = useState([]);
+
+	const addArticlesData = (article) => {
+		if(article){
+			let articles = articlesData;
+			if(articles){
+				const isExist = articles.find((item) => {
+					return item._id === article._id;
+				})
+				console.log(isExist)
+				if(isExist){
+					return;
+				}else {
+					articles.push(article);
+					setArticlesData(articles);
+				}
+			}else {
+				articles.push(article);
+				setArticlesData(articles);
+			}
+		}
+	}
+*/
 	const getArticleList = useCallback(async ({ query, sort, limit, skip }) => {
 		const response = await mevzuatApi.post('/articles', {
 			query,

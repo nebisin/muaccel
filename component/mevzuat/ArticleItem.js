@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import AuthContext from 'context/AuthContext';
 import ArticleItemBottom from './ArticleItemBottom';
+// import ArticleContext from 'context/ArticleContext';
 
 const ArticleItem = ({ item, type }) => {
 	const { userInfo } = useContext(AuthContext);
+//	const { addArticlesData, articlesData } = useContext(ArticleContext);
 	const [full, setFull] = useState(false);
 
 	useEffect(() => {
@@ -12,7 +14,13 @@ const ArticleItem = ({ item, type }) => {
 			setFull(true);
 		}
 	}, [type]);
-
+/*
+	useEffect(() => {
+		if (item) {
+			addArticlesData(item);
+		}
+	}, [item]);
+*/
 	if (item.content !== undefined) {
 		return (
 			<React.Fragment>
@@ -23,7 +31,11 @@ const ArticleItem = ({ item, type }) => {
 				)}
 				<div className="card">
 					<h2 className="card-header">
-						<Link href="/mevzuat/madde/[id]" as={`/mevzuat/madde/${item._id}`}>
+						<Link
+							href="/mevzuat/madde/[id]"
+							as={`/mevzuat/madde/${item._id}`}
+							shallow={true}
+						>
 							<a>{item.name}</a>
 						</Link>
 					</h2>
@@ -52,7 +64,7 @@ const ArticleItem = ({ item, type }) => {
 							item.content
 						)}
 					</div>
-					{userInfo && <ArticleItemBottom item={item} user={userInfo} /> }
+					{userInfo && <ArticleItemBottom item={item} user={userInfo} />}
 				</div>
 			</React.Fragment>
 		);

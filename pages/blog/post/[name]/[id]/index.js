@@ -5,6 +5,7 @@ import { EditorState, convertFromRaw } from 'draft-js';
 import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
 import AuthorPreview from 'component/AuthorPreview';
+import OtherPosts from 'component/blog/OtherPosts';
 
 const ShowPost = ({ data }) => {
 	const [editorState, setEditorState] = useState();
@@ -72,6 +73,7 @@ const ShowPost = ({ data }) => {
 							</div>
 							<div className="create-blog-sidebar">
 								<UserWidget user={data.author} />
+								<OtherPosts />
 							</div>
 						</div>
 					</div>

@@ -11,7 +11,7 @@ import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
 import Footer from 'component/Footer';
 
-const ArticleRoute = ({ article, before, after }) => {
+const ArticleRoute = ({ article, before, after, error }) => {
 	const { isLoggedIn, isLogging, userInfo, token } = useContext(AuthContext);
 	const [initialNote, setInitialNote] = useState();
 	const [noteId, setNoteId] = useState();
@@ -127,10 +127,25 @@ const ArticleRoute = ({ article, before, after }) => {
 	);
 };
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+	// Call an external API endpoint to get posts
+	const res = await mevzuatApi.post('/articles', {});
+	const posts = res.data;
+	// Get the paths we want to pre-render based on posts
+	const paths = posts.map((post) => ({
+		params: { id: post._id },
+	}))
+
+	// We'll pre-render only these paths at build time.
+	// { fallback: false } means other routes should 404.
+	return { paths, fallback: true };
+}
+
+export async function getStaticProps({ params }) {
 	let id = params.id;
 
 	const response = await mevzuatApi.get('/article', { params: { id } });
+
 	const { article, before, after } = response.data;
 
 	return { props: { article, before, after } };

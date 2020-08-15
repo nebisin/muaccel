@@ -5,12 +5,11 @@ import { useEffect } from 'react';
 import UserNav from './UserNav';
 
 const Navbar = () => {
-
 	const checkHeader = () => {
 		let scrollPosition = Math.round(window.scrollY);
 		if (scrollPosition > 20) {
 			document.getElementById('navbar').classList.add('nav-scroll');
-		}else {
+		} else {
 			document.getElementById('navbar').classList.remove('nav-scroll');
 		}
 	};
@@ -27,15 +26,13 @@ const Navbar = () => {
 	return (
 		<nav id="navbar" onClick={onNavbarPressed}>
 			<div className="container nav-container">
-				<ul className="nav-list">
+				<div className="nav-list">
 					<Link href="/" as="/">
 						<a className="logo-link">
-							<li>
-								<img className="logo" src="/sitelogo.svg" alt="logo" />
-							</li>
+							<img className="logo" src="/sitelogo.svg" alt="logo" />
 						</a>
 					</Link>
-				</ul>
+				</div>
 				<UserNav />
 			</div>
 		</nav>
