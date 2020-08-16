@@ -31,7 +31,7 @@ const BlogPage = ({ data }) => {
 				<div className="blog-main">
 					<BlogPosts data={data} />
 					<aside className="create-blog-sidebar">
-						<BlogDrafts />
+						{/* <BlogDrafts /> */}
 					</aside>
 				</div>
 				<Footer />

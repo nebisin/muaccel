@@ -73,7 +73,8 @@ const ShowPost = ({ data }) => {
 							</div>
 							<div className="create-blog-sidebar">
 								<UserWidget user={data.author} />
-								<OtherPosts />
+								{/* <OtherPosts /> */}
+								
 							</div>
 						</div>
 					</div>
