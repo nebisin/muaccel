@@ -5,8 +5,11 @@ import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Draft from 'component/draft/Draft';
+import { useRouter } from 'next/router';
 
 const CreateBlogForm = () => {
+	const router = useRouter();
+
 	const { token } = useContext(AuthContext);
 
 	const [title, setTitle] = useState('');
@@ -94,6 +97,7 @@ const CreateBlogForm = () => {
 				}
 			);
 			setGeneralError('');
+			router.push("/blog/post/[name]/[id]", `/blog/post/${response.title.replace(/\s/g, '-')}/${response.id}`);
 		} catch (error) {
 			console.log(error);
 			setGeneralError(
