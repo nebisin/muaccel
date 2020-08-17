@@ -654,6 +654,10 @@
 	body {
 		background-color: white;
 	}
+	#navbar {
+		position: absolute;
+		border: none;
+	}
 	.create-blog-sidebar {
 		display: none;
 	}

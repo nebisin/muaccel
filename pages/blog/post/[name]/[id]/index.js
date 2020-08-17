@@ -7,6 +7,7 @@ import UserWidget from 'component/user/UserWidget';
 import AuthorPreview from 'component/AuthorPreview';
 import OtherPosts from 'component/blog/OtherPosts';
 
+import BlogButtons from 'component/blog/BlogButtons';
 const ShowPost = ({ data }) => {
 	const [editorState, setEditorState] = useState();
 
@@ -51,6 +52,7 @@ const ShowPost = ({ data }) => {
 										}}
 									/>
 									<div className="blog-post-abstract">{data.abstract}</div>
+									<BlogButtons />
 									<div className="blog-post-content">
 										{editorState ? (
 											<ReadOnly
@@ -74,7 +76,6 @@ const ShowPost = ({ data }) => {
 							<div className="create-blog-sidebar">
 								<UserWidget user={data.author} />
 								{/* <OtherPosts /> */}
-								
 							</div>
 						</div>
 					</div>
