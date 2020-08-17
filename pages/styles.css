@@ -1593,3 +1593,27 @@ footer {
 		align-items: center;
 	}
 }
+
+@media print {
+	#sidebar {
+		display: none;
+	}
+	.bottom-bar {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
+	.article-note-buttons {
+		display: none;
+	}
+	.article-note-toggle-buttons {
+		display: none;
+	}
+	.others-bar {
+		display: none;
+	}
+	.article-card-bottom {
+		display: none;
+	}
+}

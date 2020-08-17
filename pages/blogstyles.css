@@ -649,3 +649,24 @@
 		height: 150px;
 	}
 }
+
+@media print {
+	body {
+		background-color: white;
+	}
+	.create-blog-sidebar {
+		display: none;
+	}
+	.follow-button {
+		display: none;
+	}
+	.nav-list-right {
+		display: none;
+	}
+	.blog-post-out {
+		display: none;
+	}
+	.bottom-bar {
+		display: none;
+	}
+}
