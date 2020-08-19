@@ -98,7 +98,11 @@ const ActRoute = ({ data, sectionsData, error }) => {
 	);
 };
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+	return { paths: [], fallback: true };
+}
+
+export async function getStaticProps({ params }) {
 	let id = params.id;
 	let data = null;
 	let sectionsData = null; 
@@ -118,7 +122,7 @@ export async function getServerSideProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error } };
+	return { props: { data, sectionsData, error }, unstable_revalidate: 1  };
 }
 
 export default ActRoute;

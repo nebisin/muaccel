@@ -128,6 +128,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 };
 
 export async function getStaticPaths() {
+	/*
 	// Call an external API endpoint to get posts
 	const res = await mevzuatApi.post('/articles', {});
 	const posts = res.data;
@@ -138,7 +139,8 @@ export async function getStaticPaths() {
 
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
+	*/
+	return { paths: [], fallback: true };
 }
 
 export async function getStaticProps({ params }) {
