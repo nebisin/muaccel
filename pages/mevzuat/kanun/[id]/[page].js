@@ -36,64 +36,76 @@ const ActRoute = ({ data, sectionsData, error }) => {
 
 	return (
 		<React.Fragment>
-			<Head>
-				<title>
-					{data.name} {sectionsData[page] && ` - ${sectionsData[page].name}`} |
-					Muaccel Mevzuat
-				</title>
-				<meta name="description" content={`${data.name}`} />
-				<meta property="og:description" content={`${data.name}`} />
-				<meta property="og:title" content={`${data.name} | Muaccel Mevzuat`} />
-				<meta
-					property="og:image"
-					content="https://www.muaccel.com/mevzuatog.jpg"
-				/>
-			</Head>
-			<div className="flex-container">
-				<Sidebar
-					type="act"
-					id={router.query.id}
-					actInfo={actInfo}
-					sections={suffixSections}
-					subSections={sectionsData}
-					page={page}
-				/>
-				<section id="showcase">
-					<div className="act-title">
-						{data.title && <p>{data.title} sayılı </p>}
-						<p>{data.name}</p>
-					</div>
-					{!isLoading ? (
-						<React.Fragment>
-							{suffixSections[page] ? (
+			{data && (
+				<React.Fragment>
+					<Head>
+						<title>
+							{data.name}{' '}
+							{sectionsData[page] && ` - ${sectionsData[page].name}`} | Muaccel
+							Mevzuat
+						</title>
+						<meta name="description" content={`${data.name}`} />
+						<meta property="og:description" content={`${data.name}`} />
+						<meta
+							property="og:title"
+							content={`${data.name} | Muaccel Mevzuat`}
+						/>
+						<meta
+							property="og:image"
+							content="https://www.muaccel.com/mevzuatog.jpg"
+						/>
+					</Head>
+					<div className="flex-container">
+						<Sidebar
+							type="act"
+							id={router.query.id}
+							actInfo={actInfo}
+							sections={suffixSections}
+							subSections={sectionsData}
+							page={page}
+						/>
+						<section id="showcase">
+							<div className="act-title">
+								{data.title && <p>{data.title} sayılı </p>}
+								<p>{data.name}</p>
+							</div>
+							{!isLoading ? (
 								<React.Fragment>
-									<Others
-										sections={suffixSections}
-										page={page}
-										actId={actInfo._id}
-									/>
-									<div className="act">
-										<SectionItem
-											item={suffixSections[page]}
-											sections={sectionsData}
-											type={1}
-										/>
-									</div>
+									{suffixSections[page] ? (
+										<React.Fragment>
+											<Others
+												sections={suffixSections}
+												page={page}
+												actId={actInfo._id}
+											/>
+											<div className="act">
+												<SectionItem
+													item={suffixSections[page]}
+													sections={sectionsData}
+													type={1}
+												/>
+											</div>
+										</React.Fragment>
+									) : (
+										<div>Böyle bir bölüm bulunmuyor.</div>
+									)}
 								</React.Fragment>
 							) : (
-								<div>Böyle bir bölüm bulunmuyor.</div>
+								<div
+									style={{
+										width: 'auto',
+										display: 'flex',
+										marginBottom: '20px',
+									}}
+								>
+									<div className="loader">Loading...</div>
+								</div>
 							)}
-						</React.Fragment>
-					) : (
-						<div
-							style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}
-						>
-							<div className="loader">Loading...</div>
-						</div>
-					)}
-					<Footer />
-				</section>
-			</div>
+							<Footer />
+						</section>
+					</div>
+				</React.Fragment>
+			)}
 		</React.Fragment>
 	);
 };
@@ -105,7 +117,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	let id = params.id;
 	let data = null;
-	let sectionsData = null; 
+	let sectionsData = null;
 	let error = null;
 
 	try {
@@ -122,7 +134,7 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error }, unstable_revalidate: 1  };
+	return { props: { data, sectionsData, error }, unstable_revalidate: 1 };
 }
 
 export default ActRoute;
