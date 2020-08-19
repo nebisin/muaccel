@@ -4,10 +4,10 @@ import mevzuatApi from 'api/mevzuat';
 import TimeStamp from 'component/TimeStamp';
 
 const OtherPosts = ({ userId, postId }) => {
-	const [others, setOthers] = useState();
+	const [others, setOthers] = useState([]);
 
 	useEffect(() => {
-		setOthers();
+		setOthers([]);
 		const getOthers = async (userId) => {
 			const response = await mevzuatApi.get(`/user/blogs/${userId}`);
 			const otro = response.data.filter((item) => item._id !== postId);
@@ -20,7 +20,7 @@ const OtherPosts = ({ userId, postId }) => {
 
 	return (
 		<React.Fragment>
-			{others && (
+			{others.length !== 0 && (
 				<div className="blog-drafts-container">
 					<div className="blog-drafts-header">
 						<h3>Yazardan</h3>
