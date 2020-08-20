@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 import mevzuatApi from 'api/mevzuat';
+import LoadingSplash from 'component/LoadingSplash';
 
 import AuthContext from 'context/AuthContext';
 import ArticlePageItem from 'component/mevzuat/ArticlePageItem';
@@ -46,7 +47,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 
 	return (
 		<React.Fragment>
-			{article && (
+			{article ? (
 				<React.Fragment>
 					<Head>
 						<title>
@@ -122,6 +123,8 @@ const ArticleRoute = ({ article, before, after, error }) => {
 						)}
 					</div>
 				</React.Fragment>
+			) : (
+				<LoadingSplash />
 			)}
 		</React.Fragment>
 	);
