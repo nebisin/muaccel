@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 import mevzuatApi from 'api/mevzuat';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from 'context/AuthContext';
 import ArticlePageItem from 'component/mevzuat/ArticlePageItem';
 import OtherArticles from 'component/mevzuat/OtherArticles';

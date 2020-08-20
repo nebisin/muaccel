@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import SectionItem from 'component/mevzuat/SectionItem';
 import Others from 'component/mevzuat/Others';
 import Sidebar from 'component/mevzuat/Sidebar';
