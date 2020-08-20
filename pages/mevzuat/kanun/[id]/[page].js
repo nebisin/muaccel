@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
+import LoadingSplash from 'component/LoadingSplash';
 
 import SectionItem from 'component/mevzuat/SectionItem';
 import Others from 'component/mevzuat/Others';
@@ -36,7 +37,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 
 	return (
 		<React.Fragment>
-			{data && (
+			{data ? (
 				<React.Fragment>
 					<Head>
 						<title>
@@ -105,6 +106,8 @@ const ActRoute = ({ data, sectionsData, error }) => {
 						</section>
 					</div>
 				</React.Fragment>
+			) : (
+				<LoadingSplash />
 			)}
 		</React.Fragment>
 	);

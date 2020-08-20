@@ -46,6 +46,7 @@ function MyApp({ Component, pageProps }) {
 				<ArticleProvider>
 					<SectionProvider>
 						<Head>
+							<title>Muaccel | Online Hukuk Projesi</title>
 							<link rel="icon" href="/favicon.ico" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
