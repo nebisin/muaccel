@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 import mevzuatApi from 'api/mevzuat';
-import LoadingSplash from 'component/LoadingSplash';
 
 import AuthContext from 'context/AuthContext';
 import ArticlePageItem from 'component/mevzuat/ArticlePageItem';
@@ -73,11 +72,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 					<div className="flex-container">
 						{article && (
 							<React.Fragment>
-								<Sidebar
-									type="article"
-									id={article._id}
-									art={article}
-								/>
+								<Sidebar type="article" id={article._id} art={article} />
 								<section id="showcase">
 									<Link
 										href="/mevzuat/kanun/[id]/[page]"
@@ -124,7 +119,10 @@ const ArticleRoute = ({ article, before, after, error }) => {
 					</div>
 				</React.Fragment>
 			) : (
-				<LoadingSplash />
+				<div className="loading-container">
+					<img className="splash-logo" src="/sitelogo.svg" alt="logo" />
+					<FontAwesomeIcon icon={faSpinner} className="splash-spinner" />
+				</div>
 			)}
 		</React.Fragment>
 	);
