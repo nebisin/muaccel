@@ -31,9 +31,8 @@ const OtherPosts = ({ userId, postId }) => {
 								<div key={other._id} className="blog-drafts-item">
 									<Link
 										href="/blog/post/[name]/[id]"
-										as={`/blog/post/${other.title.replace(/\s/g, '-')}/${
-											other._id
-										}`}
+										as={`/blog/post/${other.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${other._id}`}
+
 									>
 										<a>
 											<div>{other.title}</div>

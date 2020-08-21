@@ -97,7 +97,7 @@ const CreateBlogForm = () => {
 				}
 			);
 			setGeneralError('');
-			router.push("/blog/post/[name]/[id]", `/blog/post/${response.title.replace(/\s/g, '-')}/${response.id}`);
+			router.push("/blog/post/[name]/[id]", `/blog/post/${response.data.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${response.data._id}`);
 		} catch (error) {
 			console.log(error);
 			setGeneralError(
