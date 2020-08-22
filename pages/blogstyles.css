@@ -528,7 +528,7 @@
 .blog-drafts-container {
 	width: 100%;
 	height: auto;
-	background-color: white;
+	background-color: #f4f4f4;
 	margin-bottom: 20px;
 	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-radius: 0.25em;
@@ -536,7 +536,6 @@
 
 .blog-drafts-header {
 	padding: 15px;
-	background-color: #f5f6f7;
 	color: #161e2e;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
