@@ -151,7 +151,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 	let id = params.id;
-	let title = params.title;
+	let title = params.title.replace(/-/g, '/');
 
 	const response = await mevzuatApi.get('/article', {
 		params: { title: title, actId: id },
