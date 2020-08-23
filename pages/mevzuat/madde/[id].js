@@ -69,7 +69,14 @@ const ArticleRoute = ({ article, before, after, error }) => {
 							property="og:image"
 							content="https://www.muaccel.com/mevzuatog.jpg"
 						/>
-						<link rel="canonical" href={`https://www.muaccel.com/${article.actId.name}/${article.actId._id}/${article.title}`} />
+						<link
+							rel="canonical"
+							href={`https://www.muaccel.com/${article.actId.name
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+								article.actId._id
+							}/${article.title}`}
+						/>
 					</Head>
 					<div className="flex-container">
 						{article && (
@@ -77,8 +84,12 @@ const ArticleRoute = ({ article, before, after, error }) => {
 								<Sidebar type="article" id={article._id} art={article} />
 								<section id="showcase">
 									<Link
-										href="/mevzuat/kanun/[id]/[page]"
-										as={`/mevzuat/kanun/${article.actId._id}/0`}
+										href="/mevzuat/[actName]/[id]/[page]"
+										as={`/mevzuat/${article.actId.name
+											.replace(/\s/g, '-')
+											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+											article.actId._id
+										}/0`}
 									>
 										<a>
 											<div className="act-title">
@@ -92,7 +103,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 									<OtherArticles
 										before={before}
 										after={after}
-										actId={article.actId._id}
+										actId={article.actId}
 									/>
 									<ArticlePageItem item={article} />
 									{!noteLoading ? (
