@@ -59,7 +59,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 							rel="canonical"
 							href={`https://www.muaccel.com/mevzuat/${data.name
 								.replace(/\s/g, '-')
-								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}}/${
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								data._id
 							}/${page}`}
 						/>
