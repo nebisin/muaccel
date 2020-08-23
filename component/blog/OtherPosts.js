@@ -2,21 +2,41 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import mevzuatApi from 'api/mevzuat';
 import TimeStamp from 'component/TimeStamp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const OtherPosts = ({ userId, postId }) => {
 	const [others, setOthers] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		setOthers([]);
 		const getOthers = async (userId) => {
+			setLoading(true);
 			const response = await mevzuatApi.get(`/user/blogs/${userId}`);
 			const otro = response.data.filter((item) => item._id !== postId);
 			setOthers(otro);
+			setLoading(false);
 		};
 		if (userId) {
 			getOthers(userId);
 		}
 	}, [userId, postId]);
+
+	if (loading) {
+		return (
+			<div className="blog-drafts-container">
+				<div
+					style={{
+						width: 'auto',
+						display: 'flex',
+					}}
+				>
+					<div className="loader">Loading...</div>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<React.Fragment>
@@ -31,8 +51,9 @@ const OtherPosts = ({ userId, postId }) => {
 								<div key={other._id} className="blog-drafts-item">
 									<Link
 										href="/blog/post/[name]/[id]"
-										as={`/blog/post/${other.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${other._id}`}
-
+										as={`/blog/post/${other.title
+											.replace(/\s/g, '-')
+											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${other._id}`}
 									>
 										<a>
 											<div>{other.title}</div>

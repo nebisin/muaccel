@@ -24,7 +24,10 @@ const SideArticleList = ({ id, art }) => {
 
 	useEffect(() => {
 		const listOfSection = async (sectionId) => {
-			const result = await getArticleList({ query: { sectionId }, sort: {location: 1} });
+			const result = await getArticleList({
+				query: { sectionId },
+				sort: { location: 1 },
+			});
 			setArticleList(result);
 			setIsLoading(false);
 		};
@@ -64,8 +67,10 @@ const SideArticleList = ({ id, art }) => {
 					</ul>
 				</div>
 			) : (
-				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
-					<div className="loader">Loading...</div>
+				<div className="side-card">
+					<div style={{ width: 'auto', display: 'flex' }}>
+						<div className="loader">Loading...</div>
+					</div>
 				</div>
 			)}
 		</React.Fragment>
