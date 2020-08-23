@@ -55,6 +55,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 							property="og:image"
 							content="https://www.muaccel.com/mevzuatog.jpg"
 						/>
+						<link rel="canonical" href={`https://www.muaccel.com/${data.name}/${data._id}/${page}`} />
 					</Head>
 					<div className="flex-container">
 						<Sidebar

@@ -69,6 +69,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 							property="og:image"
 							content="https://www.muaccel.com/mevzuatog.jpg"
 						/>
+						<link rel="canonical" href={`https://www.muaccel.com/${article.actId.name}/${article.actId._id}/${article.title}`} />
 					</Head>
 					<div className="flex-container">
 						{article && (
