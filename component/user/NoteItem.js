@@ -8,11 +8,9 @@ import AuthContext from 'context/AuthContext';
 import mevzuatApi from 'api/mevzuat';
 import ReadOnly from 'component/draft/ReadOnly';
 
-
-
 const NoteItem = ({ note }) => {
 	const { token } = useContext(AuthContext);
-	const [currentNote, setCurrentNote] = useState(note)
+	const [currentNote, setCurrentNote] = useState(note);
 	const [removed, setRemoved] = useState(false);
 	const [deleting, setDeleting] = useState(false);
 	const [editorState, setEditorState] = useState();
@@ -55,11 +53,11 @@ const NoteItem = ({ note }) => {
 				},
 			}
 		);
-		if(response.data?._id){
+		if (response.data?._id) {
 			setDeleting(false);
-			setCurrentNote(response.data)
-		}else {
-			console.log(response)
+			setCurrentNote(response.data);
+		} else {
+			console.log(response);
 		}
 	};
 
@@ -68,48 +66,62 @@ const NoteItem = ({ note }) => {
 			{removed ? (
 				<div className="user-note-delete-info">
 					<p>
-						Notunuz başarıyla silinmiştir. <span onMouseDown={createNote}>Geri al.</span>
+						Notunuz başarıyla silinmiştir.{' '}
+						<span onMouseDown={createNote}>Geri al.</span>
 					</p>
 				</div>
-			) : editorState && (
-				<div className="user-note">
-					<div className="user-note-header">
-						<Link
-							href="/mevzuat/madde/[id]"
-							as={`/mevzuat/madde/${note.article._id}`}
-						>
-							<a className="user-note-header-link">
-								Madde {note.article.title} - {note.article.name}
-							</a>
-						</Link>
-					</div>
-					<div className="user-note-content">
-						<ReadOnly editorState={editorState} setEditorState={setEditorState} />
-					</div>
-					<div className="user-note-buttons">
-						<button className="user-note-delete-button" onClick={deleteNote}>
-							Sil
-						</button>
-						<div className="user-note-view-button">
+			) : (
+				editorState && (
+					<div className="user-note">
+						<div className="user-note-header">
 							<Link
-								href="/mevzuat/madde/[id]"
-								as={`/mevzuat/madde/${note.article._id}`}
+								href="/mevzuat/[actName]/[id]/madde/[title]"
+								as={`/mevzuat/${note.article.actId.name
+									.replace(/\s/g, '-')
+									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+									note.article.actId._id
+								}/madde/${note.article.title}`}
 							>
-								<a>Görüntüle</a>
+								<a className="user-note-header-link">
+									Madde {note.article.title} - {note.article.name}
+								</a>
 							</Link>
 						</div>
+						<div className="user-note-content">
+							<ReadOnly
+								editorState={editorState}
+								setEditorState={setEditorState}
+							/>
+						</div>
+						<div className="user-note-buttons">
+							<button className="user-note-delete-button" onClick={deleteNote}>
+								Sil
+							</button>
+							<div className="user-note-view-button">
+								<Link
+									href="/mevzuat/[actName]/[id]/madde/[title]"
+									as={`/mevzuat/${note.article.actId.name
+										.replace(/\s/g, '-')
+										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+										note.article.actId._id
+									}/madde/${note.article.title}`}
+								>
+									<a>Görüntüle</a>
+								</Link>
+							</div>
+						</div>
+						<div
+							className={
+								deleting ? `user-note-deleting-on` : 'user-note-deleting-off'
+							}
+						>
+							<FontAwesomeIcon
+								icon={faSpinner}
+								className="user-note-delete-spinner"
+							/>
+						</div>
 					</div>
-					<div
-						className={
-							deleting ? `user-note-deleting-on` : 'user-note-deleting-off'
-						}
-					>
-						<FontAwesomeIcon
-							icon={faSpinner}
-							className="user-note-delete-spinner"
-						/>
-					</div>
-				</div>
+				)
 			)}
 		</React.Fragment>
 	);

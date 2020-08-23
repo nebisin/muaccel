@@ -3,7 +3,12 @@ import Link from 'next/link';
 
 const ActItem = ({ item }) => {
 	return (
-		<Link href="/mevzuat/kanun/[id]/[page]" as={`/mevzuat/kanun/${item._id}/0`} >
+		<Link
+			href="/mevzuat/[actName]/[id]/[page]"
+			as={`/mevzuat/${item.name
+				.replace(/\s/g, '-')
+				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}/0`}
+		>
 			<a
 				className="card-deck-item"
 				style={{

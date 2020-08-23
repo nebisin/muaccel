@@ -8,7 +8,12 @@ const ActInfo = ({ act }) => {
 				className="side-card"
 				style={{ borderColor: act.background, textAlign: 'center' }}
 			>
-				<Link href="/mevzuat/kanun/[id]/[page]" as={`/mevzuat/kanun/${act._id}/0`}>
+				<Link
+					href="/mevzuat/[actName]/[id]/[page]"
+					as={`/mevzuat/${act.name
+						.replace(/\s/g, '-')
+						.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${act._id}/0`}
+				>
 					<a>
 						<div className="side-card-content">
 							<p>{act.title} sayılı</p>

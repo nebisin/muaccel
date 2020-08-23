@@ -583,6 +583,9 @@
 .blog-drafts-item:last-child {
 	border: none;
 }
+.blog-drafts-item:last-of-type:hover {
+	border-radius: 0.25rem;
+}
 
 .blog-drafts-item:hover {
 	background-color: #f9fafa;

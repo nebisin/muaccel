@@ -22,7 +22,7 @@ const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 	useEffect(() => {
 		const getSubSections = async (id) => {
 			setSubSec([]);
-			const response = subSections.filter((item) => item.sectionId === id)
+			const response = subSections.filter((item) => item.sectionId === id);
 			setSubSec(response);
 		};
 		if (suffixSections[page]) {
@@ -45,8 +45,12 @@ const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 					{sections.map((item, i) => {
 						return (
 							<Link
-								href="/mevzuat/kanun/[id]/[page]"
-								as={`/mevzuat/kanun/${item.actId}/${i}`}
+								href="/mevzuat/[actName]/[id]/[page]"
+								as={`/mevzuat/${actInfo.name
+									.replace(/\s/g, '-')
+									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+									actInfo._id
+								}/${i}`}
 								shallow={true}
 								key={item._id}
 							>

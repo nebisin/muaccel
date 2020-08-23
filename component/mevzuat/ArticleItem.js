@@ -6,7 +6,7 @@ import ArticleItemBottom from './ArticleItemBottom';
 
 const ArticleItem = ({ item, type }) => {
 	const { userInfo } = useContext(AuthContext);
-//	const { addArticlesData, articlesData } = useContext(ArticleContext);
+	//	const { addArticlesData, articlesData } = useContext(ArticleContext);
 	const [full, setFull] = useState(false);
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ const ArticleItem = ({ item, type }) => {
 			setFull(true);
 		}
 	}, [type]);
-/*
+	/*
 	useEffect(() => {
 		if (item) {
 			addArticlesData(item);
@@ -32,8 +32,12 @@ const ArticleItem = ({ item, type }) => {
 				<div className="card">
 					<h2 className="card-header">
 						<Link
-							href="/mevzuat/madde/[id]"
-							as={`/mevzuat/madde/${item._id}`}
+							href="/mevzuat/[actName]/[id]/madde/[title]"
+							as={`/mevzuat/${item.actId.name
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+								item.actId._id
+							}/madde/${item.title}`}
 							shallow={true}
 						>
 							<a>{item.name}</a>
@@ -42,8 +46,12 @@ const ArticleItem = ({ item, type }) => {
 					{!type && item.actId.name && (
 						<div className="card-footer">
 							<Link
-								href="/mevzuat/kanun/[id]/[page]"
-								as={`/mevzuat/kanun/${item.actId._id}/0`}
+								href="/mevzuat/[actName]/[id]/[page]"
+								as={`/mevzuat/${item.actId.name
+									.replace(/\s/g, '-')
+									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+									item.actId._id
+								}/0`}
 							>
 								<a>({item.actId.name})</a>
 							</Link>

@@ -337,23 +337,21 @@ h3 {
 	padding: 10px;
 	color: #4b89be;
 	font-weight: bold;
+	border-radius: 1rem;
 }
 
 .user-side-link span:hover {
-	background-color: #4b89be;
-	border-radius: 1rem;
-	color: white;
+	background-color: rgba(0,118,255,.1);
 	cursor: pointer;
 }
 
 .user-side-link-active span {
-	background-color: #4b89be;
+	background-color: rgba(0,118,255,.1);
 	border-radius: 1rem;
-	color: white;
+	transition: background .2s ease,color .2s ease,box-shadow .2s ease;
 }
 
 .user-side-link-active span:hover {
-	background-color: #326fa4;
 	cursor: pointer;
 }
 
@@ -982,6 +980,10 @@ h3 {
 
 .side-list-item:last-of-type {
 	border: none;
+}
+
+.side-list-item:last-of-type:hover {
+	border-radius: 0.25rem;
 }
 
 .side-list-item-selected {

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+	faArrowAltCircleRight,
+	faArrowAltCircleLeft,
+} from '@fortawesome/free-solid-svg-icons';
 
 import GoArticle from './GoArticle';
 
@@ -21,8 +24,12 @@ const Others = ({ sections, page, actId }) => {
 			<div className="others-before">
 				{sections[before] && (
 					<Link
-						href="/mevzuat/kanun/[id]/[page]"
-						as={`/mevzuat/kanun/${actId}/${before}`}
+						href="/mevzuat/[actName]/[id]/[page]"
+						as={`/mevzuat/${actId.name
+							.replace(/\s/g, '-')
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+							actId._id
+						}/${before}`}
 						shallow={true}
 					>
 						<a className="others-item">
@@ -42,13 +49,17 @@ const Others = ({ sections, page, actId }) => {
 				)}
 			</div>
 			<div className="others-go">
-				<GoArticle id={actId} />
+				<GoArticle id={actId._id} />
 			</div>
 			<div className="others-after">
 				{sections[after] && (
 					<Link
-						href="/mevzuat/kanun/[id]/[page]"
-						as={`/mevzuat/kanun/${actId}/${after}`}
+						href="/mevzuat/[actName]/[id]/[page]"
+						as={`/mevzuat/${actId.name
+							.replace(/\s/g, '-')
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+							actId._id
+						}/${after}`}
 						shallow={true}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>

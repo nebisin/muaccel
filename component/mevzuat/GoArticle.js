@@ -29,7 +29,14 @@ const GoArticle = ({ id }) => {
 					setIsLoading(false);
 					return;
 				}
-				router.push('/mevzuat/madde/[id]', `/mevzuat/madde/${article._id}`);
+				router.push(
+					'/mevzuat/[actName]/[id]/madde/[title]',
+					`/mevzuat/${article.actId.name
+						.replace(/\s/g, '-')
+						.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+						article.actId._id
+					}/madde/${article.title}`
+				);
 				setIsLoading(false);
 			} catch (e) {
 				alert('Aradığınız madde bulunamadı!');
