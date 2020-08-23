@@ -75,7 +75,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								article.actId._id
-							}/${article.title}`}
+							}/madde/${article.title}`}
 						/>
 					</Head>
 					<div className="flex-container">
