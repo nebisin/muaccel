@@ -71,7 +71,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 						/>
 						<link
 							rel="canonical"
-							href={`https://www.muaccel.com/${article.actId.name
+							href={`https://www.muaccel.com/mevzuat/${article.actId.name
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								article.actId._id

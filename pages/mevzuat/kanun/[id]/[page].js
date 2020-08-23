@@ -57,7 +57,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 						/>
 						<link
 							rel="canonical"
-							href={`https://www.muaccel.com/${data.name
+							href={`https://www.muaccel.com/mevzuat/${data.name
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}}/${
 								data._id
