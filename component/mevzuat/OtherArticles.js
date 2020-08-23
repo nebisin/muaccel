@@ -17,7 +17,7 @@ const Others = ({ before, after, actId }) => {
 						as={`/mevzuat/${actId.name
 							.replace(/\s/g, '-')
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}}/${actId._id}/madde/${
-							before.title.replace(/\s/g, '-')
+							before.title.replace(/\//g, '-')
 						}`}
 					>
 						<a className="others-item">
@@ -46,7 +46,7 @@ const Others = ({ before, after, actId }) => {
 						as={`/mevzuat/${actId.name
 							.replace(/\s/g, '-')
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${actId._id}/madde/${
-							after.title.replace(/\s/g, '-')
+							after.title.replace(/\//g, '-')
 						}`}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>

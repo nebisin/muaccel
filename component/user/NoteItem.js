@@ -80,7 +80,7 @@ const NoteItem = ({ note }) => {
 									.replace(/\s/g, '-')
 									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 									note.article.actId._id
-								}/madde/${note.article.title.replace(/\s/g, '-')}`}
+								}/madde/${note.article.title.replace(/\//g, '-')}`}
 							>
 								<a className="user-note-header-link">
 									Madde {note.article.title} - {note.article.name}
@@ -104,7 +104,7 @@ const NoteItem = ({ note }) => {
 										.replace(/\s/g, '-')
 										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 										note.article.actId._id
-									}/madde/${note.article.title.replace(/\s/g, '-')}`}
+									}/madde/${note.article.title.replace(/\//g, '-')}`}
 								>
 									<a>Görüntüle</a>
 								</Link>

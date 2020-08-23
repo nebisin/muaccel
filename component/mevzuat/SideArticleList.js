@@ -50,7 +50,7 @@ const SideArticleList = ({ id, art }) => {
 										.replace(/\s/g, '-')
 										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 										a.actId._id
-									}/madde/${a.title.replace(/\s/g, '-')}`}
+									}/madde/${a.title.replace(/\//g, '-')}`}
 									key={a._id}
 								>
 									<a

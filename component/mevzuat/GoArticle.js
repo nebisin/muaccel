@@ -35,7 +35,7 @@ const GoArticle = ({ id }) => {
 						.replace(/\s/g, '-')
 						.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 						article.actId._id
-					}/madde/${article.title.replace(/\s/g, '-')}`
+					}/madde/${article.title.replace(/\//g, '-')}`
 				);
 				setIsLoading(false);
 			} catch (e) {
