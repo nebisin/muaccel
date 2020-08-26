@@ -48,9 +48,7 @@ const Others = ({ sections, page, actId }) => {
 					</Link>
 				)}
 			</div>
-			<div className="others-go">
-				<GoArticle id={actId._id} />
-			</div>
+			<GoArticle id={actId._id} />
 			<div className="others-after">
 				{sections[after] && (
 					<Link

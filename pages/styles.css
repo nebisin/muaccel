@@ -58,7 +58,7 @@ h3 {
 	bottom: 0;
 	right: 0;
 	left: 0;
-	z-index: 999999;
+	z-index: 999;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -341,14 +341,14 @@ h3 {
 }
 
 .user-side-link span:hover {
-	background-color: rgba(0,118,255,.1);
+	background-color: rgba(0, 118, 255, 0.1);
 	cursor: pointer;
 }
 
 .user-side-link-active span {
-	background-color: rgba(0,118,255,.1);
+	background-color: rgba(0, 118, 255, 0.1);
 	border-radius: 1rem;
-	transition: background .2s ease,color .2s ease,box-shadow .2s ease;
+	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .user-side-link-active span:hover {
@@ -495,7 +495,7 @@ h3 {
 
 .home-item:hover {
 	cursor: pointer;
-	background-color: hsla(0,0%,94%,.4);
+	background-color: hsla(0, 0%, 94%, 0.4);
 }
 
 .home-item-icon-container {
@@ -660,7 +660,7 @@ h3 {
 }
 
 .card-header a {
-	font-family: Open Sans,sans-serif;
+	font-family: Open Sans, sans-serif;
 }
 
 .card-header a:hover {
@@ -807,7 +807,7 @@ h3 {
 	right: 0;
 	left: 0;
 	height: 59px;
-	z-index: 99999;
+	z-index: 990;
 	background-color: #f9fafa;
 	-webkit-transition: background-color 500ms ease-in-out;
 	-moz-transition: background-color 500ms ease-in-out;
@@ -894,7 +894,7 @@ h3 {
 	position: absolute;
 	width: 250px;
 	background-color: #f9fafa;
-	z-index: 9999;
+	z-index: 990;
 	top: 49px;
 	right: 0px;
 	display: none;
@@ -1041,16 +1041,20 @@ h3 {
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 59px;
-	z-index: 999;
+	z-index: 990;
 }
 
 .others-after,
 .others-before,
 .others-go {
 	font-weight: bold;
-	padding: 10px;
 	flex: 1;
 	font-size: 14px;
+}
+
+.others-after,
+.others-before {
+	padding: 10px;
 }
 
 .others-before {
@@ -1070,6 +1074,96 @@ h3 {
 .others-go {
 	text-align: center;
 }
+
+.others-go-button {
+	border: 1px solid #4b89be;
+	color: #4b89be;
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	font-weight: 500;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.others-go-button:hover {
+	background: white;
+}
+
+.others-full {
+	z-index: 997;
+}
+
+.others-full-inside {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 10px;
+	z-index: 998;
+	padding: 10px 0;
+}
+
+.close-others {
+	position: absolute;
+	top: 25px;
+	right: 15px;
+	color: #b3b3b3;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.others-go-form {
+	margin-top: 20px;
+}
+
+.others-full-insider {
+	padding: 15px;
+	height: 100%;
+	width: 100%;
+	background: #fbfbfb;
+	border-radius: 0.25rem;
+}
+
+.others-go-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0,0,0,.5);
+}
+
+.others-go-focused {
+	animation-name: width;
+	animation-duration: 1s;
+
+	z-index: 2;
+  width: 100%;
+  position: absolute;
+  right: 1px;
+}
+
+@keyframes width {
+	from {
+		position: relative;
+		text-align: center;
+		width: 233px;
+	}
+	to {
+		z-index: 2;
+		animation-duration: 1s;
+		width: 100%;
+		position: absolute;
+		right: 1px;
+	}
+  }
 
 .others-item:hover {
 	color: #7692ab;
@@ -1492,6 +1586,9 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+	.others-full-inside {
+		padding: 0;
+	}
 	.card-deck {
 		flex-direction: column;
 	}

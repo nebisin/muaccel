@@ -45,7 +45,20 @@ const ActRoute = ({ data, sectionsData, error }) => {
 							{sectionsData[page] && ` - ${sectionsData[page].name}`} | Muaccel
 							Mevzuat
 						</title>
-						<meta name="description" content={`${data.name}`} />
+						<meta
+							name="description"
+							content={`${data.title !== undefined ? `${data.title} sayılı` : ''} ${data.name} (${data.shortName}) - ${
+								sectionsData[page] && `${sectionsData[page].name}`
+							}. Muaccel Mevzuat: Temel mevzuata ulaşmanın pratik yolu... `}
+						/>
+						<meta
+							name="keywords"
+							content={`${data.shortName}${data.title !== undefined ? `, ${data.title} sayılı Kanun` : ''}, ${
+								data.name
+							}, ${
+								sectionsData[page] && `${sectionsData[page].name}`
+							}, Mevzuat, Muaccel`}
+						/>
 						<meta property="og:description" content={`${data.name}`} />
 						<meta
 							property="og:title"
@@ -140,7 +153,7 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error }, unstable_revalidate: 1 };
+	return { props: { data, sectionsData, error }, unstable_revalidate: 60 };
 }
 
 export default ActRoute;

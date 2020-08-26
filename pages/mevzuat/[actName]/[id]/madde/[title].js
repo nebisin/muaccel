@@ -57,6 +57,11 @@ const ArticleRoute = ({ article, before, after, error }) => {
 							name="description"
 							content={`Madde ${article.title} - ${article.content}`}
 						/>
+						<meta name="keywords" content={`${
+							article.actId.title !== undefined
+								? `${article.actId.title} sayılı`
+								: ''
+						} ${article.actId.name}, ${article.name}, Madde ${article.title}, Muaccel, Mevzuat`} />Ï
 						<meta
 							property="og:title"
 							content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
@@ -159,7 +164,7 @@ export async function getStaticProps({ params }) {
 
 	const { article, before, after } = response.data;
 
-	return { props: { article, before, after }, unstable_revalidate: 1 };
+	return { props: { article, before, after }, unstable_revalidate: 60 };
 }
 
 export default ArticleRoute;

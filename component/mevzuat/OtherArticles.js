@@ -16,9 +16,9 @@ const Others = ({ before, after, actId }) => {
 						href="/mevzuat/[actName]/[id]/madde/[title]"
 						as={`/mevzuat/${actId.name
 							.replace(/\s/g, '-')
-							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}}/${actId._id}/madde/${
-							before.title.replace(/\//g, '-')
-						}`}
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}}/${
+							actId._id
+						}/madde/${before.title.replace(/\//g, '-')}`}
 					>
 						<a className="others-item">
 							<FontAwesomeIcon
@@ -36,18 +36,16 @@ const Others = ({ before, after, actId }) => {
 					</Link>
 				)}
 			</div>
-			<div className="others-go">
-				<GoArticle id={actId._id} />
-			</div>
+			<GoArticle id={actId._id} />
 			<div className="others-after">
 				{after && (
 					<Link
 						href="/mevzuat/[actName]/[id]/madde/[title]"
 						as={`/mevzuat/${actId.name
 							.replace(/\s/g, '-')
-							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${actId._id}/madde/${
-							after.title.replace(/\//g, '-')
-						}`}
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+							actId._id
+						}/madde/${after.title.replace(/\//g, '-')}`}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">

@@ -75,7 +75,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								article.actId._id
-							}/madde/${article.title}`}
+							}/madde/${article.title.replace(/\//g, '-')}`}
 						/>
 					</Head>
 					<div className="flex-container">
@@ -164,7 +164,7 @@ export async function getStaticProps({ params }) {
 
 	const { article, before, after } = response.data;
 
-	return { props: { article, before, after }, unstable_revalidate: 1 };
+	return { props: { article, before, after } };
 }
 
 export default ArticleRoute;

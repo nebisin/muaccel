@@ -148,7 +148,7 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error }, unstable_revalidate: 1 };
+	return { props: { data, sectionsData, error }};
 }
 
 export default ActRoute;
