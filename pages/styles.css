@@ -1109,21 +1109,24 @@ h3 {
 	padding: 10px 0;
 }
 
+.others-insider-top {
+	display: flex;
+	padding: 15px;
+	padding-bottom: 0;
+}
+
+.others-insider-title {
+	flex: 1;
+}
+
 .close-others {
-	position: absolute;
-	top: 25px;
-	right: 15px;
 	color: #b3b3b3;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 25px;
 }
 
-.others-go-form {
-	margin-top: 20px;
-}
 
 .others-full-insider {
-	padding: 15px;
 	height: 100%;
 	width: 100%;
 	background: #fbfbfb;
@@ -1140,31 +1143,6 @@ h3 {
     background: rgba(0,0,0,.5);
 }
 
-.others-go-focused {
-	animation-name: width;
-	animation-duration: 1s;
-
-	z-index: 2;
-  width: 100%;
-  position: absolute;
-  right: 1px;
-}
-
-@keyframes width {
-	from {
-		position: relative;
-		text-align: center;
-		width: 233px;
-	}
-	to {
-		z-index: 2;
-		animation-duration: 1s;
-		width: 100%;
-		position: absolute;
-		right: 1px;
-	}
-  }
-
 .others-item:hover {
 	color: #7692ab;
 	border-radius: 0.25rem;
@@ -1177,6 +1155,8 @@ h3 {
 
 .others-form {
 	display: flex;
+	padding: 15px;
+
 }
 
 .others-input {
@@ -1184,8 +1164,17 @@ h3 {
 	border-right: none;
 	border-radius: 0.25rem 0 0 0.25rem;
 	background-color: #fff;
-	padding: 8px;
 	width: 80%;
+	min-width: 100px;
+	font-size: 16px;
+}
+
+.others-input-inside {
+	width: 100%;
+	border: none;
+	padding: 8px;
+	background-color: transparent;
+	outline: none;
 	min-width: 100px;
 	font-size: 16px;
 	-moz-appearance: none;
@@ -1204,8 +1193,36 @@ h3 {
 	height: auto;
 	width: 20%;
 	min-width: 30px;
-	font-weight: bold;
+	font-weight: 500;
 	color: white;
+	font-size: 16px;
+}
+
+.article-text-list-container {
+	padding: 15px;
+	padding-top: 0;
+	display: block;
+	overflow: auto;
+	height: 100%;
+}
+
+.article-text-list {
+	display: flex;
+	padding: 10px 5px;
+	cursor: pointer;
+}
+
+.article-text-list:hover {
+	color: #4b89be;
+}
+
+.article-text-list-left {
+	width: 30%;
+	min-width: 120px;
+}
+
+.article-text-list-right {
+	flex: 1;
 }
 
 .others-input:hover,
@@ -1592,7 +1609,6 @@ footer {
 	.card-deck {
 		flex-direction: column;
 	}
-
 	.card-deck-item {
 		margin: 5px 5px;
 	}
