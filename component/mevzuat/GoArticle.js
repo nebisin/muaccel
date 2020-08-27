@@ -157,6 +157,7 @@ const GoArticle = ({ id }) => {
 													.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 													article.actId._id
 												}/madde/${article.title.replace(/\//g, '-')}`}
+												prefetch={false}
 												key={article._id}
 											>
 												<a>
