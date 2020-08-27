@@ -38,7 +38,6 @@ const ArticleItem = ({ item, type }) => {
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								item.actId._id
 							}/madde/${item.title.replace(/\//g, '-')}`}
-							shallow={true}
 						>
 							<a>{item.name}</a>
 						</Link>
