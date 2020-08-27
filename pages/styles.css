@@ -1203,7 +1203,7 @@ h3 {
 	padding-top: 0;
 	display: block;
 	overflow: auto;
-	height: 100%;
+	height: calc(100% - 120px);
 }
 
 .article-text-list {

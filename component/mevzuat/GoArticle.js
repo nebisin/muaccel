@@ -23,6 +23,7 @@ const GoArticle = ({ id }) => {
 				const response = await mevzuatApi.post('/articles', {
 					search: search,
 					searchId: searchId,
+					sort: { location: 1 },
 				});
 				setArticleList(response.data);
 				setListLoading(false);
