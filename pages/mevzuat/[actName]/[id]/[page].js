@@ -41,6 +41,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 				<React.Fragment>
 					<Head>
 						<title>
+							{data.title !== undefined ? `${data.title} sayılı ` : ''}
 							{data.name}{' '}
 							{sectionsData[page] && ` - ${sectionsData[page].name}`} | Muaccel
 							Mevzuat

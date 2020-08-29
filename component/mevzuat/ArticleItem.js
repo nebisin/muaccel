@@ -38,7 +38,6 @@ const ArticleItem = ({ item, type }) => {
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								item.actId._id
 							}/madde/${item.title.replace(/\//g, '-')}`}
-							prefetch={false}
 						>
 							<a>{item.name}</a>
 						</Link>
@@ -52,6 +51,7 @@ const ArticleItem = ({ item, type }) => {
 									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 									item.actId._id
 								}/0`}
+								prefetch={false}
 							>
 								<a>({item.actId.name})</a>
 							</Link>
