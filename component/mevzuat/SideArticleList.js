@@ -11,16 +11,19 @@ const SideArticleList = ({ id, art }) => {
 	const { getSectionInfo } = useContext(SectionContext);
 
 	useEffect(() => {
+		setArticle(art);
+	}, [art])
+
+	useEffect(() => {
 		setIsLoading(true);
 		const currentArticle = async () => {
 			if (art.sectionId) {
 				const section = await getSectionInfo(art.sectionId);
 				setSectionInfo(section);
-				setArticle(art);
 			}
 		};
 		currentArticle();
-	}, [getArticleById, getSectionInfo, art, id]);
+	}, [art.sectionId]);
 
 	useEffect(() => {
 		const listOfSection = async (sectionId) => {

@@ -11,6 +11,8 @@ import ProfileSettings from 'component/user/ProfileSettings';
 import SecuritySettings from 'component/user/SecuritySettings';
 import PrivacySettings from 'component/user/PrivacySettings';
 
+const login = '/user/login?redirected=true';
+
 const SettingsPage = () => {
 	const router = useRouter();
 	const { isLoggedIn, userInfo, token } = useContext(AuthContext);
