@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import mevzuatApi from 'api/mevzuat';
 import TimeStamp from 'component/TimeStamp';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const OtherPosts = ({ userId, postId }) => {
 	const [others, setOthers] = useState([]);
@@ -14,14 +12,13 @@ const OtherPosts = ({ userId, postId }) => {
 		const getOthers = async (userId) => {
 			setLoading(true);
 			const response = await mevzuatApi.get(`/user/blogs/${userId}`);
-			const otro = response.data.filter((item) => item._id !== postId);
-			setOthers(otro);
+			setOthers(response.data);
 			setLoading(false);
 		};
 		if (userId) {
 			getOthers(userId);
 		}
-	}, [userId, postId]);
+	}, [userId]);
 
 	if (loading) {
 		return (
@@ -48,7 +45,7 @@ const OtherPosts = ({ userId, postId }) => {
 					<div className="blog-drafts-content">
 						<div className="blog-drafts-list">
 							{others.map((other) => (
-								<div key={other._id} className="blog-drafts-item">
+								<div key={other._id} className={`blog-drafts-item ${other._id === postId ? 'side-list-item-selected' : ''}`}>
 									<Link
 										href="/blog/post/[name]/[id]"
 										as={`/blog/post/${other.title
