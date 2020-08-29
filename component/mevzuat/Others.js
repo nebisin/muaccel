@@ -11,6 +11,7 @@ import GoArticle from './GoArticle';
 const Others = ({ sections, page, actId }) => {
 	const [before, setBefore] = useState(null);
 	const [after, setAfter] = useState(null);
+	const [focused, setFocused] = useState(false);
 
 	useEffect(() => {
 		let b = parseInt(page) - 1;
@@ -20,7 +21,7 @@ const Others = ({ sections, page, actId }) => {
 	}, [page]);
 
 	return (
-		<div className="others-bar">
+		<div className="others-bar" style={focused ? {zIndex: 999} : {zIndex: 500}}>
 			<div className="others-before">
 				{sections[before] && (
 					<Link
@@ -48,7 +49,7 @@ const Others = ({ sections, page, actId }) => {
 					</Link>
 				)}
 			</div>
-			<GoArticle id={actId._id} />
+			<GoArticle id={actId._id} focused={focused} setFocused={setFocused} />
 			<div className="others-after">
 				{sections[after] && (
 					<Link

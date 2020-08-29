@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Others = ({ before, after, actId }) => {
+	const [focused, setFocused] = useState(false);
+
 	return (
 		<div className="others-bar">
 			<div className="others-before">
@@ -36,7 +38,7 @@ const Others = ({ before, after, actId }) => {
 					</Link>
 				)}
 			</div>
-			<GoArticle id={actId._id} />
+			<GoArticle id={actId._id} focused={focused} setFocused={setFocused} />
 			<div className="others-after">
 				{after && (
 					<Link

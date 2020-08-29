@@ -7,12 +7,11 @@ import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const GoArticle = ({ id }) => {
+const GoArticle = ({ id, focused, setFocused }) => {
 	const [term, setTerm] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [listLoading, setListLoading] = useState(false);
 	const [articleList, setArticleList] = useState();
-	const [focused, setFocused] = useState(false);
 	const { getArticleByTitle } = useContext(ArticleContext);
 	let router = useRouter();
 
