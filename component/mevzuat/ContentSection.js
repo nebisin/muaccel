@@ -1,10 +1,6 @@
-import { useEffect } from 'react';
 import Link from 'next/link';
 
 const ContentSection = ({ sectionList, articleList, setFocused, item }) => {
-	useEffect(() => {
-		console.log(articleList);
-	}, [articleList]);
 	return (
 		<React.Fragment>
 			<div className="content-section">
@@ -17,7 +13,7 @@ const ContentSection = ({ sectionList, articleList, setFocused, item }) => {
 						(article) =>
 							article.sectionId === item._id && (
 								<React.Fragment>
-									{article.suffixTitle && <p style={{fontSize: '14px', fontWeight: 'bold', whiteSpace: 'preline'}}>{article.suffixTitle}</p>}
+									{article.suffixTitle && <p style={{fontSize: '14px', fontWeight: 'bold', whiteSpace: 'pre-line'}}>{article.suffixTitle}</p>}
 									<Link
 										href="/mevzuat/[actName]/[id]/madde/[title]"
 										as={`/mevzuat/${article.actId.name
