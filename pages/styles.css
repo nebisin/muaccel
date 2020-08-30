@@ -1125,6 +1125,10 @@ h3 {
 	font-size: 25px;
 }
 
+.close-others-div {
+	margin-top: 10px;
+}
+
 .others-full-insider {
 	height: 100%;
 	width: 100%;
@@ -1282,7 +1286,7 @@ h3 {
 
 .register-footer a {
 	color: #326fa4;
-	font-weight: 600;
+	font-weight: bold;
 }
 
 .register-footer a:hover {
@@ -1513,7 +1517,7 @@ footer {
 	font-family: 'Open Sans', sans-serif;
 	max-width: 300px;
 	margin: 0 auto;
-	font-weight: 600;
+	font-weight: bold;
 	font-size: 14px;
 }
 

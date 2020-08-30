@@ -28,7 +28,6 @@ const GoArticle = ({ id, focused, setFocused }) => {
 					}),
 				]);
 				setArticleList(articles.data);
-				console.log(articleList)
 				setSectionList(sections.data);
 				setListLoading(false);
 			} catch (error) {
