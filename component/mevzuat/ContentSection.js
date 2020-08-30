@@ -16,30 +16,33 @@ const ContentSection = ({ sectionList, articleList, setFocused, item }) => {
 					{articleList.map(
 						(article) =>
 							article.sectionId === item._id && (
-								<Link
-									href="/mevzuat/[actName]/[id]/madde/[title]"
-									as={`/mevzuat/${article.actId.name
-										.replace(/\s/g, '-')
-										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-										article.actId._id
-									}/madde/${article.title.replace(/\//g, '-')}`}
-									prefetch={false}
-									key={article._id}
-								>
-									<a>
-										<div
-											className="article-text-list"
-											onClick={() => setFocused(false)}
-										>
-											<div className="article-text-list-left">
-												Madde {article.title}
+								<React.Fragment>
+									{article.suffixTitle && <p style={{fontSize: '14px', fontWeight: 'bold'}}>{article.suffixTitle}</p>}
+									<Link
+										href="/mevzuat/[actName]/[id]/madde/[title]"
+										as={`/mevzuat/${article.actId.name
+											.replace(/\s/g, '-')
+											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+											article.actId._id
+										}/madde/${article.title.replace(/\//g, '-')}`}
+										prefetch={false}
+										key={article._id}
+									>
+										<a>
+											<div
+												className="article-text-list"
+												onClick={() => setFocused(false)}
+											>
+												<div className="article-text-list-left">
+													Madde {article.title}
+												</div>
+												<div className="article-text-list-right">
+													{article.name}
+												</div>
 											</div>
-											<div className="article-text-list-right">
-												{article.name}
-											</div>
-										</div>
-									</a>
-								</Link>
+										</a>
+									</Link>
+								</React.Fragment>
 							)
 					)}
 				</React.Fragment>
