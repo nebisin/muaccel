@@ -17,6 +17,7 @@
 .settings-navigations ul {
 	display: flex;
 	flex-direction: row;
+	margin-bottom: 10px;
 }
 
 .settings-navigations li {
@@ -26,7 +27,6 @@
 	padding: 10px;
 	padding-bottom: 5px;
 	margin-right: 10px;
-	margin-bottom: 10px;
 }
 
 .settings-navigations li:hover {

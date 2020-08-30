@@ -1125,7 +1125,6 @@ h3 {
 	font-size: 25px;
 }
 
-
 .others-full-insider {
 	height: 100%;
 	width: 100%;
@@ -1134,13 +1133,13 @@ h3 {
 }
 
 .others-go-blocker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    content: ' ';
-    background: rgba(0,0,0,.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	content: ' ';
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .others-item:hover {
@@ -1156,7 +1155,6 @@ h3 {
 .others-form {
 	display: flex;
 	padding: 15px;
-
 }
 
 .others-input {
@@ -1203,7 +1201,11 @@ h3 {
 	padding-top: 0;
 	display: block;
 	overflow: auto;
-	height: calc(100% - 120px);
+	height: calc(100% - 150px);
+}
+
+.article-text-list-container-fixed {
+	height: calc(100% - 90px);
 }
 
 .article-text-list {
@@ -1503,6 +1505,16 @@ footer {
 	justify-self: flex-start;
 	border-bottom: 1px solid #f2f2f2;
 	min-height: 371px;
+}
+
+.content-section {
+	text-align: center;
+	padding: 5px;
+	font-family: 'Open Sans', sans-serif;
+	max-width: 300px;
+	margin: 0 auto;
+	font-weight: 600;
+	font-size: 14px;
 }
 
 @-webkit-keyframes load8 {

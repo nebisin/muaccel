@@ -1,30 +1,35 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 
-import ArticleContext from 'context/ArticleContext';
 import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import FastArticles from './FastArticles';
+import Contents from './Contents';
 
 const GoArticle = ({ id, focused, setFocused }) => {
-	const [term, setTerm] = useState('');
-	const [isLoading, setIsLoading] = useState(false);
 	const [listLoading, setListLoading] = useState(false);
 	const [articleList, setArticleList] = useState();
-	const { getArticleByTitle } = useContext(ArticleContext);
-	let router = useRouter();
+	const [sectionList, setSectionList] = useState();
+	const [currentSettings, setCurrentSettings] = useState('0');
 
 	const getList = async (search, searchId) => {
 		if (search != null && searchId != null) {
 			try {
 				setListLoading(true);
-				const response = await mevzuatApi.post('/articles', {
-					search: search,
-					searchId: searchId,
-					sort: { location: 1 },
-				});
-				setArticleList(response.data);
+				const [articles, sections] = await Promise.all([
+					mevzuatApi.post('/articles', {
+						search: search,
+						searchId: searchId,
+						sort: { location: 1 },
+					}),
+					mevzuatApi.post('/sections', {
+						actId: id,
+						type: {},
+					}),
+				]);
+				setArticleList(articles.data);
+				console.log(articleList)
+				setSectionList(sections.data);
 				setListLoading(false);
 			} catch (error) {
 				setListLoading(false);
@@ -36,58 +41,14 @@ const GoArticle = ({ id, focused, setFocused }) => {
 	};
 
 	useEffect(() => {
-		getList(term, id);
+		getList('', id);
 	}, [id]);
-
-	const handleChange = (event) => {
-		setTerm(event.target.value);
-	};
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		getList(term, id);
-	};
-
-	const handleSubmitAlternative = (event) => {
-		event.preventDefault();
-		if (!term) {
-			alert('Bir madde numarası girmelisiniz!');
-			return;
-		}
-
-		const getArticle = async () => {
-			setIsLoading(true);
-			try {
-				const { article } = await getArticleByTitle(term, id);
-				if (!article) {
-					alert('Aradığınız madde bulunamadı!');
-					setIsLoading(false);
-					return;
-				}
-				router.push(
-					'/mevzuat/[actName]/[id]/madde/[title]',
-					`/mevzuat/${article.actId.name
-						.replace(/\s/g, '-')
-						.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-						article.actId._id
-					}/madde/${article.title.replace(/\//g, '-')}`
-				);
-				setFocused(false);
-				setIsLoading(false);
-			} catch (e) {
-				alert('Aradığınız madde bulunamadı!');
-				setIsLoading(false);
-				return;
-			}
-		};
-		getArticle();
-	};
 
 	return (
 		<React.Fragment>
 			<div className="others-go">
 				<button className="others-go-button" onClick={() => setFocused(true)}>
-					Madde Bul
+					İçindekiler
 				</button>
 			</div>
 			{focused && (
@@ -97,17 +58,36 @@ const GoArticle = ({ id, focused, setFocused }) => {
 							<div className="others-full-insider">
 								<div className="others-insider-top">
 									<div className="others-insider-title">
-										<h2>
-											Maddeler{' '}
-											{listLoading ? (
-												<FontAwesomeIcon
-													icon={faSpinner}
-													className="login-spinner"
-												/>
-											) : (
-												''
-											)}
-										</h2>
+										<div className="settings-navigations">
+											<ul style={{ marginBottom: '0 !important' }}>
+												<li
+													className={
+														currentSettings === '0' ? 'active-nav' : ''
+													}
+													onClick={() => setCurrentSettings('0')}
+												>
+													Hızlı Erişim
+												</li>
+												<li
+													className={
+														currentSettings === '1' ? 'active-nav' : ''
+													}
+													onClick={() => setCurrentSettings('1')}
+												>
+													İçindekiler
+												</li>
+												{listLoading ? (
+													<li>
+														<FontAwesomeIcon
+															icon={faSpinner}
+															className="login-spinner"
+														/>
+													</li>
+												) : (
+													''
+												)}
+											</ul>
+										</div>
 									</div>
 									<div className="close-others-div">
 										<FontAwesomeIcon
@@ -117,64 +97,21 @@ const GoArticle = ({ id, focused, setFocused }) => {
 										/>
 									</div>
 								</div>
-								<div className="others-go-form">
-									<div className="others-form">
-										<form onSubmit={handleSubmit} className="others-input">
-											<input
-												className="others-input-inside"
-												type="search"
-												placeholder="Madde Ara"
-												value={term || ''}
-												onChange={handleChange}
-												disabled={isLoading}
-											/>
-										</form>
-										<button
-											className="others-button"
-											disabled={isLoading}
-											onClick={handleSubmitAlternative}
-										>
-											Git
-										</button>
-									</div>
-								</div>
-								{articleList && (
-									<div className="article-text-list-container">
-										<div className="article-text-list">
-											<div className="article-text-list-left">
-												<b>Numarası</b>
-											</div>
-											<div className="article-text-list-right">
-												<b>Başlığı</b>
-											</div>
-										</div>
-										{articleList.map((article) => (
-											<Link
-												href="/mevzuat/[actName]/[id]/madde/[title]"
-												as={`/mevzuat/${article.actId.name
-													.replace(/\s/g, '-')
-													.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-													article.actId._id
-												}/madde/${article.title.replace(/\//g, '-')}`}
-												prefetch={false}
-												key={article._id}
-											>
-												<a>
-													<div
-														className="article-text-list"
-														onClick={() => setFocused(false)}
-													>
-														<div className="article-text-list-left">
-															Madde {article.title}
-														</div>
-														<div className="article-text-list-right">
-															{article.name}
-														</div>
-													</div>
-												</a>
-											</Link>
-										))}
-									</div>
+								{currentSettings === '0' && (
+									<FastArticles
+										articleList={articleList}
+										setFocused={setFocused}
+										id={id}
+										setListLoading={setListLoading}
+									/>
+								)}
+								{currentSettings === '1' && (
+									<Contents
+										sectionList={sectionList}
+										articleList={articleList}
+										setFocused={setFocused}
+										id={id}
+									/>
 								)}
 							</div>
 						</div>
