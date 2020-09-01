@@ -13,7 +13,17 @@ const ContentSection = ({ sectionList, articleList, setFocused, item }) => {
 						(article) =>
 							article.sectionId === item._id && (
 								<React.Fragment>
-									{article.suffixTitle && <p style={{fontSize: '14px', fontWeight: 'bold', whiteSpace: 'pre-line'}}>{article.suffixTitle}</p>}
+									{article.suffixTitle && (
+										<p
+											style={{
+												fontSize: '14px',
+												fontWeight: 'bold',
+												whiteSpace: 'pre-line',
+											}}
+										>
+											{article.suffixTitle}
+										</p>
+									)}
 									<Link
 										href="/mevzuat/[actName]/[id]/madde/[title]"
 										as={`/mevzuat/${article.actId.name
