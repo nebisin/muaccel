@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Head from 'next/head';
 import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,15 +49,17 @@ const ActRoute = ({ data, sectionsData, error }) => {
 						</title>
 						<meta
 							name="description"
-							content={`${data.title !== undefined ? `${data.title} sayılı` : ''} ${data.name} (${data.shortName}) - ${
+							content={`${
+								data.title !== undefined ? `${data.title} sayılı` : ''
+							} ${data.name} (${data.shortName}) - ${
 								sectionsData[page] && `${sectionsData[page].name}`
 							}. Muaccel Mevzuat: Temel mevzuata ulaşmanın pratik yolu... `}
 						/>
 						<meta
 							name="keywords"
-							content={`${data.shortName}${data.title !== undefined ? `, ${data.title} sayılı Kanun` : ''}, ${
-								data.name
-							}, ${
+							content={`${data.shortName}${
+								data.title !== undefined ? `, ${data.title} sayılı Kanun` : ''
+							}, ${data.name}, ${
 								sectionsData[page] && `${sectionsData[page].name}`
 							}, Mevzuat, Muaccel`}
 						/>
@@ -80,10 +83,21 @@ const ActRoute = ({ data, sectionsData, error }) => {
 							page={page}
 						/>
 						<section id="showcase">
-							<div className="act-title">
-								{data.title && <p>{data.title} sayılı </p>}
-								<p>{data.name}</p>
-							</div>
+							<Link
+								href="/mevzuat/[actName]/[id]"
+								as={`/mevzuat/${data.name
+									.replace(/\s/g, '-')
+									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+									data._id
+								}`}
+							>
+								<a>
+									<div className="act-title">
+										{data.title && <p>{data.title} sayılı </p>}
+										<p>{data.name}</p>
+									</div>
+								</a>
+							</Link>
 							{!isLoading ? (
 								<React.Fragment>
 									{suffixSections[page] ? (
