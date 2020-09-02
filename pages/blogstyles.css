@@ -24,6 +24,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .blog-hero-right-background {
@@ -34,6 +35,26 @@
 	height: 300px;
 	margin: 20px;
 	border-radius: 0.25rem;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	animation-name: slideInLeft;
+	-webkit-animation-name: slideInLeft;
+	animation-duration: 1s;
+}
+
+@keyframes slideInLeft {
+	from {
+		right: -500px;
+		left: 500px;
+		top: 0;
+	}
+	to {
+		right: 0;
+		left: 0;
+		top: 0;
+	}
 }
 
 .blog-hero-title {
@@ -96,7 +117,6 @@
 .blog-post {
 	padding: 20px;
 	margin-bottom: 10px;
-	border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .blog-post-out {

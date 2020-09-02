@@ -8,6 +8,7 @@ import AuthorPreview from 'component/AuthorPreview';
 import OtherPosts from 'component/blog/OtherPosts';
 
 import BlogButtons from 'component/blog/BlogButtons';
+import Footer from 'component/Footer';
 const ShowPost = ({ data }) => {
 	const [editorState, setEditorState] = useState();
 
@@ -72,6 +73,7 @@ const ShowPost = ({ data }) => {
 										)}
 									</div>
 								</div>
+								<Footer />
 							</div>
 							<div className="create-blog-sidebar">
 								<UserWidget user={data.author} />
