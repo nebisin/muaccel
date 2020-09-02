@@ -25,6 +25,7 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	overflow: hidden;
 }
 
 .blog-hero-right-background {
@@ -46,8 +47,8 @@
 
 @keyframes slideInLeft {
 	from {
-		right: -500px;
-		left: 500px;
+		right: -600px;
+		left: 600px;
 		top: 0;
 	}
 	to {
