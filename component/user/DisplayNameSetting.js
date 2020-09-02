@@ -1,11 +1,38 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import mevzuatApi from 'api/mevzuat';
+import AuthContext from 'context/AuthContext';
 
-const DisplayNameSetting = ({user}) => {
-    const [name, setName] = useState(user.name)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+const DisplayNameSetting = ({ user }) => {
+	const [name, setName] = useState(user.name);
+	const [sending, setSending] = useState(false);
+	const { setUserInfo, token } = useContext(AuthContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setSending(true);
+		const updateName = async () => {
+			try {
+				const response = await mevzuatApi.patch(
+					'/user/update',
+					{
+						name: name,
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+				setUserInfo(response.data);
+				setSending(false);
+			} catch (error) {
+				setSending(false);
+			}
+		};
+		updateName();
+	};
 
 	return (
 		<div className="settings-group">
@@ -21,11 +48,20 @@ const DisplayNameSetting = ({user}) => {
 					type="text"
 					id="displayName"
 					name="displayName"
-                    maxLength="36"
-                    value={name}
-                    onChange={(e) => setName(e.value)}
+					maxLength="36"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
 				/>
-				<button className="setting-button" onClick={(e) => handleSubmit(e)}>Değiştir</button>
+				<button className="setting-button" onClick={(e) => handleSubmit(e)}>
+					{sending ? (
+						<FontAwesomeIcon
+							icon={faSpinner}
+							className="login-spinner"
+						/>
+					) : (
+						'Değiştir'
+					)}
+				</button>
 			</form>
 		</div>
 	);

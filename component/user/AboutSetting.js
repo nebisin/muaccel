@@ -1,11 +1,38 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import mevzuatApi from 'api/mevzuat';
+import AuthContext from 'context/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const AboutSetting = ({user}) => {
-    const [description, setDescription] = useState(user.description);
+const AboutSetting = ({ user }) => {
+	const [description, setDescription] = useState(user.description);
+	const [sending, setSending] = useState(false);
+	const { setUserInfo, token } = useContext(AuthContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setSending(true);
+		const updateName = async () => {
+			try {
+				const response = await mevzuatApi.patch(
+					'/user/update',
+					{
+						description: description,
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+				setUserInfo(response.data);
+				setSending(false);
+			} catch (error) {
+				setSending(false);
+			}
+		};
+		updateName();
+	};
 
 	return (
 		<div className="settings-group">
@@ -22,11 +49,17 @@ const AboutSetting = ({user}) => {
 					id="about"
 					name="about"
 					rows="4"
-                    maxLength="200"
-                    value={description}
-                    onChange={(e) => setDescription(e.value)}
+					maxLength="200"
+					value={description}
+					onChange={(e) => setDescription(e.target.value)}
 				/>
-				<button className="setting-button" onClick={(e) => handleSubmit(e) }>Değiştir</button>
+				<button className="setting-button" onClick={(e) => handleSubmit(e)}>
+					{sending ? (
+						<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+					) : (
+						'Değiştir'
+					)}
+				</button>
 			</form>
 		</div>
 	);

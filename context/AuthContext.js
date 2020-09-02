@@ -130,6 +130,7 @@ export const AuthProvider = ({ children }) => {
 				login,
 				logout,
 				getFavorites,
+				setUserInfo,
 				favorites,
 				token,
 				userInfo,
