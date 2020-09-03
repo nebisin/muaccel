@@ -111,7 +111,7 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 								{data.title && <p>{data.title} sayılı </p>}
 								<p>{data.name}</p>
 							</div>
-							<div className="others-full-insider">
+							<div className="others-full-insider" style={{backgroundColor: '#f9fafa'}}>
 								<div className="others-insider-top">
 									<div className="others-insider-title">
 										<div className="settings-navigations">

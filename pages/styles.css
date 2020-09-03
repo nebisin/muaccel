@@ -328,7 +328,6 @@ h3 {
 }
 
 .user-side-link {
-	text-align: center;
 	margin-bottom: 10px;
 	padding: 10px;
 }
@@ -1106,7 +1105,7 @@ h3 {
 	margin: 0 auto;
 	padding: 10px;
 	z-index: 998;
-	padding: 10px 0;
+	padding: 3rem 0;
 }
 
 .others-insider-top {
@@ -1133,7 +1132,19 @@ h3 {
 	height: 100%;
 	width: 100%;
 	background: #fbfbfb;
-	border-radius: 0.25rem;
+}
+
+.others-full-insider-box {
+	box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24);
+}
+
+.others-insider-top-box {
+	background-color: #455a64;
+	color: white !important;
+}
+
+.others-navigations-box li:hover {
+	color: #b3b3b3 !important;
 }
 
 .others-go-blocker {

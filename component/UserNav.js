@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 import AuthContext from 'context/AuthContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const UserNav = () => {
 	const router = useRouter();
@@ -64,13 +62,12 @@ const UserNav = () => {
 									event.stopPropagation();
 								}}
 							>
-								<FontAwesomeIcon
-									icon={faUserCircle}
-									className="nav-link-button-icon"
-									style={{
-										fontSize: '27px',
-									}}
-								/>
+								<i
+									className="material-icons nav-link-button-icon"
+									style={{ fontSize: '32px' }}
+								>
+									account_box
+								</i>
 								<ul
 									className="usernav-dropdown"
 									onClick={(event) => event.stopPropagation()}
@@ -105,13 +102,12 @@ const UserNav = () => {
 						<li>
 							<Link href="/user/login">
 								<a className="navlink-button">
-									<FontAwesomeIcon
-										icon={faSignInAlt}
-										className="nav-link-button-icon"
-										style={{
-											fontSize: '27px',
-										}}
-									/>
+									<i
+										className="material-icons nav-link-button-icon"
+										style={{ fontSize: '32px' }}
+									>
+										login
+									</i>
 								</a>
 							</Link>
 						</li>

@@ -54,10 +54,10 @@ const GoArticle = ({ id, focused, setFocused }) => {
 				<React.Fragment>
 					<div className="others-full">
 						<div className="others-full-inside">
-							<div className="others-full-insider">
-								<div className="others-insider-top">
+							<div className="others-full-insider others-full-insider-box">
+								<div className="others-insider-top others-insider-top-box">
 									<div className="others-insider-title">
-										<div className="settings-navigations">
+										<div className="settings-navigations others-navigations-box">
 											<ul style={{ marginBottom: '0 !important' }}>
 												<li
 													className={
