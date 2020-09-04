@@ -30,7 +30,7 @@
 
 .blog-hero-right-background {
 	flex: 1;
-	background-image: url('/blog-hero-photo.jpg');
+	background-image: url('/blogging.svg');
 	background-size: cover;
 	width: auto;
 	height: 300px;
