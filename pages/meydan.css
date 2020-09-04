@@ -1,0 +1,27 @@
+.meydan-container {
+    margin-top: 59px;
+    display: flex;
+    flex-direction: column;
+}
+
+.meydan-svg {
+    flex: 1;
+    margin: 0 auto;
+}
+
+.meydan-title {
+    flex: 1;
+    margin: 20px;
+    text-align: center;
+}
+
+.meydan-svg-inline {
+    max-width: 798px;
+    width: 100%;
+    padding: 10px;
+}
+
+.meydan-desc {
+    max-width: 400px;
+    margin: 20px auto;
+}

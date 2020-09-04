@@ -1105,7 +1105,7 @@ h3 {
 	margin: 0 auto;
 	padding: 10px;
 	z-index: 998;
-	padding: 3rem 0;
+	padding: 20px 0;
 }
 
 .others-insider-top {
@@ -1136,11 +1136,15 @@ h3 {
 
 .others-full-insider-box {
 	box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24);
+	border-radius: 0.25rem;
+
 }
 
 .others-insider-top-box {
 	background-color: #455a64;
 	color: white !important;
+	border-radius: 0.25rem 0.25rem 0 0;
+
 }
 
 .others-navigations-box li:hover {

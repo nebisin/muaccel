@@ -12,6 +12,7 @@ import './nprogress.css';
 import './styles.css';
 import './blogstyles.css';
 import './users.css';
+import './meydan.css';
 
 import LoadingSplash from 'component/LoadingSplash';
 import { ActProvider } from 'context/ActContext';

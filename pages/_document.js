@@ -34,8 +34,8 @@ class MyDocument extends Document {
 				</Head>
 				<body>
 					<Main />
-					<NextScript />
 				</body>
+				<NextScript />
 			</Html>
 		);
 	}
