@@ -167,6 +167,7 @@ const RegisterPage = () => {
 					</div>
 				</div>
 			</div>
+			<div className="bottom-clear"></div>
 		</React.Fragment>
 	);
 };

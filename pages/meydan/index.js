@@ -16,6 +16,8 @@ const MeydanPage = () => {
 					alt="example"
 				/>
 			</div>
+			<div className="bottom-clear"></div>
+
 		</div>
 	);
 };
