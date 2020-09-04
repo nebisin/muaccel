@@ -11,15 +11,16 @@ const MeydanPage = () => {
 					düşünceler tartışma ortamında doğar ve gelişir.
 				</p>
 			</div>
-			<div className="meydan-svg">
-				<img
-					className="meydan-svg-inline"
-					src="/undraw_under_construction_46pa.svg"
-					alt="example"
-				/>
+			<div className="meydan-svg-container">
+				<div className="meydan-svg">
+					<img
+						className="meydan-svg-inline"
+						src="/undraw_under_construction_46pa.svg"
+						alt="example"
+					/>
+				</div>
 			</div>
 			<Footer />
-
 		</div>
 	);
 };

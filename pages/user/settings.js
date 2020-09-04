@@ -10,6 +10,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import ProfileSettings from 'component/user/ProfileSettings';
 import SecuritySettings from 'component/user/SecuritySettings';
 import PrivacySettings from 'component/user/PrivacySettings';
+import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
 
@@ -65,6 +66,7 @@ const SettingsPage = () => {
 							{currentSettings === '0' && <ProfileSettings />}
 							{currentSettings === '1' && <SecuritySettings />}
 							{currentSettings === '2' && <PrivacySettings />}
+							<Footer />
 						</div>
 					</div>
 				</React.Fragment>
