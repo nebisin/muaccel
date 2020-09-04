@@ -27,7 +27,7 @@
 
 .meydan-svg-inline {
     position: absolute;
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     top: 10px;
     left: 10px;
     bottom: 10px;
