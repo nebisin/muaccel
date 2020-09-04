@@ -1,3 +1,5 @@
+import Footer from 'component/Footer';
+
 const MeydanPage = () => {
 	return (
 		<div className="meydan-container">
@@ -16,7 +18,7 @@ const MeydanPage = () => {
 					alt="example"
 				/>
 			</div>
-			<div className="bottom-clear"></div>
+			<Footer />
 
 		</div>
 	);

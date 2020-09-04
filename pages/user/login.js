@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
 import AuthContext from 'context/AuthContext';
+import Footer from 'component/Footer';
 
 const initialValues = {
 	userName: '',
@@ -126,7 +127,7 @@ const RegisterPage = () => {
 					</div>
 				</div>
 			</div>
-			<div className="bottom-clear"></div>
+			<Footer />
 		</React.Fragment>
 	);
 };

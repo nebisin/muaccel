@@ -10,9 +10,7 @@ import AuthContext from 'context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import mevzuatApi from 'api/mevzuat';
-
-import BottomBar from 'component/BottomBar';
-import { faReacteurope } from '@fortawesome/free-brands-svg-icons';
+import Footer from 'component/Footer';
 
 const initialValues = {
 	userName: '',
@@ -167,7 +165,7 @@ const RegisterPage = () => {
 					</div>
 				</div>
 			</div>
-			<div className="bottom-clear"></div>
+			<Footer />
 		</React.Fragment>
 	);
 };
