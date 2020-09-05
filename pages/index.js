@@ -91,6 +91,22 @@ const HomePage = () => {
 							</div>
 						</Link>
 					</div>
+					<div className="landing-hero">
+						<div className="blog-hero-left landing-hero-left">
+							<h2 className="landing-hero-subtitle">
+								Binlerce kanun maddesine tek tıkla ulaşın
+							</h2>
+							<div className="landing-hero-description">
+								Kalın mevzuat kitaplarını yanınızda taşımaktan yorulmadınız mı?{' '}
+								<b>Muaccel Mevzuat</b> ile internet erişimine sahip olduğunuz
+								her yerde kolay bir şekilde temel mevzuata erişebilirsiniz.
+								Üstelik tamamen ücretsiz!
+							</div>
+						</div>
+						<div className="landing-right">
+							<div className="landing-right-background"></div>
+						</div>
+					</div>
 					<div className="home-image">
 						<img
 							className="home-image-inline"

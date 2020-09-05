@@ -65,6 +65,62 @@ h3 {
 	justify-content: center;
 }
 
+.landing-hero {
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	height: 450px;
+	display: flex;
+	justify-content: center;
+}
+
+.landing-right {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.landing-right-background {
+	flex: 1;
+	background-image: url('/book_lover_mkck.svg');
+	background-size: cover;
+	width: auto;
+	height: calc(79.5% + 40px);
+	margin: 20px;
+	border-radius: 0.25rem;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	animation-name: slideInLeft;
+	-webkit-animation-name: slideInLeft;
+	animation-duration: 1s;
+}
+
+.landing-hero-subtitle {
+	color: #161e2e;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 300;
+	line-height: 1.25;
+	letter-spacing: 0.2rem;
+	margin-top: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.landing-hero-description {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	padding: 10px 0;
+	margin: 10px auto;
+}
+
 .splash-spinner {
 	font-size: 50px;
 	-webkit-animation: fa-spin 2s infinite linear;
@@ -1630,6 +1686,23 @@ footer {
 	}
 	.home-image {
 		padding: 0;
+	}
+	.landing-hero {
+		flex-direction: column-reverse;
+		height: auto;
+	}
+	.landing-right {
+		flex: 1;
+		margin: 0 auto;
+		width: 100%;
+		position: relative;
+	}
+
+	.landing-right-background {
+		width: 100%;
+		padding-top: calc(79.5% - 40px);
+		position: relative;
+		height: calc(79.5% - 40px);
 	}
 }
 

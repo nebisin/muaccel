@@ -18,13 +18,6 @@
     position: relative;
 }
 
-.meydan-title {
-    flex: 1;
-    margin: 20px;
-    margin-top: 30px;
-    text-align: center;
-}
-
 .meydan-svg-inline {
     position: absolute;
     width: calc(100% - 20px);
@@ -33,6 +26,15 @@
     bottom: 10px;
     right: 10px;
 }
+
+.meydan-title {
+    flex: 1;
+    margin: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+
 
 .meydan-desc {
     max-width: 400px;
