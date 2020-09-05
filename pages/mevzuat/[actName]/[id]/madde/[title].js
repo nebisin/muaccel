@@ -51,24 +51,30 @@ const ArticleRoute = ({ article, before, after, error }) => {
 				<React.Fragment>
 					<Head>
 						<title>
-							{article.name} - {article.actId.name} | Muaccel Mevzuat
+							Madde {article.title} - {article.actId.name} | Muaccel Mevzuat
 						</title>
 						<meta
 							name="description"
-							content={`Madde ${article.title} - ${article.content}`}
+							content={`${article.name} | ${article.content}`}
 						/>
-						<meta name="keywords" content={`${
-							article.actId.title !== undefined
-								? `${article.actId.title} sayılı`
-								: ''
-						} ${article.actId.name}, ${article.name}, Madde ${article.title}, Muaccel, Mevzuat`} />Ï
+						<meta
+							name="keywords"
+							content={`${
+								article.actId.title !== undefined
+									? `${article.actId.title} sayılı`
+									: ''
+							} ${article.actId.name}, ${article.name}, Madde ${
+								article.title
+							}, Muaccel, Mevzuat`}
+						/>
+						Ï
 						<meta
 							property="og:title"
-							content={`${article.name} - ${article.actId.name} | Muaccel Mevzuat`}
+							content={`Madde ${article.title} - ${article.actId.name} | Muaccel Mevzuat`}
 						/>
 						<meta
 							property="og:description"
-							content={`Madde ${article.title} - ${article.content}`}
+							content={`${article.name} - ${article.content}`}
 						/>
 						<meta
 							property="og:image"

@@ -63,10 +63,19 @@ const ActRoute = ({ data, sectionsData, error }) => {
 								sectionsData[page] && `${sectionsData[page].name}`
 							}, Mevzuat, Muaccel`}
 						/>
-						<meta property="og:description" content={`${data.name}`} />
+						<meta
+							property="og:description"
+							content={`${
+								data.title !== undefined ? `${data.title} sayılı` : ''
+							} ${data.name} (${data.shortName}) - ${
+								sectionsData[page] && `${sectionsData[page].name}`
+							}. Muaccel Mevzuat: Temel mevzuata ulaşmanın pratik yolu... `}
+						/>
 						<meta
 							property="og:title"
-							content={`${data.name} | Muaccel Mevzuat`}
+							content={`${
+								data.title !== undefined ? `${data.title} sayılı ` : ''
+							} ${data.name} | Muaccel Mevzuat`}
 						/>
 						<meta
 							property="og:image"
@@ -87,9 +96,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 								href="/mevzuat/[actName]/[id]"
 								as={`/mevzuat/${data.name
 									.replace(/\s/g, '-')
-									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-									data._id
-								}`}
+									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${data._id}`}
 							>
 								<a>
 									<div className="act-title">
