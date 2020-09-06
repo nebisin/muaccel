@@ -1011,7 +1011,6 @@ h3 {
 
 .side-card-title {
 	padding: 15px;
-	border-bottom: 1px solid #ccc;
 }
 .side-list {
 	display: flex;
@@ -1030,7 +1029,6 @@ h3 {
 
 .side-list-item {
 	padding: 10px 20px;
-	border-bottom: 1px solid #ccc;
 }
 
 .side-list-item:last-of-type {

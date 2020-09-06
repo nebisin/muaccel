@@ -114,6 +114,43 @@
 	margin: 0 0 10px 0;
 }
 
+.avatar-upload {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+
+.avatar-upload-preview {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	background-color: rgba(0, 118, 255, 0.1);
+}
+
+.avatar-upload-button {
+	position: absolute;
+	bottom: 5px;
+	left: calc(50% - 15px);
+	background: white;
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 0.25rem;
+	font-size: 20px;
+	color: #0079D3;
+	border: 1px solid #0079D3;
+}
+
+.upload-form-control {
+	padding: 10px 0;
+}
+
 @media screen and (max-width: 600px) {
 	.setting-form {
 		display: flex;

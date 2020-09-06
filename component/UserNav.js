@@ -64,7 +64,7 @@ const UserNav = () => {
 							>
 								<i
 									className="material-icons nav-link-button-icon"
-									style={{ fontSize: '32px' }}
+									style={{ fontSize: '35px' }}
 								>
 									account_box
 								</i>
@@ -104,7 +104,7 @@ const UserNav = () => {
 								<a className="navlink-button">
 									<i
 										className="material-icons nav-link-button-icon"
-										style={{ fontSize: '32px' }}
+										style={{ fontSize: '35px' }}
 									>
 										login
 									</i>
