@@ -13,7 +13,7 @@ const UploadAvatar = ({ user }) => {
 	const [sending, setSending] = useState(false);
 	const { userInfo, token } = useContext(AuthContext);
 	const [previewUrl, setPreviewUrl] = useState(
-		`https://radiant-garden-86590.herokuapp.com/users/${userInfo.userId}/avatar`
+		`https://radiant-garden-86590.herokuapp.com/users/${userInfo.id}/avatar`
 	);
 
 	const onInput = async (id, avatar, isValid) => {
@@ -55,7 +55,7 @@ const UploadAvatar = ({ user }) => {
 			setIsValid(false);
 			fileIsValid = false;
 		}
-		onInput(userInfo.userId, pickedFile, fileIsValid);
+		onInput(userInfo.id, pickedFile, fileIsValid);
 	};
 
 	const pickImageHandler = () => {

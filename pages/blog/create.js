@@ -56,6 +56,7 @@ const CreatePage = () => {
 						<aside className="create-blog-sidebar">
 							<UserWidget user={userInfo} />
 							{/*
+								Burada id problemi oluyor.
 														<BlogDrafts />
 
 							*/}
