@@ -76,7 +76,7 @@ const ShowPost = ({ data }) => {
 								<Footer />
 							</div>
 							<div className="create-blog-sidebar">
-								<UserWidget user={data.author} />
+								<UserWidget user={data.author} id={data.author._id} />
 								<OtherPosts userId={data.author._id} postId={data._id} />
 							</div>
 						</div>
