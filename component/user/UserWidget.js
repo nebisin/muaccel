@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const UserWidget = ({ user }) => {
 	const [previewUrl, setPreviewUrl] = useState(
-		`https://radiant-garden-86590.herokuapp.com/users/${user._id}/avatar`
+		`https://radiant-garden-86590.herokuapp.com/users/${user.id}/avatar`
 	);
 	return (
 		<div className="user-widget">
