@@ -28,12 +28,8 @@ const UploadAvatar = ({ user }) => {
 					Authorization: `Bearer ${token}`,
 				},
 			});
-
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				setPreviewUrl(fileReader.result);
-			};
-			fileReader.readAsDataURL(avatar);
+			setPreviewUrl()
+			setPreviewUrl(`https://radiant-garden-86590.herokuapp.com/users/${userInfo.id}/avatar`)
 			setSending(false);
 		} catch (error) {
 			console.log(error.message);

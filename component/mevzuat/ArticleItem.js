@@ -4,7 +4,7 @@ import AuthContext from 'context/AuthContext';
 import ArticleItemBottom from './ArticleItemBottom';
 // import ArticleContext from 'context/ArticleContext';
 
-const ArticleItem = ({ item, type }) => {
+const ArticleItem = ({ item, type, act }) => {
 	const { userInfo } = useContext(AuthContext);
 	//	const { addArticlesData, articlesData } = useContext(ArticleContext);
 	const [full, setFull] = useState(false);
@@ -14,6 +14,7 @@ const ArticleItem = ({ item, type }) => {
 			setFull(true);
 		}
 	}, [type]);
+
 	/*
 	useEffect(() => {
 		if (item) {
@@ -33,10 +34,10 @@ const ArticleItem = ({ item, type }) => {
 					<h2 className="card-header">
 						<Link
 							href="/mevzuat/[actName]/[id]/madde/[title]"
-							as={`/mevzuat/${item.actId.name
+							as={`/mevzuat/${item.actId.name || act.name
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-								item.actId._id
+								item.actId._id || act._id
 							}/madde/${item.title.replace(/\//g, '-')}`}
 						>
 							<a>{item.name}</a>
@@ -53,7 +54,7 @@ const ArticleItem = ({ item, type }) => {
 								}/0`}
 								prefetch={false}
 							>
-								<a>({item.actId.name})</a>
+								<a>({item.actId.name || act.name})</a>
 							</Link>
 						</div>
 					)}

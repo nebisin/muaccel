@@ -4,13 +4,14 @@ import Head from 'next/head';
 
 import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from 'context/AuthContext';
 import ArticlePageItem from 'component/mevzuat/ArticlePageItem';
 import OtherArticles from 'component/mevzuat/OtherArticles';
 import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
 import Footer from 'component/Footer';
+import ArticleItem from 'component/mevzuat/ArticleItem';
 
 const ArticleRoute = ({ article, before, after, error }) => {
 	const { isLoggedIn, isLogging, userInfo, token } = useContext(AuthContext);
@@ -109,24 +110,44 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										actId={article.actId}
 									/>
 									<ArticlePageItem item={article} />
-									{!noteLoading ? (
-										isLoggedIn && (
+									{isLoggedIn &&
+										(!noteLoading ? (
 											<ArticleNote
 												articleId={article._id}
 												initialNote={initialNote}
 												noteId={noteId}
 											/>
-										)
-									) : (
-										<div
-											style={{
-												width: 'auto',
-												display: 'flex',
-												marginBottom: '20px',
-											}}
-										>
-											<div className="loader">Loading...</div>
-										</div>
+										) : (
+											<div
+												style={{
+													width: 'auto',
+													display: 'flex',
+													marginBottom: '20px',
+													height: '225px',
+												}}
+											>
+												<div className="loader">Loading...</div>
+											</div>
+										))}
+									<h3 className="title">
+									<FontAwesomeIcon icon={faSearchPlus} className="sidebar-icon" />
+									Ayrıca Bakınız
+									</h3>
+									{before && (
+										<ArticleItem
+											key={before._id}
+											item={before}
+											type={1}
+											act={article.actId}
+										/>
+									)}
+									{after && (
+										<ArticleItem
+											key={after._id}
+											item={after}
+											type={1}
+											act={article.actId}
+										/>
 									)}
 									<Footer />
 								</section>

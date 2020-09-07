@@ -9,6 +9,15 @@ const UserNav = () => {
 
 	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
 	const [dropdown, setDropdown] = useState(false);
+	const [previewUrl, setPreviewUrl] = useState();
+
+	useEffect(() => {
+		if (userInfo) {
+			setPreviewUrl(
+				`https://radiant-garden-86590.herokuapp.com/users/${userInfo.id}/avatar`
+			);
+		}
+	}, [userInfo]);
 
 	useEffect(() => {
 		window.addEventListener('click', function (event) {
@@ -62,12 +71,21 @@ const UserNav = () => {
 									event.stopPropagation();
 								}}
 							>
-								<i
-									className="material-icons nav-link-button-icon"
-									style={{ fontSize: '35px' }}
-								>
-									account_box
-								</i>
+								{previewUrl ? (
+									<img
+										src={previewUrl}
+										alt="Preview"
+										style={{ height: '25px', width: '25px', borderRadius: '0.25rem' }}
+										onError={() => setPreviewUrl()}
+									/>
+								) : (
+									<i
+										className="material-icons nav-link-button-icon"
+										style={{ fontSize: '35px' }}
+									>
+										account_box
+									</i>
+								)}
 								<ul
 									className="usernav-dropdown"
 									onClick={(event) => event.stopPropagation()}
