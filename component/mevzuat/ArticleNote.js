@@ -50,8 +50,8 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 			} else {
 				console.log(response.data.error);
 			}
-		}else {
-			alert('Lütfen bir not giriniz.')
+		} else {
+			alert('Lütfen bir not giriniz.');
 		}
 	};
 
@@ -73,7 +73,7 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 
 	return (
 		<React.Fragment>
-			{editorState && (
+			{editorState ? (
 				<React.Fragment>
 					<h3 className="title">
 						<FontAwesomeIcon icon={faStickyNote} className="sidebar-icon" />
@@ -109,6 +109,17 @@ const ArticleNote = ({ articleId, initialNote, noteId }) => {
 						</button>
 					</div>
 				</React.Fragment>
+			) : (
+				<div
+					style={{
+						width: 'auto',
+						display: 'flex',
+						marginBottom: '20px',
+						height: '225px',
+					}}
+				>
+					<div className="loader">Loading...</div>
+				</div>
 			)}
 		</React.Fragment>
 	);

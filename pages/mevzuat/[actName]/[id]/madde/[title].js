@@ -137,7 +137,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										<ArticleItem
 											key={before._id}
 											item={before}
-											type={1}
+											type={3}
 											act={article.actId}
 										/>
 									)}
@@ -145,7 +145,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										<ArticleItem
 											key={after._id}
 											item={after}
-											type={1}
+											type={3}
 											act={article.actId}
 										/>
 									)}
