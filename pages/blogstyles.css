@@ -58,6 +58,16 @@
 	}
 }
 
+.animation-fadeinup {
+	animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
 .blog-hero-title {
 	color: #161e2e;
 	font-size: 2rem;
@@ -611,6 +621,28 @@
 
 .blog-drafts-item:hover {
 	background-color: #f9fafa;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
 }
 
 @media screen and (max-width: 992px) {

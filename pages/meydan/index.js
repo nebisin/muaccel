@@ -4,9 +4,9 @@ const MeydanPage = () => {
 	return (
 		<div className="meydan-container">
 			<div className="meydan-title">
-				<h1 className="hero-title">Hazırlanıyor</h1>
-				<h3 className="hero-subtitle">Muaccel Meydan çok yakında sizlerle</h3>
-				<p className="meydan-desc">
+				<h1 className="hero-title animation-fadeinup">Hazırlanıyor</h1>
+				<h3 className="hero-subtitle animation-fadeinup">Muaccel Meydan çok yakında sizlerle</h3>
+				<p className="meydan-desc animation-fadeinup">
 					Hukuki bir tartışma başlatın veya tartışmaya katkıda bulunun. Çünkü
 					düşünceler tartışma ortamında doğar ve gelişir.
 				</p>

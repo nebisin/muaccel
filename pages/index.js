@@ -34,8 +34,8 @@ const HomePage = () => {
 			</Head>
 			<div className="hero-header">
 				<div className="hero-inside">
-					<h1 className="hero-title">Muaccel</h1>
-					<h2 className="hero-subtitle">
+					<h1 className="hero-title animation-fadeinup">Muaccel</h1>
+					<h2 className="hero-subtitle animation-fadeinup">
 						Online <b>hukuk</b> projesi
 					</h2>
 					<div className="search-container">
