@@ -250,6 +250,10 @@ h3 {
 	margin-bottom: 20px;
 }
 
+.user-favorite-container {
+	min-height: 400px;
+}
+
 .user-no-favorite-description {
 	margin-top: 30px;
 	text-align: center;
@@ -263,6 +267,7 @@ h3 {
 
 .user-no-favorite-image {
 	width: 100%;
+	min-height: 329px;
 }
 
 .user-select {

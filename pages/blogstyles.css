@@ -60,12 +60,64 @@
 
 .animation-fadeinup {
 	animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-fill-mode: both;
 	opacity: 0;
-    animation-name: fadeInUp;
-    -webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp;
+	-webkit-animation-name: fadeInUp;
+}
+
+.fade-in {
+	animation: fadeIn ease 1s;
+	-webkit-animation: fadeIn ease 1s;
+	-moz-animation: fadeIn ease 1s;
+	-o-animation: fadeIn ease 1s;
+	-ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .blog-hero-title {
@@ -624,25 +676,25 @@
 }
 
 @keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
+	from {
+		transform: translate3d(0, 40px, 0);
+	}
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
 }
 
 @-webkit-keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
+	from {
+		transform: translate3d(0, 40px, 0);
+	}
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
 }
 
 @media screen and (max-width: 992px) {

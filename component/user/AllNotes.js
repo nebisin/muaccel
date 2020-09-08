@@ -30,7 +30,7 @@ const AllNotes = ({ user, token }) => {
 		}
 	}, [user, token]);
 	return (
-		<div className="all-notes">
+		<div className="all-notes user-favorite-container">
 			{!isLoading ? (
 				notes.length ? (
 					notes.map((note) => <NoteItem key={note._id} note={note} />)
@@ -39,7 +39,7 @@ const AllNotes = ({ user, token }) => {
 						<div className="user-no-favorite-description">
 							Henüz hiç not oluşturmamışsınız.
 						</div>
-						<div className="user-no-favorite-image-container">
+						<div className="user-no-favorite-image-container fade-in">
 							<img
 								className="user-no-favorite-image"
 								src="/nonote.png"
@@ -49,7 +49,7 @@ const AllNotes = ({ user, token }) => {
 					</div>
 				)
 			) : (
-				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
+				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px', minHeight: '700px' }}>
 					<div className="loader">Loading...</div>
 				</div>
 			)}

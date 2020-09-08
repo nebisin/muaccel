@@ -34,8 +34,8 @@ const HomePage = () => {
 			</Head>
 			<div className="hero-header">
 				<div className="hero-inside">
-					<h1 className="hero-title animation-fadeinup">Muaccel</h1>
-					<h2 className="hero-subtitle animation-fadeinup">
+					<h1 className="hero-title">Muaccel</h1>
+					<h2 className="hero-subtitle">
 						Online <b>hukuk</b> projesi
 					</h2>
 					<div className="search-container">
@@ -46,7 +46,7 @@ const HomePage = () => {
 			</div>
 			<div className="flex-container home-container">
 				<section className="showcase-flex">
-					<div className="card-deck home-deck">
+					<div className="card-deck home-deck animation-fadeinup">
 						<Link href="/mevzuat" as="/mevzuat">
 							<div className="home-item">
 								<div className="home-item-icon-container">
@@ -114,7 +114,7 @@ const HomePage = () => {
 							<div className="landing-right-background"></div>
 						</div>
 					</div>
-					<div className="home-image">
+					<div className="home-image fade-in">
 						<img
 							className="home-image-inline"
 							src="/internal.svg"

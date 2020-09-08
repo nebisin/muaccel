@@ -12,7 +12,7 @@ const MeydanPage = () => {
 				</p>
 			</div>
 			<div className="meydan-svg-container">
-				<div className="meydan-svg">
+				<div className="meydan-svg fade-in">
 					<img
 						className="meydan-svg-inline"
 						src="/undraw_under_construction_46pa.svg"

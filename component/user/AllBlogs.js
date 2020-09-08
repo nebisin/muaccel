@@ -31,7 +31,7 @@ const AllBlogs = ({ user, token }) => {
 	}, [user, token]);
 
 	return (
-		<div>
+		<div className="user-favorite-container">
 			{!isLoading ? (
 				blogs.length ? (
 					<BlogPosts data={blogs} />
@@ -40,7 +40,7 @@ const AllBlogs = ({ user, token }) => {
 						<div className="user-no-favorite-description">
 							Henüz hiç blog oluşturmamışsınız.
 						</div>
-						<div className="user-no-favorite-image-container">
+						<div className="user-no-favorite-image-container fade-in">
 							<img
 								className="user-no-favorite-image"
 								src="/noblog.png"
@@ -50,7 +50,7 @@ const AllBlogs = ({ user, token }) => {
 					</div>
 				)
 			) : (
-				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px' }}>
+				<div style={{ width: 'auto', display: 'flex', marginBottom: '20px', minHeight: '700px' }}>
 					<div className="loader">Loading...</div>
 				</div>
 			)}

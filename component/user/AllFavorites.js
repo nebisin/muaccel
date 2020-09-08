@@ -11,7 +11,7 @@ const AllFavorites = () => {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<div className="user-favorite-container">
 			{allArticles.length ? (
 				<ArticleList items={allArticles} />
 			) : (
@@ -19,12 +19,12 @@ const AllFavorites = () => {
 					<div className="user-no-favorite-description">
 						Henüz hiçbir maddeyi favorilerinize eklememişsiniz.
 					</div>
-					<div className="user-no-favorite-image-container">
-						<img className="user-no-favorite-image" src="/nofavorite.png" alt="favori" />
+					<div className="user-no-favorite-image-container fade-in">
+					<img className="user-no-favorite-image" src="/nofavorite.png" alt="favori" />
 					</div>
 				</div>
 			)}
-		</React.Fragment>
+		</div>
 	);
 };
 
