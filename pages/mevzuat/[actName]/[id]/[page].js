@@ -20,11 +20,14 @@ const ActRoute = ({ data, sectionsData, error }) => {
 	useEffect(() => {
 		setIsLoading(true);
 		const getAct = () => {
-			const sections = sectionsData.filter(
-				(item) => item.type === 0 || item.type === 3
-			);
-			setActInfo(data);
-			setSuffixSections(sections);
+			if (sectionsData && data) {
+				const sections = sectionsData.filter(
+					(item) => item.type === 0 || item.type === 3
+				);
+				setActInfo(data);
+				setSuffixSections(sections);
+			}
+
 			setIsLoading(false);
 		};
 		if (router.query.id) {
@@ -86,7 +89,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 						<Sidebar
 							type="act"
 							id={router.query.id}
-							actInfo={actInfo}
+							actInfo={data}
 							sections={suffixSections}
 							subSections={sectionsData}
 							page={page}
@@ -112,7 +115,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 											<Others
 												sections={suffixSections}
 												page={page}
-												actId={actInfo}
+												actId={data}
 											/>
 											<div className="act">
 												<SectionItem

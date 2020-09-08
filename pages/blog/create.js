@@ -56,7 +56,7 @@ const CreatePage = () => {
 						<aside className="create-blog-sidebar">
 							<UserWidget user={userInfo} id={userInfo.id} />
 							{/*
-														<BlogDrafts />
+								<BlogDrafts />
 
 							*/}
 						</aside>

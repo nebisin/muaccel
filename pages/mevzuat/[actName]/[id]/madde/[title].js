@@ -22,7 +22,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 	useEffect(() => {
 		setInitialNote();
 		const getNote = async () => {
-			if (isLoggedIn) {
+			if (isLoggedIn && article) {
 				setNoteLoading(true);
 				const response = await mevzuatApi.get(
 					`/note?articleId=${article._id}`,
