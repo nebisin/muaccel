@@ -3,3 +3,5 @@ const UpdateDraft = () => {
         <div></div>
     )
 }
+
+export default UpdateDraft;

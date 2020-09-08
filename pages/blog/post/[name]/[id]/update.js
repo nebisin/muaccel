@@ -3,3 +3,5 @@ const UpdateBlog = () => {
         <div></div>
     )
 }
+
+export default UpdateBlog;
