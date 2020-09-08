@@ -75,6 +75,7 @@ const UserNav = () => {
 									<img
 										src={previewUrl}
 										alt="Preview"
+										className="nav-link-button-icon"
 										style={{ height: '25px', width: '25px', borderRadius: '0.25rem' }}
 										onError={() => setPreviewUrl()}
 									/>

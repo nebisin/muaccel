@@ -102,8 +102,8 @@ const HomePage = () => {
 								her yerde kolay bir şekilde temel mevzuata erişebilirsiniz.
 								Üstelik tamamen ücretsiz!
 							</div>
-							<h2 class="landing-hero-subtitle">Paylaşmanın gücünü keşfedin</h2>
-							<div class="landing-hero-description">
+							<h2 className="landing-hero-subtitle">Paylaşmanın gücünü keşfedin</h2>
+							<div className="landing-hero-description">
 								Bildiklerinizi paylaşmak fikirlerinizi geliştirmenize
 								ve meslektaşlarınız arasında tanınmanıza katkı sağlar.&nbsp;
 								<b>Muaccel Blog</b>&nbsp;ile yazdıklarınızı paylaşın ve
