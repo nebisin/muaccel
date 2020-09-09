@@ -28,11 +28,11 @@ const BlogPage = ({ data }) => {
 			</Head>
 			<div className="blog-container">
 				<BlogHero />
-				<div className="blog-main">
-					<BlogPosts data={data} />
-					<aside className="create-blog-sidebar">
-						{/* <BlogDrafts /> */}
-					</aside>
+				<div className="create-blog-container">
+					<div className="create-blog-section">
+						<BlogPosts data={data} />
+					</div>
+					<aside className="create-blog-sidebar">{/* <BlogDrafts /> */}</aside>
 				</div>
 				<Footer />
 			</div>

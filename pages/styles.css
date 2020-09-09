@@ -963,25 +963,7 @@ h3 {
 	cursor: default;
 	-webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
 	box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
-}
-
-.usernav-dropdown li {
-	padding: 5px;
-	text-align: center;
-	margin: 0;
-}
-
-.usernav-dropdown li a:hover {
-	cursor: pointer;
-	color: #4b89be;
-}
-
-.usernav-name {
-	word-break: break-word;
-	color: #161e2e;
-	border-bottom: 1px solid #ccc;
-	padding: 5px;
-	margin-bottom: 5px;
+	text-align: left;
 }
 
 /* Sidebar */

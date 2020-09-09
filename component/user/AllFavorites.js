@@ -8,7 +8,7 @@ const AllFavorites = () => {
 
 	useEffect(() => {
 		setAllArticles(favorites.map((favorite) => favorite.article));
-	}, []);
+	}, [favorites]);
 
 	return (
 		<div className="user-favorite-container">

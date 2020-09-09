@@ -3,21 +3,13 @@ import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 import AuthContext from 'context/AuthContext';
+import DashboardSidebar from './user/DashboardSidebar';
 
 const UserNav = () => {
 	const router = useRouter();
 
 	const { isLoggedIn, isLogging, userInfo } = useContext(AuthContext);
 	const [dropdown, setDropdown] = useState(false);
-	const [previewUrl, setPreviewUrl] = useState();
-
-	useEffect(() => {
-		if (userInfo) {
-			setPreviewUrl(
-				`https://radiant-garden-86590.herokuapp.com/users/${userInfo.id}/avatar`
-			);
-		}
-	}, [userInfo]);
 
 	useEffect(() => {
 		window.addEventListener('click', function (event) {
@@ -71,46 +63,19 @@ const UserNav = () => {
 									event.stopPropagation();
 								}}
 							>
-								{previewUrl ? (
-									<img
-										src={previewUrl}
-										alt="Preview"
-										className="nav-link-button-icon"
-										style={{ height: '25px', width: '25px', borderRadius: '0.25rem' }}
-										onError={() => setPreviewUrl()}
-									/>
-								) : (
-									<i
-										className="material-icons nav-link-button-icon"
-										style={{ fontSize: '35px' }}
-									>
-										account_box
-									</i>
-								)}
-								<ul
+								<i
+									className="material-icons nav-link-button-icon"
+									style={{ fontSize: '35px' }}
+								>
+									account_box
+								</i>
+								<div
 									className="usernav-dropdown"
 									onClick={(event) => event.stopPropagation()}
 									style={{ display: `${dropdown ? 'block' : 'none'}` }}
 								>
-									<li>
-										<p className="usernav-name">{userInfo.name}</p>
-									</li>
-									<li>
-										<Link href="/user/account">
-											<a onClick={() => setDropdown(false)}>Hesabım</a>
-										</Link>
-									</li>
-									<li>
-										<Link href="/user/settings">
-											<a onClick={() => setDropdown(false)}>Ayarlar</a>
-										</Link>
-									</li>
-									<li>
-										<Link href="/user/logout">
-											<a onClick={() => setDropdown(false)}>Çıkış Yap</a>
-										</Link>
-									</li>
-								</ul>
+									<DashboardSidebar />
+								</div>
 							</button>
 						</li>
 					)}

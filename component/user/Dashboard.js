@@ -1,0 +1,20 @@
+import DashboardSidebar from 'component/user/DashboardSidebar';
+import DashboardActs from './DashboardActs';
+import DashboardBlogs from './DashboardBlogs';
+
+const Dashboard = () => {
+	return (
+		<div className="dashboard-container">
+			<aside className="dashboard-sidebar">
+				<DashboardSidebar page="home" />
+			</aside>
+			<section className="dashboard-main">
+				<DashboardActs />
+				<DashboardBlogs />
+				<div className="dashobard-article"></div>
+			</section>
+		</div>
+	);
+};
+
+export default Dashboard;
