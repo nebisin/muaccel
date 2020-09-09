@@ -4,6 +4,7 @@ import DashboardSidebar from 'component/user/DashboardSidebar';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import AllNotes from 'component/user/AllNotes';
+import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
 const Notes = () => {
@@ -30,6 +31,7 @@ const Notes = () => {
 			</aside>
 			<section className="dashboard-main">
 				<AllNotes user={userInfo} token={token} />
+				<Footer />
 			</section>
 		</div>
 	);

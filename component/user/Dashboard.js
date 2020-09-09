@@ -2,6 +2,7 @@ import DashboardSidebar from 'component/user/DashboardSidebar';
 import DashboardActs from './DashboardActs';
 import DashboardBlogs from './DashboardBlogs';
 import DashboardArticles from './DashboardArticles';
+import Footer from 'component/Footer';
 
 const Dashboard = () => {
 	return (
@@ -15,7 +16,7 @@ const Dashboard = () => {
 				<DashboardActs />
 				<DashboardArticles />
 				<DashboardBlogs />
-				<div className="dashobard-article"></div>
+				<Footer />
 			</section>
 		</div>
 	);

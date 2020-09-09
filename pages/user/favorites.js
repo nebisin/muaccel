@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import AllFavorites from 'component/user/AllFavorites';
 import DashboardSidebar from 'component/user/DashboardSidebar';
+import Footer from 'component/Footer';
 const login = '/user/login?redirected=true';
 
 const Favorites = () => {
@@ -29,6 +30,7 @@ const Favorites = () => {
 			</aside>
 			<section className="dashboard-main">
 				<AllFavorites />
+				<Footer />
 			</section>
 		</div>
 	);

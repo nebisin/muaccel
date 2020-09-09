@@ -10,6 +10,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import ProfileSettings from 'component/user/ProfileSettings';
 import SecuritySettings from 'component/user/SecuritySettings';
 import PrivacySettings from 'component/user/PrivacySettings';
+import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
 
@@ -34,7 +35,7 @@ const SettingsPage = () => {
 			</Head>
 			{isLoggedIn && (
 				<React.Fragment>
-					<div className="dashboard-container">
+					<div className="dashboard-container" style={{padding: '0 10px'}}>
 						<aside className="dashboard-sidebar">
 							<div className="dashboard-sidebar-in">
 								<DashboardSidebar page="settings" />
@@ -72,6 +73,7 @@ const SettingsPage = () => {
 								{currentSettings === '1' && <SecuritySettings />}
 								{currentSettings === '2' && <PrivacySettings />}
 							</div>
+							<Footer />
 						</section>
 					</div>
 				</React.Fragment>

@@ -4,6 +4,7 @@ import DashboardSidebar from 'component/user/DashboardSidebar';
 import { useRouter } from 'next/router';
 import AuthContext from 'context/AuthContext';
 import AllBlogs from 'component/user/AllBlogs';
+import Footer from 'component/Footer';
 
 const login = '/user/login?redirected=true';
 const Blogs = () => {
@@ -30,6 +31,7 @@ const Blogs = () => {
 			</aside>
 			<section className="dashboard-main">
 				<AllBlogs user={userInfo} token={token} />
+				<Footer />
 			</section>
 		</div>
 	);
