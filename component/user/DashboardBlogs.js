@@ -13,7 +13,6 @@ const DashboardBlogs = () => {
 					sort: { createdAt: -1 },
 				},
 			});
-			console.log(response.data);
 			setBlogList(response.data);
 		};
 
@@ -22,11 +21,10 @@ const DashboardBlogs = () => {
 
 	return (
 		<div className="dashboard-blogs">
-			<div className="dashboard-section-title">
-				<h2 className="title">Önerilen Blog Yazıları</h2>
-			</div>
 			{blogList ? (
-				<BlogPosts data={blogList} />
+				<div className="create-blog-section">
+					<BlogPosts data={blogList} />
+				</div>
 			) : (
 				<div
 					style={{

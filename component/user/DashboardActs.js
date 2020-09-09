@@ -19,7 +19,6 @@ const DashboardActs = () => {
 
 	return (
 		<div className="dashboard-acts">
-			<h2 className="title">Önerilen Kanunlar</h2>
 			{actList ? (
 				<ActList items={actList} />
 			) : (
