@@ -163,6 +163,7 @@
 }
 .dashboard-main {
 	flex: 1;
+	overflow: hidden;
 }
 
 .dashboard-user-preview {

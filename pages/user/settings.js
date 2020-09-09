@@ -35,13 +35,13 @@ const SettingsPage = () => {
 			</Head>
 			{isLoggedIn && (
 				<React.Fragment>
-					<div className="dashboard-container" style={{padding: '0 10px'}}>
+					<div className="dashboard-container">
 						<aside className="dashboard-sidebar">
 							<div className="dashboard-sidebar-in">
 								<DashboardSidebar page="settings" />
 							</div>
 						</aside>
-						<section className="dashboard-main">
+						<section className="dashboard-main" style={{padding: '0 10px'}}>
 							<h1 className="settings-title">
 								<FontAwesomeIcon icon={faCog} className="sidebar-icon" />
 								Ayarlar

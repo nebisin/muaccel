@@ -140,6 +140,7 @@ h3 {
 #showcase {
 	flex: 70%;
 	padding: 20px 10px;
+	overflow: hidden;
 }
 
 .article-note-container {
@@ -757,6 +758,8 @@ h3 {
 	flex-direction: row;
 	justify-content: space-between;
 	margin-bottom: 10px;
+	overflow: auto;
+
 }
 
 .card-deck-item {
@@ -774,6 +777,8 @@ h3 {
 	-moz-transition: opacity 500ms ease-in-out;
 	-o-transition: opacity 500ms ease-in-out;
 	transition: opacity 500ms ease-in-out;
+	min-width: 230px;
+
 }
 
 .card-deck-item:hover {
@@ -1704,11 +1709,8 @@ footer {
 	.others-full-inside {
 		padding: 0;
 	}
-	.card-deck {
+	.home-deck {
 		flex-direction: column;
-	}
-	.card-deck-item {
-		margin: 5px 5px;
 	}
 	.home-item {
 		margin: 15px 15px;
