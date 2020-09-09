@@ -8,9 +8,12 @@ const DasboardArticles = () => {
 
 	useEffect(() => {
 		const getArticles = async () => {
+            const randomSkipArticle = Math.floor(Math.random() * 1000);
+
 			const response = await mevzuatApi.post('/articles', {
                 limit: 3,
                 sort: { hit: -1 },
+                skip: randomSkipArticle
             });
 			setArticleList(response.data);
 		};

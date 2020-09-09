@@ -9,7 +9,7 @@ const DashboardActs = () => {
 		const getActs = async () => {
 			const response = await mevzuatApi.post(`/acts`, {
 				limit: 3,
-				sort: { hit: -1 },
+                sort: { hit: -1 },
 			});
 			setActList(response.data);
 		};
