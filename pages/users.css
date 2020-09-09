@@ -170,7 +170,6 @@
 	padding: 10px;
 	cursor: pointer;
 	margin: 3px 0;
-
 }
 
 .dashboard-user-preview:hover {
@@ -204,7 +203,7 @@
 }
 
 .dashboard-displayname {
-	color: rgba(0,0,0,0.54);
+	color: rgba(0, 0, 0, 0.54);
 	font-size: 14px;
 	line-height: 1.3rem;
 	font-weight: bold;
@@ -225,7 +224,8 @@
 	flex-direction: row;
 }
 
-.dashboard-menu-item:hover, .dashboard-menu-item-active {
+.dashboard-menu-item:hover,
+.dashboard-menu-item-active {
 	background-color: rgba(0, 118, 255, 0.1);
 	border-radius: 1rem;
 	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
@@ -244,7 +244,7 @@
 
 .dashboard-menu-text {
 	flex: 1;
-	color: rgba(0,0,0,0.54);
+	color: rgba(0, 0, 0, 0.54);
 	margin-left: 10px;
 }
 
@@ -253,7 +253,11 @@
 	align-self: flex-start;
 }
 
-
+.dashboard-sidebar-in {
+	position: static;
+	position: -webkit-sticky;
+	top: 69px;
+}
 
 @media screen and (max-width: 768px) {
 	.dashboard-sidebar {

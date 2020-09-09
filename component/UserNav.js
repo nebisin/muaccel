@@ -71,7 +71,10 @@ const UserNav = () => {
 								</i>
 								<div
 									className="usernav-dropdown"
-									onClick={(event) => event.stopPropagation()}
+									onClick={(event) => {
+										setDropdown(!dropdown);
+										event.stopPropagation();
+									}}
 									style={{ display: `${dropdown ? 'block' : 'none'}` }}
 								>
 									<DashboardSidebar />

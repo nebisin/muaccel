@@ -6,7 +6,7 @@ import DashboardSidebar from 'component/user/DashboardSidebar';
 const login = '/user/login?redirected=true';
 
 const Favorites = () => {
-    const router = useRouter();
+	const router = useRouter();
 	const { isLoggedIn, userInfo, token } = useContext(AuthContext);
 
 	useEffect(() => {
@@ -15,17 +15,17 @@ const Favorites = () => {
 		if (!storedData && !isLoggedIn) {
 			router.push(login);
 		}
-    }, [isLoggedIn]);
+	}, [isLoggedIn]);
 
-    if(!isLoggedIn || !userInfo){
-        return (
-            <div></div>
-        )
-    }
+	if (!isLoggedIn || !userInfo) {
+		return <div></div>;
+	}
 	return (
 		<div className="dashboard-container">
 			<aside className="dashboard-sidebar">
-				<DashboardSidebar page="favorites" />
+				<div className="dashboard-sidebar-in">
+					<DashboardSidebar page="favorites" />
+				</div>
 			</aside>
 			<section className="dashboard-main">
 				<AllFavorites />

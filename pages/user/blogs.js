@@ -24,7 +24,9 @@ const Blogs = () => {
 	return (
 		<div className="dashboard-container">
 			<aside className="dashboard-sidebar">
-				<DashboardSidebar page="blogs" />
+				<div className="dashboard-sidebar-in">
+					<DashboardSidebar page="blogs" />
+				</div>
 			</aside>
 			<section className="dashboard-main">
 				<AllBlogs user={userInfo} token={token} />

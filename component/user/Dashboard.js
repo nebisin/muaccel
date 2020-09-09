@@ -6,7 +6,9 @@ const Dashboard = () => {
 	return (
 		<div className="dashboard-container">
 			<aside className="dashboard-sidebar">
-				<DashboardSidebar page="home" />
+				<div className="dashboard-sidebar-in">
+					<DashboardSidebar page="home" />
+				</div>
 			</aside>
 			<section className="dashboard-main">
 				<DashboardActs />

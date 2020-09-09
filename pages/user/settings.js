@@ -36,7 +36,9 @@ const SettingsPage = () => {
 				<React.Fragment>
 					<div className="dashboard-container">
 						<aside className="dashboard-sidebar">
-							<DashboardSidebar page="settings" />
+							<div className="dashboard-sidebar-in">
+								<DashboardSidebar page="settings" />
+							</div>
 						</aside>
 						<section className="dashboard-main">
 							<h1 className="settings-title">
