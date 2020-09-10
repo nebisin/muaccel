@@ -208,7 +208,7 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, articleData, error } };
+	return { props: { data, sectionsData, articleData, error }, unstable_revalidate: 1 };
 }
 
 export default ActHome;
