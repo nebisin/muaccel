@@ -32,6 +32,19 @@ const ShowPost = ({ data }) => {
 				<React.Fragment>
 					<Head>
 						<title>{data.title} | Muaccel Blog</title>
+						<link
+							rel="canonical"
+							href={`/blog/post/${data.title
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${data._id}`}
+						/>
 						<meta name="description" content={data.abstract} />
 						<meta property="og:title" content={data.title} />
 						<meta property="og:description" content={data.abstract} />

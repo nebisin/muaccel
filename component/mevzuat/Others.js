@@ -27,6 +27,13 @@ const Others = ({ sections, page, actId }) => {
 					<Link
 						href="/mevzuat/[actName]/[id]/[page]"
 						as={`/mevzuat/${actId.name
+							.toLocaleLowerCase('tr')
+							.replace(/ğ/gim, 'g')
+							.replace(/ü/gim, 'u')
+							.replace(/ş/gim, 's')
+							.replace(/ı/gim, 'i')
+							.replace(/ö/gim, 'o')
+							.replace(/ç/gim, 'c')
 							.replace(/\s/g, '-')
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 							actId._id
@@ -55,6 +62,13 @@ const Others = ({ sections, page, actId }) => {
 					<Link
 						href="/mevzuat/[actName]/[id]/[page]"
 						as={`/mevzuat/${actId.name
+							.toLocaleLowerCase('tr')
+							.replace(/ğ/gim, 'g')
+							.replace(/ü/gim, 'u')
+							.replace(/ş/gim, 's')
+							.replace(/ı/gim, 'i')
+							.replace(/ö/gim, 'o')
+							.replace(/ç/gim, 'c')
 							.replace(/\s/g, '-')
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 							actId._id

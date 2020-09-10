@@ -50,6 +50,13 @@ const SideArticleList = ({ id, art }) => {
 								<Link
 									href="/mevzuat/[actName]/[id]/madde/[title]"
 									as={`/mevzuat/${a.actId.name
+										.toLocaleLowerCase('tr')
+										.replace(/ğ/gim, 'g')
+										.replace(/ü/gim, 'u')
+										.replace(/ş/gim, 's')
+										.replace(/ı/gim, 'i')
+										.replace(/ö/gim, 'o')
+										.replace(/ç/gim, 'c')
 										.replace(/\s/g, '-')
 										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 										a.actId._id

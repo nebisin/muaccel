@@ -68,7 +68,21 @@ const ArticleRoute = ({ article, before, after, error }) => {
 								article.title
 							}, Muaccel, Mevzuat`}
 						/>
-						Ï
+						<link
+							rel="canonical"
+							href={`https://www.muaccel.com/mevzuat/${article.actId.name
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+								article.actId._id
+							}/madde/${article.title.replace(/\//g, '-')}`}
+						/>
 						<meta
 							property="og:title"
 							content={`Madde ${article.title} - ${article.actId.name} | Muaccel Mevzuat`}
@@ -90,6 +104,13 @@ const ArticleRoute = ({ article, before, after, error }) => {
 									<Link
 										href="/mevzuat/[actName]/[id]/[page]"
 										as={`/mevzuat/${article.actId.name
+											.toLocaleLowerCase('tr')
+											.replace(/ğ/gim, 'g')
+											.replace(/ü/gim, 'u')
+											.replace(/ş/gim, 's')
+											.replace(/ı/gim, 'i')
+											.replace(/ö/gim, 'o')
+											.replace(/ç/gim, 'c')
 											.replace(/\s/g, '-')
 											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 											article.actId._id
@@ -130,8 +151,11 @@ const ArticleRoute = ({ article, before, after, error }) => {
 											</div>
 										))}
 									<h3 className="title">
-									<FontAwesomeIcon icon={faSearchPlus} className="sidebar-icon" />
-									Ayrıca Bakınız
+										<FontAwesomeIcon
+											icon={faSearchPlus}
+											className="sidebar-icon"
+										/>
+										Ayrıca Bakınız
 									</h3>
 									{before && (
 										<ArticleItem

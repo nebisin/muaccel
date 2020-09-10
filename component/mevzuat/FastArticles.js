@@ -64,6 +64,13 @@ const FastArticles = ({ articleList, setFocused, id, setListLoading }) => {
 				router.push(
 					'/mevzuat/[actName]/[id]/madde/[title]',
 					`/mevzuat/${article.actId.name
+						.toLocaleLowerCase('tr')
+						.replace(/ğ/gim, 'g')
+						.replace(/ü/gim, 'u')
+						.replace(/ş/gim, 's')
+						.replace(/ı/gim, 'i')
+						.replace(/ö/gim, 'o')
+						.replace(/ç/gim, 'c')
 						.replace(/\s/g, '-')
 						.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 						article.actId._id
@@ -117,6 +124,13 @@ const FastArticles = ({ articleList, setFocused, id, setListLoading }) => {
 						<Link
 							href="/mevzuat/[actName]/[id]/madde/[title]"
 							as={`/mevzuat/${article.actId.name
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								article.actId._id

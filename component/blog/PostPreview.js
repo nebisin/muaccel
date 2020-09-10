@@ -9,7 +9,16 @@ const PostPreview = ({ item }) => {
 				<h3 className="post-preview-header">
 					<Link
 						href="/blog/post/[name]/[id]"
-						as={`/blog/post/${item.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
+						as={`/blog/post/${item.title
+							.toLocaleLowerCase('tr')
+							.replace(/ğ/gim, 'g')
+							.replace(/ü/gim, 'u')
+							.replace(/ş/gim, 's')
+							.replace(/ı/gim, 'i')
+							.replace(/ö/gim, 'o')
+							.replace(/ç/gim, 'c')
+							.replace(/\s/g, '-')
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
 					>
 						<a>{item.title}</a>
 					</Link>
@@ -24,7 +33,16 @@ const PostPreview = ({ item }) => {
 				<div className="post-preview-readmore">
 					<Link
 						href="/blog/post/[name]/[id]"
-						as={`/blog/post/${item.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
+						as={`/blog/post/${item.title
+							.toLocaleLowerCase('tr')
+							.replace(/ğ/gim, 'g')
+							.replace(/ü/gim, 'u')
+							.replace(/ş/gim, 's')
+							.replace(/ı/gim, 'i')
+							.replace(/ö/gim, 'o')
+							.replace(/ç/gim, 'c')
+							.replace(/\s/g, '-')
+							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
 					>
 						<a>Devamını Oku →</a>
 					</Link>

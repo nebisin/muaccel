@@ -50,6 +50,21 @@ const ActRoute = ({ data, sectionsData, articleData, error }) => {
 							{sectionsData[page] && ` - ${sectionsData[page].name}`} | Muaccel
 							Mevzuat
 						</title>
+						<link
+							rel="canonical"
+							href={`https://www.muaccel.com/mevzuat/${data.name
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+								data._id
+							}/${page}`}
+						/>
 						<meta
 							name="description"
 							content={`${
@@ -98,6 +113,13 @@ const ActRoute = ({ data, sectionsData, articleData, error }) => {
 							<Link
 								href="/mevzuat/[actName]/[id]"
 								as={`/mevzuat/${data.name
+									.toLocaleLowerCase('tr')
+									.replace(/ğ/gim, 'g')
+									.replace(/ü/gim, 'u')
+									.replace(/ş/gim, 's')
+									.replace(/ı/gim, 'i')
+									.replace(/ö/gim, 'o')
+									.replace(/ç/gim, 'c')
 									.replace(/\s/g, '-')
 									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${data._id}`}
 							>
@@ -186,7 +208,10 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, articleData, error }, unstable_revalidate: 1 };
+	return {
+		props: { data, sectionsData, articleData, error },
+		unstable_revalidate: 1,
+	};
 }
 
 export default ActRoute;

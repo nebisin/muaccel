@@ -97,7 +97,19 @@ const CreateBlogForm = () => {
 				}
 			);
 			setGeneralError('');
-			router.push("/blog/post/[name]/[id]", `/blog/post/${response.data.title.replace(/\s/g, '-').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${response.data._id}`);
+			router.push(
+				'/blog/post/[name]/[id]',
+				`/blog/post/${response.data.title
+					.toLocaleLowerCase('tr')
+					.replace(/ğ/gim, 'g')
+					.replace(/ü/gim, 'u')
+					.replace(/ş/gim, 's')
+					.replace(/ı/gim, 'i')
+					.replace(/ö/gim, 'o')
+					.replace(/ç/gim, 'c')
+					.replace(/\s/g, '-')
+					.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${response.data._id}`
+			);
 		} catch (error) {
 			console.log(error);
 			setGeneralError(

@@ -49,6 +49,13 @@ const OtherPosts = ({ userId, postId }) => {
 									<Link
 										href="/blog/post/[name]/[id]"
 										as={`/blog/post/${other.title
+											.toLocaleLowerCase('tr')
+											.replace(/ğ/gim, 'g')
+											.replace(/ü/gim, 'u')
+											.replace(/ş/gim, 's')
+											.replace(/ı/gim, 'i')
+											.replace(/ö/gim, 'o')
+											.replace(/ç/gim, 'c')
 											.replace(/\s/g, '-')
 											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${other._id}`}
 									>

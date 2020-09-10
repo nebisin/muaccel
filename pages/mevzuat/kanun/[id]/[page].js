@@ -58,6 +58,13 @@ const ActRoute = ({ data, sectionsData, error }) => {
 						<link
 							rel="canonical"
 							href={`https://www.muaccel.com/mevzuat/${data.name
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								data._id
@@ -148,7 +155,7 @@ export async function getStaticProps({ params }) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error }, unstable_revalidate: 60};
+	return { props: { data, sectionsData, error }, unstable_revalidate: 60 };
 }
 
 export default ActRoute;

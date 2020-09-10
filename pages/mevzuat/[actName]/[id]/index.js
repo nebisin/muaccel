@@ -84,6 +84,13 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 												<Link
 													href="/mevzuat/[actName]/[id]/[page]"
 													as={`/mevzuat/${data.name
+														.toLocaleLowerCase('tr')
+														.replace(/ğ/gim, 'g')
+														.replace(/ü/gim, 'u')
+														.replace(/ş/gim, 's')
+														.replace(/ı/gim, 'i')
+														.replace(/ö/gim, 'o')
+														.replace(/ç/gim, 'c')
 														.replace(/\s/g, '-')
 														.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 														data._id

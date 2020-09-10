@@ -77,6 +77,13 @@ const NoteItem = ({ note }) => {
 							<Link
 								href="/mevzuat/[actName]/[id]/madde/[title]"
 								as={`/mevzuat/${note.article.actId.name
+									.toLocaleLowerCase('tr')
+									.replace(/ğ/gim, 'g')
+									.replace(/ü/gim, 'u')
+									.replace(/ş/gim, 's')
+									.replace(/ı/gim, 'i')
+									.replace(/ö/gim, 'o')
+									.replace(/ç/gim, 'c')
 									.replace(/\s/g, '-')
 									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 									note.article.actId._id
@@ -101,6 +108,13 @@ const NoteItem = ({ note }) => {
 								<Link
 									href="/mevzuat/[actName]/[id]/madde/[title]"
 									as={`/mevzuat/${note.article.actId.name
+										.toLocaleLowerCase('tr')
+										.replace(/ğ/gim, 'g')
+										.replace(/ü/gim, 'u')
+										.replace(/ş/gim, 's')
+										.replace(/ı/gim, 'i')
+										.replace(/ö/gim, 'o')
+										.replace(/ç/gim, 'c')
 										.replace(/\s/g, '-')
 										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 										note.article.actId._id
