@@ -77,7 +77,7 @@ const DashboardSidebar = ({ page }) => {
 									className="dashboard-menu-item-icon"
 								/>
 							</div>
-							<span className="dashboard-menu-text">Favori Maddelerim</span>
+							<span className="dashboard-menu-text">Favori Maddeler</span>
 						</div>
 					</a>
 				</Link>
@@ -94,7 +94,7 @@ const DashboardSidebar = ({ page }) => {
 									className="dashboard-menu-item-icon"
 								/>
 							</div>
-							<span className="dashboard-menu-text">Notlarım</span>
+							<span className="dashboard-menu-text">Notlar</span>
 						</div>
 					</a>
 				</Link>
@@ -111,7 +111,7 @@ const DashboardSidebar = ({ page }) => {
 									className="dashboard-menu-item-icon"
 								/>
 							</div>
-							<span className="dashboard-menu-text">Blog Yazılarım</span>
+							<span className="dashboard-menu-text">Blog Yazıları</span>
 						</div>
 					</a>
 				</Link>
@@ -126,7 +126,7 @@ const DashboardSidebar = ({ page }) => {
 							className="dashboard-menu-item-icon"
 						/>
 					</div>
-					<span className="dashboard-menu-text">Okuma Listem</span>
+					<span className="dashboard-menu-text">Okuma Listesi</span>
 				</div>
 				<Link href="/user/settings" as="/user/settings">
 					<a>
@@ -141,7 +141,7 @@ const DashboardSidebar = ({ page }) => {
 									className="dashboard-menu-item-icon"
 								/>
 							</div>
-							<span className="dashboard-menu-text">Ayarlarım</span>
+							<span className="dashboard-menu-text">Ayarlar</span>
 						</div>
 					</a>
 				</Link>

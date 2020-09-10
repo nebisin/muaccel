@@ -254,6 +254,10 @@ h3 {
 	min-height: 400px;
 }
 
+.all-notes {
+	padding: 0 10px;
+}
+
 .user-no-favorite-description {
 	margin-top: 30px;
 	text-align: center;
@@ -283,8 +287,9 @@ h3 {
 	background-color: white;
 	margin-bottom: 20px;
 	border-radius: 0.25rem;
-	box-shadow: 1px 1px 1px 1px #ddd;
 	position: relative;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .user-note-content {
@@ -758,7 +763,6 @@ h3 {
 	justify-content: space-between;
 	margin-bottom: 10px;
 	overflow: auto;
-
 }
 
 .card-deck-item {
@@ -777,7 +781,6 @@ h3 {
 	-o-transition: opacity 500ms ease-in-out;
 	transition: opacity 500ms ease-in-out;
 	min-width: 230px;
-
 }
 
 .card-deck-item:hover {
@@ -1180,16 +1183,14 @@ h3 {
 }
 
 .others-full-insider-box {
-	box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24);
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
 	border-radius: 0.25rem;
-
 }
 
 .others-insider-top-box {
 	background-color: #455a64;
 	color: white !important;
 	border-radius: 0.25rem 0.25rem 0 0;
-
 }
 
 .others-navigations-box li:hover {
