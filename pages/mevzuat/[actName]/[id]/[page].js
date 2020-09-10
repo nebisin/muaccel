@@ -10,7 +10,7 @@ import Others from 'component/mevzuat/Others';
 import Sidebar from 'component/mevzuat/Sidebar';
 import Footer from 'component/Footer';
 
-const ActRoute = ({ data, sectionsData, error }) => {
+const ActRoute = ({ data, sectionsData, articleData, error }) => {
 	const router = useRouter();
 	const [actInfo, setActInfo] = useState(data);
 	const [suffixSections, setSuffixSections] = useState([]);
@@ -121,6 +121,7 @@ const ActRoute = ({ data, sectionsData, error }) => {
 												<SectionItem
 													item={suffixSections[page]}
 													sections={sectionsData}
+													articles={articleData}
 													type={1}
 												/>
 											</div>
@@ -162,23 +163,30 @@ export async function getStaticProps({ params }) {
 	let id = params.id;
 	let data = null;
 	let sectionsData = null;
+	let articleData = null;
 	let error = null;
 
 	try {
-		const [response, sections] = await Promise.all([
+		const [response, sections, articles] = await Promise.all([
 			mevzuatApi.get('/act', { params: { id } }),
 			mevzuatApi.post('/sections', {
 				actId: id,
 				type: {},
 			}),
+			mevzuatApi.post('/articles', {
+				search: '',
+				searchId: id,
+				sort: { location: 1 },
+			}),
 		]);
 		data = response.data;
 		sectionsData = sections.data;
+		articleData = articles.data;
 	} catch (error) {
 		error = error;
 	}
 
-	return { props: { data, sectionsData, error }, unstable_revalidate: 1 };
+	return { props: { data, sectionsData, articleData, error }, unstable_revalidate: 1 };
 }
 
 export default ActRoute;

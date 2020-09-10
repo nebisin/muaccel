@@ -4,19 +4,16 @@ import SectionList from './SectionList';
 import ArticleList from './ArticleList';
 import ArticleHolder from './ArticleHolder';
 
-const SectionItem = ({ item, type, sections }) => {
+const SectionItem = ({ item, type, sections, articles }) => {
 	const [sectionList, setSectionList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const { getArticleList } = useContext(ArticleContext);
-
+	
 	useEffect(() => {
 		setSectionList([]);
-		const article = async (sectionId) => {
+		const article = (sectionId) => {
 			setIsLoading(true);
-			const result = await getArticleList({
-				query: { sectionId },
-				sort: { location: 1 },
-			});
+			if(!articles) return;
+			const result = articles.filter((i) => i.sectionId === sectionId);
 			setSectionList(result);
 			setIsLoading(false);
 		};
@@ -32,7 +29,7 @@ const SectionItem = ({ item, type, sections }) => {
 		} else {
 			config();
 		}
-	}, [item, sections, getArticleList]);
+	}, [item, sections, articles]);
 
 	return (
 		<React.Fragment>
@@ -43,7 +40,7 @@ const SectionItem = ({ item, type, sections }) => {
 			{item.type === 3 || item.type === 2 ? (
 				<ArticleList items={sectionList} type={1} />
 			) : (
-				<SectionList list={sectionList} sections={sections} />
+				<SectionList list={sectionList} sections={sections} articles={articles} />
 			)}
 			{isLoading && (
 				<ArticleHolder />
