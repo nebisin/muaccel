@@ -259,6 +259,22 @@
 	top: 69px;
 }
 
+.suggestion-container {
+	width: calc(100% - 15px);
+	background-color: #fff;
+	margin: 20px auto;
+	padding: 15px 0;
+	border-radius: 0.25rem;
+	position: relative;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.suggestion-header {
+	margin: 0 15px;
+	font-weight: bold;
+	font-size: .9375rem;
+}
+
 @media screen and (max-width: 768px) {
 	.dashboard-sidebar {
 		display: none;

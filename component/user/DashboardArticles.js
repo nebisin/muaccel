@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import mevzuatApi from 'api/mevzuat';
-import ArticleList from 'component/mevzuat/ArticleList';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
+import ArticleSuggestion from './ArticleSuggestion';
 
 const DasboardArticles = () => {
 	const [articleList, setArticleList] = useState();
@@ -11,7 +11,7 @@ const DasboardArticles = () => {
             const randomSkipArticle = Math.floor(Math.random() * 1000);
 
 			const response = await mevzuatApi.post('/articles', {
-                limit: 3,
+                limit: 1,
                 sort: { hit: -1 },
                 skip: randomSkipArticle
             });
@@ -24,9 +24,9 @@ const DasboardArticles = () => {
 	return (
 		<div className="dashboard-blogs">
 			{articleList ? (
-                <ArticleList items={articleList} />
+                <ArticleSuggestion article={articleList[0]} />
 			) : (
-				<ArticleHolder />
+				<ArticleSuggestion />
 			)}
 		</div>
 	);
