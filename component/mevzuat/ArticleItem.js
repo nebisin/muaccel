@@ -34,7 +34,7 @@ const ArticleItem = ({ item, type, act }) => {
 					<h2 className="card-header">
 						<Link
 							href="/mevzuat/[actName]/[id]/madde/[title]"
-							as={`/mevzuat/${item.actId.name || act.name
+							as={`/mevzuat/${(item.actId.name || act.name)
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 								item.actId._id || act._id
