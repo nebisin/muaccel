@@ -11,16 +11,46 @@ import ReadOnly from 'component/draft/ReadOnly';
 const NoteItem = ({ note }) => {
 	const { token } = useContext(AuthContext);
 	const [currentNote, setCurrentNote] = useState(note);
+	const [full, setFull] = useState(false);
+	const [isLong, setIsLong] = useState(false);
 	const [removed, setRemoved] = useState(false);
 	const [deleting, setDeleting] = useState(false);
 	const [editorState, setEditorState] = useState();
 
 	useEffect(() => {
 		if (currentNote?.raw) {
-			const rawContentFromStore = convertFromRaw(JSON.parse(currentNote.raw));
+			let note = JSON.parse(currentNote.raw);
+			let blocks;
+			if (!full) {
+				if (note.blocks.length > 5) {
+					blocks = note.blocks.slice(0, 5);
+					setIsLong(true);
+				} else {
+					blocks = note.blocks;
+				}
+				let length = 1;
+				let newBlocks = blocks.filter((item) => {
+					if (length > 300) {
+						setIsLong(true);
+					} else if (item.text.length + length > 300) {
+						item.text = item.text.slice(0, 300 - length);
+						length = 301;
+						setIsLong(true);
+						return item;
+					} else {
+						length = length + item.text.length;
+						return item;
+					}
+				});
+				console.log(newBlocks)
+				note.blocks = newBlocks;
+			} else {
+				setIsLong(false);
+			}
+			const rawContentFromStore = convertFromRaw(note);
 			setEditorState(EditorState.createWithContent(rawContentFromStore));
 		}
-	}, [currentNote]);
+	}, [currentNote, full]);
 
 	const deleteNote = async () => {
 		try {
@@ -99,6 +129,16 @@ const NoteItem = ({ note }) => {
 								editorState={editorState}
 								setEditorState={setEditorState}
 							/>
+							{isLong ? (
+								<button
+									onClick={() => setFull(true)}
+									className="user-note-read-more"
+								>
+									Devamını Gör →
+								</button>
+							) : (
+								''
+							)}
 						</div>
 						<div className="user-note-buttons">
 							<button className="user-note-delete-button" onClick={deleteNote}>
