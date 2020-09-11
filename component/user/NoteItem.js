@@ -33,7 +33,7 @@ const NoteItem = ({ note }) => {
 					if (length > 300) {
 						setIsLong(true);
 					} else if (item.text.length + length > 300) {
-						item.text = item.text.slice(0, 300 - length);
+						item.text = item.text.slice(0, 300 - length) + ' ...';
 						length = 301;
 						setIsLong(true);
 						return item;

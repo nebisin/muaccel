@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import mevzuatApi from 'api/mevzuat';
 import BlogPosts from 'component/blog/BlogPosts';
+import BlogSuggestion from './BlogSuggestion';
 
 const DashboardBlogs = () => {
 	const [blogList, setBlogList] = useState();
@@ -8,7 +9,7 @@ const DashboardBlogs = () => {
 	useEffect(() => {
 		const getBlogs = async () => {
 			const response = await mevzuatApi.get(`/blogs`, {
-				params: { status: '2', limit: 3 },
+				params: { status: '2', limit: 1 },
 				data: {
 					sort: { createdAt: -1 },
 				},
@@ -22,9 +23,7 @@ const DashboardBlogs = () => {
 	return (
 		<div className="dashboard-blogs">
 			{blogList ? (
-				<div className="create-blog-section">
-					<BlogPosts data={blogList} />
-				</div>
+				<BlogSuggestion blog={blogList[0]} />
 			) : (
 				<div
 					style={{

@@ -1,4 +1,5 @@
-import ArticleItem from 'component/mevzuat/ArticleItem';
+import PostPreview from 'component/blog/PostPreview';
+import Link from 'next/link';
 
 const BlogSuggestion = ({ blog }) => {
 	return (
@@ -6,8 +7,8 @@ const BlogSuggestion = ({ blog }) => {
 			<div className="suggestion-header">Sizin için öneriliyor</div>
 			<div className="suggestion-content"></div>
 			<div className="suggestion-preview">
-				{article ? (
-					<ArticleItem item={article} />
+				{blog ? (
+					<PostPreview item={blog} />
 				) : (
 					<div className="card-holder">
 						<div className="header-holder"></div>
@@ -15,6 +16,14 @@ const BlogSuggestion = ({ blog }) => {
 						<div className="content-holder"></div>
 					</div>
 				)}
+				<div
+					className="post-preview-readmore"
+					style={{ margin: '15px', marginBottom: '0' }}
+				>
+					<Link href="/blog" as="/blog">
+						<a>Muaccel Blog →</a>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
