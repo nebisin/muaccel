@@ -1,4 +1,5 @@
 import ArticleItem from 'component/mevzuat/ArticleItem';
+import Link from 'next/link';
 
 const ArticleSuggestion = ({ article }) => {
 	return (
@@ -15,8 +16,13 @@ const ArticleSuggestion = ({ article }) => {
 						<div className="content-holder"></div>
 					</div>
 				)}
-				<div className="post-preview-readmore" style={{margin: '15px', marginBottom: '0'}}>
-					<a>Muaccel Mevzuat →</a>
+				<div
+					className="post-preview-readmore"
+					style={{ margin: '15px', marginBottom: '0' }}
+				>
+					<Link href="/mevzuat" as="/mevzuat">
+						<a>Muaccel Mevzuat →</a>
+					</Link>
 				</div>
 			</div>
 		</div>

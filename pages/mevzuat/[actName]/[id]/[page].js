@@ -111,6 +111,7 @@ const ActRoute = ({ data, sectionsData, articleData, error }) => {
 						/>
 						<section id="showcase">
 							<Link
+								shallow={true}
 								href="/mevzuat/[actName]/[id]"
 								as={`/mevzuat/${data.name
 									.toLocaleLowerCase('tr')

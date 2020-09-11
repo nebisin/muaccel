@@ -22,8 +22,8 @@ const NoteItem = ({ note }) => {
 			let note = JSON.parse(currentNote.raw);
 			let blocks;
 			if (!full) {
-				if (note.blocks.length > 5) {
-					blocks = note.blocks.slice(0, 5);
+				if (note.blocks.length > 3) {
+					blocks = note.blocks.slice(0, 3);
 					setIsLong(true);
 				} else {
 					blocks = note.blocks;
@@ -42,7 +42,6 @@ const NoteItem = ({ note }) => {
 						return item;
 					}
 				});
-				console.log(newBlocks)
 				note.blocks = newBlocks;
 			} else {
 				setIsLong(false);
