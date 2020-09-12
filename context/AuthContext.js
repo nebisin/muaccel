@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isLogging, setIsLogging] = useState(true);
 	const [favorites, setFavorites] = useState([]);
+	const [favoritesLoading, setFavoritesLoading] = useState(true)
 
 	useEffect(() => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
@@ -80,6 +81,7 @@ export const AuthProvider = ({ children }) => {
 
 	const getFavorites = async () => {
 		if (!token) return;
+		setFavoritesLoading(true);
 		const response = await mevzuatApi.post(
 			'/favorite/articles',
 			{
@@ -96,6 +98,7 @@ export const AuthProvider = ({ children }) => {
 		} else {
 			setFavorites([]);
 		}
+		setFavoritesLoading(false);
 	};
 
 	useEffect(() => {
@@ -136,6 +139,7 @@ export const AuthProvider = ({ children }) => {
 				userInfo,
 				isLoggedIn,
 				isLogging,
+				favoritesLoading
 			}}
 		>
 			{children}

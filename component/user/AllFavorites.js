@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from 'context/AuthContext';
 import ArticleList from 'component/mevzuat/ArticleList';
+import ArticleHolder from 'component/mevzuat/ArticleHolder';
 
 const AllFavorites = () => {
-	const { favorites } = useContext(AuthContext);
+	const { favorites, favoritesLoading } = useContext(AuthContext);
 	const [allArticles, setAllArticles] = useState([]);
 
 	useEffect(() => {
@@ -14,13 +15,19 @@ const AllFavorites = () => {
 		<div className="user-favorite-container">
 			{allArticles.length ? (
 				<ArticleList items={allArticles} />
+			) : favoritesLoading ? (
+				<ArticleHolder />
 			) : (
 				<div className="user-no-favorite">
 					<div className="user-no-favorite-description">
 						Henüz hiçbir maddeyi favorilerinize eklememişsiniz.
 					</div>
 					<div className="user-no-favorite-image-container fade-in">
-					<img className="user-no-favorite-image" src="/nofavorite.png" alt="favori" />
+						<img
+							className="user-no-favorite-image"
+							src="/nofavorite.png"
+							alt="favori"
+						/>
 					</div>
 				</div>
 			)}

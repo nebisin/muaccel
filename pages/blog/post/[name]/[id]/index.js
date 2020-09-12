@@ -106,7 +106,19 @@ export async function getStaticPaths() {
 	const posts = res.data;
 	// Get the paths we want to pre-render based on posts
 	const paths = posts.map((post) => ({
-		params: { name: post.title.replace(/\s/g, '-'), id: post._id },
+		params: {
+			name: post.title
+				.toLocaleLowerCase('tr')
+				.replace(/ğ/gim, 'g')
+				.replace(/ü/gim, 'u')
+				.replace(/ş/gim, 's')
+				.replace(/ı/gim, 'i')
+				.replace(/ö/gim, 'o')
+				.replace(/ç/gim, 'c')
+				.replace(/\s/g, '-')
+				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''),
+			id: post._id,
+		},
 	}));
 
 	// We'll pre-render only these paths at build time.
