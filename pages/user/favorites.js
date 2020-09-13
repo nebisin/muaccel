@@ -29,7 +29,7 @@ const Favorites = () => {
 				</div>
 			</aside>
 			<section className="dashboard-main">
-				<AllFavorites />
+				<AllFavorites token={token} />
 				<Footer />
 			</section>
 		</div>
