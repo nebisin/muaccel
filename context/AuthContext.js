@@ -93,11 +93,8 @@ export const AuthProvider = ({ children }) => {
 				},
 			}
 		);
-		if (response?.data?.favorites) {
-			setFavorites(response.data.favorites);
-		} else {
-			setFavorites([]);
-		}
+		setFavorites(response.data);
+
 		setFavoritesLoading(false);
 	};
 

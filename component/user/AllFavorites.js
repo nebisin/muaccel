@@ -1,28 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from 'context/AuthContext';
-import ArticleList from 'component/mevzuat/ArticleList';
+import FavoriteArticleList from 'component/mevzuat/FavoriteArticleList';
 import ArticleHolder from 'component/mevzuat/ArticleHolder';
 
 const AllFavorites = () => {
 	const { favorites, favoritesLoading } = useContext(AuthContext);
-	const [allArticles, setAllArticles] = useState([]);
-	const [loading, setLoading] = useState(false);
-
-	useEffect(() => {
-		if(!favorites) {
-			setLoading(false);
-			return;
-		};
-		setLoading(true);
-		setAllArticles(favorites.map((favorite) => favorite.article));
-		setLoading(false);
-	}, [favorites]);
 
 	return (
 		<div className="user-favorite-container">
-			{allArticles.length ? (
-				<ArticleList items={allArticles} />
-			) : favoritesLoading || loading ? (
+			{favorites.length ? (
+				<FavoriteArticleList items={favorites} />
+			) : favoritesLoading ? (
 				<ArticleHolder />
 			) : (
 				<div className="user-no-favorite">
