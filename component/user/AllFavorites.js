@@ -38,7 +38,7 @@ const AllFavorites = ({token}) => {
 				loadMore={(page) => loadFunc(page)}
 				hasMore={hasMore}
 				loader={<ArticleHolder key={0} />}
-				prefill
+				threshold={800}
 			>
 				{list.length ? (
 					<FavoriteArticleList items={list} />
