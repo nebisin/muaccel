@@ -30,7 +30,7 @@ const ArticleItem = ({ item, type, act }) => {
 						<b>{item.suffixTitle}</b>
 					</div>
 				)}
-				<div className="card">
+				<div className="card" style={type=== "inside" ? {border: '1px solid rgb(204, 214, 221)', boxShadow: 'none'} : {}}>
 					<h2 className="card-header">
 						<Link
 							href="/mevzuat/[actName]/[id]/madde/[title]"

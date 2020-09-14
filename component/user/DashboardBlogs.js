@@ -25,16 +25,7 @@ const DashboardBlogs = () => {
 			{blogList ? (
 				<BlogSuggestion blog={blogList[0]} />
 			) : (
-				<div
-					style={{
-						width: 'auto',
-						display: 'flex',
-						marginBottom: '20px',
-						minHeight: '700px',
-					}}
-				>
-					<div className="loader">Loading...</div>
-				</div>
+				<BlogSuggestion />
 			)}
 		</div>
 	);

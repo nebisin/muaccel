@@ -259,6 +259,10 @@
 	top: 69px;
 }
 
+.suggestion-preview {
+	margin: 20px;
+}
+
 .suggestion-container {
 	width: calc(100% - 15px);
 	background-color: #fff;

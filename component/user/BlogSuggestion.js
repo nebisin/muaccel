@@ -8,9 +8,9 @@ const BlogSuggestion = ({ blog }) => {
 			<div className="suggestion-content"></div>
 			<div className="suggestion-preview">
 				{blog ? (
-					<PostPreview item={blog} />
+					<PostPreview item={blog} type="inside" />
 				) : (
-					<div className="card-holder">
+					<div className="card-holder" style={{border: '1px solid rgb(204, 214, 221)', boxShadow: 'none'}} >
 						<div className="header-holder"></div>
 						<div className="number-holder"></div>
 						<div className="content-holder"></div>
