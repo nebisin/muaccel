@@ -132,7 +132,7 @@ const HomePage = () => {
 				</div>
 			</React.Fragment>
 		);
-	}else if(isLoggedIn){
+	}else if(isLoggedIn && userInfo){
 		return (
 			<Dashboard />
 		)

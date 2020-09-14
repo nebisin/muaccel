@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isLogging, setIsLogging] = useState(true);
 	const [favorites, setFavorites] = useState([]);
-	const [favoritesLoading, setFavoritesLoading] = useState(true)
+	const [favoritesLoading, setFavoritesLoading] = useState(true);
 
 	useEffect(() => {
 		let storedData = JSON.parse(localStorage.getItem('userData'));
@@ -24,11 +24,13 @@ export const AuthProvider = ({ children }) => {
 		window.addEventListener('storage', () => {
 			let storedData = JSON.parse(localStorage.getItem('userData'));
 			if (storedData) {
-				setToken(storedData);
+				setToken(storedData)
+				auth();
 			} else {
-				setUserInfo();
 				setIsLogging(false);
 				setIsLoggedIn(false);
+				setUserInfo();
+				setToken();
 				return;
 			}
 		});
@@ -85,7 +87,7 @@ export const AuthProvider = ({ children }) => {
 		const response = await mevzuatApi.post(
 			'/favorite/articles',
 			{
-				sort: {createdAt: -1}
+				sort: { createdAt: -1 },
 			},
 			{
 				headers: {
@@ -136,7 +138,7 @@ export const AuthProvider = ({ children }) => {
 				userInfo,
 				isLoggedIn,
 				isLogging,
-				favoritesLoading
+				favoritesLoading,
 			}}
 		>
 			{children}

@@ -31,7 +31,7 @@ const AllBlogs = ({ user, token }) => {
 	}, [user, token]);
 
 	return (
-		<div className="user-favorite-container">
+		<div className="user-favorite-container create-blog-section">
 			{!isLoading ? (
 				blogs.length ? (
 					<BlogPosts data={blogs} />
