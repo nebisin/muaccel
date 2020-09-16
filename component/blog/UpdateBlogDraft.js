@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
+import { useState, useContext, useEffect } from 'react';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import AuthContext from 'context/AuthContext';
 import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,20 +7,30 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Draft from 'component/draft/Draft';
 import { useRouter } from 'next/router';
 
-const CreateBlogForm = () => {
+const UpdateBlogDraft = ({item}) => {
 	const router = useRouter();
 
 	const { token } = useContext(AuthContext);
 
-	const [title, setTitle] = useState('');
+	const [title, setTitle] = useState(item.title || '');
 	const [titleError, setTitleError] = useState('');
-	const [abstract, setAbstract] = useState('');
+	const [abstract, setAbstract] = useState(item.abstract || '');
 	const [abstractError, setAbstractError] = useState('');
-	const [editorState, setEditorState] = useState(EditorState.createEmpty());
+	const [editorState, setEditorState] = useState();
 	const [contentError, setContentError] = useState('');
 	const [publishing, setPublishing] = useState(false);
 	const [saving, setSaving] = useState(false);
-	const [generalError, setGeneralError] = useState('');
+    const [generalError, setGeneralError] = useState('');
+    
+    useEffect(() => {
+        console.log(item.content)
+		if (item.content) {
+			const rawContentFromStore = convertFromRaw(JSON.parse(item.content));
+			setEditorState(EditorState.createWithContent(rawContentFromStore));
+		} else {
+			setEditorState(EditorState.createEmpty());
+		}
+	}, [item]);
 
 	const _handleTitleChange = (event) => {
 		setTitle(event.target.value);
@@ -135,9 +145,10 @@ const CreateBlogForm = () => {
 		let plainText = editorState.getCurrentContent().getPlainText();
 
 		try {
-			const response = await mevzuatApi.post(
+			const response = await mevzuatApi.update(
 				'/blog/draft',
 				{
+                    id: item._id,
 					title,
 					abstract,
 					content,
@@ -195,7 +206,7 @@ const CreateBlogForm = () => {
 			<div className="error">{abstractError}</div>
 			<p className="create-form-label">Metin</p>
 			<div className="content-create-form" id="content">
-				<Draft editorState={editorState} setEditorState={setEditorState} />
+				{editorState && <Draft editorState={editorState} setEditorState={setEditorState} /> }
 			</div>
 			<div className="error">{contentError}</div>
 			<div className="create-form-buttons">
@@ -218,4 +229,4 @@ const CreateBlogForm = () => {
 	);
 };
 
-export default CreateBlogForm;
+export default UpdateBlogDraft;
