@@ -16,7 +16,7 @@ const UserActivate = () => {
             if(isLoggedIn){
                 router.push('/');
             }else {
-                router.push('/login');
+                router.push('/user/login');
             }
         } catch (error) {
             console.log(error);
