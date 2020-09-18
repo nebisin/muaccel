@@ -12,7 +12,7 @@ const UserActivate = () => {
 
 	const activateUser = async (activateToken) => {
         try {
-            const response = mevzuatApi.post('/user/activate', { activateToken });
+            const response = await mevzuatApi.post('/user/activate', { activateToken });
             if(token){
                 auth();
                 router.push('/');
