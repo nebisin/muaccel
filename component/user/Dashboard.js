@@ -3,6 +3,7 @@ import DashboardActs from './DashboardActs';
 import DashboardBlogs from './DashboardBlogs';
 import DashboardArticles from './DashboardArticles';
 import Footer from 'component/Footer';
+import ActiveAlert from './ActiveAlert';
 
 const Dashboard = () => {
 	return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
 				</div>
 			</aside>
 			<section className="dashboard-main">
+				<ActiveAlert />
 				<DashboardActs />
 				<DashboardArticles />
 				<DashboardBlogs />

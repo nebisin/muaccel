@@ -276,7 +276,55 @@
 .suggestion-header {
 	margin: 0 15px;
 	font-weight: bold;
-	font-size: .9375rem;
+	font-size: 0.9375rem;
+}
+
+@keyframes expand {
+	from {
+		max-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	to {
+		max-height: 500px;
+		padding: 15px;
+	}
+}
+
+.isActiveAlert {
+	animation: expand;
+	animation-duration: 1s;
+	background-color: white;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	margin: 0 10px 15px 10px;
+	border-radius: 0.25rem;
+	text-align: center;
+	font-size: 14px;
+	overflow: hidden;
+	max-height: 500px;
+	padding: 15px;
+}
+
+
+
+.isActiveAlert p {
+	margin: 2px 0;
+}
+
+.isActiveAlert-title {
+	margin: 5px 0;
+}
+
+.isActiveAlert-button {
+	border: none;
+	background-color: inherit;
+	color: #4b89be;
+	font-size: inherit;
+	cursor: pointer;
+}
+
+.isActiveAlert-button:hover {
+	text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
