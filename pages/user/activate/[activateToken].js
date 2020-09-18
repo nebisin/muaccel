@@ -5,7 +5,7 @@ import mevzuatApi from 'api/mevzuat';
 import LoadingSplash from 'component/LoadingSplash';
 
 const UserActivate = () => {
-	const { isLoggedIn } = useContext(AuthContext);
+	const { token, auth } = useContext(AuthContext);
     const router = useRouter();
     
     const {activateToken} = router.query;
@@ -13,7 +13,8 @@ const UserActivate = () => {
 	const activateUser = async (activateToken) => {
         try {
             const response = mevzuatApi.post('/user/activate', { activateToken });
-            if(isLoggedIn){
+            if(token){
+                auth();
                 router.push('/');
             }else {
                 router.push('/user/login');
