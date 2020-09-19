@@ -7,7 +7,6 @@ import LoadingSplash from 'component/LoadingSplash';
 const UserActivate = () => {
 	const { token, auth } = useContext(AuthContext);
     const router = useRouter();
-    
     const {activateToken} = router.query;
 
 	const activateUser = async (activateToken) => {

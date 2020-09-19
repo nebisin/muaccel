@@ -19,8 +19,10 @@ const BlogDrafts = () => {
 					},
 				}
 			);
-			if (response.data) {
+			if (response.data.length) {
 				setDrafts(response.data);
+			}else{
+				setDrafts();
 			}
 			setIsLoading(false);
 		} catch (error) {

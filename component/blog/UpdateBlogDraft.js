@@ -7,7 +7,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Draft from 'component/draft/Draft';
 import { useRouter } from 'next/router';
 
-const UpdateBlogDraft = ({item}) => {
+const UpdateBlogDraft = ({ item }) => {
 	const router = useRouter();
 
 	const { token } = useContext(AuthContext);
@@ -20,10 +20,9 @@ const UpdateBlogDraft = ({item}) => {
 	const [contentError, setContentError] = useState('');
 	const [publishing, setPublishing] = useState(false);
 	const [saving, setSaving] = useState(false);
-    const [generalError, setGeneralError] = useState('');
-    
-    useEffect(() => {
-        console.log(item.content)
+	const [generalError, setGeneralError] = useState('');
+
+	useEffect(() => {
 		if (item.content) {
 			const rawContentFromStore = convertFromRaw(JSON.parse(item.content));
 			setEditorState(EditorState.createWithContent(rawContentFromStore));
@@ -108,6 +107,12 @@ const UpdateBlogDraft = ({item}) => {
 					},
 				}
 			);
+
+			await mevzuatApi.delete(`/blog/draft/${item._id}`, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
 			setGeneralError('');
 			router.push(
 				'/blog/post/[name]/[id]',
@@ -145,10 +150,9 @@ const UpdateBlogDraft = ({item}) => {
 		let plainText = editorState.getCurrentContent().getPlainText();
 
 		try {
-			const response = await mevzuatApi.update(
-				'/blog/draft',
+			const response = await mevzuatApi.patch(
+				`/blog/draft/${item._id}`,
 				{
-                    id: item._id,
 					title,
 					abstract,
 					content,
@@ -206,7 +210,9 @@ const UpdateBlogDraft = ({item}) => {
 			<div className="error">{abstractError}</div>
 			<p className="create-form-label">Metin</p>
 			<div className="content-create-form" id="content">
-				{editorState && <Draft editorState={editorState} setEditorState={setEditorState} /> }
+				{editorState && (
+					<Draft editorState={editorState} setEditorState={setEditorState} />
+				)}
 			</div>
 			<div className="error">{contentError}</div>
 			<div className="create-form-buttons">

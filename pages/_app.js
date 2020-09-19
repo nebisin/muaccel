@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
 					<SectionProvider>
 						<Head>
 							<title>Muaccel | Online Hukuk Projesi</title>
-							<link rel="icon" href="/favicon.ico" />
+							<link rel="icon" href="/favicon.png" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
 							<meta name="twitter:card" content="summary" />
