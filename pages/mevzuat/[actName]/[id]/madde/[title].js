@@ -215,7 +215,7 @@ export async function getStaticProps({ params }) {
 
 	const { article, before, after } = response.data;
 
-	return { props: { article, before, after }, unstable_revalidate: 1 };
+	return { props: { article, before, after }, unstable_revalidate: 60 };
 }
 
 export default ArticleRoute;

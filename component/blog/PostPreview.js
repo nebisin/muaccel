@@ -30,14 +30,6 @@ const PostPreview = ({ item, type }) => {
 						<a>{item.title}</a>
 					</Link>
 				</h3>
-				{type !== 'inside' && (
-					<div
-						className="post-preview-out"
-						style={{
-							backgroundImage: 'url(' + '/post-preview.jpg' + ')',
-						}}
-					/>
-				)}
 
 				<div className="post-preview-content">{item.abstract}</div>
 				{type === 'inside' && <AuthorPreview data={item} />}

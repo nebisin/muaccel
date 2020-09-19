@@ -9,22 +9,21 @@ import OtherPosts from 'component/blog/OtherPosts';
 
 import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
-const ShowPost = ({ data }) => {
+const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
 
 	useEffect(() => {
 		const getContent = async (id) => {
-			if (!id) return;
-			const response = await mevzuatApi.get(`/blog/content/${id}`);
-			const data = response.data;
-			const rawContentFromStore = convertFromRaw(JSON.parse(data.content));
+			if (!id || !content) return;
+
+			const rawContentFromStore = convertFromRaw(JSON.parse(content.content));
 			setEditorState(EditorState.createWithContent(rawContentFromStore));
 		};
 
 		if (data) {
 			getContent(data._id);
 		}
-	}, [data]);
+	}, [data, content]);
 
 	return (
 		<React.Fragment>
@@ -129,10 +128,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	let id = params.id;
 
-	const response = await mevzuatApi.get(`/blog/${id}`);
+	const [response, contentResponse] = await Promise.all([
+		mevzuatApi.get(`/blog/${id}`),
+		mevzuatApi.get(`/blog/content/${id}`),
+	]);
 	const data = response.data;
+	const content = contentResponse.data;
 
-	return { props: { data }, unstable_revalidate: 1 };
+	return { props: { data, content }, unstable_revalidate: 60 };
 }
 
 export default ShowPost;

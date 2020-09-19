@@ -49,7 +49,7 @@ export async function getStaticProps() {
 	});
 	const data = response.data;
 
-	return { props: { data }, unstable_revalidate: 1 };
+	return { props: { data }, unstable_revalidate: 60 };
 }
 
 export default BlogPage;
