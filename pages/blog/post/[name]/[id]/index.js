@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import mevzuatApi from 'api/mevzuat';
 import Head from 'next/head';
 import { EditorState, convertFromRaw } from 'draft-js';
@@ -6,6 +6,7 @@ import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
 import AuthorPreview from 'component/AuthorPreview';
 import OtherPosts from 'component/blog/OtherPosts';
+import AuthContext from 'context/AuthContext';
 
 import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
@@ -58,14 +59,8 @@ const ShowPost = ({ data, content }) => {
 								<div className="blog-post">
 									<h1 className="blog-post-title">{data.title}</h1>
 									<AuthorPreview data={data} />
-									<div
-										className="blog-post-out"
-										style={{
-											backgroundImage: 'url(' + '/post-preview.jpg' + ')',
-										}}
-									/>
 									<div className="blog-post-abstract">{data.abstract}</div>
-									<BlogButtons />
+									<BlogButtons blogId={data._id} />
 									<div className="blog-post-content">
 										{editorState ? (
 											<ReadOnly
