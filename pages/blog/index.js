@@ -4,6 +4,7 @@ import Footer from 'component/Footer';
 import BlogHero from 'component/blog/BlogHero';
 import BlogPosts from 'component/blog/BlogPosts';
 import BlogDrafts from 'component/blog/BlogDrafts';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const BlogPage = ({ data }) => {
 	return (
@@ -32,7 +33,18 @@ const BlogPage = ({ data }) => {
 					<div className="create-blog-section">
 						<BlogPosts data={data} />
 					</div>
-					<aside className="create-blog-sidebar">{/* <BlogDrafts /> */}</aside>
+					<aside className="create-blog-sidebar">
+						{/* <BlogDrafts /> */}
+						<TwitterTimelineEmbed
+							sourceType="timeline"
+							screenName="muaccelcom"
+							options={{ height: 400 }}
+							noScrollbar
+							noHeader
+							noFooter
+							noBorders
+						/>
+					</aside>
 				</div>
 				<Footer />
 			</div>
