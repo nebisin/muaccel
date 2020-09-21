@@ -1593,6 +1593,9 @@ footer {
 	font-weight: bold;
 	font-size: 14px;
 }
+.fb_iframe_widget span {
+	vertical-align: baseline !important;
+}
 
 @-webkit-keyframes load8 {
 	0% {
