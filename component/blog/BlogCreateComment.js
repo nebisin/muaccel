@@ -35,18 +35,25 @@ const BlogCreateComment = ({ id, comments, setComments }) => {
 			setIsSending(false);
 			return setError('Bir yorum girmelisiniz.');
 		}
-		const response = await mevzuatApi.post(
-			`/blog/comments/${id}`,
-			{ text: text },
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
-		);
-		response.data.user = userInfo;
-		response.data.user._id = userInfo.id;
-		setComments((comments) => [response.data, ...comments]);
+		try {
+			const response = await mevzuatApi.post(
+				`/blog/comments/${id}`,
+				{ text: text },
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			setText('');
+			response.data.user = userInfo;
+			response.data.user._id = userInfo.id;
+			setComments((comments) => [response.data, ...comments]);
+		} catch (error) {
+			setError('Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.')
+		}
+
+
 		setIsSending(false);
 	};
 

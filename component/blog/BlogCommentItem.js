@@ -4,6 +4,8 @@ import AuthContext from 'context/AuthContext';
 import mevzuatApi from 'api/mevzuat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import ReactMarkdown from 'react-markdown';
+
 const BlogCommentItem = ({ comment }) => {
 	const [previewUrl, setPreviewUrl] = useState();
 	const { userInfo, token } = useContext(AuthContext);
@@ -109,7 +111,13 @@ const BlogCommentItem = ({ comment }) => {
 						</span>
 					</div>
 
-					<div>{comment.text}</div>
+					<div style={{whiteSpace: 'pre-line', listStylePosition: 'inside'}}>
+						<ReactMarkdown
+							source={comment.text}
+							linkTarget="_blank"
+							disallowedTypes={['image', "imageReference"]}
+						/>
+					</div>
 					{userInfo?.id === comment.user._id ? (
 						<div className="user-note-buttons">
 							<button
