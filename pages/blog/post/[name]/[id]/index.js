@@ -6,26 +6,19 @@ import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
 import AuthorPreview from 'component/AuthorPreview';
 import OtherPosts from 'component/blog/OtherPosts';
-import {
-	TwitterShareButton,
-} from 'react-twitter-embed';
+import { TwitterShareButton } from 'react-twitter-embed';
 
 import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
+import BlogCommentsContainer from 'component/blog/BlogCommentsContainer';
+
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
 
 	useEffect(() => {
-		const getContent = async (id) => {
-			if (!id || !content) return;
-
-			const rawContentFromStore = convertFromRaw(JSON.parse(content.content));
-			setEditorState(EditorState.createWithContent(rawContentFromStore));
-		};
-
-		if (data) {
-			getContent(data._id);
-		}
+		if (!data || !content) return;
+		const rawContentFromStore = convertFromRaw(JSON.parse(content.content));
+		setEditorState(EditorState.createWithContent(rawContentFromStore));
 	}, [data, content]);
 
 	return (
@@ -54,13 +47,6 @@ const ShowPost = ({ data, content }) => {
 							property="og:image"
 							content="https://www.muaccel.com/blog-hero-photo.jpg"
 						/>
-						<script
-							async
-							defer
-							crossorigin="anonymous"
-							src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v8.0"
-							nonce="piQIKwDb"
-						></script>
 					</Head>
 					<div className="blog-container">
 						<div className="read-blog-container">
@@ -88,67 +74,17 @@ const ShowPost = ({ data, content }) => {
 											</div>
 										)}
 									</div>
+									<BlogCommentsContainer blogId={data._id} />
 								</div>
-								<Footer />
 							</div>
 							<div className="create-blog-sidebar">
-								<UserWidget user={data.author} id={data.author._id} />
-								<OtherPosts userId={data.author._id} postId={data._id} />
-								<div style={{display: 'flex', alignItems: 'auto', height: '20px' }}>
-								<div id="fb-root"></div>
-								<div
-									className="fb-share-button"
-									style={{padding: '0 10px'}}
-									data-href={`https://www.muaccel.com/blog/post/${data.title
-										.toLocaleLowerCase('tr')
-										.replace(/ğ/gim, 'g')
-										.replace(/ü/gim, 'u')
-										.replace(/ş/gim, 's')
-										.replace(/ı/gim, 'i')
-										.replace(/ö/gim, 'o')
-										.replace(/ç/gim, 'c')
-										.replace(/\s/g, '-')
-										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${data._id}`}
-									data-layout="button"
-									data-size="small"
-								>
-									<a
-										target="_blank"
-										href={`https://www.facebook.com/sharer/sharer.php?u=${`https://www.muaccel.com/blog/post/${data.title
-											.toLocaleLowerCase('tr')
-											.replace(/ğ/gim, 'g')
-											.replace(/ü/gim, 'u')
-											.replace(/ş/gim, 's')
-											.replace(/ı/gim, 'i')
-											.replace(/ö/gim, 'o')
-											.replace(/ç/gim, 'c')
-											.replace(/\s/g, '-')
-											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-											data._id
-										}`}&amp;src=sdkpreparse`}
-										className="fb-xfbml-parse-ignore"
-									>
-										Paylaş
-									</a>
-								</div>
-								<TwitterShareButton
-									url={`https://www.muaccel.com/blog/post/${data.title
-									.toLocaleLowerCase('tr')
-									.replace(/ğ/gim, 'g')
-									.replace(/ü/gim, 'u')
-									.replace(/ş/gim, 's')
-									.replace(/ı/gim, 'i')
-									.replace(/ö/gim, 'o')
-									.replace(/ç/gim, 'c')
-									.replace(/\s/g, '-')
-									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${data._id}`}
-									options={{
-										via: 'muaccelcom',
-									}}
-								/>
+								<div style={{ position: 'sticky', top: '79px' }}>
+									<UserWidget user={data.author} id={data.author._id} />
+									<OtherPosts userId={data.author._id} postId={data._id} />
 								</div>
 							</div>
 						</div>
+						<Footer />
 					</div>
 				</React.Fragment>
 			)}

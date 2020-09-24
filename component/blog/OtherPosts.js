@@ -11,7 +11,9 @@ const OtherPosts = ({ userId, postId }) => {
 		setOthers([]);
 		const getOthers = async (userId) => {
 			setLoading(true);
-			const response = await mevzuatApi.get(`/user/blogs/${userId}`);
+			const response = await mevzuatApi.get(`/user/blogs/${userId}`,  {
+				params: { limit: '3', createdAt: -1 },
+			});
 			setOthers(response.data);
 			setLoading(false);
 		};
@@ -45,7 +47,12 @@ const OtherPosts = ({ userId, postId }) => {
 					<div className="blog-drafts-content">
 						<div className="blog-drafts-list">
 							{others.map((other) => (
-								<div key={other._id} className={`blog-drafts-item ${other._id === postId ? 'side-list-item-selected' : ''}`}>
+								<div
+									key={other._id}
+									className={`blog-drafts-item ${
+										other._id === postId ? 'side-list-item-selected' : ''
+									}`}
+								>
 									<Link
 										href="/blog/post/[name]/[id]"
 										as={`/blog/post/${other.title
@@ -62,9 +69,7 @@ const OtherPosts = ({ userId, postId }) => {
 										<a>
 											<div>{other.title}</div>
 											<div className="author-preview-timestamp">
-												<a>
-													<TimeStamp date={other.createdAt} /> yazıldı.
-												</a>
+												<TimeStamp date={other.createdAt} /> yazıldı.
 											</div>
 										</a>
 									</Link>

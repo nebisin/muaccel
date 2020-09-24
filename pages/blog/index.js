@@ -35,15 +35,16 @@ const BlogPage = ({ data }) => {
 					</div>
 					<aside className="create-blog-sidebar">
 						{/* <BlogDrafts /> */}
-						<TwitterTimelineEmbed
-							sourceType="timeline"
-							screenName="muaccelcom"
-							options={{ height: 400 }}
-							noScrollbar
-							noHeader
-							noFooter
-							noBorders
-						/>
+						<div style={{position: 'sticky', top: '79px', border: '1px solid rgba(0, 0, 0, 0.125)', background: 'white'}}>
+							<TwitterTimelineEmbed
+								sourceType="timeline"
+								screenName="muaccelcom"
+								options={{ height: 400 }}
+								noScrollbar
+								noFooter
+								noBorders
+							/>
+						</div>
 					</aside>
 				</div>
 				<Footer />
