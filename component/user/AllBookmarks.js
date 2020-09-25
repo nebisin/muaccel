@@ -21,7 +21,8 @@ const AllBlogs = ({ token }) => {
 					Authorization: `Bearer ${token}`,
 				},
 			}
-		);
+        );
+        console.log(response.data)
 
 		if (response.data) {
 			if (response.data.length < 3) {
@@ -48,13 +49,6 @@ const AllBlogs = ({ token }) => {
 							<div className="user-no-favorite">
 								<div className="user-no-favorite-description">
 									Henüz hiçbir yazıyı okuma listenize eklememişsiniz.
-								</div>
-								<div className="user-no-favorite-image-container fade-in">
-									<img
-										className="user-no-favorite-image"
-										src="/noblog.png"
-										alt="blog"
-									/>
 								</div>
 							</div>
 						)}
