@@ -115,19 +115,23 @@ const DashboardSidebar = ({ page }) => {
 						</div>
 					</a>
 				</Link>
-				<div
-					className={`dashboard-menu-item ${
-						page === 'readings' && 'dashboard-menu-item-active'
-					}`}
-				>
-					<div className="dashboard-icon-container">
-						<FontAwesomeIcon
-							icon={faBookmark}
-							className="dashboard-menu-item-icon"
-						/>
-					</div>
-					<span className="dashboard-menu-text">Okuma Listesi</span>
-				</div>
+				<Link href="/user/bookmarks" as="/user/bookmarks">
+					<a>
+						<div
+							className={`dashboard-menu-item ${
+								page === 'bookmarks' && 'dashboard-menu-item-active'
+							}`}
+						>
+							<div className="dashboard-icon-container">
+								<FontAwesomeIcon
+									icon={faBookmark}
+									className="dashboard-menu-item-icon"
+								/>
+							</div>
+							<span className="dashboard-menu-text">Okuma Listesi</span>
+						</div>
+					</a>
+				</Link>
 				<Link href="/user/settings" as="/user/settings">
 					<a>
 						<div

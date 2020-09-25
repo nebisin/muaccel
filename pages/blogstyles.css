@@ -784,6 +784,17 @@
 	box-shadow: 0px 0px 2px 0px #ccc;
 }
 
+.article-bottom-share {
+	background-color: inherit;
+	border: none;
+	outline: none;
+	font-size: 16px;
+}
+
+.blog-reader-true {
+	color: #b39c00;
+}
+
 @keyframes fadeInUp {
 	from {
 		transform: translate3d(0, 40px, 0);

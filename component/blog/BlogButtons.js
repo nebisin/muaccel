@@ -5,32 +5,18 @@ import mevzuatApi from 'api/mevzuat';
 
 import { faPrint, faShare } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import {faBookmark as farBoomark } from '@fortawesome/free-solid-svg-icons'
 
 const BlogButtons = ({ blogId }) => {
 	const { isLoggedIn, token } = useContext(AuthContext);
-	/*
-	const [isReader, setIsReader] = useState();
+	const [isReader, setIsReader] = useState(false);
 
 	const readLater = async (token, blogId) => {
 		if (!token || !blogId) return;
-		const response = await mevzuatApi.patch(
-			`/blog/reader/${blogId}`,
-			{},
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
-		);
-		console.log(response.data)
-		setIsReader(response.data)
-	}
-
-	useEffect(() => {
-		const getIsReader = async (token, blogId) => {
-			if (!token || !blogId) return;
-			const response = await mevzuatApi.post(
-				`/blog/reader/${blogId}`,
+		setIsReader((reader) => !reader);
+		try {
+			const response = await mevzuatApi.patch(
+				`/blog/bookmark/${blogId}`,
 				{},
 				{
 					headers: {
@@ -38,14 +24,39 @@ const BlogButtons = ({ blogId }) => {
 					},
 				}
 			);
-			setIsReader(response.data)
+			setIsReader(response.data);
+		} catch (error) {
+			setIsReader((reader) => !reader);
+		}
+	};
+
+	useEffect(() => {
+		const getIsReader = async (token, blogId) => {
+			if (!token || !blogId) return;
+			try {
+				const response = await mevzuatApi.post(
+					`/blog/bookmark/${blogId}`,
+					{},
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+				setIsReader(response.data);
+			} catch (error) {
+				setIsReader(false)
+			}
+
 		};
+
+		setIsReader(false)
 
 		if (token && blogId) {
 			getIsReader(token, blogId);
 		}
 	}, [token, blogId]);
-*/
+
 	return (
 		<div className="article-card-bottom">
 			{isLoggedIn && (
@@ -54,10 +65,13 @@ const BlogButtons = ({ blogId }) => {
 						<FontAwesomeIcon icon={faShare} />
 						<span className="article-bottom-button-text">Paylaş</span>
 					</div>
-					<div className="article-bottom-share article-bottom-button" onClick={() => readLater(token, blogId)}>
-						<FontAwesomeIcon icon={faBookmark} />
+					<button
+						className="article-bottom-share article-bottom-button"
+						onClick={() => readLater(token, blogId)}
+					>
+						<FontAwesomeIcon icon={isReader === true ? farBoomark : faBookmark} className={isReader === true ? 'blog-reader-true' : ''} />
 						<span className="article-bottom-button-text">Sonra Oku</span>
-					</div>
+					</button>
 				</React.Fragment>
 			)}
 
