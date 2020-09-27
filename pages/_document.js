@@ -7,7 +7,7 @@ class MyDocument extends Document {
 				<Head>
 					<meta
 						name="keywords"
-						content="Muaccel, Mevzuat, Blog, Meydan, Hukuk, Kanun"
+						content="Mevzuat, Kanun, Hukuk, Muaccel, Blog"
 					/>
 					<meta charSet="utf-8" />
 					<link

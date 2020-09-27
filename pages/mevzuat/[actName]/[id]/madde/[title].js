@@ -66,7 +66,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 									: ''
 							} ${article.actId.name}, ${article.name}, Madde ${
 								article.title
-							}, Muaccel, Mevzuat`}
+							}, Muaccel, Mevzuat, Kanun, Hukuk, Blog`}
 						/>
 						<link
 							rel="canonical"

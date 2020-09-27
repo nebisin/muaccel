@@ -14,7 +14,6 @@ import HeroButtons from 'component/HeroButtons';
 import AuthContext from 'context/AuthContext';
 import Dashboard from 'component/user/Dashboard';
 
-
 const HomePage = () => {
 	const { isLoggedIn, userInfo, token, isLogging } = useContext(AuthContext);
 
@@ -22,20 +21,27 @@ const HomePage = () => {
 		mevzuatApi('/');
 	}, []);
 
-	if(!isLoggedIn && !isLogging){
+	if (!isLoggedIn && !isLogging) {
 		return (
 			<React.Fragment>
 				<Head>
 					<title>Muaccel | Online Hukuk Projesi</title>
 					<meta
 						name="description"
-						content="muaccel.com - Online Hukuk Projesi..."
+						content="Hukukçular için geliştirilmiş bir web sitesi. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
 					/>
 					<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
-					<meta property="og:description" content="Online Hukuk Projesi" />
+					<meta
+						property="og:description"
+						content="Hukukçular için geliştirilmiş bir web sitesi. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
+					/>
 					<meta
 						property="og:image"
 						content="https://www.muaccel.com/fbimage.jpg"
+					/>
+					<meta
+						name="keywords"
+						content="Mevzuat, Kanun, Hukuk, Muaccel, Blog"
 					/>
 				</Head>
 				<div className="hero-header">
@@ -56,12 +62,16 @@ const HomePage = () => {
 							<Link href="/mevzuat" as="/mevzuat">
 								<div className="home-item">
 									<div className="home-item-icon-container">
-										<FontAwesomeIcon icon={faGavel} className="home-item-icon" />
+										<FontAwesomeIcon
+											icon={faGavel}
+											className="home-item-icon"
+										/>
 									</div>
 									<div className="home-item-header">Muaccel Mevzuat</div>
 									<p>
 										Temel mevzuata ulaşmanın pratik yolu... Bir kanun veya madde
-										arayın. Alanına göre tasnif edilmiş kanunlar arasında gezinin.
+										arayın. Alanına göre tasnif edilmiş kanunlar arasında
+										gezinin.
 									</p>
 								</div>
 							</Link>
@@ -91,8 +101,9 @@ const HomePage = () => {
 									</div>
 									<div className="home-item-header">Muaccel Meydan</div>
 									<p>
-										Hukuki bir tartışma başlatın veya tartışmaya katkıda bulunun.
-										Çünkü düşünceler tartışma ortamında doğar ve gelişir.
+										Hukuki bir tartışma başlatın veya tartışmaya katkıda
+										bulunun. Çünkü düşünceler tartışma ortamında doğar ve
+										gelişir.
 									</p>
 								</div>
 							</Link>
@@ -103,15 +114,17 @@ const HomePage = () => {
 									Binlerce kanun maddesine tek tıkla ulaşın
 								</h2>
 								<div className="landing-hero-description">
-									Kalın mevzuat kitaplarını yanınızda taşımaktan yorulmadınız mı?{' '}
-									<b>Muaccel Mevzuat</b> ile internet erişimine sahip olduğunuz
-									her yerde kolay bir şekilde temel mevzuata erişebilirsiniz.
-									Üstelik tamamen ücretsiz!
+									Kalın mevzuat kitaplarını yanınızda taşımaktan yorulmadınız
+									mı? <b>Muaccel Mevzuat</b> ile internet erişimine sahip
+									olduğunuz her yerde kolay bir şekilde temel mevzuata
+									erişebilirsiniz. Üstelik tamamen ücretsiz!
 								</div>
-								<h2 className="landing-hero-subtitle">Paylaşmanın gücünü keşfedin</h2>
+								<h2 className="landing-hero-subtitle">
+									Paylaşmanın gücünü keşfedin
+								</h2>
 								<div className="landing-hero-description">
-									Bildiklerinizi paylaşmak fikirlerinizi geliştirmenize
-									ve meslektaşlarınız arasında tanınmanıza katkı sağlar.&nbsp;
+									Bildiklerinizi paylaşmak fikirlerinizi geliştirmenize ve
+									meslektaşlarınız arasında tanınmanıza katkı sağlar.&nbsp;
 									<b>Muaccel Blog</b>&nbsp;ile yazdıklarınızı paylaşın ve
 									yazılanları okuyun.
 								</div>
@@ -132,14 +145,11 @@ const HomePage = () => {
 				</div>
 			</React.Fragment>
 		);
-	}else if(isLoggedIn && userInfo){
-		return (
-			<Dashboard />
-		)
-	}else {
-		return <div></div>
+	} else if (isLoggedIn && userInfo) {
+		return <Dashboard />;
+	} else {
+		return <div></div>;
 	}
-	
 };
 
 export default HomePage;

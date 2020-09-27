@@ -78,6 +78,10 @@ const HomePage = ({ actList }) => {
 					property="og:image"
 					content="https://www.muaccel.com/mevzuatog.jpg"
 				/>
+				<meta
+					name="keywords"
+					content="Hukuk Muhakemeleri Kanunu, İcra ve İflas Kanunu, Türk Borçlar Kanunu, Mevzuat, Kanun, Hukuk, Muaccel, Blog"
+				/>
 			</Head>
 			<div className="flex-container">
 				<Sidebar type="home" />

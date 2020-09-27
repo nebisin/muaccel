@@ -5,11 +5,11 @@ import mevzuatApi from 'api/mevzuat';
 
 import { faPrint, faShare } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import {faBookmark as farBoomark } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark as farBoomark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const BlogButtons = ({ blogId }) => {
 	const { isLoggedIn, token } = useContext(AuthContext);
-	const [isReader, setIsReader] = useState(false);
+	const [isReader, setIsReader] = useState();
 
 	const readLater = async (token, blogId) => {
 		if (!token || !blogId) return;
@@ -45,13 +45,11 @@ const BlogButtons = ({ blogId }) => {
 				);
 				setIsReader(response.data);
 			} catch (error) {
-				setIsReader(false)
+				setIsReader(false);
 			}
-
 		};
 
-		setIsReader(false)
-
+		setIsReader();
 		if (token && blogId) {
 			getIsReader(token, blogId);
 		}
@@ -68,8 +66,17 @@ const BlogButtons = ({ blogId }) => {
 					<button
 						className="article-bottom-share article-bottom-button"
 						onClick={() => readLater(token, blogId)}
+						disabled={isReader === undefined}
 					>
-						<FontAwesomeIcon icon={isReader === true ? farBoomark : faBookmark} className={isReader === true ? 'blog-reader-true' : ''} />
+						{isReader === undefined ? (
+							<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+						) : (
+							<FontAwesomeIcon
+								icon={isReader === true ? farBoomark : faBookmark}
+								className={isReader === true ? 'blog-reader-true' : ''}
+							/>
+						)}
+
 						<span className="article-bottom-button-text">Sonra Oku</span>
 					</button>
 				</React.Fragment>

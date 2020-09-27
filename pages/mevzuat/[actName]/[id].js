@@ -57,7 +57,7 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 							name="keywords"
 							content={`${data.shortName}${
 								data.title !== undefined ? `, ${data.title} sayılı Kanun` : ''
-							}, ${data.name}, Mevzuat, Muaccel`}
+							}, ${data.name}, Mevzuat, Muaccel, Kanun, Hukuk, Blog`}
 						/>
 						<meta property="og:description" content={`${data.name}`} />
 						<meta

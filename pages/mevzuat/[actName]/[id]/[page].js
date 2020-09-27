@@ -79,7 +79,7 @@ const ActRoute = ({ data, sectionsData, articleData, error }) => {
 								data.title !== undefined ? `, ${data.title} sayılı Kanun` : ''
 							}, ${data.name}, ${
 								sectionsData[page] && `${sectionsData[page].name}`
-							}, Mevzuat, Muaccel`}
+							}, Mevzuat, Muaccel, Kanun, Hukuk, Blog`}
 						/>
 						<meta
 							property="og:description"

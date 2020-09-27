@@ -48,6 +48,26 @@ function MyApp({ Component, pageProps }) {
 					<SectionProvider>
 						<Head>
 							<title>Muaccel | Online Hukuk Projesi</title>
+							<meta
+								name="keywords"
+								content="Mevzuat, Kanun, Hukuk, Muaccel, Blog"
+							/>
+							<meta
+								name="description"
+								content="Hukukçular için geliştirilmiş bir web sitesi. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
+							/>
+							<meta
+								property="og:title"
+								content="Muaccel | Online Hukuk Projesi"
+							/>
+							<meta
+								property="og:description"
+								content="Hukukçular için geliştirilmiş bir web sitesi. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
+							/>
+							<meta
+								property="og:image"
+								content="https://www.muaccel.com/fbimage.jpg"
+							/>
 							<link rel="icon" href="/favicon.png" />
 							<link rel="apple-touch-icon" href="/logo192.png" />
 							<link rel="manifest" href="/manifest.json" />
@@ -57,7 +77,6 @@ function MyApp({ Component, pageProps }) {
 								name="viewport"
 								content="width=device-width, initial-scale=1.0"
 							/>
-
 						</Head>
 						<Navbar />
 						<div className="container">

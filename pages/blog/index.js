@@ -26,6 +26,10 @@ const BlogPage = ({ data }) => {
 					property="og:image"
 					content="https://www.muaccel.com/blog-hero-photo.jpg"
 				/>
+				<meta
+					name="keywords"
+					content="Blog, Hukuki Yazılar, Mevzuat, Kanun, Hukuk, Muaccel"
+				/>
 			</Head>
 			<div className="blog-container">
 				<BlogHero />

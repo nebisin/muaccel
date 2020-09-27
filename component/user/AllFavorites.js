@@ -24,10 +24,10 @@ const AllFavorites = ({token}) => {
 		);
 
 		if (response.data) {
+			setList((list) => list.concat(response.data));
 			if (response.data.length < 5) {
 				setHasMore(false);
 			}
-			setList((list) => list.concat(response.data));
 		}
 	};
 

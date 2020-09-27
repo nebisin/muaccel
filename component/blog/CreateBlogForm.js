@@ -149,6 +149,10 @@ const CreateBlogForm = () => {
 					},
 				}
 			);
+			router.push(
+				'/blog/update/draft/[id]',
+				`/blog/update/draft/${response.data._id}`
+			);
 			setGeneralError('');
 		} catch (error) {
 			console.log(error);

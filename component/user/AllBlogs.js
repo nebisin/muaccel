@@ -24,10 +24,10 @@ const AllBlogs = ({ user, token }) => {
 		);
 
 		if (response.data) {
+			setBlogs((blogs) => blogs.concat(response.data));
 			if (response.data.length < 3) {
 				setHasMore(false);
 			}
-			setBlogs((blogs) => blogs.concat(response.data));
 		}
 	};
 

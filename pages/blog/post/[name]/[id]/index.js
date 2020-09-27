@@ -47,6 +47,10 @@ const ShowPost = ({ data, content }) => {
 							property="og:image"
 							content="https://www.muaccel.com/blog-hero-photo.jpg"
 						/>
+						<meta
+							name="keywords"
+							content="Blog, Hukuki Yazılar, Hukuk Metinleri, Mevzuat, Kanun, Hukuk, Muaccel"
+						/>
 					</Head>
 					<div className="blog-container">
 						<div className="read-blog-container">

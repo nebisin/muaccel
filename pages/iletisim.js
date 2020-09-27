@@ -51,13 +51,20 @@ const ContactPage = () => {
 				<title>İletişim | muaccel.com </title>
 				<meta
 					name="description"
-					content="Bizimle iletişime geçin."
+					content="Bizimle iletişime geçin. Muaccel hukukçular için geliştirilmiş bir web sitesidir. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
 				/>
 				<meta property="og:title" content="Muaccel | Online Hukuk Projesi" />
-				<meta property="og:description" content="Online Hukuk Projesi" />
+				<meta
+					property="og:description"
+					content="Bizimle iletişime geçin. Muaccel hukukçular için geliştirilmiş bir web sitesidir. Meslektaşlarınızla iletişime geçin, temel mevzuata kolaylıkla ulaşın, bildiklerinizi paylaşın ve hukukçular tarafından yazılmış metinleri okuyun."
+				/>
 				<meta
 					property="og:image"
 					content="https://www.muaccel.com/fbimage.jpg"
+				/>
+				<meta
+					name="keywords"
+					content="İletişim, Mevzuat, Kanun, Hukuk, Muaccel, Blog"
 				/>
 			</Head>
 			<div className="flex-container">
