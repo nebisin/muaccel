@@ -13,7 +13,7 @@ const PostPreview = ({ item, type }) => {
 			}
 		>
 			<div className="post-preview-in">
-				{type !== 'inside' && <AuthorPreview data={item} />}
+				<AuthorPreview data={item} />
 				<h3 className="post-preview-header">
 					<Link
 						href="/blog/post/[name]/[id]"
@@ -33,10 +33,7 @@ const PostPreview = ({ item, type }) => {
 				</h3>
 
 				<div className="post-preview-content">{item.abstract}</div>
-				{type === 'inside' && <AuthorPreview data={item} />}
-				{type !== 'inside' && (
-					<BlogButtons blogId={item._id} location="in" />
-				)}
+				<BlogButtons blogId={item._id} location="in" />
 			</div>
 		</div>
 	);
