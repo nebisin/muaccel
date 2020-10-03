@@ -279,6 +279,43 @@
 	font-size: 0.9375rem;
 }
 
+.status-buttons {
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+	margin-top: 10px;
+}
+
+.status-button {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+}
+
+.status-button button {
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	width: calc(100% - 30px);
+	max-width: 150px;
+	margin: 0 15px;
+	color: #839cb3;
+	transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-button button:hover {
+	background-color: rgba(0, 118, 255, 0.1);
+	border-radius: 0.25rem;
+}
+
 @keyframes expand {
 	from {
 		max-height: 0;
@@ -305,8 +342,6 @@
 	padding: 15px;
 }
 
-
-
 .isActiveAlert p {
 	margin: 2px 0;
 }
@@ -325,6 +360,30 @@
 
 .isActiveAlert-button:hover {
 	text-decoration: underline;
+}
+
+.new-status-container {
+	margin: 0 7px 20px 7px;
+}
+
+.new-status-container .new-comment-container {
+	margin: 0;
+}
+
+.status-author {
+	margin: 0 20px;
+}
+
+.status-text {
+	margin: 0 20px;
+	padding: 7px;
+	white-space: pre-line;
+	text-align: justify;
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	line-height: 26px;
+	letter-spacing: 0;
+	font-weight: 300;
 }
 
 @media screen and (max-width: 768px) {

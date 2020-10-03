@@ -41,7 +41,7 @@ const HomePage = () => {
 					/>
 					<meta
 						name="keywords"
-						content="Mevzuat, Kanun, Hukuk, Muaccel, Blog"
+						content="Mevzuat, Kanun, Hukuk, Muaccel, Blog, Hukuk Muhakemeleri Kanunu, Türk Borçlar Kanunu, İcra ve İflas Kanunu"
 					/>
 				</Head>
 				<div className="hero-header">

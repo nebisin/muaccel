@@ -80,7 +80,7 @@ const HomePage = ({ actList }) => {
 				/>
 				<meta
 					name="keywords"
-					content="Hukuk Muhakemeleri Kanunu, İcra ve İflas Kanunu, Türk Borçlar Kanunu, Mevzuat, Kanun, Hukuk, Muaccel, Blog"
+					content="Hukuk Muhakemeleri Kanunu, İcra ve İflas Kanunu, Türk Borçlar Kanunu, Tebligat Kanunu, Mevzuat, Kanun, Hukuk, Muaccel, Blog"
 				/>
 			</Head>
 			<div className="flex-container">

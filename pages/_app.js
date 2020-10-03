@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
 							<title>Muaccel | Online Hukuk Projesi</title>
 							<meta
 								name="keywords"
-								content="Mevzuat, Kanun, Hukuk, Muaccel, Blog"
+								content="Mevzuat, Kanun, Hukuk, Muaccel, Blog, Hukuk Muhakemeleri Kanunu, Türk Borçlar Kanunu, İcra ve İflas Kanunu"
 							/>
 							<meta
 								name="description"

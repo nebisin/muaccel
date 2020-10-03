@@ -131,7 +131,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										actId={article.actId}
 									/>
 									<ArticlePageItem item={article} />
-									{isLoggedIn &&
+									{isLoggedIn ?
 										(!noteLoading ? (
 											<ArticleNote
 												articleId={article._id}
@@ -149,7 +149,19 @@ const ArticleRoute = ({ article, before, after, error }) => {
 											>
 												<div className="loader">Loading...</div>
 											</div>
-										))}
+										)) : (
+											<div
+											className="new-comment-container"
+											style={{ justifyContent: 'center' }}
+										>
+											<p>
+												Not oluşturabilmek için üye olmalısınız.{' '}
+												<Link href="/user/register">
+													<a>Üye olun</a>
+												</Link>
+											</p>
+										</div>
+										)}
 									<h3 className="title">
 										<FontAwesomeIcon
 											icon={faSearchPlus}

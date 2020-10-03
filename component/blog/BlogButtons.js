@@ -1,18 +1,31 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from 'context/AuthContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import mevzuatApi from 'api/mevzuat';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faPrint, faShare } from '@fortawesome/free-solid-svg-icons';
+import {
+	faShare,
+	faPrint,
+	faBookmark as farBoomark,
+	faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark as farBoomark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const BlogButtons = ({ blogId }) => {
+const BlogButtons = ({ blogId, location }) => {
 	const { isLoggedIn, token } = useContext(AuthContext);
 	const [isReader, setIsReader] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const readLater = async (token, blogId) => {
+		if (!isLoggedIn) {
+			window.alert(
+				'Bu yazıyı okuma listenize ekleyebilmek için üye olmalısınız.'
+			);
+			return;
+		}
 		if (!token || !blogId) return;
+		setLoading(true);
+
 		setIsReader((reader) => !reader);
 		try {
 			const response = await mevzuatApi.patch(
@@ -25,6 +38,7 @@ const BlogButtons = ({ blogId }) => {
 				}
 			);
 			setIsReader(response.data);
+			setLoading(false);
 		} catch (error) {
 			setIsReader((reader) => !reader);
 		}
@@ -32,7 +46,9 @@ const BlogButtons = ({ blogId }) => {
 
 	useEffect(() => {
 		const getIsReader = async (token, blogId) => {
+
 			if (!token || !blogId) return;
+			setLoading(true);
 			try {
 				const response = await mevzuatApi.post(
 					`/blog/bookmark/${blogId}`,
@@ -44,51 +60,58 @@ const BlogButtons = ({ blogId }) => {
 					}
 				);
 				setIsReader(response.data);
+				setLoading(false);
 			} catch (error) {
 				setIsReader(false);
+				setLoading(false);
 			}
 		};
 
 		setIsReader();
+		if(!isLoggedIn) {
+			setIsReader(false);
+			setLoading(false);
+			return;
+		}
 		if (token && blogId) {
 			getIsReader(token, blogId);
 		}
 	}, [token, blogId]);
 
 	return (
-		<div className="article-card-bottom">
-			{isLoggedIn && (
-				<React.Fragment>
-					<div className="article-bottom-share article-bottom-button">
-						<FontAwesomeIcon icon={faShare} />
-						<span className="article-bottom-button-text">Paylaş</span>
-					</div>
-					<button
-						className="article-bottom-share article-bottom-button"
-						onClick={() => readLater(token, blogId)}
-						disabled={isReader === undefined}
-					>
-						{isReader === undefined ? (
-							<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
-						) : (
-							<FontAwesomeIcon
-								icon={isReader === true ? farBoomark : faBookmark}
-								className={isReader === true ? 'blog-reader-true' : ''}
-							/>
-						)}
-
-						<span className="article-bottom-button-text">Sonra Oku</span>
-					</button>
-				</React.Fragment>
-			)}
-
-			<div
-				className="article-bottom-share article-bottom-button"
-				onClick={() => document.execCommand('print', false, null)}
-			>
-				<FontAwesomeIcon icon={faPrint} />
-				<span className="article-bottom-button-text">Yazdır</span>
+		<div
+			className="status-buttons"
+			style={location === 'in' ? {} : { marginBottom: '20px' }}
+		>
+			<div className="left-button status-button">
+				<button onClick={() => readLater(token, blogId)} disabled={loading}>
+					{isReader === undefined ? (
+						<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
+					) : (
+						<FontAwesomeIcon
+							icon={isReader === true ? farBoomark : faBookmark}
+							className={isReader === true ? 'blog-reader-true' : ''}
+						/>
+					)}
+					<span className="article-bottom-button-text">Sonra Oku</span>
+				</button>
 			</div>
+			<div className="center-button status-button">
+				<button>
+					<FontAwesomeIcon icon={faShare} />
+					<span className="article-bottom-button-text">Paylaş</span>
+				</button>
+			</div>
+			{location === 'in' ? (
+				''
+			) : (
+				<div className="right-button status-button">
+					<button onClick={() => document.execCommand('print', false, null)}>
+						<FontAwesomeIcon icon={faPrint} />
+						<span className="article-bottom-button-text">Yazdır</span>
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };

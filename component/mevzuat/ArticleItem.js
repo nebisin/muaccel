@@ -87,7 +87,7 @@ const ArticleItem = ({ item, type, act }) => {
 							item.content
 						)}
 					</div>
-					{userInfo && <ArticleItemBottom item={item} user={userInfo} />}
+					<ArticleItemBottom item={item} user={userInfo} />
 				</div>
 			</React.Fragment>
 		);

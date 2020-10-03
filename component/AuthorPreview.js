@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import TimeStamp from 'component/TimeStamp';
 import AuthContext from 'context/AuthContext';
+import FollowButton from './user/FollowButton';
 
 const AuthorPreview = ({ data }) => {
 	const [previewUrl, setPreviewUrl] = useState(
@@ -35,7 +36,7 @@ const AuthorPreview = ({ data }) => {
 					</a>
 				</div>
 			</div>
-			{isLoggedIn && <button className="follow-button">Takip Et</button>}
+			<FollowButton userId={data.author._id} />
 		</div>
 	);
 };

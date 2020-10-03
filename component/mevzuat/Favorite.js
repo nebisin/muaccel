@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Favorite = ({ position, articleId }) => {
-	const { favorites, getFavorites, token } = useContext(AuthContext);
+	const { favorites, getFavorites, token, isLoggedIn } = useContext(AuthContext);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [isSending, setIsSending] = useState(false);
 
@@ -20,6 +20,12 @@ const Favorite = ({ position, articleId }) => {
 	}, [favorites, articleId]);
 
 	const addFovorite = async ({ go, action }) => {
+		if (!isLoggedIn) {
+			window.alert(
+				'Bu maddeyi favorilerinize ekleyebilmek için üye olmalısınız.'
+			);
+			return;
+		}
         if (!go || isSending) return;
         
 		if (action === false) {
@@ -67,8 +73,8 @@ const Favorite = ({ position, articleId }) => {
 	};
 
 	return (
-		<React.Fragment>
-			<div onClick={() => addFovorite({ go: true, action: isFavorite })}>
+		<div className="left-button status-button">
+			<button onClick={() => addFovorite({ go: true, action: isFavorite })}>
 				{!isSending ? (isFavorite ? (
 					<FontAwesomeIcon
 						icon={farStar}
@@ -81,9 +87,10 @@ const Favorite = ({ position, articleId }) => {
 					/>
 				)) : (
                     <FontAwesomeIcon icon={faSpinner} className={`login-spinner favorite-icon favorite-icon-${position}`} />
-                )}
-			</div>
-		</React.Fragment>
+				)}
+				<span className="article-bottom-button-text">Favori</span>
+			</button>
+		</div>
 	);
 };
 

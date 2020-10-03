@@ -39,13 +39,11 @@ const ArticleBottomNote = ({item}) => {
 	return (
 		<React.Fragment>
 			{!noteLoading ? (
-				isLoggedIn && (
 					<ArticleNote
 						articleId={item._id}
 						initialNote={initialNote}
 						noteId={noteId}
 					/>
-				)
 			) : (
 				<div
 					style={{

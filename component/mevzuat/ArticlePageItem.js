@@ -1,6 +1,10 @@
-import Favorite from './Favorite';
+import React, { useContext } from 'react';
+import AuthContext from 'context/AuthContext';
+import ArticleItemBottom from './ArticleItemBottom';
 
 const ArticleItem = ({ item }) => {
+	const { userInfo } = useContext(AuthContext);
+
 	if (item) {
 		return (
 			<article className="article-page-card">
@@ -9,7 +13,7 @@ const ArticleItem = ({ item }) => {
 					<h1>{item.name}</h1>
 				</div>
 				<div className="article-page-card-content">{item.content}</div>
-				<Favorite position="top" articleId={item._id} />
+				<ArticleItemBottom item={item} user={userInfo} location="in" />
 			</article>
 		);
 	} else {

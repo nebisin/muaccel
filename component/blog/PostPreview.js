@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AuthorPreview from 'component/AuthorPreview';
+import BlogButtons from './BlogButtons';
 
 const PostPreview = ({ item, type }) => {
 	return (
@@ -34,23 +35,7 @@ const PostPreview = ({ item, type }) => {
 				<div className="post-preview-content">{item.abstract}</div>
 				{type === 'inside' && <AuthorPreview data={item} />}
 				{type !== 'inside' && (
-					<div className="post-preview-readmore">
-						<Link
-							href="/blog/post/[name]/[id]"
-							as={`/blog/post/${item.title
-								.toLocaleLowerCase('tr')
-								.replace(/ğ/gim, 'g')
-								.replace(/ü/gim, 'u')
-								.replace(/ş/gim, 's')
-								.replace(/ı/gim, 'i')
-								.replace(/ö/gim, 'o')
-								.replace(/ç/gim, 'c')
-								.replace(/\s/g, '-')
-								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
-						>
-							<a>Devamını Oku →</a>
-						</Link>
-					</div>
+					<BlogButtons blogId={item._id} location="in" />
 				)}
 			</div>
 		</div>
