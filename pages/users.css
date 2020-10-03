@@ -316,6 +316,15 @@
 	border-radius: 0.25rem;
 }
 
+.status-button-holder {
+	background-color: rgba(0,118,255,.1);
+	width: 30%;
+	margin: 0 15px;
+	max-width: 150px;
+	height: 18px;
+	border-radius: 0.25rem;
+}
+
 @keyframes expand {
 	from {
 		max-height: 0;

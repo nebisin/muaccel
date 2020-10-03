@@ -45,8 +45,9 @@ const BlogButtons = ({ blogId, location }) => {
 	};
 
 	useEffect(() => {
-		const getIsReader = async (token, blogId) => {
+		setIsReader();
 
+		const getIsReader = async (token, blogId) => {
 			if (!token || !blogId) return;
 			setLoading(true);
 			try {
@@ -67,8 +68,7 @@ const BlogButtons = ({ blogId, location }) => {
 			}
 		};
 
-		setIsReader();
-		if(!isLoggedIn) {
+		if (!isLoggedIn) {
 			setIsReader(false);
 			setLoading(false);
 			return;
@@ -84,17 +84,17 @@ const BlogButtons = ({ blogId, location }) => {
 			style={location === 'in' ? {} : { marginBottom: '20px' }}
 		>
 			<div className="left-button status-button">
-				<button onClick={() => readLater(token, blogId)} disabled={loading}>
-					{isReader === undefined ? (
-						<FontAwesomeIcon icon={faSpinner} className="login-spinner" />
-					) : (
+				{isReader === undefined ? (
+					<div className="status-button-holder"></div>
+				) : (
+					<button onClick={() => readLater(token, blogId)} disabled={loading}>
 						<FontAwesomeIcon
 							icon={isReader === true ? farBoomark : faBookmark}
 							className={isReader === true ? 'blog-reader-true' : ''}
 						/>
-					)}
-					<span className="article-bottom-button-text">Sonra Oku</span>
-				</button>
+						<span className="article-bottom-button-text">Sonra Oku</span>
+					</button>
+				)}
 			</div>
 			<div className="center-button status-button">
 				<button>
