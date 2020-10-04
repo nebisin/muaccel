@@ -17,11 +17,9 @@ const Dashboard = () => {
 			</aside>
 			<section className="dashboard-main">
 				<ActiveAlert />
-				{/* 				<CreateStatus />
-				 */}
+				<CreateStatus />
 				<DashboardActs />
-				{/* 				<StatusItem />
-				 */}
+				<StatusItem />
 				<DashboardArticles />
 				<DashboardBlogs />
 				<Footer />

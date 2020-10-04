@@ -76,9 +76,9 @@ const ArticleItem = ({ item, type, act }) => {
 						<b>Madde {item.title}</b> -{' '}
 						{full ? (
 							item.content
-						) : item.content.length > 360 ? (
+						) : item.content.length > 180 ? (
 							<React.Fragment>
-								{item.content.slice(0, 360)}...
+								{item.content.slice(0, 180)}...
 								<button className="button-link" onClick={() => setFull(true)}>
 									Devamını Gör
 								</button>

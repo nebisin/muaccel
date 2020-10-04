@@ -77,6 +77,11 @@ function MyApp({ Component, pageProps }) {
 								name="viewport"
 								content="width=device-width, initial-scale=1.0"
 							/>
+							<script
+								data-ad-client="ca-pub-1639338975133942"
+								async
+								src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+							></script>
 						</Head>
 						<Navbar />
 						<div className="container">
