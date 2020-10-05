@@ -10,17 +10,15 @@ const SidebarAds = () => {
 	}, []);
 
 	return (
-		<div
-			dangerouslySetInnerHTML={{
-				__html: `<ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1639338975133942"
-         data-ad-slot="3073578295"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>`,
-			}}
+		<ins
+			class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-1639338975133942"
+			data-ad-slot="3073578295"
+			data-ad-format="auto"
+			data-full-width-responsive="true"
 			style={{ maxWidth: '340px', padding: '10px', display: 'block' }}
-		/>
+		></ins>
 	);
 };
 
