@@ -13,8 +13,8 @@ const ArticleItem = ({ item }) => {
 					<h2>Madde {item.title}</h2>
 					<h1>{item.name}</h1>
 				</div>
-				<InArticleAds refer={item} />
 				<div className="article-page-card-content">{item.content}</div>
+				<InArticleAds refer={item} />
 				<ArticleItemBottom item={item} user={userInfo} location="in" />
 			</article>
 		);

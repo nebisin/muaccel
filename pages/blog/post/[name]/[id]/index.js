@@ -6,12 +6,10 @@ import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
 import AuthorPreview from 'component/AuthorPreview';
 import OtherPosts from 'component/blog/OtherPosts';
-import { TwitterShareButton } from 'react-twitter-embed';
-
 import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
 import BlogCommentsContainer from 'component/blog/BlogCommentsContainer';
-import InArticleAds from 'component/ads/InArticleAds';
+import FeedAds from 'component/ads/FeedAds';
 
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
@@ -62,14 +60,14 @@ const ShowPost = ({ data, content }) => {
 									<div className="blog-post-abstract">{data.abstract}</div>
 									<BlogButtons blogId={data._id} />
 									<div className="blog-post-content">
-										<InArticleAds refer={data} />
+										<FeedAds refer={data} />
 										{editorState ? (
 											<React.Fragment>
 												<ReadOnly
 													editorState={editorState}
 													setEditorState={setEditorState}
 												/>
-												<InArticleAds refer={data} />
+												<FeedAds refer={data} />
 											</React.Fragment>
 										) : (
 											<div
