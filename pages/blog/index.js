@@ -5,6 +5,7 @@ import BlogHero from 'component/blog/BlogHero';
 import BlogPosts from 'component/blog/BlogPosts';
 import BlogDrafts from 'component/blog/BlogDrafts';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import SidebarAds from 'component/ads/SidebarAds';
 
 const BlogPage = ({ data }) => {
 	return (
@@ -39,7 +40,15 @@ const BlogPage = ({ data }) => {
 					</div>
 					<aside className="create-blog-sidebar">
 						{/* <BlogDrafts /> */}
-						<div style={{position: 'sticky', top: '79px', border: '1px solid rgba(0, 0, 0, 0.125)', background: 'white'}}>
+						<div
+							style={{
+								position: 'sticky',
+								top: '79px',
+								border: '1px solid rgba(0, 0, 0, 0.125)',
+								background: 'white',
+							}}
+						>
+							<SidebarAds />
 							<TwitterTimelineEmbed
 								sourceType="timeline"
 								screenName="muaccelcom"
