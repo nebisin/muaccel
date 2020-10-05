@@ -13,7 +13,8 @@ const SidebarAds = () => {
     <script>
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>`,
-			}}
+            }}
+            style={{maxWidth: '340px'}}
 		/>
 	);
 };

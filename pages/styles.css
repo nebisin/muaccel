@@ -138,7 +138,7 @@ h3 {
 }
 
 #showcase {
-	flex: 70%;
+	flex: 1;
 	padding: 20px 10px;
 }
 
@@ -993,7 +993,7 @@ h3 {
 /* Sidebar */
 
 #sidebar {
-	flex: 30%;
+	width: 342px;
 	padding: 10px;
 }
 
