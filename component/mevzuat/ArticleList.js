@@ -6,13 +6,13 @@ const ArticleList = ({ items, type }) => {
 	return (
 		<React.Fragment>
 			{items.map((item, index) => (
-				<React.Fragment>
+				<React.Fragment key={item._id}>
 					{index === 1 || (index > 0 && Math.round(index / 3) === index / 3) ? (
 						<FeedAds />
 					) : (
 						''
 					)}
-					<ArticleItem key={item._id} item={item} type={type} />
+					<ArticleItem item={item} type={type} />
 				</React.Fragment>
 			))}
 		</React.Fragment>

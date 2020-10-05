@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-const SidebarAds = () => {
+const SidebarAds = ({refer}) => {
 	const router = useRouter();
 	const pathname = router.pathname;
 
@@ -11,11 +11,11 @@ const SidebarAds = () => {
 		} catch (err) {
 			console.log(err);
 		}
-	}, [pathname]);
+	}, [refer, pathname]);
 
 	return (
 		<ins
-			class="adsbygoogle"
+			className="adsbygoogle"
 			data-ad-client="ca-pub-1639338975133942"
 			data-ad-slot="3073578295"
 			data-ad-format="auto"

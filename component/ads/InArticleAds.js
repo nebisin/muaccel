@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const InArticleAds = () => {
+const InArticleAds = ({refer}) => {
 	const router = useRouter();
 	const pathname = router.pathname;
 
@@ -11,11 +11,11 @@ const InArticleAds = () => {
 		} catch (err) {
 			console.log(err);
 		}
-	}, [pathname]);
+	}, [refer, pathname]);
 
 	return (
 		<ins
-			class="adsbygoogle"
+			className="adsbygoogle"
 			style={{display:"block", textAlign:"center" }}
 			data-ad-layout="in-article"
 			data-ad-format="fluid"

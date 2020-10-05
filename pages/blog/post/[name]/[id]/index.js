@@ -61,7 +61,7 @@ const ShowPost = ({ data, content }) => {
 									<AuthorPreview data={data} />
 									<div className="blog-post-abstract">{data.abstract}</div>
 									<BlogButtons blogId={data._id} />
-									<InArticleAds />
+									<InArticleAds refer={data} />
 									<div className="blog-post-content">
 										{editorState ? (
 											<React.Fragment>
@@ -69,7 +69,7 @@ const ShowPost = ({ data, content }) => {
 													editorState={editorState}
 													setEditorState={setEditorState}
 												/>
-												<InArticleAds />
+												<InArticleAds refer={data} />
 											</React.Fragment>
 										) : (
 											<div

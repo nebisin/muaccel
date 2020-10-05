@@ -18,18 +18,23 @@ const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 			{type === 'home' || type === 'search' || type === 'category' ? (
 				<React.Fragment>
 					<SideCategories id={id} />
-					<SidebarAds />
+					<SidebarAds refer={id} />
 					<SideMostSearched />
 				</React.Fragment>
 			) : (
 				<React.Fragment>
 					<SearchBar />
-					<SidebarAds />
 				</React.Fragment>
 			)}
-			{type === 'article' && <SideArticleList art={art} id={id} />}
+			{type === 'article' && (
+				<React.Fragment>
+					<SidebarAds refer={art} />
+					<SideArticleList art={art} id={id} />
+				</React.Fragment>
+			)}
 			{type === 'act' && (
 				<React.Fragment>
+					<SidebarAds refer={page} />
 					<SideSectionList
 						id={id}
 						actInfo={actInfo}

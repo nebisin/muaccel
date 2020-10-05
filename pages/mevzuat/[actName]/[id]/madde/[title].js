@@ -12,6 +12,7 @@ import Sidebar from 'component/mevzuat/Sidebar';
 import ArticleNote from 'component/mevzuat/ArticleNote';
 import Footer from 'component/Footer';
 import ArticleItem from 'component/mevzuat/ArticleItem';
+import FeedAds from 'component/ads/FeedAds';
 
 const ArticleRoute = ({ article, before, after, error }) => {
 	const { isLoggedIn, isLogging, userInfo, token } = useContext(AuthContext);
@@ -131,6 +132,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										actId={article.actId}
 									/>
 									<ArticlePageItem item={article} />
+									<FeedAds refer={article} />
 									{isLoggedIn ?
 										(!noteLoading ? (
 											<ArticleNote
