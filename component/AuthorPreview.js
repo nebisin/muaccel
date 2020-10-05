@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import TimeStamp from 'component/TimeStamp';
 import AuthContext from 'context/AuthContext';
 import FollowButton from './user/FollowButton';
+import Link from 'next/link';
 
 const AuthorPreview = ({ data }) => {
 	const [previewUrl, setPreviewUrl] = useState(
@@ -11,23 +12,27 @@ const AuthorPreview = ({ data }) => {
 
 	return (
 		<div className="author-preview">
-			<a className="author-preview-logo">
-			{previewUrl ? (
-				<img
-					src={previewUrl}
-					alt="Preview"
-					style={{ height: '40px', borderRadius: '0.25rem' }}
-					onError={() => setPreviewUrl()}
-				/>
-			) : (
-				''
-			)}
-			</a>
+			<Link href="/profile/[id]" as={`/profile/${data.author._id}`}>
+				<a className="author-preview-logo">
+					{previewUrl ? (
+						<img
+							src={previewUrl}
+							alt="Preview"
+							style={{ height: '40px', borderRadius: '0.25rem' }}
+							onError={() => setPreviewUrl()}
+						/>
+					) : (
+						''
+					)}
+				</a>
+			</Link>
 			<div className="author-preview-name">
 				<div className="author-preview-displayname">
-					<a>
-						{data.author.name} (@{data.author.userName})
-					</a>
+					<Link href="/profile/[id]" as={`/profile/${data.author._id}`}>
+						<a>
+							{data.author.name} (@{data.author.userName})
+						</a>
+					</Link>
 				</div>
 
 				<div className="author-preview-timestamp">

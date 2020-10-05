@@ -38,9 +38,8 @@ const CreateStatus = () => {
 			window.alert('Bir metin girmelisiniz.');
 		}
 		try {
-			/*
 			const response = await mevzuatApi.post(
-				`/blog/comments/${id}`,
+				'/status',
 				{ text: text },
 				{
 					headers: {
@@ -48,14 +47,7 @@ const CreateStatus = () => {
 					},
 				}
             );
-            */
 			setText('');
-			/*
-			response.data.user = userInfo;
-			response.data.user._id = userInfo.id;
-            setComments((comments) => [response.data, ...comments]);
-            */
-			return;
 		} catch (error) {
 			setError(
 				'Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.'
@@ -69,19 +61,7 @@ const CreateStatus = () => {
 		<div className="new-status-container">
 			<div className="new-comment-container">
 				<div className="new-comment">
-					<div className="author-preview-logo">
-						{previewUrl ? (
-							<img
-								src={previewUrl}
-								alt="Preview"
-								style={{ height: '40px', borderRadius: '0.25rem' }}
-								onError={() => setPreviewUrl()}
-							/>
-						) : (
-							''
-						)}
-					</div>
-					<div className="new-comment-form">
+					<div className="new-comment-form new-status-form">
 						<textarea
 							rows="5"
 							maxLength="300"

@@ -228,14 +228,13 @@
 }
 
 .follow-button {
-	width: 30%;
 	padding: 8px 12px;
 	border: 1px solid #0079d3;
 	color: #0079d3;
 	border-radius: 0.25rem;
 	outline: none;
 	font-size: 16px;
-	max-width: 100px;
+	width: 100px;
 	background-color: inherit;
 	cursor: pointer;
 	align-self: center;
@@ -894,7 +893,7 @@
 	.blog-post-out {
 		display: none;
 	}
-	.bottom-bar {
-		display: none;
+	.bottom-bar, .blog-comments-container, .status-buttons {
+		display: none !important;
 	}
 }

@@ -317,12 +317,16 @@
 }
 
 .status-button-holder {
-	background-color: rgba(0,118,255,.1);
+	background-color: rgba(0, 118, 255, 0.1);
 	width: 30%;
 	margin: 0 15px;
 	max-width: 150px;
 	height: 18px;
 	border-radius: 0.25rem;
+}
+
+.new-status-form {
+	margin: 0 !important;
 }
 
 @keyframes expand {
@@ -395,9 +399,46 @@
 	font-weight: 300;
 }
 
+.profile-header {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 10px auto;
+	max-width: 700px;
+}
+
+.profile-avatar {
+	margin: 0 auto;
+}
+
+.profile-name {
+	margin: 10px auto;
+	text-align: center;
+}
+
+.profile-name h1 {
+	margin-bottom: 5px;
+}
+
+.profile-sidebar {
+	width: 240px;
+	margin: 0 auto;
+}
+
+.profile-content {
+	flex: 1;
+	height: 10px;
+	margin-left: 10px
+
+}
+
 @media screen and (max-width: 768px) {
 	.dashboard-sidebar {
 		display: none;
+	}
+
+	.profile-container {
+		flex-direction: column;
 	}
 }
 

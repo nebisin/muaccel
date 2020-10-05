@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faGavel,
 } from '@fortawesome/free-solid-svg-icons';
+import SidebarAds from 'component/ads/SidebarAds';
 
 const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 	return (
@@ -19,6 +20,7 @@ const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 				/>
 				Mevzuat
 			</h1>
+			<SidebarAds />
 			{type === 'home' || type === 'search' || type === 'category' ? (
 				<React.Fragment>
 					<SideCategories id={id} />
