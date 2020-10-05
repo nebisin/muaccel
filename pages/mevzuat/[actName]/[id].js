@@ -9,6 +9,7 @@ import FastArticles from 'component/mevzuat/FastArticles';
 import Contents from 'component/mevzuat/Contents';
 import Head from 'next/head';
 import Footer from 'component/Footer';
+import SidebarAds from 'component/ads/SidebarAds';
 
 const ActHome = ({ data, sectionsData, articleData, error }) => {
 	const [listLoading, setListLoading] = useState(false);
@@ -66,7 +67,7 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 						/>
 						<meta
 							property="og:image"
-							content="https://www.muaccel.com/mevzuatog.jpg"
+							content="https://www.muaccel.com/muaccel-mevzuat.jpg"
 						/>
 					</Head>
 					<div className="flex-container">
@@ -75,6 +76,7 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 								<FontAwesomeIcon icon={faGavel} className="sidebar-icon" />
 								Mevzuat
 							</h1>
+							<SidebarAds />
 							{suffixSections.length && (
 								<div className="side-card">
 									<h2 className="side-card-title">{data.name}</h2>

@@ -25,7 +25,7 @@ const BlogPage = ({ data }) => {
 				/>
 				<meta
 					property="og:image"
-					content="https://www.muaccel.com/blog-hero-photo.jpg"
+					content="https://www.muaccel.com/muaccel-blog.jpg"
 				/>
 				<meta
 					name="keywords"
@@ -40,15 +40,16 @@ const BlogPage = ({ data }) => {
 					</div>
 					<aside className="create-blog-sidebar">
 						{/* <BlogDrafts /> */}
+						<SidebarAds />
 						<div
 							style={{
 								position: 'sticky',
 								top: '79px',
 								border: '1px solid rgba(0, 0, 0, 0.125)',
 								background: 'white',
+								marginTop: '10px'
 							}}
 						>
-							<SidebarAds />
 							<TwitterTimelineEmbed
 								sourceType="timeline"
 								screenName="muaccelcom"

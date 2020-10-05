@@ -97,7 +97,7 @@ const ActRoute = ({ data, sectionsData, articleData, error }) => {
 						/>
 						<meta
 							property="og:image"
-							content="https://www.muaccel.com/mevzuatog.jpg"
+							content="https://www.muaccel.com/muaccel-mevzuat.jpg"
 						/>
 					</Head>
 					<div className="flex-container">

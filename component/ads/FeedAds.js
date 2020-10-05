@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-const SidebarAds = () => {
+const FeedAds = () => {
 	const router = useRouter();
 	const pathname = router.pathname;
 
@@ -16,13 +16,13 @@ const SidebarAds = () => {
 	return (
 		<ins
 			class="adsbygoogle"
+			style={{ display: 'block', marginBottom: '20px' }}
+			data-ad-format="fluid"
+			data-ad-layout-key="-ef+6k-30-ac+ty"
 			data-ad-client="ca-pub-1639338975133942"
-			data-ad-slot="3073578295"
-			data-ad-format="auto"
-			data-full-width-responsive="true"
-			style={{ maxWidth: '340px', display: 'block' }}
+			data-ad-slot="3045658139"
 		></ins>
 	);
 };
 
-export default SidebarAds;
+export default FeedAds;

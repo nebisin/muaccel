@@ -76,7 +76,7 @@ const HomePage = ({ actList }) => {
 				/>
 				<meta
 					property="og:image"
-					content="https://www.muaccel.com/mevzuatog.jpg"
+					content="https://www.muaccel.com/muaccel-mevzuat.jpg"
 				/>
 				<meta
 					name="keywords"

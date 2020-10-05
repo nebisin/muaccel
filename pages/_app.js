@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
 							/>
 							<meta
 								property="og:image"
-								content="https://www.muaccel.com/fbimage.jpg"
+								content="https://www.muaccel.com/muaccel-mevzuat.jpg"
 							/>
 							<link rel="icon" href="/favicon.png" />
 							<link rel="apple-touch-icon" href="/logo192.png" />

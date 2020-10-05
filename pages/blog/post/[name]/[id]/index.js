@@ -11,6 +11,7 @@ import { TwitterShareButton } from 'react-twitter-embed';
 import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
 import BlogCommentsContainer from 'component/blog/BlogCommentsContainer';
+import InArticleAds from 'component/ads/InArticleAds';
 
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
@@ -45,7 +46,7 @@ const ShowPost = ({ data, content }) => {
 						<meta property="og:description" content={data.abstract} />
 						<meta
 							property="og:image"
-							content="https://www.muaccel.com/blog-hero-photo.jpg"
+							content="https://www.muaccel.com/muaccel-blog.jpg"
 						/>
 						<meta
 							name="keywords"
@@ -60,12 +61,16 @@ const ShowPost = ({ data, content }) => {
 									<AuthorPreview data={data} />
 									<div className="blog-post-abstract">{data.abstract}</div>
 									<BlogButtons blogId={data._id} />
+									<InArticleAds />
 									<div className="blog-post-content">
 										{editorState ? (
-											<ReadOnly
-												editorState={editorState}
-												setEditorState={setEditorState}
-											/>
+											<React.Fragment>
+												<ReadOnly
+													editorState={editorState}
+													setEditorState={setEditorState}
+												/>
+												<InArticleAds />
+											</React.Fragment>
 										) : (
 											<div
 												style={{

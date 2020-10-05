@@ -88,7 +88,7 @@ const DraftIndex = () => {
 					/>
 					<meta
 						property="og:image"
-						content="https://www.muaccel.com/blog-hero-photo.jpg"
+						content="https://www.muaccel.com/muaccel-blog.jpg"
 					/>
 				</Head>
 				<div className="blog-container">

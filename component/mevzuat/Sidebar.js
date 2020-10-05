@@ -29,13 +29,15 @@ const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 			)}
 			{type === 'article' && <SideArticleList art={art} id={id} />}
 			{type === 'act' && (
-				<SideSectionList
-					id={id}
-					actInfo={actInfo}
-					sections={sections}
-					page={page}
-					subSections={subSections}
-				/>
+				<React.Fragment>
+					<SideSectionList
+						id={id}
+						actInfo={actInfo}
+						sections={sections}
+						page={page}
+						subSections={subSections}
+					/>
+				</React.Fragment>
 			)}
 		</aside>
 	);
