@@ -132,7 +132,6 @@ const ArticleRoute = ({ article, before, after, error }) => {
 										actId={article.actId}
 									/>
 									<ArticlePageItem item={article} />
-									<FeedAds refer={article} />
 									{isLoggedIn ?
 										(!noteLoading ? (
 											<ArticleNote
@@ -179,6 +178,7 @@ const ArticleRoute = ({ article, before, after, error }) => {
 											act={article.actId}
 										/>
 									)}
+									<FeedAds refer={article} />
 									{after && (
 										<ArticleItem
 											key={after._id}
