@@ -61,8 +61,8 @@ const ShowPost = ({ data, content }) => {
 									<AuthorPreview data={data} />
 									<div className="blog-post-abstract">{data.abstract}</div>
 									<BlogButtons blogId={data._id} />
-									<InArticleAds refer={data} />
 									<div className="blog-post-content">
+										<InArticleAds refer={data} />
 										{editorState ? (
 											<React.Fragment>
 												<ReadOnly
