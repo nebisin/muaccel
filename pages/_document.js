@@ -31,6 +31,15 @@ class MyDocument extends Document {
   gtag('config', 'UA-148977213-1');`,
 						}}
 					/>
+					<script
+						data-ad-client="ca-pub-1639338975133942"
+						async
+						src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+					></script>
+					<script
+						async
+						src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+					></script>
 				</Head>
 				<body>
 					<Main />

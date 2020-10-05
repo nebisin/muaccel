@@ -17,7 +17,7 @@ const SidebarAds = () => {
 			data-ad-slot="3073578295"
 			data-ad-format="auto"
 			data-full-width-responsive="true"
-			style={{ maxWidth: '340px', padding: '10px', display: 'block' }}
+			style={{ maxWidth: '340px', display: 'block' }}
 		></ins>
 	);
 };
