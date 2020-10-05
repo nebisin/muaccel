@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const InArticleAds = ({refer}) => {
+const InArticleAds = ({ refer }) => {
 	const router = useRouter();
 	const pathname = router.pathname;
 
@@ -15,12 +15,12 @@ const InArticleAds = ({refer}) => {
 
 	return (
 		<ins
-			className="adsbygoogle"
-			style={{display:"block", textAlign:"center" }}
-			data-ad-layout="in-article"
-			data-ad-format="fluid"
+			class="adsbygoogle"
+			style={{ display: 'block' }}
 			data-ad-client="ca-pub-1639338975133942"
-			data-ad-slot="3784024734"
+			data-ad-slot="5102961364"
+			data-ad-format="auto"
+			data-full-width-responsive="true"
 		></ins>
 	);
 };
