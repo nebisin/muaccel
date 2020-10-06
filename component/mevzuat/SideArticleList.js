@@ -44,6 +44,7 @@ const SideArticleList = ({ id, art }) => {
 		<React.Fragment>
 			{!isLoading ? (
 				<React.Fragment>
+					<SidebarAds refer={art} />
 					<div className="side-card">
 						<h2 className="side-card-title">{sectionInfo.name}</h2>
 						<ul className="side-list">
@@ -82,7 +83,6 @@ const SideArticleList = ({ id, art }) => {
 							})}
 						</ul>
 					</div>
-					<SidebarAds refer={art} />
 				</React.Fragment>
 			) : (
 				<React.Fragment>
