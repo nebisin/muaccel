@@ -10,6 +10,7 @@ import BlogButtons from 'component/blog/BlogButtons';
 import Footer from 'component/Footer';
 import BlogCommentsContainer from 'component/blog/BlogCommentsContainer';
 import FeedAds from 'component/ads/FeedAds';
+import SidebarAds from 'component/ads/SidebarAds';
 
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
@@ -85,7 +86,8 @@ const ShowPost = ({ data, content }) => {
 								</div>
 							</div>
 							<div className="create-blog-sidebar">
-								<div style={{ position: 'sticky', top: '79px' }}>
+								<SidebarAds />
+								<div style={{ position: 'sticky', top: '79px', marginTop: '10px' }}>
 									<UserWidget user={data.author} id={data.author._id} />
 									<OtherPosts userId={data.author._id} postId={data._id} />
 								</div>
