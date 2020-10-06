@@ -12,7 +12,7 @@ const SideArticleList = ({ id, art }) => {
 
 	useEffect(() => {
 		setArticle(art);
-	}, [art])
+	}, [art]);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -42,50 +42,56 @@ const SideArticleList = ({ id, art }) => {
 	return (
 		<React.Fragment>
 			{!isLoading ? (
-				<div className="side-card">
-					<h2 className="side-card-title">{sectionInfo.name}</h2>
-					<ul className="side-list">
-						{articleList.map((a) => {
-							return (
-								<Link
-									href="/mevzuat/[actName]/[id]/madde/[title]"
-									as={`/mevzuat/${a.actId.name
-										.toLocaleLowerCase('tr')
-										.replace(/ğ/gim, 'g')
-										.replace(/ü/gim, 'u')
-										.replace(/ş/gim, 's')
-										.replace(/ı/gim, 'i')
-										.replace(/ö/gim, 'o')
-										.replace(/ç/gim, 'c')
-										.replace(/\s/g, '-')
-										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
-										a.actId._id
-									}/madde/${a.title.replace(/\//g, '-')}`}
-									key={a._id}
-								>
-									<a
-										className={`side-list-item ${
-											a._id === article._id && 'side-list-item-selected'
-										}`}
+				<React.Fragment>
+					<SidebarAds refer={art} />
+					<div className="side-card">
+						<h2 className="side-card-title">{sectionInfo.name}</h2>
+						<ul className="side-list">
+							{articleList.map((a) => {
+								return (
+									<Link
+										href="/mevzuat/[actName]/[id]/madde/[title]"
+										as={`/mevzuat/${a.actId.name
+											.toLocaleLowerCase('tr')
+											.replace(/ğ/gim, 'g')
+											.replace(/ü/gim, 'u')
+											.replace(/ş/gim, 's')
+											.replace(/ı/gim, 'i')
+											.replace(/ö/gim, 'o')
+											.replace(/ç/gim, 'c')
+											.replace(/\s/g, '-')
+											.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
+											a.actId._id
+										}/madde/${a.title.replace(/\//g, '-')}`}
+										key={a._id}
 									>
-										<li>
-											<p>
-												<b>Madde {a.title}</b>
-											</p>
-											<p>{a.name}</p>
-										</li>
-									</a>
-								</Link>
-							);
-						})}
-					</ul>
-				</div>
-			) : (
-				<div className="side-card">
-					<div style={{ width: 'auto', display: 'flex' }}>
-						<div className="loader">Loading...</div>
+										<a
+											className={`side-list-item ${
+												a._id === article._id && 'side-list-item-selected'
+											}`}
+										>
+											<li>
+												<p>
+													<b>Madde {a.title}</b>
+												</p>
+												<p>{a.name}</p>
+											</li>
+										</a>
+									</Link>
+								);
+							})}
+						</ul>
 					</div>
-				</div>
+				</React.Fragment>
+			) : (
+				<React.Fragment>
+					<SidebarAds refer={art} />
+					<div className="side-card">
+						<div style={{ width: 'auto', display: 'flex' }}>
+							<div className="loader">Loading...</div>
+						</div>
+					</div>
+				</React.Fragment>
 			)}
 		</React.Fragment>
 	);

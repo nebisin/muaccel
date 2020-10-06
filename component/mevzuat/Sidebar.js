@@ -28,7 +28,6 @@ const Sidebar = ({ type, id, art, actInfo, sections, page, subSections }) => {
 			)}
 			{type === 'article' && (
 				<React.Fragment>
-					<SidebarAds refer={art} />
 					<SideArticleList art={art} id={id} />
 				</React.Fragment>
 			)}
