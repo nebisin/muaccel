@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
+import {useRouter} from 'next/router';
 import mevzuatApi from 'api/mevzuat';
 import Head from 'next/head';
+import Link from 'next/link'
 import { EditorState, convertFromRaw } from 'draft-js';
 import ReadOnly from 'component/draft/ReadOnly';
 import UserWidget from 'component/user/UserWidget';
@@ -14,6 +16,7 @@ import SidebarAds from 'component/ads/SidebarAds';
 
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
+	const router = useRouter();
 
 	useEffect(() => {
 		if (!data || !content) return;
@@ -59,6 +62,19 @@ const ShowPost = ({ data, content }) => {
 									<h1 className="blog-post-title">{data.title}</h1>
 									<AuthorPreview data={data} />
 									<div className="blog-post-abstract">{data.abstract}</div>
+									<div className="post-statics">
+										{data.commentCount ? (
+											<Link href="#comments">
+												<a>
+													<div className="comment-statics">
+														{data.commentCount} Yorum
+													</div>
+												</a>
+											</Link>
+										) : (
+											''
+										)}
+									</div>
 									<BlogButtons blogId={data._id} />
 									<div className="blog-post-content">
 										<FeedAds refer={data} />
@@ -87,7 +103,9 @@ const ShowPost = ({ data, content }) => {
 							</div>
 							<div className="create-blog-sidebar">
 								<SidebarAds />
-								<div style={{ position: 'sticky', top: '79px', marginTop: '10px' }}>
+								<div
+									style={{ position: 'sticky', top: '79px', marginTop: '10px' }}
+								>
 									<UserWidget user={data.author} id={data.author._id} />
 									<OtherPosts userId={data.author._id} postId={data._id} />
 								</div>

@@ -33,6 +33,29 @@ const PostPreview = ({ item, type }) => {
 				</h3>
 
 				<div className="post-preview-content">{item.abstract}</div>
+				<div className="post-statics">
+					{item.commentCount ? (
+						<Link
+							href="/blog/post/[name]/[id]"
+							as={`/blog/post/${item.title
+								.toLocaleLowerCase('tr')
+								.replace(/ğ/gim, 'g')
+								.replace(/ü/gim, 'u')
+								.replace(/ş/gim, 's')
+								.replace(/ı/gim, 'i')
+								.replace(/ö/gim, 'o')
+								.replace(/ç/gim, 'c')
+								.replace(/\s/g, '-')
+								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
+						>
+							<a>
+								<div className="comment-statics">{item.commentCount} Yorum</div>
+							</a>
+						</Link>
+					) : (
+						''
+					)}
+				</div>
 				<BlogButtons blogId={item._id} location="in" />
 			</div>
 		</div>

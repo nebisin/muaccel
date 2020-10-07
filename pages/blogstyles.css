@@ -791,6 +791,25 @@
 	color: #b39c00;
 }
 
+.post-statics {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.pin-statics, .comment-statics {
+	cursor: pointer;
+	color: rgb(117, 117, 117);
+	font-weight: lighter;
+}
+
+.pin-statics:hover, .comment-statics:hover {
+	text-decoration: underline;
+}
+
+.comment-statics {
+	justify-items: self-end;
+}
+
 @keyframes fadeInUp {
 	from {
 		transform: translate3d(0, 40px, 0);

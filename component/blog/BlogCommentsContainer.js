@@ -21,7 +21,7 @@ const BlogCommentsContainer = ({ blogId }) => {
 	}, [blogId]);
 
 	return (
-		<div className="blog-comments-container">
+		<div className="blog-comments-container" id="comments">
 			<React.Fragment>
 				<BlogCreateComment
 					id={blogId}
