@@ -16,7 +16,7 @@ const YatayAds = ({ refer }) => {
 	return (
 		<ins
 			class="adsbygoogle"
-			style={{ display: 'block' }}
+			style={{ display: 'block', marginBottom: '20px' }}
             data-ad-client="ca-pub-1639338975133942"
             data-ad-slot="8691439314"
 			data-ad-format="auto"
