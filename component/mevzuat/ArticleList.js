@@ -8,7 +8,7 @@ const ArticleList = ({ items, type }) => {
 		<React.Fragment>
 			{items.map((item, index) => (
 				<React.Fragment key={item._id}>
-					{(index > 0 && Math.round(index / 3) === index / 3) ? (
+					{(index > 0 && Math.round(index / 4) === index / 4) ? (
 						<FeedAds />
 					) : (
 						''
