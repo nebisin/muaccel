@@ -353,14 +353,13 @@
 
 .user-widget {
 	width: 100%;
-	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-radius: 0.25em;
 	background-color: white;
 	margin-bottom: 20px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-widget-head {
-	background-color: #7692ab;
 	height: 80px;
 	border-radius: 0.2em 0.2em 0 0;
 }
