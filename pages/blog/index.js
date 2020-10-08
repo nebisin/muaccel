@@ -45,9 +45,10 @@ const BlogPage = ({ data }) => {
 							style={{
 								position: 'sticky',
 								top: '79px',
-								border: '1px solid rgba(0, 0, 0, 0.125)',
+								boxShadow: '0 4px 10px rgba(0,0,0,.1)',
 								background: 'white',
-								marginTop: '10px'
+								marginTop: '10px',
+								borderRadius: '0.25em'
 							}}
 						>
 							<TwitterTimelineEmbed

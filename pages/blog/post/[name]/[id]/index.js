@@ -13,6 +13,7 @@ import Footer from 'component/Footer';
 import BlogCommentsContainer from 'component/blog/BlogCommentsContainer';
 import FeedAds from 'component/ads/FeedAds';
 import SidebarAds from 'component/ads/SidebarAds';
+import YatayAds from 'component/ads/YatayAds';
 
 const ShowPost = ({ data, content }) => {
 	const [editorState, setEditorState] = useState();
@@ -76,8 +77,9 @@ const ShowPost = ({ data, content }) => {
 										)}
 									</div>
 									<BlogButtons blogId={data._id} />
+									<YatayAds refer={data} />
+
 									<div className="blog-post-content">
-										<FeedAds refer={data} />
 										{editorState ? (
 											<React.Fragment>
 												<ReadOnly

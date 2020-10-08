@@ -1009,7 +1009,7 @@ h3 {
 
 .side-card {
 	background-color: #f4f4f4;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+	box-shadow: 0 4px 10px rgba(0,0,0,.1);
 	margin: 20px 10px;
 	border-radius: 0.25em;
 }

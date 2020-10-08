@@ -28,7 +28,7 @@ const Favorites = () => {
 					<DashboardSidebar page="bookmarks" />
 				</div>
 			</aside>
-			<section className="dashboard-main">
+			<section className="dashboard-main" style={{padding: '0 10px'}}>
 				<AllBookmarks token={token} />
 				<Footer />
 			</section>

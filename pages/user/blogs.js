@@ -29,7 +29,7 @@ const Blogs = () => {
 					<DashboardSidebar page="blogs" />
 				</div>
 			</aside>
-			<section className="dashboard-main">
+			<section className="dashboard-main" style={{padding: '0 10px'}}>
 				<AllBlogs user={userInfo} token={token} />
 				<Footer />
 			</section>
