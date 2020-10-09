@@ -122,29 +122,7 @@ const ShowPost = ({ data, content }) => {
 };
 
 export async function getStaticPaths() {
-	// Call an external API endpoint to get posts
-	const res = await mevzuatApi.get('/blogs', { params: {} });
-	const posts = res.data;
-	// Get the paths we want to pre-render based on posts
-	const paths = posts.map((post) => ({
-		params: {
-			name: post.title
-				.toLocaleLowerCase('tr')
-				.replace(/ğ/gim, 'g')
-				.replace(/ü/gim, 'u')
-				.replace(/ş/gim, 's')
-				.replace(/ı/gim, 'i')
-				.replace(/ö/gim, 'o')
-				.replace(/ç/gim, 'c')
-				.replace(/\s/g, '-')
-				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''),
-			id: post._id,
-		},
-	}));
-
-	// We'll pre-render only these paths at build time.
-	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
+	return { paths: [], fallback: true };
 }
 
 export async function getStaticProps({ params }) {
@@ -157,7 +135,7 @@ export async function getStaticProps({ params }) {
 	const data = response.data;
 	const content = contentResponse.data;
 
-	return { props: { data, content }, unstable_revalidate: 60 };
+	return { props: { data, content }, unstable_revalidate: 600 };
 }
 
 export default ShowPost;

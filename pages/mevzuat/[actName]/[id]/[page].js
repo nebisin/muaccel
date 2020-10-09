@@ -210,7 +210,7 @@ export async function getStaticProps({ params }) {
 
 	return {
 		props: { data, sectionsData, articleData, error },
-		unstable_revalidate: 60,
+		unstable_revalidate: 600,
 	};
 }
 

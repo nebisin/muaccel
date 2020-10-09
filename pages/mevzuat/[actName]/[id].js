@@ -190,28 +190,7 @@ const ActHome = ({ data, sectionsData, articleData, error }) => {
 };
 
 export async function getStaticPaths() {
-	const res = await mevzuatApi.post('/acts', { });
-	const posts = res.data;
-	// Get the paths we want to pre-render based on posts
-	const paths = posts.map((post) => ({
-		params: {
-			actName: post.name
-				.toLocaleLowerCase('tr')
-				.replace(/ğ/gim, 'g')
-				.replace(/ü/gim, 'u')
-				.replace(/ş/gim, 's')
-				.replace(/ı/gim, 'i')
-				.replace(/ö/gim, 'o')
-				.replace(/ç/gim, 'c')
-				.replace(/\s/g, '-')
-				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ''),
-			id: post._id,
-		},
-	}));
-
-	// We'll pre-render only these paths at build time.
-	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
+	return { paths: [], fallback: true };
 }
 
 export async function getStaticProps({ params }) {
@@ -243,7 +222,7 @@ export async function getStaticProps({ params }) {
 
 	return {
 		props: { data, sectionsData, articleData, error },
-		unstable_revalidate: 60,
+		unstable_revalidate: 600,
 	};
 }
 
