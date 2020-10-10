@@ -15,6 +15,7 @@ const ActItem = ({ item }) => {
 				.replace(/ç/gim, 'c')
 				.replace(/\s/g, '-')
 				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}/0`}
+			prefetch={false}
 		>
 			<a
 				className="card-deck-item"

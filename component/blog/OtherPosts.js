@@ -11,7 +11,7 @@ const OtherPosts = ({ userId, postId }) => {
 		setOthers([]);
 		const getOthers = async (userId) => {
 			setLoading(true);
-			const response = await mevzuatApi.get(`/user/blogs/${userId}`,  {
+			const response = await mevzuatApi.get(`/user/blogs/${userId}`, {
 				params: { limit: '3', createdAt: -1 },
 			});
 			setOthers(response.data);

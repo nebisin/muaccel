@@ -65,6 +65,7 @@ const SideArticleList = ({ id, art }) => {
 											a.actId._id
 										}/madde/${a.title.replace(/\//g, '-')}`}
 										key={a._id}
+										prefetch={false}
 									>
 										<a
 											className={`side-list-item ${

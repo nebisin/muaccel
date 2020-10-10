@@ -117,6 +117,7 @@ const NoteItem = ({ note }) => {
 									.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 									note.article.actId._id
 								}/madde/${note.article.title.replace(/\//g, '-')}`}
+								prefetch={false}
 							>
 								<a className="user-note-header-link">
 									Madde {note.article.title} - {note.article.name}
@@ -158,6 +159,7 @@ const NoteItem = ({ note }) => {
 										.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 										note.article.actId._id
 									}/madde/${note.article.title.replace(/\//g, '-')}`}
+									prefetch={false}
 								>
 									<a>Görüntüle</a>
 								</Link>

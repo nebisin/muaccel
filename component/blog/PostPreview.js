@@ -27,6 +27,7 @@ const PostPreview = ({ item, type }) => {
 							.replace(/ç/gim, 'c')
 							.replace(/\s/g, '-')
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
+						prefetch={false}
 					>
 						<a>{item.title}</a>
 					</Link>
@@ -47,6 +48,7 @@ const PostPreview = ({ item, type }) => {
 								.replace(/ç/gim, 'c')
 								.replace(/\s/g, '-')
 								.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${item._id}`}
+							prefetch={false}
 						>
 							<a>
 								<div className="comment-statics">{item.commentCount} Yorum</div>
