@@ -74,6 +74,7 @@ const Others = ({ sections, page, actId }) => {
 							actId._id
 						}/${after}`}
 						shallow={true}
+						prefetch={false}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">

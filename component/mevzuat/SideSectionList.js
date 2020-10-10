@@ -59,6 +59,7 @@ const SideSectionList = ({ actInfo, sections, page, subSections }) => {
 									actInfo._id
 								}/${i}`}
 								shallow={true}
+								prefetch={false}
 								key={item._id}
 							>
 								<a

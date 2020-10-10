@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import GoArticle from './GoArticle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +11,10 @@ const Others = ({ before, after, actId }) => {
 	const [focused, setFocused] = useState(false);
 
 	return (
-		<div className="others-bar" style={focused ? {zIndex: 999} : {zIndex: 500}}>
+		<div
+			className="others-bar"
+			style={focused ? { zIndex: 999 } : { zIndex: 500 }}
+		>
 			<div className="others-before">
 				{before && (
 					<Link
@@ -62,6 +65,7 @@ const Others = ({ before, after, actId }) => {
 							.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}/${
 							actId._id
 						}/madde/${after.title.replace(/\//g, '-')}`}
+						prefetch={false}
 					>
 						<a className="others-item" style={{ justifyContent: 'flex-end' }}>
 							<div className="s-none">
