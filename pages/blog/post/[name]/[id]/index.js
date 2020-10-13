@@ -135,7 +135,7 @@ export async function getStaticProps({ params }) {
 	const data = response.data;
 	const content = contentResponse.data;
 
-	return { props: { data, content }, unstable_revalidate: 6000 };
+	return { props: { data, content }, revalidate: 6000 };
 }
 
 export default ShowPost;

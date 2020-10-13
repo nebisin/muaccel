@@ -77,7 +77,7 @@ export async function getStaticProps() {
 	});
 	const data = response.data;
 
-	return { props: { data }, unstable_revalidate: 600 };
+	return { props: { data }, revalidate: 600 };
 }
 
 export default BlogPage;
