@@ -16,6 +16,7 @@
     "form-data": "^3.0.0",
     "formik": "^2.1.4",
     "next": "^9.5.5",
+    "next-on-netlify": "^2.5.1",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
